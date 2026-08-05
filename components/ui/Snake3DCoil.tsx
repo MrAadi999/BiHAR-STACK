@@ -4,14 +4,14 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export default function Snake3DCoil() {
-  // 6 spiral Anaconda body coils wrapping around the black tree-trunk banner
+  // 6 spiral Anaconda body coils wrapping around the black tree-trunk banner (The single snake's coiled body)
   const coils = [0, 1, 2, 3, 4, 5];
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-visible z-40">
       
       {/* ========================================================================= */}
-      {/* 1. 3D ANACONDA BODY COILS WRAPPING AROUND THE BLACK BANNER (TREE TRUNK)   */}
+      {/* 1. SINGLE ANACONDA BODY COILS WRAPPING AROUND THE BLACK TREE TRUNK BANNER */}
       {/* ========================================================================= */}
       <svg
         className="w-full h-full absolute inset-0 overflow-visible z-10"
@@ -131,65 +131,39 @@ export default function Snake3DCoil() {
       </svg>
 
       {/* ========================================================================= */}
-      {/* 2. REALISTIC TOP-PEEKING ANACONDA HEAD ("Upper Muhh Nikaale")              */}
-      {/* Slithers horizontally, lifts head up high organically to inspect area      */}
+      {/* 2. THE ONE SINGLE REALISTIC ANACONDA SNAKE (DYNAMIC PEEKING & PHYSICS)    */}
+      {/* Moving randomly & realistically: Peeking UP, hanging DOWN, left, right     */}
       {/* ========================================================================= */}
       <motion.div
-        className="absolute z-50 w-32 sm:w-44 md:w-56 h-auto pointer-events-none"
+        className="absolute z-50 w-36 sm:w-48 md:w-60 h-auto pointer-events-none"
         initial={{ left: "5%", top: "-50px", scaleX: 1 }}
         animate={{
-          left: ["5%", "45%", "80%", "40%", "5%"],
-          top: ["-55px", "-75px", "-45px", "-80px", "-55px"], // Lifts up head high to peek
-          scaleX: [1, 1, -1, -1, 1], // Directional turnaround
-          rotate: [-3, 6, -4, 5, -3],
+          // Horizontal slithering across the tree trunk log (left, middle, right, and back)
+          left: ["5%", "45%", "85%", "70%", "30%", "5%"],
+
+          // Vertical organic peeking: moves UP above top border, drops DOWN hanging below bottom border under gravity
+          top: ["-55px", "30px", "-65px", "45px", "-70px", "-55px"],
+
+          // Directional turnaround physics (scaleX flips so single snake head always faces the movement direction)
+          scaleX: [1, 1, 1, -1, -1, 1],
+
+          // Natural organic rotation tilt while slithering and peeking
+          rotate: [-4, 6, -5, 7, -6, -4],
         }}
         transition={{
-          duration: 24,
+          duration: 26,
           repeat: Infinity,
           ease: "easeInOut",
-          times: [0, 0.25, 0.5, 0.75, 1],
+          times: [0, 0.2, 0.45, 0.65, 0.85, 1],
         }}
       >
         <div className="relative w-full">
           <img
             src="/images/anaconda_peeking_up.png"
-            alt="Anaconda Peeking Up"
+            alt="Single Realistic Anaconda Snake"
             className="w-full h-auto object-contain brightness-110 contrast-125"
             style={{
-              filter: "drop-shadow(0 16px 20px rgba(0,0,0,0.95)) drop-shadow(0 0 12px rgba(77,124,15,0.4))",
-            }}
-          />
-        </div>
-      </motion.div>
-
-      {/* ========================================================================= */}
-      {/* 3. REALISTIC BOTTOM-HANGING ANACONDA HEAD ("Niche Muhh Nikaale")          */}
-      {/* Gravitational hang physics down below the tree log banner                 */}
-      {/* ========================================================================= */}
-      <motion.div
-        className="absolute z-50 w-36 sm:w-48 md:w-60 h-auto pointer-events-none"
-        initial={{ left: "75%", bottom: "-55px", scaleX: -1 }}
-        animate={{
-          left: ["75%", "35%", "8%", "50%", "75%"],
-          bottom: ["-60px", "-90px", "-50px", "-85px", "-60px"], // Gravity pull drop down & climb up
-          scaleX: [-1, -1, 1, 1, -1],
-          rotate: [4, -6, 3, -5, 4],
-        }}
-        transition={{
-          duration: 28,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-          times: [0, 0.25, 0.5, 0.75, 1],
-        }}
-      >
-        <div className="relative w-full">
-          <img
-            src="/images/anaconda_peeking_down.png"
-            alt="Anaconda Peeking Down"
-            className="w-full h-auto object-contain brightness-110 contrast-125"
-            style={{
-              filter: "drop-shadow(0 16px 20px rgba(0,0,0,0.95)) drop-shadow(0 0 12px rgba(63,98,18,0.4))",
+              filter: "drop-shadow(0 16px 22px rgba(0,0,0,0.95)) drop-shadow(0 0 14px rgba(77,124,15,0.4))",
             }}
           />
         </div>
