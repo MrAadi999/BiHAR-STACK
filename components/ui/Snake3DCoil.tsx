@@ -4,63 +4,192 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export default function Snake3DCoil() {
+  // 6 spiral Anaconda body coils wrapping around the black tree-trunk banner
+  const coils = [0, 1, 2, 3, 4, 5];
+
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden z-40">
+    <div className="absolute inset-0 pointer-events-none overflow-visible z-40">
       
-      {/* 1. PHOTOREALISTIC SMALL GREEN TREE PYTHON (Slithering across top/middle of tree trunk banner) */}
+      {/* ========================================================================= */}
+      {/* 1. 3D ANACONDA BODY COILS WRAPPING AROUND THE BLACK BANNER (TREE TRUNK)   */}
+      {/* ========================================================================= */}
+      <svg
+        className="w-full h-full absolute inset-0 overflow-visible z-10"
+        viewBox="0 0 1400 200"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        <defs>
+          {/* Realistic Anaconda Skin Gradient */}
+          <linearGradient id="anacondaSkinCylinder" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#4d7c0f" />     {/* Deep Olive Top */}
+            <stop offset="35%" stopColor="#3f6212" />    {/* Anaconda Body Green */}
+            <stop offset="70%" stopColor="#1a2e05" />    {/* Underbody Shadow */}
+            <stop offset="100%" stopColor="#ca8a04" />   {/* Ventral Yellow Scale Accent */}
+          </linearGradient>
+
+          {/* Anaconda Black Blotch Pattern */}
+          <pattern id="anacondaBlotches" width="24" height="24" patternUnits="userSpaceOnUse">
+            <ellipse cx="12" cy="12" rx="7" ry="5" fill="#09090b" opacity="0.85" />
+            <ellipse cx="12" cy="12" rx="4" ry="2.8" fill="#18181b" opacity="0.9" />
+          </pattern>
+
+          {/* 3D Drop Shadow */}
+          <filter id="anaconda3DShadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="3" dy="8" stdDeviation="6" floodColor="#000000" floodOpacity="0.9" />
+          </filter>
+        </defs>
+
+        {/* BACK COILS (Wrapping behind the tree trunk log) */}
+        <g className="opacity-50" filter="url(#anaconda3DShadow)">
+          {coils.map((i) => {
+            const startX = i * 250 - 30;
+            return (
+              <motion.path
+                key={`back-ana-${i}`}
+                d={`M ${startX + 180},195 C ${startX + 215},215 ${startX + 245},-15 ${startX + 270},5`}
+                stroke="url(#anacondaSkinCylinder)"
+                strokeWidth="24"
+                strokeLinecap="round"
+                animate={{
+                  strokeDashoffset: [-20, 20],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatType: "reverse",
+                }}
+              />
+            );
+          })}
+        </g>
+
+        {/* FRONT COILS (Wrapping OVER the front face of the tree trunk log) */}
+        <g filter="url(#anaconda3DShadow)">
+          {coils.map((i) => {
+            const startX = i * 250 - 30;
+            return (
+              <g key={`front-ana-group-${i}`}>
+                {/* Cast Shadow under coil onto tree trunk */}
+                <path
+                  d={`M ${startX + 30},5 C ${startX + 65},-25 ${startX + 130},220 ${startX + 180},195`}
+                  stroke="#000000"
+                  strokeWidth="34"
+                  strokeLinecap="round"
+                  opacity="0.75"
+                />
+
+                {/* Main Anaconda Coiled Body */}
+                <motion.path
+                  d={`M ${startX + 30},5 C ${startX + 65},-25 ${startX + 130},220 ${startX + 180},195`}
+                  stroke="url(#anacondaSkinCylinder)"
+                  strokeWidth="26"
+                  strokeLinecap="round"
+                  animate={{
+                    strokeWidth: [25, 29, 25],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 0.3,
+                  }}
+                />
+
+                {/* Anaconda Dark Blotches Overlay */}
+                <path
+                  d={`M ${startX + 30},5 C ${startX + 65},-25 ${startX + 130},220 ${startX + 180},195`}
+                  stroke="url(#anacondaBlotches)"
+                  strokeWidth="24"
+                  strokeLinecap="round"
+                  opacity="0.9"
+                />
+
+                {/* Ventral Scales Accent Stripe */}
+                <path
+                  d={`M ${startX + 30},5 C ${startX + 65},-25 ${startX + 130},220 ${startX + 180},195`}
+                  stroke="#eab308"
+                  strokeWidth="4"
+                  strokeDasharray="14 20"
+                  strokeLinecap="round"
+                  opacity="0.8"
+                />
+
+                {/* Specular Wet Scale Light Reflection */}
+                <path
+                  d={`M ${startX + 30},5 C ${startX + 65},-25 ${startX + 130},220 ${startX + 180},195`}
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  opacity="0.4"
+                />
+              </g>
+            );
+          })}
+        </g>
+      </svg>
+
+      {/* ========================================================================= */}
+      {/* 2. REALISTIC TOP-PEEKING ANACONDA HEAD ("Upper Muhh Nikaale")              */}
+      {/* Slithers horizontally, lifts head up high organically to inspect area      */}
+      {/* ========================================================================= */}
       <motion.div
-        className="absolute top-[-10px] sm:top-[-15px] z-40 w-28 sm:w-36 md:w-44 h-auto"
-        initial={{ left: "2%", scaleX: 1 }}
+        className="absolute z-50 w-32 sm:w-44 md:w-56 h-auto pointer-events-none"
+        initial={{ left: "5%", top: "-50px", scaleX: 1 }}
         animate={{
-          left: ["2%", "82%", "2%"],
-          scaleX: [1, 1, -1, -1, 1], // Turn around head direction realistically at edges
-          y: [0, -8, 6, -10, 4, 0],
-          rotate: [-3, 4, -5, 3, -3],
+          left: ["5%", "45%", "80%", "40%", "5%"],
+          top: ["-55px", "-75px", "-45px", "-80px", "-55px"], // Lifts up head high to peek
+          scaleX: [1, 1, -1, -1, 1], // Directional turnaround
+          rotate: [-3, 6, -4, 5, -3],
         }}
         transition={{
-          duration: 18,
+          duration: 24,
           repeat: Infinity,
           ease: "easeInOut",
-          times: [0, 0.48, 0.5, 0.98, 1],
+          times: [0, 0.25, 0.5, 0.75, 1],
         }}
       >
         <div className="relative w-full">
           <img
-            src="/images/realistic_snake_green.png"
-            alt="Realistic Tree Python Snake"
-            className="w-full h-auto object-contain drop-shadow-[0_10px_15px_rgba(0,0,0,0.9)] contrast-125 brightness-105"
+            src="/images/anaconda_peeking_up.png"
+            alt="Anaconda Peeking Up"
+            className="w-full h-auto object-contain brightness-110 contrast-125"
             style={{
-              filter: "drop-shadow(0 12px 16px rgba(0,0,0,0.95)) drop-shadow(0 0 10px rgba(34,197,94,0.3))",
+              filter: "drop-shadow(0 16px 20px rgba(0,0,0,0.95)) drop-shadow(0 0 12px rgba(77,124,15,0.4))",
             }}
           />
         </div>
       </motion.div>
 
-      {/* 2. PHOTOREALISTIC SMALL GOLDEN PYTHON (Slithering along bottom of tree trunk banner) */}
+      {/* ========================================================================= */}
+      {/* 3. REALISTIC BOTTOM-HANGING ANACONDA HEAD ("Niche Muhh Nikaale")          */}
+      {/* Gravitational hang physics down below the tree log banner                 */}
+      {/* ========================================================================= */}
       <motion.div
-        className="absolute bottom-[-12px] sm:bottom-[-18px] z-40 w-32 sm:w-40 md:w-48 h-auto"
-        initial={{ left: "80%", scaleX: -1 }}
+        className="absolute z-50 w-36 sm:w-48 md:w-60 h-auto pointer-events-none"
+        initial={{ left: "75%", bottom: "-55px", scaleX: -1 }}
         animate={{
-          left: ["80%", "5%", "80%"],
-          scaleX: [-1, -1, 1, 1, -1], // Turns head around when changing slithering direction
-          y: [0, 8, -6, 10, -4, 0],
-          rotate: [3, -4, 5, -3, 3],
+          left: ["75%", "35%", "8%", "50%", "75%"],
+          bottom: ["-60px", "-90px", "-50px", "-85px", "-60px"], // Gravity pull drop down & climb up
+          scaleX: [-1, -1, 1, 1, -1],
+          rotate: [4, -6, 3, -5, 4],
         }}
         transition={{
-          duration: 22,
+          duration: 28,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 1.5,
-          times: [0, 0.48, 0.5, 0.98, 1],
+          delay: 2,
+          times: [0, 0.25, 0.5, 0.75, 1],
         }}
       >
         <div className="relative w-full">
           <img
-            src="/images/realistic_snake_gold.png"
-            alt="Realistic Golden Snake"
-            className="w-full h-auto object-contain drop-shadow-[0_10px_15px_rgba(0,0,0,0.9)] contrast-125 brightness-105"
+            src="/images/anaconda_peeking_down.png"
+            alt="Anaconda Peeking Down"
+            className="w-full h-auto object-contain brightness-110 contrast-125"
             style={{
-              filter: "drop-shadow(0 12px 16px rgba(0,0,0,0.95)) drop-shadow(0 0 10px rgba(234,179,8,0.3))",
+              filter: "drop-shadow(0 16px 20px rgba(0,0,0,0.95)) drop-shadow(0 0 12px rgba(63,98,18,0.4))",
             }}
           />
         </div>
