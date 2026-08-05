@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FolderCheck, Users, RefreshCw, Award } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
-import Snake3DCoil from "@/components/ui/Snake3DCoil";
 
 const stats = [
   {
@@ -48,11 +47,8 @@ export default function StatsMarqueeSection() {
   return (
     <section className="pt-0 pb-16 bg-[#f0f0f0] text-black relative overflow-hidden">
       
-      <div className="w-full bg-black text-white py-10 sm:py-14 mb-14 border-y-2 border-black mt-2 sm:mt-4 lg:mt-6 relative overflow-visible flex items-center min-h-[160px] sm:min-h-[190px]">
+      <div className="w-full bg-black text-white py-10 sm:py-14 mb-14 border-y-2 border-black mt-2 sm:mt-4 lg:mt-6 relative overflow-hidden flex items-center min-h-[160px] sm:min-h-[190px]">
         
-        {/* 3D MOVING COILED SNAKE ENCIRCLING THE BLACK BANNER */}
-        <Snake3DCoil />
-
         {/* MARQUEE BRAND NAMES SCROLLING WITH EXACT 210px LEFT CUTOFF MASK (z-30 layer) */}
         <div 
           className="absolute inset-0 z-30 overflow-hidden flex items-center pt-4 sm:pt-6 pointer-events-none"
