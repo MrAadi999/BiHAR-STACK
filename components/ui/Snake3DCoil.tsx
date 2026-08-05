@@ -40,8 +40,9 @@ export default function Snake3DCoil() {
           <img
             src="/images/anaconda_uncoiled.png"
             alt="Single Uncoiled Realistic Anaconda Snake"
-            className="w-full h-auto object-contain brightness-110 contrast-125"
+            className="w-full h-auto object-contain brightness-110 contrast-125 pointer-events-none"
             style={{
+              mixBlendMode: "screen",
               filter: "drop-shadow(0 16px 22px rgba(0,0,0,0.95)) drop-shadow(0 0 14px rgba(77,124,15,0.35))",
             }}
           />
