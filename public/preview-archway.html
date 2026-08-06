@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ancient Glossy Archway - High Fidelity 3D</title>
+  <style>
+    html, body {
+      margin: 0;
+      overflow: hidden;
+      background: #0b0e14;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    canvas { display: block; }
+    
+    /* Elegant Overlay HUD */
+    #info-hud {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: rgba(255,255,255,0.85);
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 15px 20px;
+      pointer-events: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    #info-hud h1 {
+      margin: 0 0 5px 0;
+      font-size: 16px;
+      font-weight: 900;
+      color: #ffd175;
+    }
+  </style>
+
+  <!-- Import Map to resolve bare imports (Crucial for unpkg ES modules) -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="info-hud">
+  <h1>Ancient Glossy Archway</h1>
+  <p>Left Click + Drag to Orbit | Right Click to Pan | Scroll to Zoom</p>
+</div>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+// Scene Setup
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x9bc5ff);
+scene.fog = new THREE.FogExp2(0xafd1ff, 0.018);
+
+// Camera Setup (Low cinematic angle matching the image)
+const camera = new THREE.PerspectiveCamera(
+  45,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+camera.position.set(0, 2.5, 11);
+
+// Renderer Setup
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+document.body.appendChild(renderer.domElement);
+
+// Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.maxPolarAngle = Math.PI / 2 - 0.05; // Don't go below ground
+controls.minDistance = 3;
+controls.maxDistance = 30;
+controls.target.set(0, 3.8, 0);
+
+// Lighting
+const sun = new THREE.DirectionalLight(0xfff3d1, 4.0);
+sun.position.set(12, 18, 10);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.bias = -0.0005;
+sun.shadow.camera.near = 0.5;
+sun.shadow.camera.far = 40;
+const d = 15;
+sun.shadow.camera.left = -d;
+sun.shadow.camera.right = d;
+sun.shadow.camera.top = d;
+sun.shadow.camera.bottom = -d;
+scene.add(sun);
+
+// Hemisphere Light for natural sky/ground reflection
+const hemiLight = new THREE.HemisphereLight(0x8bc0ff, 0x5a4835, 1.5);
+scene.add(hemiLight);
+
+// Dynamic Sky Gradient Sphere
+function createSkyTexture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 2;
+  canvas.height = 512;
+  const ctx = canvas.getContext('2d');
+  const grad = ctx.createLinearGradient(0, 0, 0, 512);
+  grad.addColorStop(0, '#3a7bd5'); // Top deep blue
+  grad.addColorStop(0.4, '#6fa4f7'); // Mid sky
+  grad.addColorStop(0.75, '#f7dbb2'); // Warm horizon
+  grad.addColorStop(1, '#ffc78f');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 2, 512);
+  return new THREE.CanvasTexture(canvas);
+}
+
+const skyGeo = new THREE.SphereGeometry(150, 32, 15);
+const skyMat = new THREE.MeshBasicMaterial({
+  map: createSkyTexture(),
+  side: THREE.BackSide
+});
+const sky = new THREE.Mesh(skyGeo, skyMat);
+scene.add(sky);
+
+// -------------------------------------------------------------
+// PROCEDURAL TEXTURE GENERATION
+// -------------------------------------------------------------
+
+// Procedural Stone Color Map
+function createStoneColorTexture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 512;
+  const ctx = canvas.getContext('2d');
+  
+  // Base golden sandstone color
+  ctx.fillStyle = '#b58641';
+  ctx.fillRect(0, 0, 512, 512);
+  
+  // Natural sienna and ochre patches
+  for (let i = 0; i < 300; i++) {
+    const x = Math.random() * 512;
+    const y = Math.random() * 512;
+    const r = Math.random() * 80 + 30;
+    const op = Math.random() * 0.22;
+    ctx.fillStyle = Math.random() > 0.4 ? `rgba(74, 48, 16, ${op})` : `rgba(242, 203, 131, ${op})`;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Weathering noise
+  for (let i = 0; i < 10000; i++) {
+    const x = Math.random() * 512;
+    const y = Math.random() * 512;
+    const op = Math.random() * 0.08;
+    ctx.fillStyle = `rgba(0, 0, 0, ${op})`;
+    ctx.fillRect(x, y, 1.5, 1.5);
+  }
+  
+  // Moss green patches
+  for (let i = 0; i < 40; i++) {
+    const x = Math.random() * 512;
+    const y = Math.random() * 512;
+    const r = Math.random() * 45 + 15;
+    const op = Math.random() * 0.25;
+    ctx.fillStyle = `rgba(45, 68, 33, ${op})`;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  
+  return new THREE.CanvasTexture(canvas);
+}
+
+// Procedural Stone Engravings Bump Map (Generates different Glyphs)
+function createStoneBumpTexture(glyphIndex) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 512;
+  const ctx = canvas.getContext('2d');
+  
+  // Neutral gray (no displacement)
+  ctx.fillStyle = '#808080';
+  ctx.fillRect(0, 0, 512, 512);
+
+  // Micro stone grain bump
+  for (let i = 0; i < 4000; i++) {
+    const x = Math.random() * 512;
+    const y = Math.random() * 512;
+    const val = Math.floor(Math.random() * 32 - 16);
+    ctx.fillStyle = `rgb(${128 + val},${128 + val},${128 + val})`;
+    ctx.fillRect(x, y, 2, 2);
+  }
+  
+  // Draw crack lines
+  ctx.strokeStyle = '#404040';
+  ctx.lineWidth = 2.5;
+  for (let i = 0; i < 4; i++) {
+    ctx.beginPath();
+    let cx = Math.random() * 512;
+    let cy = Math.random() * 512;
+    ctx.moveTo(cx, cy);
+    for (let j = 0; j < 4; j++) {
+      cx += (Math.random() - 0.5) * 120;
+      cy += (Math.random() - 0.5) * 120;
+      ctx.lineTo(cx, cy);
+    }
+    ctx.stroke();
+  }
+  
+  // Draw Ancient Glyphs in the Center
+  ctx.strokeStyle = '#1a1a1a'; // Deep engrave
+  ctx.lineWidth = 14;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  
+  // Use canvas shadow properties to make engraving edges softer/smooth
+  ctx.shadowColor = '#808080';
+  ctx.shadowBlur = 4;
+  
+  const cx = 256;
+  const cy = 256;
+  ctx.beginPath();
+  
+  switch(glyphIndex % 6) {
+    case 0:
+      // Circular Sun Symbol
+      ctx.arc(cx, cy, 70, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx, cy, 25, 0, Math.PI * 2);
+      ctx.stroke();
+      for (let a = 0; a < Math.PI * 2; a += Math.PI / 4) {
+        ctx.moveTo(cx + Math.cos(a) * 85, cy + Math.sin(a) * 85);
+        ctx.lineTo(cx + Math.cos(a) * 105, cy + Math.sin(a) * 105);
+      }
+      break;
+    case 1:
+      // Alchemy/Astrology symbol
+      ctx.moveTo(cx - 60, cy - 60);
+      ctx.lineTo(cx + 60, cy + 60);
+      ctx.moveTo(cx + 60, cy - 60);
+      ctx.lineTo(cx - 60, cy + 60);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx, cy, 50, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx, cy, 15, 0, Math.PI * 2);
+      break;
+    case 2:
+      // Celtic/Triquetra-inspired node
+      ctx.moveTo(cx, cy - 80);
+      ctx.lineTo(cx - 65, cy + 50);
+      ctx.lineTo(cx + 65, cy + 50);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx, cy + 10, 45, 0, Math.PI * 2);
+      break;
+    case 3:
+      // Tribal Face/Shield Glyph
+      ctx.strokeRect(cx - 50, cy - 70, 100, 140);
+      ctx.moveTo(cx - 50, cy);
+      ctx.lineTo(cx + 50, cy);
+      ctx.moveTo(cx, cy - 70);
+      ctx.lineTo(cx, cy + 70);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx - 25, cy - 30, 10, 0, Math.PI * 2);
+      ctx.arc(cx + 25, cy - 30, 10, 0, Math.PI * 2);
+      break;
+    case 4:
+      // Runes combination
+      ctx.moveTo(cx, cy - 90);
+      ctx.lineTo(cx, cy + 90);
+      ctx.moveTo(cx, cy - 40);
+      ctx.lineTo(cx + 60, cy - 80);
+      ctx.moveTo(cx, cy + 10);
+      ctx.lineTo(cx - 60, cy - 30);
+      ctx.moveTo(cx, cy - 40);
+      ctx.lineTo(cx - 60, cy + 10);
+      ctx.moveTo(cx, cy + 10);
+      ctx.lineTo(cx + 60, cy + 50);
+      break;
+    default:
+      // Hourglass Glyph with central eye
+      ctx.moveTo(cx - 60, cy - 70);
+      ctx.lineTo(cx + 60, cy - 70);
+      ctx.lineTo(cx - 60, cy + 70);
+      ctx.lineTo(cx + 60, cy + 70);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(cx, cy, 20, 0, Math.PI * 2);
+  }
+  ctx.stroke();
+
+  return new THREE.CanvasTexture(canvas);
+}
+
+// Procedural Wet Stone Pavement Ground Maps
+function createGroundTextures() {
+  const colorCanvas = document.createElement('canvas');
+  colorCanvas.width = 1024;
+  colorCanvas.height = 1024;
+  const cCtx = colorCanvas.getContext('2d');
+  
+  const bumpCanvas = document.createElement('canvas');
+  bumpCanvas.width = 1024;
+  bumpCanvas.height = 1024;
+  const bCtx = bumpCanvas.getContext('2d');
+  
+  const roughCanvas = document.createElement('canvas');
+  roughCanvas.width = 1024;
+  roughCanvas.height = 1024;
+  const rCtx = roughCanvas.getContext('2d');
+
+  // Fill bases
+  cCtx.fillStyle = '#6e5433';
+  cCtx.fillRect(0, 0, 1024, 1024);
+  bCtx.fillStyle = '#808080';
+  bCtx.fillRect(0, 0, 1024, 1024);
+  rCtx.fillStyle = '#666666'; // Dry stone default roughness
+  rCtx.fillRect(0, 0, 1024, 1024);
+
+  // Generate randomized cobblestone grid
+  const rows = 12, cols = 12;
+  const w = 1024 / cols, h = 1024 / rows;
+  const grid = [];
+
+  for (let r = 0; r <= rows; r++) {
+    grid[r] = [];
+    for (let c = 0; c <= cols; c++) {
+      grid[r][c] = {
+        x: c * w + (Math.random() - 0.5) * w * 0.45,
+        y: r * h + (Math.random() - 0.5) * h * 0.45
+      };
+      if (c === 0) grid[r][c].x = 0;
+      if (c === cols) grid[r][c].x = 1024;
+      if (r === 0) grid[r][c].y = 0;
+      if (r === rows) grid[r][c].y = 1024;
+    }
+  }
+
+  // Draw irregular tiles
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const p1 = grid[r][c];
+      const p2 = grid[r][c+1];
+      const p3 = grid[r+1][c+1];
+      const p4 = grid[r+1][c];
+
+      // Tile Color
+      const val = Math.random() * 34 - 17;
+      cCtx.fillStyle = `rgb(${110 + val}, ${92 + val * 0.9}, ${72 + val * 0.8})`;
+      cCtx.beginPath();
+      cCtx.moveTo(p1.x, p1.y);
+      cCtx.lineTo(p2.x, p2.y);
+      cCtx.lineTo(p3.x, p3.y);
+      cCtx.lineTo(p4.x, p4.y);
+      cCtx.closePath();
+      cCtx.fill();
+      
+      // Tile borders/mud cracks
+      cCtx.strokeStyle = 'rgba(30, 22, 12, 0.6)';
+      cCtx.lineWidth = 6;
+      cCtx.stroke();
+
+      // Rounded tile bump gradient
+      const cx = (p1.x + p2.x + p3.x + p4.x) / 4;
+      const cy = (p1.y + p2.y + p3.y + p4.y) / 4;
+      const grad = bCtx.createRadialGradient(cx, cy, 2, cx, cy, w * 0.85);
+      grad.addColorStop(0, '#ffffff'); // Center top
+      grad.addColorStop(0.65, '#808080'); // Sides
+      grad.addColorStop(1, '#000000'); // Deep cracks
+      
+      bCtx.fillStyle = grad;
+      bCtx.beginPath();
+      bCtx.moveTo(p1.x, p1.y);
+      bCtx.lineTo(p2.x, p2.y);
+      bCtx.lineTo(p3.x, p3.y);
+      bCtx.lineTo(p4.x, p4.y);
+      bCtx.closePath();
+      bCtx.fill();
+
+      // Dry stone roughness noise
+      rCtx.fillStyle = `rgb(${120 + Math.random() * 40},${120 + Math.random() * 40},${120 + Math.random() * 40})`;
+      rCtx.beginPath();
+      rCtx.moveTo(p1.x, p1.y);
+      rCtx.lineTo(p2.x, p2.y);
+      rCtx.lineTo(p3.x, p3.y);
+      rCtx.lineTo(p4.x, p4.y);
+      rCtx.closePath();
+      rCtx.fill();
+      rCtx.strokeStyle = '#e0e0e0'; // rough mud in cracks
+      rCtx.lineWidth = 6;
+      rCtx.stroke();
+    }
+  }
+
+  // Draw Wet Water Puddles (Zero roughness, flat bump, darker reflection base)
+  for (let i = 0; i < 9; i++) {
+    const px = Math.random() * 1024;
+    const py = Math.random() * 1024;
+    const pr = Math.random() * 150 + 60;
+
+    // Dark damp patch on color
+    const cGrad = cCtx.createRadialGradient(px, py, 10, px, py, pr);
+    cGrad.addColorStop(0, 'rgba(25, 20, 15, 0.65)');
+    cGrad.addColorStop(0.8, 'rgba(35, 28, 20, 0.4)');
+    cGrad.addColorStop(1, 'rgba(0,0,0,0)');
+    cCtx.fillStyle = cGrad;
+    cCtx.beginPath();
+    cCtx.ellipse(px, py, pr, pr * 0.55, Math.random() * Math.PI, 0, Math.PI * 2);
+    cCtx.fill();
+
+    // Flat bump (gray 128) representing water fill surface
+    bCtx.fillStyle = '#808080';
+    bCtx.beginPath();
+    bCtx.ellipse(px, py, pr, pr * 0.55, Math.random() * Math.PI, 0, Math.PI * 2);
+    bCtx.fill();
+
+    // Super glossy / Mirror-like roughness (0)
+    rCtx.fillStyle = '#000000';
+    rCtx.beginPath();
+    rCtx.ellipse(px, py, pr, pr * 0.55, Math.random() * Math.PI, 0, Math.PI * 2);
+    rCtx.fill();
+  }
+
+  return {
+    color: new THREE.CanvasTexture(colorCanvas),
+    bump: new THREE.CanvasTexture(bumpCanvas),
+    roughness: new THREE.CanvasTexture(roughCanvas)
+  };
+}
+
+// -------------------------------------------------------------
+// CREATE MATERIALS
+// -------------------------------------------------------------
+const groundTextures = createGroundTextures();
+
+const groundMat = new THREE.MeshPhysicalMaterial({
+  map: groundTextures.color,
+  bumpMap: groundTextures.bump,
+  bumpScale: 0.08,
+  roughnessMap: groundTextures.roughness,
+  metalness: 0.1,
+  clearcoat: 1.0,
+  clearcoatRoughness: 0.02,
+  reflectivity: 1.0
+});
+
+const stoneColorTex = createStoneColorTexture();
+
+function getStoneMaterial(glyphIdx) {
+  return new THREE.MeshPhysicalMaterial({
+    map: stoneColorTex,
+    bumpMap: createStoneBumpTexture(glyphIdx),
+    bumpScale: -0.06, // Indents the black glyph lines inward
+    roughness: 0.32,
+    metalness: 0.08,
+    clearcoat: 0.95,
+    clearcoatRoughness: 0.08,
+    reflectivity: 0.8
+  });
+}
+
+// Create Ground
+const ground = new THREE.Mesh(
+  new THREE.PlaneGeometry(60, 60),
+  groundMat
+);
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+// -------------------------------------------------------------
+// BUILD ARCHWAY
+// -------------------------------------------------------------
+const arch = new THREE.Group();
+let glyphCounter = 0;
+
+// Left Pillar
+for (let i = 0; i < 5; i++) {
+  const mat = getStoneMaterial(glyphCounter++);
+  const w = 1.9, h = 1.15, d = 1.9;
+  const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+  
+  // Add organic placement imperfections
+  b.position.set(
+    -3.8 + (Math.random() - 0.5) * 0.08,
+    i * 1.18 + h/2,
+    (Math.random() - 0.5) * 0.08
+  );
+  b.rotation.set(
+    (Math.random() - 0.5) * 0.02,
+    (Math.random() - 0.5) * 0.06,
+    (Math.random() - 0.5) * 0.02
+  );
+  b.castShadow = true;
+  b.receiveShadow = true;
+  arch.add(b);
+}
+
+// Right Pillar
+for (let i = 0; i < 5; i++) {
+  const mat = getStoneMaterial(glyphCounter++);
+  const w = 1.9, h = 1.15, d = 1.9;
+  const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+  
+  b.position.set(
+    3.8 + (Math.random() - 0.5) * 0.08,
+    i * 1.18 + h/2,
+    (Math.random() - 0.5) * 0.08
+  );
+  b.rotation.set(
+    (Math.random() - 0.5) * 0.02,
+    (Math.random() - 0.5) * 0.06,
+    (Math.random() - 0.5) * 0.02
+  );
+  b.castShadow = true;
+  b.receiveShadow = true;
+  arch.add(b);
+}
+
+// Arch Curve blocks
+const segments = 11;
+const archCenterY = 5.9; // Top height of pillars
+const archRadius = 3.8;
+
+for (let i = 0; i < segments; i++) {
+  const t = i / (segments - 1);
+  const angle = -Math.PI / 2 + 0.1 + t * (Math.PI - 0.2); // Semicircular range
+  
+  const bx = Math.sin(angle) * archRadius;
+  const by = archCenterY + Math.cos(angle) * archRadius;
+  
+  const isCrown = (i === Math.floor(segments / 2));
+  const w = isCrown ? 1.8 : 1.5;
+  const h = isCrown ? 1.45 : 1.15;
+  const d = isCrown ? 2.1 : 1.9;
+  
+  const mat = getStoneMaterial(glyphCounter++);
+  const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+  
+  b.position.set(bx, by, (Math.random() - 0.5) * 0.05);
+  b.rotation.z = -angle; // Rotates block to align radially
+  b.rotation.y = (Math.random() - 0.5) * 0.03;
+  b.castShadow = true;
+  b.receiveShadow = true;
+  arch.add(b);
+}
+
+scene.add(arch);
+
+// -------------------------------------------------------------
+// VINES & VEGETATION (Organic framing & bone chain)
+// -------------------------------------------------------------
+
+// Green Leaves Material
+const leafMat = new THREE.MeshStandardMaterial({
+  color: 0x486b35,
+  roughness: 0.6,
+  metalness: 0.02,
+  side: THREE.DoubleSide
+});
+
+const vineMat = new THREE.MeshStandardMaterial({
+  color: 0x2b4221,
+  roughness: 0.9
+});
+
+const vines = [];
+
+// Function to generate organic hanging vine with nested bone chain hierarchy
+function buildHangingVine(startX, startY, startZ, maxLength) {
+  const group = new THREE.Group();
+  group.position.set(startX, startY, startZ);
+  
+  const segments = 10 + Math.floor(Math.random() * 8);
+  const segmentLength = maxLength / segments;
+  
+  let parentNode = group;
+  
+  for (let i = 0; i < segments; i++) {
+    const node = new THREE.Group();
+    // Segment position relative to its parent segment
+    if (i === 0) {
+      node.position.set(0, 0, 0);
+    } else {
+      node.position.set(0, -segmentLength, (Math.random() - 0.5) * 0.05);
+    }
+    
+    const vineGeom = new THREE.CylinderGeometry(0.025, 0.02, segmentLength, 5);
+    const vSeg = new THREE.Mesh(vineGeom, vineMat);
+    vSeg.position.set(0, -segmentLength / 2, 0);
+    vSeg.castShadow = true;
+    node.add(vSeg);
+    
+    // Leaves on node
+    const leavesCount = 1 + Math.floor(Math.random() * 2);
+    for (let l = 0; l < leavesCount; l++) {
+      const leafScale = 0.06 + Math.random() * 0.06;
+      const leafGeo = new THREE.SphereGeometry(leafScale, 5, 5);
+      // Flatten sphere into leaf shape
+      leafGeo.scale(1, 0.2, 1.8);
+      const leaf = new THREE.Mesh(leafGeo, leafMat);
+      
+      leaf.position.set(
+        (Math.random() - 0.5) * 0.1,
+        -segmentLength * Math.random(),
+        (Math.random() - 0.5) * 0.1
+      );
+      leaf.rotation.set(
+        Math.random() * Math.PI,
+        Math.random() * Math.PI,
+        Math.random() * Math.PI
+      );
+      leaf.castShadow = true;
+      node.add(leaf);
+    }
+    
+    parentNode.add(node);
+    parentNode = node; // Nest inside the current node
+  }
+  
+  scene.add(group);
+  vines.push(group);
+}
+
+// Generate hanging vines from the top arch structure
+for (let i = 0; i < 24; i++) {
+  const angle = -Math.PI/3 + Math.random() * (Math.PI * 2/3);
+  const vx = Math.sin(angle) * (archRadius - 0.2);
+  const vy = archCenterY + Math.cos(angle) * (archRadius - 0.2);
+  const vz = (Math.random() - 0.5) * 1.5;
+  const len = 1.5 + Math.random() * 3.5;
+  
+  buildHangingVine(vx, vy, vz, len);
+}
+
+// Distant ruins to build background scale
+for (let i = 0; i < 7; i++) {
+  const ruinMat = new THREE.MeshStandardMaterial({
+    color: 0x876e48,
+    roughness: 0.8
+  });
+  const ruinGeo = new THREE.CylinderGeometry(0.8, 0.9, 5 + Math.random()*8, 8);
+  const r = new THREE.Mesh(ruinGeo, ruinMat);
+  r.position.set(
+    -16 + Math.random() * 32,
+    r.geometry.parameters.height / 2,
+    -20 - Math.random() * 15
+  );
+  r.castShadow = true;
+  r.receiveShadow = true;
+  scene.add(r);
+}
+
+// Foreground camera-framing foliage
+for (let i = 0; i < 18; i++) {
+  const fgBushGeo = new THREE.SphereGeometry(0.6 + Math.random() * 0.8, 8, 8);
+  fgBushGeo.scale(1.5, 1, 1.2);
+  const bush = new THREE.Mesh(fgBushGeo, leafMat);
+  bush.position.set(
+    -8 + (Math.random() - 0.5) * 3,
+    0.3,
+    4 + Math.random() * 4
+  );
+  bush.castShadow = true;
+  bush.receiveShadow = true;
+  scene.add(bush);
+  
+  const bush2 = bush.clone();
+  bush2.position.x = 8 + (Math.random() - 0.5) * 3;
+  scene.add(bush2);
+}
+
+// Window resizing
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// -------------------------------------------------------------
+// ANIMATION LOOP
+// -------------------------------------------------------------
+const clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  const t = clock.getElapsedTime();
+
+  // Natural bone-chain wind sway on nested hanging vines
+  vines.forEach((vine, vIdx) => {
+    let node = vine.children[0]; // First segment Group
+    let depth = 0;
+    while(node && depth < 20) {
+      node.rotation.z = Math.sin(t * 1.5 + vIdx + depth * 0.25) * 0.035;
+      node.rotation.x = Math.cos(t * 1.1 + vIdx + depth * 0.25) * 0.025;
+      
+      // Find the nested child Group
+      let nextNode = null;
+      for (let child of node.children) {
+        if (child.type === 'Group') {
+          nextNode = child;
+          break;
+        }
+      }
+      node = nextNode;
+      depth++;
+    }
+  });
+
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+animate();
+</script>
+</body>
+</html>
