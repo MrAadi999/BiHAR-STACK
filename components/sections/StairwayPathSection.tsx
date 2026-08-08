@@ -13,7 +13,7 @@ export default function StairwayPathSection() {
   ];
 
   return (
-    <section className="py-24 bg-black text-white relative overflow-hidden border-t-2 border-black">
+    <section className="py-24 bg-black text-white relative w-full max-w-full overflow-hidden border-t-2 border-black left-0 right-0">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-800/40 via-black to-black pointer-events-none" />
 

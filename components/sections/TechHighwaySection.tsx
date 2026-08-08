@@ -190,14 +190,9 @@ const techItems = [
 export default function TechHighwaySection() {
   return (
     <section className="pt-0 pb-0 bg-[#f0f0f0] text-black relative overflow-hidden">
-      {/* Container: Matches StatsMarqueeSection exactly in size, height, and border styling */}
-      <div className="w-full bg-black text-white py-10 sm:py-14 border-y-2 border-black mt-2 sm:mt-4 lg:mt-6 relative overflow-hidden flex items-center min-h-[160px] sm:min-h-[190px]">
-        
-        {/* Horizontal Highway Lanes Background (Faint yellow dashed lines) */}
-        <div className="absolute inset-0 flex flex-col justify-around pointer-events-none opacity-20 z-10 py-4">
-          <div className="w-full border-b-2 border-dashed border-amber-400 h-0" />
-          <div className="w-full border-b-2 border-dashed border-amber-400 h-0" />
-        </div>
+      {/* Container: Shifted slightly upwards (-mt-4 sm:-mt-6 lg:-mt-8) */}
+      <div className="w-full bg-black text-white py-10 sm:py-14 border-y-2 border-black -mt-4 sm:-mt-6 lg:-mt-8 relative overflow-hidden flex items-center min-h-[160px] sm:min-h-[190px]">
+
 
         {/* ================= MOVING TECH LOGOS LAYER ================= */}
         {/* Masks logos using the exact same horizontal scroll offset mask (210px left cutoff) */}

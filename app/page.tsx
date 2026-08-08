@@ -22,7 +22,7 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-navy-950 text-slate-100 relative overflow-x-hidden selection:bg-electric-600 selection:text-white">
+    <main className="min-h-screen bg-[#f0f0f0] text-slate-100 relative w-full max-w-full overflow-x-hidden selection:bg-electric-600 selection:text-white">
       {/* 1. Loading Screen */}
       <LoadingScreen />
 

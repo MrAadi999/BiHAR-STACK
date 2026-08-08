@@ -39,8 +39,8 @@ export default function WhoWeAreSection() {
               <span className="text-[#ea580c] animate-pulse drop-shadow-md">!</span>
               <span className="text-black">HAR STACK</span>
 
-              {/* Bottom Glowing Multi-Color Underline Line */}
-              <span className="block h-1.5 w-full bg-gradient-to-r from-[#ea580c] via-amber-500 to-red-600 rounded-full mt-1.5 shadow-[0_0_10px_rgba(234,88,12,0.4)]" />
+              {/* Bottom Glowing Multi-Color Underline Line - Extended on Right Side */}
+              <span className="block h-2 w-[calc(100%+36px)] -mr-9 bg-gradient-to-r from-[#ea580c] via-amber-500 to-red-600 rounded-full mt-1.5 shadow-[0_0_10px_rgba(234,88,12,0.4)]" />
             </h2>
           </motion.div>
         </div>
@@ -89,7 +89,7 @@ export default function WhoWeAreSection() {
                   rotate: { duration: 6.5, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }
                 }}
                 whileHover={{ scale: 1.05, rotate: 2 }}
-                className="relative cursor-pointer select-none w-full max-w-[340px] sm:max-w-[380px] translate-x-16 sm:translate-x-36 translate-y-8 sm:translate-y-16"
+                className="relative cursor-pointer select-none w-full max-w-[340px] sm:max-w-[380px] translate-x-2 sm:translate-x-8 translate-y-4 sm:translate-y-8"
               >
                 <img 
                   src="/images/salesman_user.png?v=2026" 
