@@ -3,6 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import StatsMarqueeSection from "@/components/sections/StatsMarqueeSection";
 import WhoWeAreSection from "@/components/sections/WhoWeAreSection";
+import TechHighwaySection from "@/components/sections/TechHighwaySection";
 import SolarServicesSection from "@/components/sections/SolarServicesSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
@@ -39,6 +40,9 @@ export default function Home() {
 
       {/* 5. Who We Are Section */}
       <WhoWeAreSection />
+
+      {/* Interactive Tech Highway Section */}
+      <TechHighwaySection />
 
       {/* 5. Detailed Services Section */}
       <ServicesSection />
