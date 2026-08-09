@@ -167,7 +167,141 @@ const CSharpIcon = () => (
   </svg>
 );
 
-// Tech Item Data
+const PostgreSQLIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(51,103,145,0.85)]`}>
+    <path d="M64 8C33.1 8 8 33.1 8 64s25.1 56 56 56 56-25.1 56-56S94.9 8 64 8zm0 102c-25.4 0-46-20.6-46-46s20.6-46 46-46 46 20.6 46 46-20.6 46-46 46z" fill="#336791" />
+    <path d="M64 34c-16.6 0-30 13.4-30 30s13.4 30 30 30 30-13.4 30-30-13.4-30-30-30zm0 50c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z" fill="#ffffff" />
+  </svg>
+);
+
+const MongoDBIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(71,162,72,0.85)]`}>
+    <path d="M64 12c-2.4 0-4.3.9-5.7 2.7C46.8 30.6 28 61 28 80.4c0 19.8 16.1 35.6 36 35.6s36-15.8 36-35.6c0-19.4-18.8-49.8-30.3-65.7-1.4-1.8-3.3-2.7-5.7-2.7zm0 94c-13.3 0-24-10.7-24-24 0-12.7 13.6-36.9 24-51.5 10.4 14.6 24 38.8 24 51.5 0 13.3-10.7 24-24 24z" fill="#47A248" />
+  </svg>
+);
+
+const RedisIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(220,56,45,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#DC382D" rx="24" />
+    <path d="M36 40h56v16H36zm0 24h56v16H36zm0 24h36v16H36z" fill="#ffffff" />
+  </svg>
+);
+
+const GraphQLIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(229,53,171,0.85)]`}>
+    <path d="M64 12L18 38.5v53L64 116l46-24.5v-53L64 12zm0 18l32 17.5v35L64 97.5 32 82.5v-35L64 30z" fill="#E535AB" />
+    <circle cx="64" cy="12" r="10" fill="#E535AB" />
+    <circle cx="18" cy="38.5" r="10" fill="#E535AB" />
+    <circle cx="110" cy="38.5" r="10" fill="#E535AB" />
+    <circle cx="18" cy="91.5" r="10" fill="#E535AB" />
+    <circle cx="110" cy="91.5" r="10" fill="#E535AB" />
+    <circle cx="64" cy="116" r="10" fill="#E535AB" />
+  </svg>
+);
+
+const CppIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(0,89,156,0.85)]`}>
+    <path d="M64 8L14 37v54l50 29 50-29V37L64 8z" fill="#00599C" />
+    <path d="M50 48c-8 0-14 6-14 16s6 16 14 16c4 0 7-2 9-5l-5-4c-1 2-2 3-4 3-4 0-7-3-7-10s3-10 7-10c2 0 3 1 4 3l5-4c-2-3-5-5-9-5zm18 9h4v6h-4v4h-4v-4h-4v-6h4v-4h4v4zm16 0h4v6h-4v4h-4v-4h-4v-6h4v-4h4v4z" fill="#ffffff" />
+  </svg>
+);
+
+const RustIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(255,255,255,0.85)]`}>
+    <circle cx="64" cy="64" r="50" stroke="#DEA584" strokeWidth="12" fill="none" />
+    <path d="M44 44h24c8 0 14 4 14 12 0 6-4 10-9 11l11 17H70L60 68H54v16H44V44zm10 16h12c3 0 5-1 5-4s-2-4-5-4H54v8z" fill="#DEA584" />
+  </svg>
+);
+
+const GoIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(0,173,216,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#00ADD8" rx="24" />
+    <path d="M34 50c-6 0-10 4-10 14s4 14 10 14c4 0 8-2 10-5v-6H34v-6h16v18c-4 4-10 6-16 6-12 0-20-8-20-21s8-21 20-21c6 0 12 2 16 6l-5 5c-3-3-7-4-11-4zm42 0c-11 0-19 8-19 21s8 21 19 21 19-8 19-21-8-21-19-21zm0 32c-6 0-10-5-10-11s4-11 10-11 10 5 10 11-4 11-10 11z" fill="#ffffff" />
+  </svg>
+);
+
+const FlutterIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(2,86,155,0.85)]`}>
+    <path d="M72 16L24 64l16 16 64-64H72zm0 48L48 88l24 24h32L80 88l24-24H72z" fill="#02569B" />
+    <path d="M80 88l-16 16h32l16-16H80z" fill="#0175C2" />
+  </svg>
+);
+
+const SwiftIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(240,81,35,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#F05123" rx="24" />
+    <path d="M96 90c-16-12-32-8-44 4 14-8 28-4 36 2-18 8-38 0-48-12-8-10-10-24-2-34-4 6-4 14 2 20 8 8 20 12 32 8 8-3 14-8 18-14-4 4-10 8-16 9 12-8 18-20 16-32 8 10 12 22 8 34 8-6 14-14 16-24-2 14-10 26-18 39z" fill="#ffffff" />
+  </svg>
+);
+
+const KotlinIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(127,82,255,0.85)]`}>
+    <path d="M16 112L112 16H16v96z" fill="#7F52FF" />
+    <path d="M112 112L64 64 112 16v96z" fill="#C757BC" />
+    <path d="M64 64L16 112v-48l48-48" fill="#E44857" />
+  </svg>
+);
+
+const VueIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(65,184,131,0.85)]`}>
+    <path d="M78 16L64 40 50 16H16l48 84 48-84H78z" fill="#41B883" />
+    <path d="M78 16L64 40 50 16H34l30 52 30-52H78z" fill="#35495E" />
+  </svg>
+);
+
+const AngularIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(221,0,49,0.85)]`}>
+    <path d="M64 12L14 30l8 66 42 20 42-20 8-66-50-18zm0 20l24 52h-10l-5-12H55l-5 12H40l24-52zm8 32l-8-18-8 18h16z" fill="#DD0031" />
+  </svg>
+);
+
+const LinuxIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(255,214,0,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#FFD600" rx="24" />
+    <path d="M64 24c-12 0-20 10-20 24 0 8 4 16 8 20v24c-6 2-12 6-12 12h48c0-6-6-10-12-12V68c4-4 8-12 8-20 0-14-8-24-20-24z" fill="#000000" />
+    <circle cx="56" cy="40" r="3" fill="#ffffff" />
+    <circle cx="72" cy="40" r="3" fill="#ffffff" />
+    <polygon points="64,48 58,54 70,54" fill="#FF9100" />
+  </svg>
+);
+
+const K8sIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(50,108,229,0.85)]`}>
+    <path d="M64 12L18 38.5v53L64 116l46-24.5v-53L64 12zm0 18l32 17.5v35L64 97.5 32 82.5v-35L64 30z" fill="#326CE5" />
+    <circle cx="64" cy="64" r="16" fill="#ffffff" />
+  </svg>
+);
+
+const NginxIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(0,150,57,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#009639" rx="24" />
+    <path d="M40 36v56h12V58l24 34h12V36H76v34L52 36H40z" fill="#ffffff" />
+  </svg>
+);
+
+const FigmaIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(242,78,30,0.85)]`}>
+    <circle cx="48" cy="36" r="16" fill="#F24E1E" />
+    <circle cx="80" cy="36" r="16" fill="#FF7262" />
+    <circle cx="48" cy="64" r="16" fill="#A259FF" />
+    <circle cx="80" cy="64" r="16" fill="#1ABCFE" />
+    <path d="M32 92c0-8.8 7.2-16 16-16s16 7.2 16 16-7.2 16-16 16-16-7.2-16-16z" fill="#0ACF83" />
+  </svg>
+);
+
+const VercelIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(255,255,255,0.85)]`}>
+    <polygon points="64,20 116,108 12,108" fill="#ffffff" />
+  </svg>
+);
+
+const GitHubIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(255,255,255,0.85)]`}>
+    <path d="M64 12C35.3 12 12 35.3 12 64c0 23 14.9 42.4 35.5 49.3 2.6.5 3.6-1.1 3.6-2.5v-8.8c-14.4 3.1-17.5-6.9-17.5-6.9-2.4-6-5.8-7.6-5.8-7.6-4.7-3.2.4-3.1.4-3.1 5.2.4 7.9 5.3 7.9 5.3 4.6 7.9 12.1 5.6 15.1 4.3.5-3.3 1.8-5.6 3.3-6.9-11.5-1.3-23.6-5.8-23.6-25.6 0-5.6 2-10.3 5.3-13.9-.5-1.3-2.3-6.6.5-13.7 0 0 4.3-1.4 14.2 5.3 4.1-1.1 8.5-1.7 12.9-1.7s8.8.6 12.9 1.7c9.9-6.7 14.2-5.3 14.2-5.3 2.8 7.1 1 12.4.5 13.7 3.3 3.6 5.3 8.3 5.3 13.9 0 19.9-12.1 24.3-23.6 25.6 1.9 1.6 3.5 4.7 3.5 9.5v14.1c0 1.4 1 3.1 3.6 2.5C101.1 106.4 116 87 116 64c0-28.7-23.3-52-52-52z" fill="#ffffff" />
+  </svg>
+);
+
+// Tech Item Data (36 Diverse Tech Stack Icons)
 const techItems = [
   { name: "JavaScript", icon: <JSIcon /> },
   { name: "TypeScript", icon: <TSIcon /> },
@@ -187,6 +321,24 @@ const techItems = [
   { name: "Java", icon: <JavaIcon /> },
   { name: "PHP", icon: <PHPIcon /> },
   { name: "C#", icon: <CSharpIcon /> },
+  { name: "PostgreSQL", icon: <PostgreSQLIcon /> },
+  { name: "MongoDB", icon: <MongoDBIcon /> },
+  { name: "Redis", icon: <RedisIcon /> },
+  { name: "GraphQL", icon: <GraphQLIcon /> },
+  { name: "C++", icon: <CppIcon /> },
+  { name: "Rust", icon: <RustIcon /> },
+  { name: "Go", icon: <GoIcon /> },
+  { name: "Flutter", icon: <FlutterIcon /> },
+  { name: "Swift", icon: <SwiftIcon /> },
+  { name: "Kotlin", icon: <KotlinIcon /> },
+  { name: "Vue.js", icon: <VueIcon /> },
+  { name: "Angular", icon: <AngularIcon /> },
+  { name: "Linux", icon: <LinuxIcon /> },
+  { name: "Kubernetes", icon: <K8sIcon /> },
+  { name: "Nginx", icon: <NginxIcon /> },
+  { name: "Figma", icon: <FigmaIcon /> },
+  { name: "Vercel", icon: <VercelIcon /> },
+  { name: "GitHub", icon: <GitHubIcon /> },
 ];
 
 // Deterministic pseudo-random generator for hydration-safe random movement
@@ -219,14 +371,15 @@ export default function TechHighwaySection() {
               const trackIndex = Math.floor(r1 * 3);
               const targetTrackY = trackIndex === 0 ? "35%" : trackIndex === 1 ? "53%" : "71%";
 
-              // Initial spawn Y at upper door arch opening (Y: 36%)
-              const initialY = "36%";
+              // Initial spawn Y between Y: 53% and Y: 71% (centered at Y: 62%)
+              const initialY = "62%";
 
-              // Pseudo-random duration (11s to 17s)
-              const duration = 11 + r2 * 6;
+              // Uniform highway duration for clean continuous stream
+              const duration = 16;
 
-              // Pseudo-random staggered start delays (0s to 14s)
-              const delayTime = r3 * 14;
+              // Negative staggered delays (-progress * duration) so on page load icons are already spread across the highway
+              // This guarantees ZERO clumping at X: 7% on page start!
+              const delayTime = -((idx / techItems.length) * duration);
 
               // Subtle random scale bounce
               const scaleMax = 1.05 + r1 * 0.15;
@@ -241,7 +394,7 @@ export default function TechHighwaySection() {
                     opacity: 1,
                   }}
                   animate={{
-                    // X trajectory: Emerges at exact X: 8% -> Y: 36% door opening until 13% -> Fans out to 3 lines by 30% -> Runs to 105%
+                    // X trajectory: Emerges at X: 8% -> Y: 62% (between Y:53-71%) until 13% -> Fans out to 3 lines by 30% -> Runs to 105%
                     left: ["8%", "13%", "30%", "105%"],
                     top: [initialY, initialY, targetTrackY, targetTrackY],
                     opacity: [1, 1, 1, 1], // Always 100% visible
@@ -267,6 +420,33 @@ export default function TechHighwaySection() {
               );
             })}
           </div>
+        </div>
+
+        {/* ================= X & Y COORDINATE GRAPH OVERLAY (SUPERIMPOSED DEBUG GRID) ================= */}
+        <div className="absolute inset-0 z-40 pointer-events-none overflow-hidden font-mono text-[9px] font-bold selection:bg-none">
+          {/* X-AXIS VERTICAL GRID LINES & LABELS (Cyan) */}
+          {[0, 8, 10, 13, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((x) => (
+            <div key={`x-${x}`} className={`absolute top-0 bottom-0 border-l ${x === 8 || x === 13 ? 'border-cyan-300 border-2' : 'border-cyan-400/50'}`} style={{ left: `${x}%` }}>
+              <span className={`px-1 py-0.5 rounded text-[9px] shadow absolute top-1 -translate-x-1/2 whitespace-nowrap z-50 ${x === 8 || x === 13 ? 'bg-cyan-500 text-black font-extrabold border border-white' : 'bg-cyan-950 text-cyan-300 border border-cyan-400/70'}`}>
+                X:{x}%
+              </span>
+              <span className={`px-1 py-0.5 rounded text-[9px] shadow absolute bottom-1 -translate-x-1/2 whitespace-nowrap z-50 ${x === 8 || x === 13 ? 'bg-cyan-500 text-black font-extrabold border border-white' : 'bg-cyan-950 text-cyan-300 border border-cyan-400/70'}`}>
+                X:{x}%
+              </span>
+            </div>
+          ))}
+
+          {/* Y-AXIS HORIZONTAL GRID LINES & LABELS (Amber) */}
+          {[0, 10, 20, 30, 35, 40, 53, 62, 71, 80, 90, 100].map((y) => (
+            <div key={`y-${y}`} className={`absolute left-0 right-0 border-t ${y === 62 ? 'border-amber-300 border-2' : 'border-amber-400/50'}`} style={{ top: `${y}%` }}>
+              <span className={`px-1 py-0.5 rounded text-[9px] shadow absolute left-2 -translate-y-1/2 whitespace-nowrap z-50 ${y === 62 ? 'bg-amber-400 text-black font-extrabold border border-white' : 'bg-amber-950 text-amber-300 border border-amber-400/70'}`}>
+                Y:{y}%
+              </span>
+              <span className={`px-1 py-0.5 rounded text-[9px] shadow absolute right-2 -translate-y-1/2 whitespace-nowrap z-50 ${y === 62 ? 'bg-amber-400 text-black font-extrabold border border-white' : 'bg-amber-950 text-amber-300 border border-amber-400/70'}`}>
+                Y:{y}%
+              </span>
+            </div>
+          ))}
         </div>
 
         {/* LEFT SIDE TEMPLE RUN GATEWAY OVERLAY (BACKGROUND LAYER z-10) */}
