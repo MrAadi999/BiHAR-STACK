@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, Palette, Code2, Bot, ArrowRight, Check } from "lucide-react";
+import { TrendingUp, Palette, Code2, Bot, ArrowRight, Check, Sparkles, Layers } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const services = [
@@ -73,18 +73,35 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-[#f0f0f0] relative overflow-hidden">
+    <section id="services" className="pt-6 sm:pt-8 pb-20 bg-[#f0f0f0] relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
-        {/* Centered Top Header for 3rd Page */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        {/* Centered Top Header for 3rd Page (With Glowing Symbol Badge & Layers Icon) */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          {/* Glowing Pill Badge */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-widest mb-4 shadow-lg border border-neutral-800 select-none"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+            </span>
+            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+            <span>OUR CORE SERVICES</span>
+          </motion.div>
+
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black mb-4 uppercase"
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black mb-4 uppercase flex items-center justify-center gap-3"
           >
-            What We Do
+            <Layers className="w-9 h-9 sm:w-11 sm:h-11 text-black inline-block" />
+            <span>What We Do</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
