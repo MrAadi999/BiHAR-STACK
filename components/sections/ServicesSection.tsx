@@ -125,7 +125,7 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-block mb-2 sm:mb-3 relative select-none"
+            className="inline-block mt-3 sm:mt-4 mb-2 sm:mb-3 relative select-none"
           >
             <div className="relative inline-flex items-center my-2 max-w-full">
               
