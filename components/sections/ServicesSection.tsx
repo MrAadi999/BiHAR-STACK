@@ -135,17 +135,18 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* Exact User-Uploaded Question Mark Sitting Person Illustration */}
+                {/* Isolated Sitting Person Character (Frame Removed & Smaller Size) */}
                 <motion.div 
-                  initial={{ y: -12, opacity: 0 }}
+                  initial={{ y: -10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="absolute -top-[64px] sm:-top-[92px] -right-8 sm:-right-12 w-20 sm:w-32 h-20 sm:h-32 pointer-events-none z-30"
+                  className="absolute -top-[44px] sm:-top-[62px] -right-3 sm:-right-5 w-14 sm:w-20 h-14 sm:h-20 pointer-events-none z-30"
                 >
                   <img 
                     src="/images/sitting_question_person.png" 
                     alt="Character sitting on frame" 
-                    className="w-full h-full object-contain mix-blend-multiply filter drop-shadow-sm" 
+                    className="w-full h-full object-cover mix-blend-multiply filter drop-shadow-sm" 
+                    style={{ clipPath: "inset(0% 26% 43% 26%)" }}
                   />
                 </motion.div>
               </div>
