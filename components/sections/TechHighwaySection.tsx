@@ -4,8 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 // SVGs for each Tech Logo (Enhanced with 3D Glossy Filters & Glowing Aura)
+const iconClass = "w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9";
+
 const JSIcon = () => (
-  <svg viewBox="0 0 630 630" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-sm filter drop-shadow-[0_0_10px_rgba(247,223,30,0.85)]">
+  <svg viewBox="0 0 630 630" className={`${iconClass} rounded-sm filter drop-shadow-[0_0_10px_rgba(247,223,30,0.85)]`}>
     <rect width="630" height="630" fill="#f7df1e" rx="80" />
     <path
       d="m424.2 429.6c.4 12.3 2 24.2 9.2 33.1 8 10 19 15.5 35.8 15.5 18 0 31-8.2 38-20 7-11.4 8-27.4 8-40.8v-176.4h55.2v177.4c0 23.4-3.3 46.6-16 65.4-18.6 27.6-51.4 39.4-89.2 39.4-42.6 0-71.2-14.3-88.2-39.8-13.8-20.7-17-46-17-73.8zm-155.9 29.3c5.3 9.6 15 16.5 28.9 16.5 15.8 0 25-7.6 25-24.5 0-18.3-15-24.4-33.8-32.5-32.9-14-63.4-25-63.4-67.9 0-38.4 29.8-63.4 70.1-63.4 35.2 0 60.5 16.2 70.2 44.8l-44.5 26.2c-5.7-12.8-16.2-19.6-28.7-19.6-13.8 0-21 7.2-21 17.5 0 12.4 10.8 17.7 28.5 25.1 36.2 15 68.6 27.8 68.6 71.3 0 45-35.5 69.7-78.5 69.7-44.5 0-75.1-21.3-86.8-49.4z"
@@ -15,7 +17,7 @@ const JSIcon = () => (
 );
 
 const TSIcon = () => (
-  <svg viewBox="0 0 100 100" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-sm filter drop-shadow-[0_0_10px_rgba(49,120,198,0.85)]">
+  <svg viewBox="0 0 100 100" className={`${iconClass} rounded-sm filter drop-shadow-[0_0_10px_rgba(49,120,198,0.85)]`}>
     <rect width="100" height="100" fill="#3178c6" rx="16" />
     <path
       d="M70 70h-9V37h-8v-7h25v7h-8v33zM34.8 55.4c1.2 2.4 3.4 4 6.3 4 3.2 0 5-1.8 5-4.4 0-3.6-3.8-4.8-7.7-6.2-4.8-1.7-10-3.8-10-9.8 0-6 4.7-10.4 11-10.4 5.3 0 9.3 2.3 11 6.8l-6 3.6c-1-2.2-2.7-3.4-5-3.4-2.5 0-4.2 1.4-4.2 3.6 0 3 3.4 4 7 5.3 5.4 2 10.7 4 10.7 10.7 0 6.6-5 11.2-12 11.2-6.5 0-11-3-12.8-8.2z"
@@ -25,7 +27,7 @@ const TSIcon = () => (
 );
 
 const PythonIcon = () => (
-  <svg viewBox="0 0 110 110" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 filter drop-shadow-[0_0_10px_rgba(55,118,171,0.85)]">
+  <svg viewBox="0 0 110 110" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(55,118,171,0.85)]`}>
     <path
       d="M55.88 5.03c-13.82 0-22.97 1.2-22.97 6.88v9.18h23.53v3.44H23.73c-6.13 0-10.71 4.58-10.71 10.71v18.37c0 6.13 4.58 10.71 10.71 10.71h5.36v-7.65c0-8.44 6.89-15.31 15.31-15.31h22.97V27.97c0-6.13-4.58-10.71-10.71-10.71H55.88v-9.18c0-2.3 1.2-3.06 1.2-3.06z"
       fill="#3776ab"
@@ -40,7 +42,7 @@ const PythonIcon = () => (
 );
 
 const ReactIcon = () => (
-  <svg viewBox="-11.5 -10.23174 23 20.46348" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 text-[#00d8ff] animate-spin-slow filter drop-shadow-[0_0_12px_rgba(0,216,255,0.95)]">
+  <svg viewBox="-11.5 -10.23174 23 20.46348" className={`${iconClass} text-[#00d8ff] animate-spin-slow filter drop-shadow-[0_0_12px_rgba(0,216,255,0.95)]`}>
     <circle cx="0" cy="0" r="2.05" fill="#00d8ff" />
     <g stroke="#00d8ff" strokeWidth="1.2" fill="none">
       <ellipse rx="11" ry="4.2" />
@@ -51,7 +53,7 @@ const ReactIcon = () => (
 );
 
 const NextIcon = () => (
-  <svg viewBox="0 0 180 180" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full bg-black border border-neutral-700 filter drop-shadow-[0_0_10px_rgba(255,255,255,0.85)]">
+  <svg viewBox="0 0 180 180" className={`${iconClass} rounded-full bg-black border border-neutral-700 filter drop-shadow-[0_0_10px_rgba(255,255,255,0.85)]`}>
     <path
       d="M140 135.5L83.5 60h-13v60.5h10.5V74.5l50 67c3.5-6.5 6-13.5 7.5-20.5zM122 60.5h10.5V110H122z"
       fill="#ffffff"
@@ -60,7 +62,7 @@ const NextIcon = () => (
 );
 
 const NodeIcon = () => (
-  <svg viewBox="0 0 128 128" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 filter drop-shadow-[0_0_10px_rgba(51,153,51,0.85)]">
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(51,153,51,0.85)]`}>
     <path
       d="M115.4 30.5L68.5 3.5c-2.8-1.6-6.2-1.6-9 0L12.6 30.5C9.8 32.1 8 35.2 8 38.4v54c0 3.2 1.8 6.3 4.6 7.9l46.9 27c2.8 1.6 6.2 1.6 9 0l46.9-27c2.8-1.6 4.6-4.7 4.6-7.9v-54c0-3.2-1.8-6.3-4.6-7.9z"
       fill="#339933"
@@ -70,32 +72,32 @@ const NodeIcon = () => (
 );
 
 const DjangoIcon = () => (
-  <svg viewBox="0 0 100 100" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-sm filter drop-shadow-[0_0_10px_rgba(16,185,129,0.85)]">
+  <svg viewBox="0 0 100 100" className={`${iconClass} rounded-sm filter drop-shadow-[0_0_10px_rgba(16,185,129,0.85)]`}>
     <rect width="100" height="100" fill="#092e20" rx="16" />
     <path d="M25 35h10v18c0 4.4-3.6 8-8 8h-2v-5h2c1.7 0 3-1.3 3-3V40h-5v-5zm18 0h12v5h-7v5h5v5h-5v11h-5V35zm19 0h12v5h-7v5h5v5h-5v6c0 1.7 1.3 3 3 3h2v5h-4c-4.4 0-8-3.6-8-8V35z" fill="#ffffff" />
   </svg>
 );
 
 const TailwindIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 fill-[#38bdf8] filter drop-shadow-[0_0_10px_rgba(56,189,248,0.9)]">
+  <svg viewBox="0 0 24 24" className={`${iconClass} fill-[#38bdf8] filter drop-shadow-[0_0_10px_rgba(56,189,248,0.9)]`}>
     <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
   </svg>
 );
 
 const DockerIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 fill-[#2496ed] filter drop-shadow-[0_0_10px_rgba(36,150,237,0.85)]">
+  <svg viewBox="0 0 24 24" className={`${iconClass} fill-[#2496ed] filter drop-shadow-[0_0_10px_rgba(36,150,237,0.85)]`}>
     <path d="M13.983 11.078h2.119c.102 0 .186-.083.186-.185V8.902a.185.185 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.186v1.991c0 .102.083.185.185.185m-2.954-5.43h2.118a.185.185 0 0 0 .186-.186V3.47a.185.185 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.186.185v1.99c0 .102.084.186.186.186m0 2.774h2.118c.103 0 .186-.083.186-.185V6.248a.185.185 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.186.185v1.99c0 .102.084.186.186.186m-2.953 2.656h2.119a.185.185 0 0 0 .185-.185V8.902a.185.185 0 0 0-.185-.186H8.076a.185.185 0 0 0-.186.186v1.991c0 .102.084.185.186.185m0-2.773h2.119a.185.185 0 0 0 .185-.186V6.248a.185.185 0 0 0-.185-.185H8.076a.185.185 0 0 0-.186.185v1.99c0 .102.084.186.186.186m-2.955 2.773h2.119c.102 0 .185-.083.185-.185V8.902a.185.185 0 0 0-.185-.186H5.121a.185.185 0 0 0-.185.186v1.991c0 .102.083.185.185.185m0-2.773h2.119c.102 0 .185-.083.185-.186V6.248a.185.185 0 0 0-.185-.185H5.121a.185.185 0 0 0-.185.185v1.99c0 .102.083.186.185.186m-2.955 2.773h2.119a.185.185 0 0 0 .185-.185V8.902a.185.185 0 0 0-.185-.186H2.166a.185.185 0 0 0-.185.186v1.991c0 .102.083.185.185.185m-2.955-2.773h2.119a.185.185 0 0 0 .185-.186V6.248a.185.185 0 0 0-.185-.185H2.166a.185.185 0 0 0-.185.185v1.99c0 .102.083.186.185.186m-2.952 5.43h2.119a.185.185 0 0 0 .185-.185v-1.99a.185.185 0 0 0-.185-.186H8.076a.185.185 0 0 0-.186.186v1.99c0 .102.084.185.186.185m12.443-2.97c-.09-.32-.236-.615-.436-.884l-.128-.15c-.244-.27-.58-.456-.98-.553-1.077-.253-1.78-.052-2.3.473-.342.34-.51.785-.506 1.343l.006.126h2.89c.12 0 .227-.08.24-.197.02-.18.156-.3.33-.3.197 0 .324.135.324.33 0 .428-.316.732-.88.732h-4.32a.185.185 0 0 0-.185.186v.44c0 1.25.334 2.186 1 2.802.766.708 2.01.815 3.033.456 1.055-.37 1.833-1.4 2.16-2.83.125-.544.152-1.096.082-1.63M0 12.78c.078.07.153.14.235.208.573.472 1.332.748 2.228.748h18.257c.365 0 .673-.133.918-.363a.185.185 0 0 0 .076-.145c.01-.137.008-.282-.008-.432a.183.183 0 0 0-.083-.128c-.068-.047-.145-.09-.23-.135-.8-.415-1.96-.64-3.4-.64a13.3 13.3 0 0 0-4.045.626 15.6 15.6 0 0 1-5.753.642 16.3 16.3 0 0 1-6.19-1.282A6.6 6.6 0 0 0 0 12.783z" />
   </svg>
 );
 
 const GitIcon = () => (
-  <svg viewBox="0 0 100 100" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 text-[#f05032] fill-current filter drop-shadow-[0_0_10px_rgba(240,80,50,0.85)]">
+  <svg viewBox="0 0 100 100" className={`${iconClass} text-[#f05032] fill-current filter drop-shadow-[0_0_10px_rgba(240,80,50,0.85)]`}>
     <path d="M91.8 42.9L57.1 8.2c-3.6-3.6-9.4-3.6-13 0L33.7 18.6l11 11c2.6-1 5.8-.3 7.9 1.8 2.1 2.1 2.8 5.3 1.8 7.9l11 11c2.6-1 5.8-.3 7.9 1.8 3.1 3.1 3.1 8.1 0 11.2-3.1 3.1-8.1 3.1-11.2 0-2.3-2.3-2.9-5.6-1.8-8.2L49.3 50.4c-1 2.6-.3 5.8 1.8 7.9-2.1 2.1-5.3 2.8-7.9 1.8L32.2 71.1c1 2.6.3 5.8-1.8 7.9-3.1 3.1-8.1 3.1-11.2 0-3.1-3.1-3.1-8.1 0-11.2 2.1-2.1 5.2-2.8 7.8-1.9l10.9-10.9c-1-2.6-.3-5.8 1.8-7.9 1.6-1.6 3.8-2.3 5.9-2.2v-11c-2.1-.2-4.3.5-5.9 2.2L8.2 42.9c-3.6 3.6-3.6 9.4 0 13l34.7 34.7c3.6 3.6 9.4 3.6 13 0l35.9-35.9c3.6-3.6 3.6-9.3 0-12.8z" />
   </svg>
 );
 
 const FirebaseIcon = () => (
-  <svg viewBox="0 0 32 32" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 filter drop-shadow-[0_0_10px_rgba(255,160,0,0.85)]">
+  <svg viewBox="0 0 32 32" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(255,160,0,0.85)]`}>
     <path d="M6.027 24.873L15.314 3.447c.28-.644 1.092-.644 1.372 0l2.366 5.441z" fill="#ffca28" />
     <path d="M6.064 24.847L14.773 8.358c.28-.532 1.036-.532 1.316 0l1.834 3.493z" fill="#ffa000" />
     <path d="M25.973 24.873L16.686 3.447c-.28-.644-1.092-.644-1.372 0l-2.366 5.441z" fill="#f57c00" />
@@ -105,13 +107,13 @@ const FirebaseIcon = () => (
 );
 
 const AWSIcon = () => (
-  <svg viewBox="0 0 256 154" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 text-[#ff9900] fill-current filter drop-shadow-[0_0_10px_rgba(255,153,0,0.85)]">
+  <svg viewBox="0 0 256 154" className={`${iconClass} text-[#ff9900] fill-current filter drop-shadow-[0_0_10px_rgba(255,153,0,0.85)]`}>
     <path d="M228.3 84.1c0 6.6-4.5 13.9-10.9 17.5-12.7 7.1-33.8 6-47.5 1.5-4.2-1.4-4-5.3.6-4.7 13.2 1.7 32 .6 39.8-3 5.4-2.5 7.1-6.1 7.1-10.4 0-6.1-5.1-9.9-17-13.8-21.2-6.8-37.4-15.5-37.4-38.3 0-21.9 18.2-34.9 41-34.9 11.2 0 25.1 3 34.5 7.6 3.9 1.9 3 5.7-.9 4.8-10.2-2.4-22.3-4.5-31.5-4.5-16 0-28.7 8.2-28.7 23.3 0 14.8 11.6 20.8 30.6 26.7 19.3 6.1 39.7 14.5 39.7 33.2zm-97.1-59.8c-1.9-5-6-4.2-9.3-2.1-12.3 8.1-28.7 26.4-37.3 43.1-1.9 3.7.8 5.6 3.3 3.6 9.6-7.8 29.5-27.1 38.3-39.7 1.8-2.6 1.4-5.1-.8-7.3zm-56 30.4c-.6-12.4-9.3-19.3-20.8-19.3-12.7 0-22 8.7-27.2 21.7-4.4 11-5 24.3-5 36.5 0 22.3 11 31.9 29 31.9 8.7 0 17-3 23-8.1 1.7-1.4 3-1 2.2 1.7-1.9 6.5-6.5 13.8-14.8 18.2-7.1 3.7-16.3 5.3-25.1 5.3C15 142.5 0 128.9 0 98.4c0-36.5 19-67 48.6-67 17.5 0 28.7 10 32.3 22 1.1 3.6-2 5.1-4.1 3.1-6.1-5.9-13.9-9.1-23.3-9.1-20.5 0-33.8 17.5-33.8 45.4 0 25.1 11.2 38 29.3 38 12.4 0 22-8.4 25.1-22.3v-23.7c0-6.1-5.4-8.1-11.8-9.1-2.5-.4-2.2-4.1.3-4.1H84c2.5 0 2.2 3.7-.3 4.1-5.1.8-8.4 2.8-8.4 9.1V82c0 2.5 1.9 4.1 4.1 2.4 8.7-6.8 14.5-17.5 16-29.7zm171.6 90c-72.2 47-169 57.6-249.2 26.4-5.6-2.2-11.5 3.3-6.5 7.6 78.5 68 182.2 60.5 258 11.2 4.9-3.2 3.3-8.8-2.3-7.2zm11.8 12.4c-6.8-5.3-22.6-2.5-30.9-1.2-2.2.3-2.1 2.8.2 3.2 7.6 1.4 23.9.9 28.8-4.2.8-.8.2-2-1.9-2.2v4.4z" />
   </svg>
 );
 
 const HTMLIcon = () => (
-  <svg viewBox="0 0 512 512" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 text-[#e34f26] fill-current filter drop-shadow-[0_0_10px_rgba(227,79,38,0.85)]">
+  <svg viewBox="0 0 512 512" className={`${iconClass} text-[#e34f26] fill-current filter drop-shadow-[0_0_10px_rgba(227,79,38,0.85)]`}>
     <path d="M71 460 L37 0 L475 0 L441 460 L256 512 L71 460 Z" />
     <path fill="#EF652A" d="M256 472 L407 430 L435 40 L256 40 L256 472 Z" />
     <path fill="#EBEBEB" d="M256 208 L181 208 L176 150 L256 150 L256 96 L121 96 L137 262 L256 262 L256 208 Z M256 355 L256 410 L191 392 L187 343 L133 343 L141 430 L256 462 L256 355 Z" />
@@ -120,7 +122,7 @@ const HTMLIcon = () => (
 );
 
 const CSSIcon = () => (
-  <svg viewBox="0 0 512 512" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 text-[#1572b6] fill-current filter drop-shadow-[0_0_10px_rgba(21,114,182,0.85)]">
+  <svg viewBox="0 0 512 512" className={`${iconClass} text-[#1572b6] fill-current filter drop-shadow-[0_0_10px_rgba(21,114,182,0.85)]`}>
     <path d="M71 460 L37 0 L475 0 L441 460 L256 512 L71 460 Z" />
     <path fill="#33A9DC" d="M256 472 L407 430 L435 40 L256 40 L256 472 Z" />
     <path fill="#EBEBEB" d="M256 208 L181 208 L176 150 L256 150 L256 96 L121 96 L137 262 L256 262 L256 208 Z M256 355 L256 410 L191 392 L187 343 L133 343 L141 430 L256 462 L256 355 Z" />
@@ -129,13 +131,13 @@ const CSSIcon = () => (
 );
 
 const MySQLIcon = () => (
-  <svg viewBox="0 0 100 100" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 text-[#00758f] fill-current filter drop-shadow-[0_0_10px_rgba(0,117,143,0.85)]">
+  <svg viewBox="0 0 100 100" className={`${iconClass} text-[#00758f] fill-current filter drop-shadow-[0_0_10px_rgba(0,117,143,0.85)]`}>
     <path d="M49.1 76.5c-15.1 0-26.6-8.9-26.6-20.9 0-10 8-17.2 18.5-17.2 11.8 0 19.3 8.3 19.3 17.8 0 11.4-8.8 20.3-20.3 20.3-8.1 0-14-5.1-14-11.8 0-6.3 4.7-10.4 10.4-10.4 5.9 0 9.8 4.1 9.8 9.8 0 5.6-4.5 9-9 9-2.3 0-4.1-1.1-4.1-2.9 0-1.8 1.4-2.9 2.9-2.9 1 0 1.8.6 1.8 1.8 0 1.2-.8 1.8-1.8 1.8-2.1 0-3.6-1.8-3.6-4.1 0-2.6 1.9-4.7 4.7-4.7s4.7 1.9 4.7 4.7c0 4.1-3.2 7.2-7.2 7.2s-6.6-3.1-6.6-6.6 2.9-6.6 6.6-6.6 6.6 2.9 6.6 6.6c0 5.9-4.7 10.4-10.4 10.4s-9.8-4.5-9.8-9.8 4.5-9.8 9.8-9.8c8.1 0 14 5.9 14 14s-5.9 14-14 14zm.9 3.5c17.5 0 31.9-14.3 31.9-31.9S67.5 16.2 50 16.2 18.1 30.6 18.1 48.1 32.5 80 50 80z" />
   </svg>
 );
 
 const JavaIcon = () => (
-  <svg viewBox="0 0 100 100" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 filter drop-shadow-[0_0_10px_rgba(234,45,46,0.85)]">
+  <svg viewBox="0 0 100 100" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(234,45,46,0.85)]`}>
     <path
       d="M37.5 75.8c-2.3 0-4.4-.3-6.4-1-6.8-2.2-9.6-7-9.6-11.8 0-8 8.1-15 16.4-15h2.5c2.3 0 4.4.3 6.4 1 6.8 2.2 9.6 7 9.6 11.8 0 8-8.1 15-16.4 15h-2.5zm0-22c-5.7 0-11.2 5.1-11.2 10.2 0 2.6 1.5 5 4.9 6.1 1.3.4 2.8.7 4.3.7s2.8-.3 4.1-.7c3.4-1.1 4.9-3.5 4.9-6.1 0-5.1-5.5-10.2-11.2-10.2h-1.8z"
       fill="#ea2d2e"
@@ -149,14 +151,14 @@ const JavaIcon = () => (
 );
 
 const PHPIcon = () => (
-  <svg viewBox="0 0 100 100" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 fill-[#777bb4] filter drop-shadow-[0_0_10px_rgba(119,123,180,0.85)]">
+  <svg viewBox="0 0 100 100" className={`${iconClass} fill-[#777bb4] filter drop-shadow-[0_0_10px_rgba(119,123,180,0.85)]`}>
     <ellipse cx="50" cy="50" rx="45" ry="30" stroke="#777bb4" strokeWidth="2" fill="none" />
     <path d="M32 40h7c4.4 0 7 2 7 5.5s-2.6 5.5-7 5.5h-4v9h-3V40zm3 3v5h4c2.5 0 4-1 4-2.5s-1.5-2.5-4-2.5h-4zm24-3h3v8h7c4.4 0 7 2 7 5.5s-2.6 5.5-7 5.5h-10V40zm3 11h7c2.5 0 4-1 4-2.5s-1.5-2.5-4-2.5h-7v5zm-14-11h3v20h-3V40z" />
   </svg>
 );
 
 const CSharpIcon = () => (
-  <svg viewBox="0 0 128 128" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 filter drop-shadow-[0_0_10px_rgba(147,51,234,0.85)]">
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(147,51,234,0.85)]`}>
     <path d="M64 8L14 37v54l50 29 50-29V37L64 8z" fill="#35007F" />
     <path
       d="M60 40c-11 0-18 7-18 18s7 18 18 18c5 0 9-2 12-6l-7-5c-2 2-4 3-5 3-5 0-9-3-9-10s4-10 9-10c2 0 4 1 5 3l7-5c-3-4-7-6-12-6zm22 10h5v6h-5v5h-5v-5h-6v-6h6v-5h5v5zm10 5h5v6h-5v5h-5v-5h-6v-6h6v-5h5v5z"
@@ -187,45 +189,62 @@ const techItems = [
   { name: "C#", icon: <CSharpIcon /> },
 ];
 
+// Deterministic pseudo-random generator for hydration-safe random movement
+const getPseudoRandom = (seed: number) => {
+  const x = Math.sin(seed + 1.618) * 10000;
+  return x - Math.floor(x);
+};
+
 export default function TechHighwaySection() {
   return (
     <section className="pt-0 pb-0 bg-[#f0f0f0] text-black relative overflow-hidden">
-      {/* Container: Shifted slightly upwards (-mt-4 sm:-mt-6 lg:-mt-8) */}
+      {/* Container: Original height with safe padding */}
       <div className="w-full bg-black text-white py-10 sm:py-14 border-y-2 border-black -mt-4 sm:-mt-6 lg:-mt-8 relative overflow-hidden flex items-center min-h-[160px] sm:min-h-[190px]">
 
-
-        {/* ================= MOVING TECH LOGOS LAYER ================= */}
-        {/* Masks logos using the exact same horizontal scroll offset mask (210px left cutoff) */}
+        {/* ================= MOVING TECH LOGOS LAYER (RANDOM LEFT TO RIGHT, 3 SAFE LINES) ================= */}
         <div
           className="absolute inset-0 z-20 overflow-hidden flex items-center pointer-events-none"
           style={{
-            maskImage: "linear-gradient(to right, transparent 0px, transparent 170px, black 210px, black 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0px, transparent 170px, black 210px, black 100%)",
+            maskImage: "linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%)",
           }}
         >
           <div className="w-full h-full relative">
             {techItems.map((item, idx) => {
-              const delayTime = (idx * 16) / techItems.length; // Staggered delays over 16s loop
-              // Distribute logos across 3 vertical highway tracks (top, middle, bottom of road)
-              const trackY = idx % 3 === 0 ? "15%" : idx % 3 === 1 ? "46%" : "74%";
+              const r1 = getPseudoRandom(idx * 3 + 1);
+              const r2 = getPseudoRandom(idx * 7 + 4);
+              const r3 = getPseudoRandom(idx * 13 + 9);
+
+              // Pseudo-random track assignment (0, 1, or 2)
+              const trackIndex = Math.floor(r1 * 3);
+              // Safe vertical track positions (35%, 53%, 71%) - Leaves 35px+ black clearance above top line
+              const trackY = trackIndex === 0 ? "35%" : trackIndex === 1 ? "53%" : "71%";
+
+              // Pseudo-random duration (speeds between 11s and 17s)
+              const duration = 11 + r2 * 6;
+
+              // Pseudo-random staggered start delays (0s to 14s)
+              const delayTime = r3 * 14;
+
+              // Subtle random scale bounce
+              const scaleMax = 1.05 + r1 * 0.15;
 
               return (
                 <motion.div
                   key={idx}
-                  className="absolute flex items-center pointer-events-auto cursor-pointer"
-                  style={{ y: "-50%" }} // Vertical centering on the track Y
+                  className="absolute -translate-y-1/2 flex items-center pointer-events-auto cursor-pointer"
                   initial={{
-                    left: "105%",
+                    left: "-8%",
                     top: trackY,
                     opacity: 0,
                   }}
                   animate={{
-                    left: ["105%", "35%", "15%"],
+                    left: ["-8%", "108%"],
                     opacity: [0, 1, 1, 0],
-                    scale: [1.15, 1.15, 0.05],
+                    scale: [0.9, scaleMax, scaleMax, 0.9],
                   }}
                   transition={{
-                    duration: 16,
+                    duration: duration,
                     repeat: Infinity,
                     delay: delayTime,
                     ease: "linear",
@@ -236,7 +255,6 @@ export default function TechHighwaySection() {
                     transition: { duration: 0.2 }
                   }}
                 >
-                  {/* Floating 3D Glowing Logo Only - Frame Removed */}
                   <div className="flex items-center justify-center transition-transform duration-300">
                     {item.icon}
                   </div>
@@ -246,7 +264,7 @@ export default function TechHighwaySection() {
           </div>
         </div>
 
-        {/* LEFT SIDE TEMPLE RUN GATEWAY OVERLAY (Sleeker width, subtle front 3/4 angle) */}
+        {/* LEFT SIDE TEMPLE RUN GATEWAY OVERLAY */}
         <div className="absolute left-0 top-0 bottom-0 w-[34%] sm:w-[26%] lg:w-[22%] max-w-[320px] z-30 pointer-events-none flex items-center">
           <div className="relative w-full h-full overflow-hidden">
             <img
@@ -255,11 +273,10 @@ export default function TechHighwaySection() {
               className="w-full h-full object-cover opacity-100 contrast-125 brightness-110 relative z-0"
               style={{ objectPosition: "center center" }}
             />
-            {/* Gradient mask to blend it into the black background */}
+            {/* Gradient mask to blend into the black background */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent 65% to-black z-20" />
             
-            {/* Ambient glows inside the door gateway */}
-            {/* Left Fire Bowl Glow */}
+            {/* Ambient glows inside gateway */}
             <motion.div
               className="absolute w-[18%] h-[24%] rounded-full bg-orange-500/25 blur-md pointer-events-none mix-blend-screen"
               style={{ left: "14%", top: "68%" }}
@@ -269,7 +286,6 @@ export default function TechHighwaySection() {
               }}
               transition={{ duration: 2.3, repeat: Infinity, ease: "easeInOut" }}
             />
-            {/* Right Fire Bowl Glow */}
             <motion.div
               className="absolute w-[18%] h-[24%] rounded-full bg-orange-500/25 blur-md pointer-events-none mix-blend-screen"
               style={{ left: "69%", top: "63%" }}
@@ -279,7 +295,6 @@ export default function TechHighwaySection() {
               }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             />
-            {/* Portal Entrance Glow */}
             <motion.div
               className="absolute w-[24%] h-[32%] rounded-full bg-yellow-500/20 blur-lg pointer-events-none mix-blend-screen"
               style={{ left: "44%", top: "56%" }}
