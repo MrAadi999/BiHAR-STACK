@@ -101,7 +101,7 @@ export default function ServicesSection() {
             className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black mb-4 uppercase flex items-center justify-center gap-3"
           >
             <Layers className="w-9 h-9 sm:w-11 sm:h-11 text-black inline-block" />
-            <span>What We Do</span>
+            <span>What We Offer</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
