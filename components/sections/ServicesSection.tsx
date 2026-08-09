@@ -135,7 +135,7 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* Transparent Magenta PNG Person Character (Shifted Higher Up & Left) */}
+                {/* Transparent Navy Blue Person Character matching WHAT WE OFFER Frame Color (#0A2540) */}
                 <motion.div 
                   initial={{ y: -8, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -143,8 +143,8 @@ export default function ServicesSection() {
                   className="absolute -top-[24px] sm:-top-[38px] -right-5 sm:-right-8 w-11 sm:w-15 h-17 sm:h-24 pointer-events-none z-30"
                 >
                   <img 
-                    src="/images/transparent_magenta_person.png" 
-                    alt="Magenta character on right side of frame" 
+                    src="/images/transparent_navy_person.png" 
+                    alt="Navy Blue character matching WHAT WE OFFER frame" 
                     className="w-full h-full object-contain filter drop-shadow-sm" 
                   />
                 </motion.div>
