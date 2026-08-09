@@ -147,51 +147,111 @@ export default function ServicesSection() {
                     </div>
                   </div>
 
-                  {/* True 360° Multi-Distance Solar System Orbit Ring (Staggered Radii / Random Distances) */}
+                  {/* True 360° Pulsating Multi-Distance Solar System Orbit Ring (Ghumne ke saath distance kam & jyada hona) */}
                   <motion.div 
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
                     className="absolute -inset-3.5 sm:-inset-5 z-20 pointer-events-none rounded-full"
                   >
-                    {/* 1. Web Code Bubble (0° - Medium Distance R=105%) */}
-                    <div className="absolute top-[50%] left-[106%] -translate-x-1/2 -translate-y-1/2 w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#0A2540] border-2 border-white shadow-md flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
-                        <Code2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-cyan-400" />
+                    {/* 1. Web Code Bubble (0° - Dynamic Pulsing Distance) */}
+                    <div className="absolute top-[50%] left-[106%] -translate-x-1/2 -translate-y-1/2">
+                      <motion.div
+                        animate={{ 
+                          x: [0, 10, -6, 8, 0],
+                          y: [0, -8, 6, -4, 0],
+                          scale: [1, 1.15, 0.88, 1.1, 1]
+                        }}
+                        transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#0A2540] border-2 border-white shadow-md flex items-center justify-center"
+                      >
+                        <motion.div animate={{ rotate: -360 }} transition={{ duration: 16, repeat: Infinity, ease: "linear" }}>
+                          <Code2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-cyan-400" />
+                        </motion.div>
                       </motion.div>
                     </div>
 
-                    {/* 2. Creative Design Bubble (60° - Inner Orbit R=75%) */}
-                    <div className="absolute top-[18%] left-[72%] -translate-x-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
-                        <Palette className="w-2 h-2 sm:w-3 sm:h-3 text-pink-400" />
+                    {/* 2. Creative Design Bubble (60° - Dynamic Pulsing Distance) */}
+                    <div className="absolute top-[18%] left-[72%] -translate-x-1/2 -translate-y-1/2">
+                      <motion.div
+                        animate={{ 
+                          x: [0, -8, 6, -10, 0],
+                          y: [0, 6, -8, 4, 0],
+                          scale: [1, 0.85, 1.2, 0.92, 1]
+                        }}
+                        transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm flex items-center justify-center"
+                      >
+                        <motion.div animate={{ rotate: -360 }} transition={{ duration: 16, repeat: Infinity, ease: "linear" }}>
+                          <Palette className="w-2 h-2 sm:w-3 sm:h-3 text-pink-400" />
+                        </motion.div>
                       </motion.div>
                     </div>
 
-                    {/* 3. Digital Marketing Megaphone Bubble (120° - Outer Orbit R=125%) */}
-                    <div className="absolute top-[-6%] left-[18%] -translate-x-1/2 -translate-y-1/2 w-5.5 h-5.5 sm:w-7 sm:h-7 rounded-full bg-[#EA580C] border-2 border-white shadow-md flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
-                        <Megaphone className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-yellow-300" />
+                    {/* 3. Digital Marketing Megaphone Bubble (120° - Dynamic Pulsing Distance) */}
+                    <div className="absolute top-[-6%] left-[18%] -translate-x-1/2 -translate-y-1/2">
+                      <motion.div
+                        animate={{ 
+                          x: [0, 12, -8, 6, 0],
+                          y: [0, -10, 8, -6, 0],
+                          scale: [1, 1.2, 0.9, 1.15, 1]
+                        }}
+                        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-5.5 h-5.5 sm:w-7 sm:h-7 rounded-full bg-[#EA580C] border-2 border-white shadow-md flex items-center justify-center"
+                      >
+                        <motion.div animate={{ rotate: -360 }} transition={{ duration: 16, repeat: Infinity, ease: "linear" }}>
+                          <Megaphone className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-yellow-300" />
+                        </motion.div>
                       </motion.div>
                     </div>
 
-                    {/* 4. AI & Automation Bot Bubble (180° - Medium-Inner Orbit R=90%) */}
-                    <div className="absolute top-[50%] left-[-8%] -translate-x-1/2 -translate-y-1/2 w-5.5 h-5.5 sm:w-7 sm:h-7 rounded-full bg-[#031427] border-2 border-white shadow-md flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
-                        <Bot className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-purple-400" />
+                    {/* 4. AI & Automation Bot Bubble (180° - Dynamic Pulsing Distance) */}
+                    <div className="absolute top-[50%] left-[-8%] -translate-x-1/2 -translate-y-1/2">
+                      <motion.div
+                        animate={{ 
+                          x: [0, -10, 8, -6, 0],
+                          y: [0, 8, -10, 6, 0],
+                          scale: [1, 0.88, 1.18, 0.95, 1]
+                        }}
+                        transition={{ duration: 5.0, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-5.5 h-5.5 sm:w-7 sm:h-7 rounded-full bg-[#031427] border-2 border-white shadow-md flex items-center justify-center"
+                      >
+                        <motion.div animate={{ rotate: -360 }} transition={{ duration: 16, repeat: Infinity, ease: "linear" }}>
+                          <Bot className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-purple-400" />
+                        </motion.div>
                       </motion.div>
                     </div>
 
-                    {/* 5. SEO & Growth Bubble (240° - Outer Orbit R=120%) */}
-                    <div className="absolute top-[102%] left-[19%] -translate-x-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-[#0284C7] border-2 border-white shadow-sm flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
-                        <TrendingUp className="w-2 h-2 sm:w-3 sm:h-3 text-amber-300" />
+                    {/* 5. SEO & Growth Bubble (240° - Dynamic Pulsing Distance) */}
+                    <div className="absolute top-[102%] left-[19%] -translate-x-1/2 -translate-y-1/2">
+                      <motion.div
+                        animate={{ 
+                          x: [0, 8, -10, 6, 0],
+                          y: [0, -6, 10, -8, 0],
+                          scale: [1, 1.15, 0.85, 1.1, 1]
+                        }}
+                        transition={{ duration: 3.9, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-[#0284C7] border-2 border-white shadow-sm flex items-center justify-center"
+                      >
+                        <motion.div animate={{ rotate: -360 }} transition={{ duration: 16, repeat: Infinity, ease: "linear" }}>
+                          <TrendingUp className="w-2 h-2 sm:w-3 sm:h-3 text-amber-300" />
+                        </motion.div>
                       </motion.div>
                     </div>
 
-                    {/* 6. Sparkles Innovation Bubble (300° - Inner Orbit R=85%) */}
-                    <div className="absolute top-[87%] left-[74%] -translate-x-1/2 -translate-y-1/2 w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-gradient-to-b from-white to-[#CBD5E1] border border-neutral-300 shadow-md flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
-                        <Sparkles className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-orange-500" />
+                    {/* 6. Sparkles Innovation Bubble (300° - Dynamic Pulsing Distance) */}
+                    <div className="absolute top-[87%] left-[74%] -translate-x-1/2 -translate-y-1/2">
+                      <motion.div
+                        animate={{ 
+                          x: [0, -6, 8, -4, 0],
+                          y: [0, 6, -6, 8, 0],
+                          scale: [1, 0.9, 1.15, 0.88, 1]
+                        }}
+                        transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-gradient-to-b from-white to-[#CBD5E1] border border-neutral-300 shadow-md flex items-center justify-center"
+                      >
+                        <motion.div animate={{ rotate: -360 }} transition={{ duration: 16, repeat: Infinity, ease: "linear" }}>
+                          <Sparkles className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-orange-500" />
+                        </motion.div>
                       </motion.div>
                     </div>
                   </motion.div>
