@@ -119,7 +119,7 @@ export default function ServicesSection() {
         {/* Centered Top Header for 3rd Page (Recreated exact Navy Bubble Cluster Frame from User Reference Image) */}
         <div className="text-center max-w-4xl mx-auto mb-10">
           
-          {/* Exact Bubble Cluster Medallion Frame from New Reference Image */}
+          {/* Compact Bubble Cluster Medallion Frame with Bihar Stack Logo */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -127,41 +127,43 @@ export default function ServicesSection() {
             transition={{ duration: 0.5 }}
             className="inline-block mb-6 relative select-none"
           >
-            <div className="relative inline-flex items-center my-3 max-w-full">
+            <div className="relative inline-flex items-center my-2 max-w-full">
               
-              {/* Main Horizontal Deep Navy Blue Bar */}
-              <div className="relative bg-[#0A2540] text-white shadow-[0_14px_30px_-6px_rgba(10,37,64,0.5)] pl-14 sm:pl-20 pr-8 sm:pr-14 py-4 sm:py-5.5 flex items-center justify-center border-y-2 border-r-2 border-[#1B365D] rounded-r-md">
-                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-wider text-white drop-shadow-md">
+              {/* Main Compact Horizontal Deep Navy Blue Bar */}
+              <div className="relative bg-[#0A2540] text-white shadow-[0_10px_24px_-4px_rgba(10,37,64,0.45)] pl-11 sm:pl-16 pr-6 sm:pr-10 py-2.5 sm:py-3.5 flex items-center justify-center border-y-2 border-r-2 border-[#1B365D] rounded-r-md">
+                <h2 className="text-xl sm:text-3xl lg:text-4xl font-black uppercase tracking-wider text-white drop-shadow-md">
                   What We Offer
                 </h2>
               </div>
 
-              {/* Left Bubbles Medallion Cluster (Matching Image) */}
-              <div className="absolute -left-7 sm:-left-9 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                <div className="relative w-15 h-15 sm:w-20 sm:h-20">
+              {/* Left Bubbles Medallion Cluster with Bihar Stack Logo */}
+              <div className="absolute -left-5 sm:-left-7 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                <div className="relative w-12 h-12 sm:w-16 sm:h-16">
                   
-                  {/* 1. Main Central Large Light Gray Disc */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#FAFDFE] to-[#E2E8F0] border-2 border-[#CBD5E1] shadow-[0_6px_18px_rgba(0,0,0,0.3)] flex items-center justify-center z-10">
-                    <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-[#0A2540]" />
+                  {/* 1. Main Central Large Light Gray Disc with Bihar Stack Logo */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#FAFDFE] to-[#E2E8F0] border-2 border-[#CBD5E1] shadow-[0_4px_14px_rgba(0,0,0,0.3)] flex items-center justify-center z-10">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-black rounded-md flex items-center justify-center shadow-md">
+                      <Layers className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" />
+                    </div>
                   </div>
 
                   {/* 2. Top-Left Satellite Bubble (Deep Blue) */}
-                  <div className="absolute -top-2.5 -left-2.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#0A2540] border-2 border-white shadow-md z-20" />
+                  <div className="absolute -top-2 -left-2 w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#0A2540] border-2 border-white shadow-md z-20" />
 
                   {/* 3. Top-Right Satellite Bubble (Medium Navy Blue) */}
-                  <div className="absolute -top-1 -right-2 w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm z-20" />
+                  <div className="absolute -top-1 -right-1.5 w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm z-20" />
 
                   {/* 4. Bottom-Left Satellite Bubble (Deep Dark Navy) */}
-                  <div className="absolute -bottom-2 -left-3 w-6.5 h-6.5 sm:w-8.5 sm:h-8.5 rounded-full bg-[#031427] border-2 border-white shadow-md z-20" />
+                  <div className="absolute -bottom-1.5 -left-2.5 w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-[#031427] border-2 border-white shadow-md z-20" />
 
                   {/* 5. Bottom-Right Satellite Bubble (Dark Cyan/Blue) */}
-                  <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-[#0284C7] border-2 border-white shadow-sm z-20" />
+                  <div className="absolute -bottom-0.5 -right-1 w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 rounded-full bg-[#0284C7] border-2 border-white shadow-sm z-20" />
 
                   {/* 6. Outer Floating White Bubble (Bottom Center) */}
-                  <div className="absolute -bottom-6 left-3 w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-b from-white to-[#CBD5E1] border border-neutral-300 shadow-md z-20" />
+                  <div className="absolute -bottom-5 left-2 w-3.5 h-3.5 sm:w-5 sm:h-5 rounded-full bg-gradient-to-b from-white to-[#CBD5E1] border border-neutral-300 shadow-md z-20" />
 
                   {/* 7. Far Left Half-Hidden White Bubble */}
-                  <div className="absolute top-1/2 -left-5 -translate-y-1/2 w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 rounded-full bg-[#E2E8F0] border border-neutral-300 shadow-sm z-0" />
+                  <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 rounded-full bg-[#E2E8F0] border border-neutral-300 shadow-sm z-0" />
                 </div>
               </div>
 
