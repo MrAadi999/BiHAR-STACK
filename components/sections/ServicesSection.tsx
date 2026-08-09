@@ -135,17 +135,17 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* Clean Sitting Person Character (Golden Middle Alignment) */}
+                {/* 100% True Transparent Yellow Question Mark Emoji Character */}
                 <motion.div 
-                  initial={{ y: -8, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="absolute -top-[44px] sm:-top-[64px] right-0 sm:right-0 w-11 sm:w-15 h-17 sm:h-24 pointer-events-none z-30"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="absolute top-1/2 -translate-y-1/2 -right-10 sm:-right-14 w-12 sm:w-16 h-12 sm:h-16 pointer-events-none z-30 drop-shadow-md"
                 >
                   <img 
-                    src="/images/person_only_no_qmark.png" 
-                    alt="Sitting person illustration without question mark symbols" 
-                    className="w-full h-full object-contain filter drop-shadow-sm" 
+                    src="/images/transparent_yellow_question.png" 
+                    alt="Yellow question mark shrugging emoji character" 
+                    className="w-full h-full object-contain" 
                   />
                 </motion.div>
               </div>
