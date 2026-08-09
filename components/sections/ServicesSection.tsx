@@ -135,12 +135,12 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* Transparent Magenta PNG Person Character (Shifted Slightly Higher & Further Right) */}
+                {/* Transparent Magenta PNG Person Character (Shifted Higher Up & Left) */}
                 <motion.div 
-                  initial={{ x: 10, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
+                  initial={{ y: -8, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="absolute -top-3 sm:-top-5 -right-12 sm:-right-16 w-11 sm:w-15 h-17 sm:h-24 pointer-events-none z-30"
+                  className="absolute -top-[24px] sm:-top-[38px] -right-5 sm:-right-8 w-11 sm:w-15 h-17 sm:h-24 pointer-events-none z-30"
                 >
                   <img 
                     src="/images/transparent_magenta_person.png" 
