@@ -470,8 +470,8 @@ export default function TechHighwaySection() {
               // Initial spawn Y between Y: 53% and Y: 71% (centered at Y: 62%)
               const initialY = "62%";
 
-              // Super slow 55s highway duration for ultra-calm, peaceful, graceful drifting
-              const duration = 55;
+              // Slightly slower 75s highway duration for ultra-relaxed, serene movement
+              const duration = 75;
 
               // Negative staggered delays (-progress * duration) so icons are spread evenly with large gaps
               const delayTime = -((idx / techItems.length) * duration);
@@ -515,33 +515,6 @@ export default function TechHighwaySection() {
               );
             })}
           </div>
-        </div>
-
-        {/* ================= X & Y COORDINATE GRAPH OVERLAY (SUPERIMPOSED DEBUG GRID) ================= */}
-        <div className="absolute inset-0 z-40 pointer-events-none overflow-hidden font-mono text-[9px] font-bold selection:bg-none">
-          {/* X-AXIS VERTICAL GRID LINES & LABELS (Cyan) */}
-          {[0, 8, 10, 13, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((x) => (
-            <div key={`x-${x}`} className={`absolute top-0 bottom-0 border-l ${x === 8 || x === 13 ? 'border-cyan-300 border-2' : 'border-cyan-400/50'}`} style={{ left: `${x}%` }}>
-              <span className={`px-1 py-0.5 rounded text-[9px] shadow absolute top-1 -translate-x-1/2 whitespace-nowrap z-50 ${x === 8 || x === 13 ? 'bg-cyan-500 text-black font-extrabold border border-white' : 'bg-cyan-950 text-cyan-300 border border-cyan-400/70'}`}>
-                X:{x}%
-              </span>
-              <span className={`px-1 py-0.5 rounded text-[9px] shadow absolute bottom-1 -translate-x-1/2 whitespace-nowrap z-50 ${x === 8 || x === 13 ? 'bg-cyan-500 text-black font-extrabold border border-white' : 'bg-cyan-950 text-cyan-300 border border-cyan-400/70'}`}>
-                X:{x}%
-              </span>
-            </div>
-          ))}
-
-          {/* Y-AXIS HORIZONTAL GRID LINES & LABELS (Amber) */}
-          {[0, 10, 20, 30, 35, 40, 53, 62, 71, 80, 90, 100].map((y) => (
-            <div key={`y-${y}`} className={`absolute left-0 right-0 border-t ${y === 62 ? 'border-amber-300 border-2' : 'border-amber-400/50'}`} style={{ top: `${y}%` }}>
-              <span className={`px-1 py-0.5 rounded text-[9px] shadow absolute left-2 -translate-y-1/2 whitespace-nowrap z-50 ${y === 62 ? 'bg-amber-400 text-black font-extrabold border border-white' : 'bg-amber-950 text-amber-300 border border-amber-400/70'}`}>
-                Y:{y}%
-              </span>
-              <span className={`px-1 py-0.5 rounded text-[9px] shadow absolute right-2 -translate-y-1/2 whitespace-nowrap z-50 ${y === 62 ? 'bg-amber-400 text-black font-extrabold border border-white' : 'bg-amber-950 text-amber-300 border border-amber-400/70'}`}>
-                Y:{y}%
-              </span>
-            </div>
-          ))}
         </div>
 
         {/* LEFT SIDE TEMPLE RUN GATEWAY OVERLAY (BACKGROUND LAYER z-10) */}
