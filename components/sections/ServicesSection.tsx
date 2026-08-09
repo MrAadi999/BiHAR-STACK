@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TrendingUp, Palette, Code2, Bot, ArrowRight, Check, Sparkles, Layers, Palette as PaletteIcon } from "lucide-react";
+import { TrendingUp, Palette, Code2, Bot, ArrowRight, Check, Sparkles, Layers, Palette as PaletteIcon, Megaphone } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 // 5 Color Themes Matching the User's Image Reference
@@ -136,43 +136,67 @@ export default function ServicesSection() {
                 </h2>
               </div>
 
-              {/* Left Bubbles Medallion Cluster with Bihar Stack Logo */}
+              {/* Left Bubbles Medallion Cluster with Bihar Stack Logo & 360° Orbiting Satellite Bubbles */}
               <div className="absolute -left-5 sm:-left-7 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
                 <div className="relative w-12 h-12 sm:w-16 sm:h-16">
                   
-                  {/* 1. Main Central Large Light Gray Disc with Bihar Stack Logo */}
+                  {/* 1. Main Central Large Light Gray Disc with Stationary Bihar Stack Logo */}
                   <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#FAFDFE] to-[#E2E8F0] border-2 border-[#CBD5E1] shadow-[0_4px_14px_rgba(0,0,0,0.3)] flex items-center justify-center z-10">
                     <div className="w-6 h-6 sm:w-8 sm:h-8 bg-black rounded-md flex items-center justify-center shadow-md">
                       <Layers className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" />
                     </div>
                   </div>
 
-                  {/* 2. Top-Left Satellite Bubble (Web Tech / Code Icon) */}
-                  <div className="absolute -top-2 -left-2 w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#0A2540] border-2 border-white shadow-md z-20 flex items-center justify-center">
-                    <Code2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-cyan-400" />
-                  </div>
+                  {/* 360-Degree Continuous Orbit Ring for Satellite Bubbles */}
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 z-20 pointer-events-none"
+                  >
+                    {/* 2. Top-Left Satellite Bubble (Web Tech / Code Icon) */}
+                    <div className="absolute -top-2.5 -left-2 w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#0A2540] border-2 border-white shadow-md flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                        <Code2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-cyan-400" />
+                      </motion.div>
+                    </div>
 
-                  {/* 3. Top-Right Satellite Bubble (Creative / Design Icon) */}
-                  <div className="absolute -top-1 -right-1.5 w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm z-20 flex items-center justify-center">
-                    <Palette className="w-2 h-2 sm:w-3 sm:h-3 text-pink-400" />
-                  </div>
+                    {/* 3. Top-Right Satellite Bubble (Creative / Design Icon) */}
+                    <div className="absolute -top-1 -right-2 w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                        <Palette className="w-2 h-2 sm:w-3 sm:h-3 text-pink-400" />
+                      </motion.div>
+                    </div>
 
-                  {/* 4. Bottom-Left Satellite Bubble (AI & Automation Bot Icon) */}
-                  <div className="absolute -bottom-1.5 -left-2.5 w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-[#031427] border-2 border-white shadow-md z-20 flex items-center justify-center">
-                    <Bot className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-purple-400" />
-                  </div>
+                    {/* 4. Digital Marketing & Ads Satellite Bubble (Megaphone Icon) */}
+                    <div className="absolute top-1/2 -right-3 -translate-y-1/2 w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-[#EA580C] border-2 border-white shadow-md flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                        <Megaphone className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-yellow-300" />
+                      </motion.div>
+                    </div>
 
-                  {/* 5. Bottom-Right Satellite Bubble (Growth & SEO Icon) */}
-                  <div className="absolute -bottom-0.5 -right-1 w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 rounded-full bg-[#0284C7] border-2 border-white shadow-sm z-20 flex items-center justify-center">
-                    <TrendingUp className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-amber-300" />
-                  </div>
+                    {/* 5. Bottom-Left Satellite Bubble (AI & Automation Bot Icon) */}
+                    <div className="absolute -bottom-2 -left-2.5 w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-[#031427] border-2 border-white shadow-md flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                        <Bot className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-purple-400" />
+                      </motion.div>
+                    </div>
 
-                  {/* 6. Outer Floating White Bubble (Sparkles Icon) */}
-                  <div className="absolute -bottom-5 left-2 w-3.5 h-3.5 sm:w-5 sm:h-5 rounded-full bg-gradient-to-b from-white to-[#CBD5E1] border border-neutral-300 shadow-md z-20 flex items-center justify-center">
-                    <Sparkles className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-orange-500" />
-                  </div>
+                    {/* 6. Bottom-Right Satellite Bubble (Growth & SEO Icon) */}
+                    <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 sm:w-5 sm:h-5 rounded-full bg-[#0284C7] border-2 border-white shadow-sm flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                        <TrendingUp className="w-2 h-2 sm:w-3 sm:h-3 text-amber-300" />
+                      </motion.div>
+                    </div>
 
-                  {/* 7. Far Left Half-Hidden White Bubble */}
+                    {/* 7. Outer Floating White Bubble (Sparkles Icon) */}
+                    <div className="absolute -bottom-5 left-2 w-3.5 h-3.5 sm:w-5 sm:h-5 rounded-full bg-gradient-to-b from-white to-[#CBD5E1] border border-neutral-300 shadow-md flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                        <Sparkles className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-orange-500" />
+                      </motion.div>
+                    </div>
+                  </motion.div>
+
+                  {/* Far Left Half-Hidden White Bubble */}
                   <div className="absolute top-1/2 -left-4 -translate-y-1/2 w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 rounded-full bg-[#E2E8F0] border border-neutral-300 shadow-sm z-0" />
                 </div>
               </div>
