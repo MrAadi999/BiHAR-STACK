@@ -490,8 +490,8 @@ export default function TechHighwaySection() {
                     opacity: 1,
                   }}
                   animate={{
-                    // X trajectory: Emerges at X: 8% -> Y: 62% (between Y:53-71%) until 13% -> Fans out to 3 lines by 30% -> Runs to 105%
-                    left: ["8%", "13%", "30%", "105%"],
+                    // X trajectory: Emerges at X: 8% -> Starts fanning into 3 lines at X: 10-12% -> Fully in 3 lines by X: 18% -> Runs to 105%
+                    left: ["8%", "10%", "18%", "105%"],
                     top: [initialY, initialY, targetTrackY, targetTrackY],
                     opacity: [1, 1, 1, 1], // Always 100% visible
                     scale: [0.85, 0.95, scaleMax, 0.9],
@@ -501,7 +501,7 @@ export default function TechHighwaySection() {
                     repeat: Infinity,
                     delay: delayTime,
                     ease: "linear",
-                    times: [0, 0.08, 0.28, 1], // Linear progression starting at X: 8%
+                    times: [0, 0.02, 0.12, 1], // Earlier fanning out starting at X: 10%
                   }}
                   whileHover={{
                     scale: 1.35,
