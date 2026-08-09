@@ -201,9 +201,9 @@ export default function TechHighwaySection() {
       {/* Container: Original height with safe padding */}
       <div className="w-full bg-black text-white py-10 sm:py-14 border-y-2 border-black -mt-4 sm:-mt-6 lg:-mt-8 relative overflow-hidden flex items-center min-h-[160px] sm:min-h-[190px]">
 
-        {/* ================= MOVING TECH LOGOS LAYER (RANDOM LEFT TO RIGHT, 3 SAFE LINES) ================= */}
+        {/* ================= MOVING TECH LOGOS LAYER (RANDOM LEFT TO RIGHT, IN FRONT OF DOOR) ================= */}
         <div
-          className="absolute inset-0 z-20 overflow-hidden flex items-center pointer-events-none"
+          className="absolute inset-0 z-30 overflow-hidden flex items-center pointer-events-none"
           style={{
             maskImage: "linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%)",
@@ -215,12 +215,14 @@ export default function TechHighwaySection() {
               const r2 = getPseudoRandom(idx * 7 + 4);
               const r3 = getPseudoRandom(idx * 13 + 9);
 
-              // Pseudo-random track assignment (0, 1, or 2)
+              // Pseudo-random line assignment after X: 13% (Track 0: 35%, Track 1: 53%, Track 2: 71%)
               const trackIndex = Math.floor(r1 * 3);
-              // Safe vertical track positions (35%, 53%, 71%) - Leaves 35px+ black clearance above top line
-              const trackY = trackIndex === 0 ? "35%" : trackIndex === 1 ? "53%" : "71%";
+              const targetTrackY = trackIndex === 0 ? "35%" : trackIndex === 1 ? "53%" : "71%";
 
-              // Pseudo-random duration (speeds between 11s and 17s)
+              // Initial spawn Y at upper door arch opening (Y: 36%)
+              const initialY = "36%";
+
+              // Pseudo-random duration (11s to 17s)
               const duration = 11 + r2 * 6;
 
               // Pseudo-random staggered start delays (0s to 14s)
@@ -234,20 +236,23 @@ export default function TechHighwaySection() {
                   key={idx}
                   className="absolute -translate-y-1/2 flex items-center pointer-events-auto cursor-pointer"
                   initial={{
-                    left: "-8%",
-                    top: trackY,
-                    opacity: 0,
+                    left: "8%",
+                    top: initialY,
+                    opacity: 1,
                   }}
                   animate={{
-                    left: ["-8%", "108%"],
-                    opacity: [0, 1, 1, 0],
-                    scale: [0.9, scaleMax, scaleMax, 0.9],
+                    // X trajectory: Emerges at exact X: 8% -> Y: 36% door opening until 13% -> Fans out to 3 lines by 30% -> Runs to 105%
+                    left: ["8%", "13%", "30%", "105%"],
+                    top: [initialY, initialY, targetTrackY, targetTrackY],
+                    opacity: [1, 1, 1, 1], // Always 100% visible
+                    scale: [0.85, 0.95, scaleMax, 0.9],
                   }}
                   transition={{
                     duration: duration,
                     repeat: Infinity,
                     delay: delayTime,
                     ease: "linear",
+                    times: [0, 0.08, 0.28, 1], // Linear progression starting at X: 8%
                   }}
                   whileHover={{
                     scale: 1.35,
@@ -264,8 +269,8 @@ export default function TechHighwaySection() {
           </div>
         </div>
 
-        {/* LEFT SIDE TEMPLE RUN GATEWAY OVERLAY */}
-        <div className="absolute left-0 top-0 bottom-0 w-[34%] sm:w-[26%] lg:w-[22%] max-w-[320px] z-30 pointer-events-none flex items-center">
+        {/* LEFT SIDE TEMPLE RUN GATEWAY OVERLAY (BACKGROUND LAYER z-10) */}
+        <div className="absolute left-0 top-0 bottom-0 w-[34%] sm:w-[26%] lg:w-[22%] max-w-[320px] z-10 pointer-events-none flex items-center">
           <div className="relative w-full h-full overflow-hidden">
             <img
               src="/images/temple_monster_door_subtle_right.jpg"
