@@ -463,17 +463,17 @@ export default function TechHighwaySection() {
               const r2 = getPseudoRandom(idx * 7 + 4);
               const r3 = getPseudoRandom(idx * 13 + 9);
 
-              // Pseudo-random line assignment after X: 13% (Track 0: 35%, Track 1: 53%, Track 2: 71%)
-              const trackIndex = Math.floor(r1 * 3);
+              // Strict round-robin track assignment (0, 1, 2, 0, 1, 2...) for ZERO touching/overlapping
+              const trackIndex = idx % 3;
               const targetTrackY = trackIndex === 0 ? "35%" : trackIndex === 1 ? "53%" : "71%";
 
               // Initial spawn Y between Y: 53% and Y: 71% (centered at Y: 62%)
               const initialY = "62%";
 
-              // Slower 32s highway duration for relaxed, graceful motion & large icon distance
-              const duration = 32;
+              // Super slow 55s highway duration for ultra-calm, peaceful, graceful drifting
+              const duration = 55;
 
-              // Negative staggered delays (-progress * duration) so icons are spread evenly across the highway
+              // Negative staggered delays (-progress * duration) so icons are spread evenly with large gaps
               const delayTime = -((idx / techItems.length) * duration);
 
               // Subtle random scale bounce
