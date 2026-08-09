@@ -467,8 +467,9 @@ export default function TechHighwaySection() {
               const trackIndex = idx % 3;
               const targetTrackY = trackIndex === 0 ? "35%" : trackIndex === 1 ? "53%" : "71%";
 
-              // Initial spawn Y between Y: 53% and Y: 71% (centered at Y: 62%)
-              const initialY = "62%";
+              // Dynamic initial spawn Y height varying between 48% (thoda upper se) and 62% for natural door emergence
+              const spawnYNum = 48 + r3 * 14;
+              const initialY = `${spawnYNum.toFixed(1)}%`;
 
               // Slightly slower 75s highway duration for ultra-relaxed, serene movement
               const duration = 75;
