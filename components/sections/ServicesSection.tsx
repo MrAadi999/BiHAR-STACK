@@ -135,16 +135,16 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* Isolated Sitting Person Character (Frame Removed & Smaller Size) */}
+                {/* Sitting Person Character placed directly on the Right Side of the Navy Blue Frame Bar */}
                 <motion.div 
-                  initial={{ y: -10, opacity: 0 }}
+                  initial={{ y: -6, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="absolute -top-[44px] sm:-top-[62px] -right-3 sm:-right-5 w-14 sm:w-20 h-14 sm:h-20 pointer-events-none z-30"
+                  className="absolute -top-[24px] sm:-top-[34px] -right-3 sm:-right-4 w-12 sm:w-16 h-12 sm:h-16 pointer-events-none z-30"
                 >
                   <img 
                     src="/images/sitting_question_person.png" 
-                    alt="Character sitting on frame" 
+                    alt="Character sitting on right side of frame" 
                     className="w-full h-full object-cover mix-blend-multiply filter drop-shadow-sm" 
                     style={{ clipPath: "inset(0% 26% 43% 26%)" }}
                   />
