@@ -271,7 +271,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-base sm:text-lg lg:text-xl text-neutral-700 font-medium leading-relaxed max-w-2xl mx-auto"
           >
-            End-to-end digital solutions built for modern businesses aiming for exponential growth.
+            End-to-end digital solutions &ldquo;Build Digital. Grow Faster.&rdquo;
           </motion.p>
         </div>
 
