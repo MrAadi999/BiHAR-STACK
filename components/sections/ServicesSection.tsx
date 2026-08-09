@@ -135,12 +135,12 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* Transparent Navy Blue Person Character (Shifted Higher Up & Left) */}
+                {/* Transparent Navy Blue Person Character (Shifted Slightly Higher Up) */}
                 <motion.div 
                   initial={{ y: -8, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="absolute -top-[36px] sm:-top-[54px] -right-2 sm:-right-4 w-11 sm:w-15 h-17 sm:h-24 pointer-events-none z-30"
+                  className="absolute -top-[44px] sm:-top-[64px] -right-2 sm:-right-4 w-11 sm:w-15 h-17 sm:h-24 pointer-events-none z-30"
                 >
                   <img 
                     src="/images/transparent_navy_person.png" 
