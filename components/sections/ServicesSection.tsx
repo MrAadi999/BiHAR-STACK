@@ -135,7 +135,7 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* Transparent Navy Blue Person Character (Shifted Slightly Higher Up) */}
+                {/* Clean Sitting Person Character (All '?' Symbols Removed) */}
                 <motion.div 
                   initial={{ y: -8, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -143,8 +143,8 @@ export default function ServicesSection() {
                   className="absolute -top-[44px] sm:-top-[64px] -right-2 sm:-right-4 w-11 sm:w-15 h-17 sm:h-24 pointer-events-none z-30"
                 >
                   <img 
-                    src="/images/transparent_navy_person.png" 
-                    alt="Navy Blue character matching WHAT WE OFFER frame" 
+                    src="/images/person_only_no_qmark.png" 
+                    alt="Sitting person illustration without question mark symbols" 
                     className="w-full h-full object-contain filter drop-shadow-sm" 
                   />
                 </motion.div>
