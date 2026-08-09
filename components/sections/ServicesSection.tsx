@@ -75,37 +75,26 @@ export default function ServicesSection() {
   return (
     <section id="services" className="py-24 bg-[#f0f0f0] relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-6">
-          <div className="flex-1">
-            <SectionHeading
-              badge="OUR CAPABILITIES"
-              title="What We Do"
-              subtitle="End-to-end digital solutions built for modern businesses aiming for exponential growth."
-            />
-          </div>
-          
-          {/* Coder Photo (Shifted from 2nd Page to 3rd Page) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+        {/* Centered Top Header for 3rd Page */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            animate={{ 
-              y: [0, -10, 0],
-              rotate: [0, -2, 0, 2, 0] 
-            }}
-            transition={{ 
-              y: { duration: 4.5, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" },
-              rotate: { duration: 6.5, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }
-            }}
-            whileHover={{ scale: 1.08, rotate: -2 }}
-            className="relative cursor-pointer select-none max-w-[240px] sm:max-w-[280px] -mt-6 lg:-mt-12"
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black mb-4 uppercase"
           >
-            <img 
-              src="/images/coder_user.png" 
-              alt="Bihar Stack Coder" 
-              className="w-full h-auto object-contain mix-blend-multiply drop-shadow-xl"
-            />
-          </motion.div>
+            What We Do
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-base sm:text-lg lg:text-xl text-neutral-700 font-medium leading-relaxed"
+          >
+            End-to-end digital solutions built for modern businesses aiming for exponential growth.
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
