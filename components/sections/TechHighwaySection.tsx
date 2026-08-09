@@ -471,8 +471,8 @@ export default function TechHighwaySection() {
               const spawnYNum = 48 + r3 * 14;
               const initialY = `${spawnYNum.toFixed(1)}%`;
 
-              // Highway duration set to 63s so 45 icons emerge at exact 1.40s intervals (63s / 45 = 1.40s)
-              const duration = 63;
+              // Highway duration set to 45s so 45 icons emerge at exact 1.0s intervals (45s / 45 = 1.0s)
+              const duration = 45;
 
               // Negative staggered delays (-progress * duration) so icons are spread evenly with large gaps
               const delayTime = -((idx / techItems.length) * duration);
