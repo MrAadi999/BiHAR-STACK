@@ -134,6 +134,20 @@ export default function ServicesSection() {
                 <h2 className="text-xl sm:text-3xl lg:text-4xl font-black uppercase tracking-wider text-white drop-shadow-md">
                   What We Offer
                 </h2>
+
+                {/* Character Sitting on top of the Right Side of the Frame */}
+                <motion.div 
+                  initial={{ y: -12, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="absolute -top-[52px] sm:-top-[72px] -right-4 sm:-right-6 w-16 sm:w-24 h-16 sm:h-24 pointer-events-none z-30"
+                >
+                  <img 
+                    src="/images/person_sitting_on_bar.jpg" 
+                    alt="Character sitting on frame" 
+                    className="w-full h-full object-contain mix-blend-multiply filter drop-shadow-sm" 
+                  />
+                </motion.div>
               </div>
 
               {/* Left Bubbles Medallion Cluster with Bihar Stack Logo & 360° Orbiting Satellite Bubbles */}
