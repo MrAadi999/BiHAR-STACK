@@ -135,7 +135,7 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* Transparent PNG Person Character placed directly on the RIGHT SIDE of the Navy Blue Frame Bar */}
+                {/* Transparent Magenta PNG Person Character placed directly on the RIGHT SIDE of the Navy Blue Frame Bar */}
                 <motion.div 
                   initial={{ x: 10, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
@@ -143,8 +143,8 @@ export default function ServicesSection() {
                   className="absolute top-1/2 -translate-y-1/2 -right-8 sm:-right-12 w-10 sm:w-14 h-16 sm:h-22 pointer-events-none z-30"
                 >
                   <img 
-                    src="/images/transparent_sitting_person.png" 
-                    alt="Character on right side of frame" 
+                    src="/images/transparent_magenta_person.png" 
+                    alt="Magenta character on right side of frame" 
                     className="w-full h-full object-contain filter drop-shadow-sm" 
                   />
                 </motion.div>
