@@ -147,50 +147,50 @@ export default function ServicesSection() {
                     </div>
                   </div>
 
-                  {/* True 360° Circular Orbit Ring (Bubbles Physically Revolving / Chakkar Lagana around Bihar Stack Logo) */}
+                  {/* True 360° Multi-Distance Solar System Orbit Ring (Staggered Radii / Random Distances) */}
                   <motion.div 
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                     className="absolute -inset-3.5 sm:-inset-5 z-20 pointer-events-none rounded-full"
                   >
-                    {/* 1. Web Code Bubble (0°) */}
-                    <div className="absolute top-[50%] left-[100%] -translate-x-1/2 -translate-y-1/2 w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#0A2540] border-2 border-white shadow-md flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 14, repeat: Infinity, ease: "linear" }}>
+                    {/* 1. Web Code Bubble (0° - Medium Distance R=105%) */}
+                    <div className="absolute top-[50%] left-[106%] -translate-x-1/2 -translate-y-1/2 w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#0A2540] border-2 border-white shadow-md flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
                         <Code2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-cyan-400" />
                       </motion.div>
                     </div>
 
-                    {/* 2. Creative Design Bubble (60°) */}
-                    <div className="absolute top-[6.7%] left-[75%] -translate-x-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 14, repeat: Infinity, ease: "linear" }}>
+                    {/* 2. Creative Design Bubble (60° - Inner Orbit R=75%) */}
+                    <div className="absolute top-[18%] left-[72%] -translate-x-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
                         <Palette className="w-2 h-2 sm:w-3 sm:h-3 text-pink-400" />
                       </motion.div>
                     </div>
 
-                    {/* 3. Digital Marketing Megaphone Bubble (120°) */}
-                    <div className="absolute top-[6.7%] left-[25%] -translate-x-1/2 -translate-y-1/2 w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#EA580C] border-2 border-white shadow-md flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 14, repeat: Infinity, ease: "linear" }}>
+                    {/* 3. Digital Marketing Megaphone Bubble (120° - Outer Orbit R=125%) */}
+                    <div className="absolute top-[-6%] left-[18%] -translate-x-1/2 -translate-y-1/2 w-5.5 h-5.5 sm:w-7 sm:h-7 rounded-full bg-[#EA580C] border-2 border-white shadow-md flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
                         <Megaphone className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-yellow-300" />
                       </motion.div>
                     </div>
 
-                    {/* 4. AI & Automation Bot Bubble (180°) */}
-                    <div className="absolute top-[50%] left-[0%] -translate-x-1/2 -translate-y-1/2 w-5.5 h-5.5 sm:w-7 sm:h-7 rounded-full bg-[#031427] border-2 border-white shadow-md flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 14, repeat: Infinity, ease: "linear" }}>
+                    {/* 4. AI & Automation Bot Bubble (180° - Medium-Inner Orbit R=90%) */}
+                    <div className="absolute top-[50%] left-[-8%] -translate-x-1/2 -translate-y-1/2 w-5.5 h-5.5 sm:w-7 sm:h-7 rounded-full bg-[#031427] border-2 border-white shadow-md flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
                         <Bot className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-purple-400" />
                       </motion.div>
                     </div>
 
-                    {/* 5. SEO & Growth Bubble (240°) */}
-                    <div className="absolute top-[93.3%] left-[25%] -translate-x-1/2 -translate-y-1/2 w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-[#0284C7] border-2 border-white shadow-sm flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 14, repeat: Infinity, ease: "linear" }}>
+                    {/* 5. SEO & Growth Bubble (240° - Outer Orbit R=120%) */}
+                    <div className="absolute top-[102%] left-[19%] -translate-x-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-[#0284C7] border-2 border-white shadow-sm flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
                         <TrendingUp className="w-2 h-2 sm:w-3 sm:h-3 text-amber-300" />
                       </motion.div>
                     </div>
 
-                    {/* 6. Sparkles Innovation Bubble (300°) */}
-                    <div className="absolute top-[93.3%] left-[75%] -translate-x-1/2 -translate-y-1/2 w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-gradient-to-b from-white to-[#CBD5E1] border border-neutral-300 shadow-md flex items-center justify-center">
-                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 14, repeat: Infinity, ease: "linear" }}>
+                    {/* 6. Sparkles Innovation Bubble (300° - Inner Orbit R=85%) */}
+                    <div className="absolute top-[87%] left-[74%] -translate-x-1/2 -translate-y-1/2 w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-gradient-to-b from-white to-[#CBD5E1] border border-neutral-300 shadow-md flex items-center justify-center">
+                      <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }}>
                         <Sparkles className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-orange-500" />
                       </motion.div>
                     </div>
