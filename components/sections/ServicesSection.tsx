@@ -135,16 +135,16 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* True 32-bit Transparent PNG Sitting Person Character */}
+                {/* Transparent PNG Person Character placed directly on the RIGHT SIDE of the Navy Blue Frame Bar */}
                 <motion.div 
-                  initial={{ y: -6, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
+                  initial={{ x: 10, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="absolute -top-[36px] sm:-top-[52px] -right-2 sm:-right-3 w-10 sm:w-15 h-16 sm:h-24 pointer-events-none z-30"
+                  className="absolute top-1/2 -translate-y-1/2 -right-8 sm:-right-12 w-10 sm:w-14 h-16 sm:h-22 pointer-events-none z-30"
                 >
                   <img 
                     src="/images/transparent_sitting_person.png" 
-                    alt="Character sitting on right side of frame" 
+                    alt="Character on right side of frame" 
                     className="w-full h-full object-contain filter drop-shadow-sm" 
                   />
                 </motion.div>
