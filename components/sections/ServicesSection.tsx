@@ -112,68 +112,59 @@ const services = [
 ];
 
 export default function ServicesSection() {
-  const [activeThemeIndex, setActiveThemeIndex] = useState(0); // Default Vibrant Orange from reference image
-  const currentTheme = ribbonThemes[activeThemeIndex];
-
   return (
     <section id="services" className="pt-6 sm:pt-8 pb-20 bg-[#f0f0f0] relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         
-        {/* Centered Top Header for 3rd Page (Recreated exact Ribbon Frame from User Reference Image) */}
+        {/* Centered Top Header for 3rd Page (Recreated exact Navy Bubble Cluster Frame from User Reference Image) */}
         <div className="text-center max-w-4xl mx-auto mb-10">
           
-          {/* Color Switcher Dots for the 5 Themes in Image */}
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 flex items-center gap-1.5 mr-2">
-              <PaletteIcon className="w-3.5 h-3.5" />
-              <span>Theme:</span>
-            </span>
-            {ribbonThemes.map((theme, idx) => (
-              <button
-                key={theme.id}
-                onClick={() => setActiveThemeIndex(idx)}
-                className={`w-6 h-6 rounded-full border-2 transition-all cursor-pointer ${
-                  activeThemeIndex === idx ? "border-black scale-125 shadow-md" : "border-transparent opacity-70 hover:opacity-100"
-                } ${
-                  theme.id === 1 ? "bg-orange-500" :
-                  theme.id === 2 ? "bg-cyan-600" :
-                  theme.id === 3 ? "bg-slate-800" :
-                  theme.id === 4 ? "bg-neutral-900" : "bg-amber-600"
-                }`}
-                title={theme.name}
-              />
-            ))}
-          </div>
-
-          {/* Exact 3D Ribbon Banner Frame with Left Disc & Page Curl Peel */}
+          {/* Exact Bubble Cluster Medallion Frame from New Reference Image */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-block mb-6 relative select-none cursor-pointer"
-            onClick={() => setActiveThemeIndex((prev) => (prev + 1) % ribbonThemes.length)}
-            title="Click to change ribbon color theme!"
+            className="inline-block mb-6 relative select-none"
           >
-            <div className="relative inline-flex items-center my-2">
-              {/* Main Horizontal Banner Bar */}
-              <div className={`relative ${currentTheme.barStyle} shadow-[0_12px_28px_-6px_rgba(0,0,0,0.35)] pl-12 sm:pl-16 pr-8 sm:pr-12 py-3.5 sm:py-5 flex items-center justify-center rounded-r-sm transition-all duration-300`}>
-                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-wider text-white drop-shadow-md">
+            <div className="relative inline-flex items-center my-3 max-w-full">
+              
+              {/* Main Horizontal Deep Navy Blue Bar */}
+              <div className="relative bg-[#0A2540] text-white shadow-[0_14px_30px_-6px_rgba(10,37,64,0.5)] pl-14 sm:pl-20 pr-8 sm:pr-14 py-4 sm:py-5.5 flex items-center justify-center border-y-2 border-r-2 border-[#1B365D] rounded-r-md">
+                <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-wider text-white drop-shadow-md">
                   What We Offer
                 </h2>
+              </div>
 
-                {/* Bottom-Right Corner Dog-Ear / Page-Curl Peel Effect */}
-                <div className="absolute bottom-0 right-0 w-6 h-6 sm:w-8 sm:h-8 pointer-events-none overflow-hidden rounded-br-sm">
-                  <div className="w-full h-full bg-white shadow-[-4px_-4px_8px_rgba(0,0,0,0.35)] origin-bottom-right transform -rotate-45 translate-x-3.5 translate-y-3.5 sm:translate-x-4 sm:translate-y-4" />
+              {/* Left Bubbles Medallion Cluster (Matching Image) */}
+              <div className="absolute -left-7 sm:-left-9 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                <div className="relative w-15 h-15 sm:w-20 sm:h-20">
+                  
+                  {/* 1. Main Central Large Light Gray Disc */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#FAFDFE] to-[#E2E8F0] border-2 border-[#CBD5E1] shadow-[0_6px_18px_rgba(0,0,0,0.3)] flex items-center justify-center z-10">
+                    <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-[#0A2540]" />
+                  </div>
+
+                  {/* 2. Top-Left Satellite Bubble (Deep Blue) */}
+                  <div className="absolute -top-2.5 -left-2.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#0A2540] border-2 border-white shadow-md z-20" />
+
+                  {/* 3. Top-Right Satellite Bubble (Medium Navy Blue) */}
+                  <div className="absolute -top-1 -right-2 w-5 h-5 sm:w-6.5 sm:h-6.5 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm z-20" />
+
+                  {/* 4. Bottom-Left Satellite Bubble (Deep Dark Navy) */}
+                  <div className="absolute -bottom-2 -left-3 w-6.5 h-6.5 sm:w-8.5 sm:h-8.5 rounded-full bg-[#031427] border-2 border-white shadow-md z-20" />
+
+                  {/* 5. Bottom-Right Satellite Bubble (Dark Cyan/Blue) */}
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-5.5 sm:h-5.5 rounded-full bg-[#0284C7] border-2 border-white shadow-sm z-20" />
+
+                  {/* 6. Outer Floating White Bubble (Bottom Center) */}
+                  <div className="absolute -bottom-6 left-3 w-4.5 h-4.5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-b from-white to-[#CBD5E1] border border-neutral-300 shadow-md z-20" />
+
+                  {/* 7. Far Left Half-Hidden White Bubble */}
+                  <div className="absolute top-1/2 -left-5 -translate-y-1/2 w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 rounded-full bg-[#E2E8F0] border border-neutral-300 shadow-sm z-0" />
                 </div>
               </div>
 
-              {/* Left Overlapping Circular Disc Medallion */}
-              <div className={`absolute -left-6 sm:-left-8 top-1/2 -translate-y-1/2 w-13 h-13 sm:w-18 sm:h-18 rounded-full bg-gradient-to-b from-white via-neutral-100 to-neutral-200 border-4 ${currentTheme.ringBorder} shadow-[0_8px_20px_rgba(0,0,0,0.3)] flex items-center justify-center z-10 transition-all duration-300`}>
-                <div className="w-9 h-9 sm:w-13 sm:h-13 rounded-full bg-white flex items-center justify-center border border-neutral-300 shadow-inner">
-                  {currentTheme.icon}
-                </div>
-              </div>
             </div>
           </motion.div>
 
