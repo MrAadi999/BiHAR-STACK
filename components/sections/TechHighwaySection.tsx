@@ -381,7 +381,14 @@ const CapCutIcon = () => (
   </svg>
 );
 
-// Tech Item Data (45 Diverse Tech Stack & Popular App Icons)
+const CameraIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(236,72,153,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#EC4899" rx="28" />
+    <path d="M44 36l6-10h28l6 10h16c4.4 0 8 3.6 8 8v44c0 4.4-3.6 8-8 8H28c-4.4 0-8-3.6-8-8V44c0-4.4 3.6-8 8-8h16zm20 54c13.3 0 24-10.7 24-24S77.3 42 64 42 40 52.7 40 66s10.7 24 24 24zm0-10c7.7 0 14-6.3 14-14s-6.3-14-14-14-14 6.3-14 14 6.3 14 14 14z" fill="#ffffff" />
+  </svg>
+);
+
+// Tech Item Data (Diverse Tech Stack & Popular App Icons)
 const techItems = [
   { name: "JavaScript", icon: <JSIcon /> },
   { name: "TypeScript", icon: <TSIcon /> },
@@ -427,6 +434,7 @@ const techItems = [
   { name: "Premiere Pro", icon: <PremiereIcon /> },
   { name: "After Effects", icon: <AfterEffectsIcon /> },
   { name: "CapCut", icon: <CapCutIcon /> },
+  { name: "Camera", icon: <CameraIcon /> },
 ];
 
 // Deterministic pseudo-random generator for hydration-safe random movement
@@ -462,11 +470,10 @@ export default function TechHighwaySection() {
               // Initial spawn Y between Y: 53% and Y: 71% (centered at Y: 62%)
               const initialY = "62%";
 
-              // Uniform highway duration for clean continuous stream
-              const duration = 16;
+              // Slower 32s highway duration for relaxed, graceful motion & large icon distance
+              const duration = 32;
 
-              // Negative staggered delays (-progress * duration) so on page load icons are already spread across the highway
-              // This guarantees ZERO clumping at X: 7% on page start!
+              // Negative staggered delays (-progress * duration) so icons are spread evenly across the highway
               const delayTime = -((idx / techItems.length) * duration);
 
               // Subtle random scale bounce
