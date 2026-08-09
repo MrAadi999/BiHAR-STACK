@@ -301,7 +301,87 @@ const GitHubIcon = () => (
   </svg>
 );
 
-// Tech Item Data (36 Diverse Tech Stack Icons)
+const InstagramIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(225,48,108,0.85)]`}>
+    <defs>
+      <linearGradient id="instaGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#fdf497" />
+        <stop offset="5%" stopColor="#fdf497" />
+        <stop offset="45%" stopColor="#fd5949" />
+        <stop offset="60%" stopColor="#d6249f" />
+        <stop offset="100%" stopColor="#285AEB" />
+      </linearGradient>
+    </defs>
+    <rect width="112" height="112" x="8" y="8" fill="url(#instaGrad)" rx="28" />
+    <rect width="64" height="64" x="32" y="32" fill="none" stroke="#ffffff" strokeWidth="7" rx="18" />
+    <circle cx="64" cy="64" r="16" fill="none" stroke="#ffffff" strokeWidth="7" />
+    <circle cx="82" cy="46" r="4.5" fill="#ffffff" />
+  </svg>
+);
+
+const FacebookIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(24,119,242,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#1877F2" rx="28" />
+    <path d="M84 68h-14v44H52V68H42V52h10V40c0-12 7-18 18-18h12v16h-8c-5 0-6 2-6 6v8h14l-2 16z" fill="#ffffff" />
+  </svg>
+);
+
+const WhatsAppIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(37,211,102,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#25D366" rx="28" />
+    <path d="M64 24c-22 0-40 18-40 40 0 7 2 14 5 20L22 106l23-6c6 3 13 5 19 5 22 0 40-18 40-40s-18-40-40-40zm22 55c-1 3-5 5-8 5-2 0-5-1-14-5-12-6-20-18-21-19 0 0-4-6-4-11s3-8 4-9c1-1 3-1 4-1h2c1 0 2 0 3 2s4 10 4 11c0 0 0 1-1 2l-2 3c0 1 2 4 6 7 4 4 8 6 10 7l3-2c1-1 2-1 3 0s7 3 8 4c1 1 1 2 1 3 0 1 0 2-1 3z" fill="#ffffff" />
+  </svg>
+);
+
+const YouTubeIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(255,0,0,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#FF0000" rx="28" />
+    <polygon points="52,40 88,64 52,88" fill="#ffffff" />
+  </svg>
+);
+
+const PhotoshopIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(49,168,255,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#001E36" stroke="#31A8FF" strokeWidth="6" rx="24" />
+    <path d="M36 44h18c7 0 12 3 12 10s-5 10-12 10H46v20H36V44zm10 12h7c3 0 4-1 4-3s-1-3-4-3h-7v6zm34-12c5 0 9 2 11 6l-6 4c-1-2-3-3-5-3-3 0-5 2-5 5s2 4 6 5c6 2 10 5 10 11s-5 11-12 11c-6 0-11-3-13-8l7-4c1 3 3 5 6 5 3 0 5-2 5-4s-2-4-6-5c-6-2-10-5-10-11s5-10 12-10z" fill="#31A8FF" />
+  </svg>
+);
+
+const PremiereIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(153,153,255,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#00005B" stroke="#9999FF" strokeWidth="6" rx="24" />
+    <path d="M36 44h18c7 0 12 3 12 10s-5 10-12 10H46v20H36V44zm10 12h7c3 0 4-1 4-3s-1-3-4-3h-7v6zm30-12h10c5 0 8 3 8 7 0 3-2 6-5 7l6 14H83l-5-13h-4v13H64V44zm10 10h3c2 0 3-1 3-2s-1-2-3-2h-3v4z" fill="#9999FF" />
+  </svg>
+);
+
+const AfterEffectsIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(216,131,255,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#00003E" stroke="#D883FF" strokeWidth="6" rx="24" />
+    <path d="M36 84l12-40h10l12 40H70L67 74H53l-3 10H36zm19-18h10l-5-18-5 18zm26-8c0-8 6-14 14-14s14 5 14 13v3H95c0 4 3 6 7 6 3 0 5-1 6-3l5 4c-2 4-6 6-11 6-9 0-15-6-15-15zm14-7c-4 0-6 2-7 5h13c0-3-2-5-6-5z" fill="#D883FF" />
+  </svg>
+);
+
+const CanvaIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(0,196,204,0.85)]`}>
+    <defs>
+      <linearGradient id="canvaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#00C4CC" />
+        <stop offset="100%" stopColor="#7D2AE8" />
+      </linearGradient>
+    </defs>
+    <circle cx="64" cy="64" r="56" fill="url(#canvaGrad)" />
+    <path d="M72 44c-12 0-20 8-20 20s8 20 20 20c7 0 12-3 15-8l-7-5c-2 3-5 5-8 5-6 0-10-4-10-12s4-12 10-12c3 0 6 2 8 5l7-5c-3-5-8-8-15-8z" fill="#ffffff" />
+  </svg>
+);
+
+const CapCutIcon = () => (
+  <svg viewBox="0 0 128 128" className={`${iconClass} filter drop-shadow-[0_0_10px_rgba(255,255,255,0.85)]`}>
+    <rect width="112" height="112" x="8" y="8" fill="#000000" stroke="#ffffff" strokeWidth="4" rx="28" />
+    <path d="M36 40l28 24-28 24V40zm56 0L64 64l28 24V40z" fill="#ffffff" />
+  </svg>
+);
+
+// Tech Item Data (45 Diverse Tech Stack & Popular App Icons)
 const techItems = [
   { name: "JavaScript", icon: <JSIcon /> },
   { name: "TypeScript", icon: <TSIcon /> },
@@ -339,6 +419,14 @@ const techItems = [
   { name: "Figma", icon: <FigmaIcon /> },
   { name: "Vercel", icon: <VercelIcon /> },
   { name: "GitHub", icon: <GitHubIcon /> },
+  { name: "Instagram", icon: <InstagramIcon /> },
+  { name: "Facebook", icon: <FacebookIcon /> },
+  { name: "WhatsApp", icon: <WhatsAppIcon /> },
+  { name: "YouTube", icon: <YouTubeIcon /> },
+  { name: "Photoshop", icon: <PhotoshopIcon /> },
+  { name: "Premiere Pro", icon: <PremiereIcon /> },
+  { name: "After Effects", icon: <AfterEffectsIcon /> },
+  { name: "CapCut", icon: <CapCutIcon /> },
 ];
 
 // Deterministic pseudo-random generator for hydration-safe random movement
