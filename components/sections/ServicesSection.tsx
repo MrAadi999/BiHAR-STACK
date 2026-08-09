@@ -135,12 +135,12 @@ export default function ServicesSection() {
                   What We Offer
                 </h2>
 
-                {/* Transparent Magenta PNG Person Character placed directly on the RIGHT SIDE of the Navy Blue Frame Bar */}
+                {/* Transparent Magenta PNG Person Character (Shifted Slightly Higher & Further Right) */}
                 <motion.div 
                   initial={{ x: 10, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="absolute top-1/2 -translate-y-1/2 -right-8 sm:-right-12 w-10 sm:w-14 h-16 sm:h-22 pointer-events-none z-30"
+                  className="absolute -top-3 sm:-top-5 -right-12 sm:-right-16 w-11 sm:w-15 h-17 sm:h-24 pointer-events-none z-30"
                 >
                   <img 
                     src="/images/transparent_magenta_person.png" 
