@@ -7,15 +7,15 @@ export default function TheaterCurtain() {
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    // 1. Wait for processing loading screen to finish (approx 1.5s), then open curtain
+    // 1. Wait for processing loading screen to finish (1.4s), then immediately open curtain
     const openTimer = setTimeout(() => {
       setIsOpen(true);
-    }, 1600);
+    }, 1400);
 
-    // 2. Hide component completely after curtain reveal animation finishes (1.6s + 3.8s)
+    // 2. Hide component completely after curtain animation finishes (1.4s + 1.8s)
     const doneTimer = setTimeout(() => {
       setIsDone(true);
-    }, 5400);
+    }, 3200);
 
     return () => {
       clearTimeout(openTimer);
