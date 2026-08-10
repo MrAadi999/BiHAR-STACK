@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Slackey&family=Fredoka:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Slackey&family=Fredoka:wght@700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -499,3 +499,273 @@ body {
   pointer-events: none;
   transition: opacity 1.5s ease-out 2.8s, visibility 1.5s ease-out 2.8s;
 }
+
+/* ==========================================================================
+   AESTHETIC PLAYING CARDS STYLING & MICRO-ANIMATIONS
+   ========================================================================== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  perspective: 1200px;
+}
+
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.playing-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 440px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  cursor: pointer;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.playing-card:hover {
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.7);
+}
+
+.suit-corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.corner-top-left {
+  top: 18px;
+  left: 20px;
+}
+
+.corner-bottom-right {
+  bottom: 18px;
+  right: 20px;
+  transform: rotate(180deg);
+}
+
+.playing-card:hover .corner-top-left {
+  transform: translateZ(25px) translateY(-2px) scale(1.12);
+}
+
+.playing-card:hover .corner-bottom-right {
+  transform: rotate(180deg) translateZ(25px) translateY(-2px) scale(1.12);
+}
+
+.corner-rank { font-size: 1.5rem; }
+.corner-suit { 
+  font-size: 1.2rem; 
+  transition: transform 0.3s ease;
+}
+
+.playing-card:hover .corner-suit {
+  transform: scale(1.25);
+}
+
+/* CARD 01: BURGUNDY RED */
+.card-burgundy {
+  background: linear-gradient(145deg, #6B1426 0%, #4A0C1A 100%);
+  color: #F7F4EE;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.card-burgundy:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+}
+.card-burgundy .suit-corner { color: #F7F4EE; }
+.card-burgundy .sub-item { background: rgba(0, 0, 0, 0.2); border-color: rgba(255, 255, 255, 0.15); color: #F7F4EE; }
+.card-burgundy .sub-item:hover { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.45); }
+.card-burgundy .btn-start { background: #F7F4EE; color: #4A0C1A; }
+.card-burgundy .btn-start:hover { background: #ffffff; box-shadow: 0 6px 24px rgba(247, 244, 238, 0.4); }
+
+/* CARD 02: CREAM OFF-WHITE */
+.card-cream {
+  background: linear-gradient(145deg, #F7F4EE 0%, #E8E3D8 100%);
+  color: #2B1219;
+  border: 1px solid #DCD5C8;
+}
+.card-cream:hover {
+  border-color: #6B1426;
+}
+.card-cream .suit-corner { color: #6B1426; }
+.card-cream .sub-item { background: #ffffff; border-color: #DCD5C8; color: #2B1219; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+.card-cream .sub-item:hover { background: #2B1219; color: #F7F4EE; border-color: #2B1219; }
+.card-cream .btn-start { background: #2B1219; color: #F7F4EE; }
+.card-cream .btn-start:hover { background: #4A0C1A; box-shadow: 0 6px 24px rgba(43, 18, 25, 0.4); }
+
+/* CARD 03: OBSIDIAN BLACK */
+.card-obsidian {
+  background: linear-gradient(145deg, #1A1A22 0%, #0D0D12 100%);
+  color: #F7F4EE;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+.card-obsidian:hover {
+  border-color: rgba(255, 215, 0, 0.7);
+  box-shadow: 0 35px 80px rgba(255, 215, 0, 0.18);
+}
+.card-obsidian .suit-corner { color: #FFD700; }
+.card-obsidian .sub-item { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); color: #F7F4EE; }
+.card-obsidian .sub-item:hover { background: rgba(255, 215, 0, 0.12); border-color: rgba(255, 215, 0, 0.4); color: #FFD700; }
+.card-obsidian .btn-start { background: #FFD700; color: #111116; }
+.card-obsidian .btn-start:hover { background: #FFE44D; box-shadow: 0 6px 24px rgba(255, 215, 0, 0.45); }
+
+/* CARD 04: EMERALD SILK */
+.card-emerald {
+  background: linear-gradient(145deg, #133829 0%, #0A241A 100%);
+  color: #F7F4EE;
+  border: 1px solid rgba(0, 255, 102, 0.25);
+}
+.card-emerald:hover {
+  border-color: rgba(0, 255, 102, 0.65);
+  box-shadow: 0 35px 80px rgba(0, 255, 102, 0.16);
+}
+.card-emerald .suit-corner { color: #00FF66; }
+.card-emerald .sub-item { background: rgba(0, 0, 0, 0.25); border-color: rgba(0, 255, 102, 0.15); color: #F7F4EE; }
+.card-emerald .sub-item:hover { background: rgba(0, 255, 102, 0.16); border-color: rgba(0, 255, 102, 0.45); color: #00FF66; }
+.card-emerald .btn-start { background: #00FF66; color: #0A241A; }
+.card-emerald .btn-start:hover { background: #33FF85; box-shadow: 0 6px 24px rgba(0, 255, 102, 0.45); }
+
+.card-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  transform-style: preserve-3d;
+}
+
+.card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.35s ease;
+}
+
+.playing-card:hover .card-num {
+  transform: translateZ(20px);
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.15;
+  transition: transform 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+.playing-card:hover .card-title {
+  transform: translateZ(22px);
+}
+
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 500px) {
+  .sub-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sub-item {
+  padding: 10px 14px;
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.sub-item:hover {
+  transform: translateZ(18px) translateX(4px) scale(1.03);
+}
+
+.sub-item::before {
+  content: '✦';
+  font-size: 0.7rem;
+  opacity: 0.7;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.sub-item:hover::before {
+  transform: rotate(180deg) scale(1.4);
+  opacity: 1;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid rgba(150, 150, 150, 0.15);
+  transform-style: preserve-3d;
+}
+
+.btn-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.btn-start:hover {
+  transform: translateZ(25px) translateX(6px) scale(1.04);
+}
+
+/* Dynamic Holographic Light Flare Effect */
+.card-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.22),
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 5;
+  border-radius: 24px;
+}
+
+.playing-card:hover .card-shine {
+  opacity: 1;
+}
+
+

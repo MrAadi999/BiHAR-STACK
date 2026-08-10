@@ -205,6 +205,79 @@ const services = [
   },
 ];
 
+// 3D Magnetic Playing Card Component with Holographic Light Flare & Cursor Tilt
+function InteractivePlayingCard({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className: string;
+  delay?: number;
+}) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const [shinePos, setShinePos] = useState({ x: "50%", y: "50%" });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Smooth tilt calculation (-9deg to +9deg)
+    const rotateX = -((y - centerY) / centerY) * 9;
+    const rotateY = ((x - centerX) / centerX) * 9;
+
+    setRotate({ x: rotateX, y: rotateY });
+    setShinePos({ x: `${x}px`, y: `${y}px` });
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setRotate({ x: 0, y: 0 });
+  };
+
+  return (
+    <motion.article
+      ref={cardRef}
+      initial={{ opacity: 0, y: 60, rotateX: 12, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      animate={{
+        rotateX: isHovered ? rotate.x : 0,
+        rotateY: isHovered ? rotate.y : 0,
+        scale: isHovered ? 1.03 : 1,
+        y: isHovered ? -12 : 0,
+      }}
+      style={{
+        transformStyle: "preserve-3d",
+        perspective: 1000,
+        // @ts-ignore
+        "--mouse-x": shinePos.x,
+        // @ts-ignore
+        "--mouse-y": shinePos.y,
+      }}
+      className={`playing-card ${className}`}
+    >
+      <div className="card-shine" />
+      {children}
+    </motion.article>
+  );
+}
+
 export default function ServicesSection() {
   return (
     <section id="services" className="pt-4 sm:pt-6 pb-20 bg-[#f0f0f0] relative overflow-hidden">
@@ -391,63 +464,155 @@ export default function ServicesSection() {
             </div>
           </motion.div>
 
-
-
- 
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.15 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="relative rounded-none bg-white border-2 border-black p-8 shadow-sm hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 group flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="p-3 bg-[#f0f0f0] border border-black group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                    {service.icon}
-                  </div>
-                  <span className="text-xs font-mono font-bold text-neutral-400 group-hover:text-black transition-colors">0{index + 1}</span>
-                </div>
+        <div className="cards-container">
+          {/* CARD 01: DIGITAL MARKETING (BURGUNDY ACE OF SPADES) */}
+          <InteractivePlayingCard className="card-burgundy" delay={0.1}>
+            <div className="suit-corner corner-top-left">
+              <span className="corner-rank">A</span>
+              <span className="corner-suit">♠</span>
+            </div>
+            <div className="suit-corner corner-bottom-right">
+              <span className="corner-rank">A</span>
+              <span className="corner-suit">♠</span>
+            </div>
 
-                <h3 className="font-display text-2xl font-black text-black uppercase mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-xs text-neutral-700 font-medium leading-relaxed mb-6">
-                  {service.subtitle}
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
-                  {service.items.map((item) => (
-                    <div key={item} className="flex items-start gap-2">
-                      <div className="mt-0.5 p-0.5 bg-black text-white group-hover:scale-110 transition-transform">
-                        <Check className="w-3 h-3" />
-                      </div>
-                      <span className="text-xs font-semibold text-neutral-900 uppercase tracking-wide">{item}</span>
-                    </div>
-                  ))}
-                </div>
+            <div>
+              <div className="card-header">
+                <span className="card-num">01</span>
               </div>
+              <h2 className="card-title">Digital Marketing & Performance</h2>
 
-              <div className="pt-4 border-t border-neutral-200 flex items-center justify-between">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-black hover:text-neutral-600 transition-colors"
-                >
-                  <span>Learn More & Start</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
-                </a>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-500">Custom Built</span>
+              <div className="sub-grid">
+                <div className="sub-item">Social Media Marketing</div>
+                <div className="sub-item">Performance Marketing</div>
+                <div className="sub-item">Meta Ads & Google Ads</div>
+                <div className="sub-item">Search Engine Optimization (SEO)</div>
+                <div className="sub-item">Local SEO & GMB Ranking</div>
+                <div className="sub-item">High-Converting Lead Gen</div>
+                <div className="sub-item">Influencer Outreach</div>
+                <div className="sub-item">Automated Email Campaigns</div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+
+            <div className="card-footer">
+              <a href="#contact" className="btn-start">
+                Learn More & Start ➔
+              </a>
+            </div>
+          </InteractivePlayingCard>
+
+          {/* CARD 02: BRANDING & CREATIVE (CREAM ACE OF HEARTS) */}
+          <InteractivePlayingCard className="card-cream" delay={0.25}>
+            <div className="suit-corner corner-top-left">
+              <span className="corner-rank">A</span>
+              <span className="corner-suit">♥</span>
+            </div>
+            <div className="suit-corner corner-bottom-right">
+              <span className="corner-rank">A</span>
+              <span className="corner-suit">♥</span>
+            </div>
+
+            <div>
+              <div className="card-header">
+                <span className="card-num">02</span>
+              </div>
+              <h2 className="card-title">Branding & Creative Design</h2>
+
+              <div className="sub-grid">
+                <div className="sub-item">Logo & Visual Brand Identity</div>
+                <div className="sub-item">Graphic & Social Media Creatives</div>
+                <div className="sub-item">UI/UX Design for Web & Apps</div>
+                <div className="sub-item">Motion Graphics & 3D Visuals</div>
+                <div className="sub-item">High-Production Video Editing</div>
+                <div className="sub-item">Product Branding & Packaging</div>
+                <div className="sub-item">Brand Guidelines & Voice</div>
+                <div className="sub-item">Marketing Collaterals</div>
+              </div>
+            </div>
+
+            <div className="card-footer">
+              <a href="#contact" className="btn-start">
+                Learn More & Start ➔
+              </a>
+            </div>
+          </InteractivePlayingCard>
+
+          {/* CARD 03: WEBSITE & CUSTOM TECH (OBSIDIAN ACE OF DIAMONDS) */}
+          <InteractivePlayingCard className="card-obsidian" delay={0.4}>
+            <div className="suit-corner corner-top-left">
+              <span className="corner-rank">A</span>
+              <span className="corner-suit">♦</span>
+            </div>
+            <div className="suit-corner corner-bottom-right">
+              <span className="corner-rank">A</span>
+              <span className="corner-suit">♦</span>
+            </div>
+
+            <div>
+              <div className="card-header">
+                <span className="card-num">03</span>
+              </div>
+              <h2 className="card-title">Website & Custom Technology</h2>
+
+              <div className="sub-grid">
+                <div className="sub-item">Custom Business Websites</div>
+                <div className="sub-item">E-commerce Platforms (Shopify/Next)</div>
+                <div className="sub-item">High-Converting Landing Pages</div>
+                <div className="sub-item">Full-Stack Custom Web Apps</div>
+                <div className="sub-item">iOS & Android Mobile Apps</div>
+                <div className="sub-item">SaaS Platform Development</div>
+                <div className="sub-item">REST & GraphQL API Integration</div>
+                <div className="sub-item">Speed & Core Web Vitals Optimization</div>
+              </div>
+            </div>
+
+            <div className="card-footer">
+              <a href="#contact" className="btn-start">
+                Learn More & Start ➔
+              </a>
+            </div>
+          </InteractivePlayingCard>
+
+          {/* CARD 04: AI & WORKFLOW AUTOMATION (EMERALD ACE OF CLUBS) */}
+          <InteractivePlayingCard className="card-emerald" delay={0.55}>
+            <div className="suit-corner corner-top-left">
+              <span className="corner-rank">A</span>
+              <span className="corner-suit">♣</span>
+            </div>
+            <div className="suit-corner corner-bottom-right">
+              <span className="corner-rank">A</span>
+              <span className="corner-suit">♣</span>
+            </div>
+
+            <div>
+              <div className="card-header">
+                <span className="card-num">04</span>
+              </div>
+              <h2 className="card-title">AI & Workflow Automation</h2>
+
+              <div className="sub-grid">
+                <div className="sub-item">Custom AI Chatbots & Knowledge Bases</div>
+                <div className="sub-item">WhatsApp & CRM Automation</div>
+                <div className="sub-item">Business Process Automation</div>
+                <div className="sub-item">Autonomous AI Agents</div>
+                <div className="sub-item">AI Content & Asset Creation Pipelines</div>
+                <div className="sub-item">Zapier / Make Workflow Automation</div>
+                <div className="sub-item">Lead Enrichment & Auto-Nurturing</div>
+                <div className="sub-item">Bespoke Enterprise AI Integration</div>
+              </div>
+            </div>
+
+            <div className="card-footer">
+              <a href="#contact" className="btn-start">
+                Learn More & Start ➔
+              </a>
+            </div>
+          </InteractivePlayingCard>
         </div>
       </div>
     </section>
   );
 }
+
