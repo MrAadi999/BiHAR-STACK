@@ -1,4 +1,5 @@
 import LoadingScreen from "@/components/layout/LoadingScreen";
+import TheaterCurtain from "@/components/layout/TheaterCurtain";
 import Navbar from "@/components/layout/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import StatsMarqueeSection from "@/components/sections/StatsMarqueeSection";
@@ -23,8 +24,11 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f0f0f0] text-slate-100 relative w-full max-w-full overflow-x-hidden selection:bg-electric-600 selection:text-white">
-      {/* 1. Loading Screen */}
+      {/* 1. Processing Loading Screen */}
       <LoadingScreen />
+
+      {/* 2. Realistic Theater Curtain Reveal Overlay */}
+      <TheaterCurtain />
 
       {/* Interactive Custom Cursor */}
       <CustomCursor />
