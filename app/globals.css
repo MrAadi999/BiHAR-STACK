@@ -413,7 +413,7 @@ body {
   box-shadow: 
     inset 0 0 100px rgba(0, 0, 0, 0.8),
     0 0 50px rgba(0, 0, 0, 0.9);
-  transition: transform 1.3s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: transform 1.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .curtain-left {
@@ -433,7 +433,7 @@ body {
   width: 100%;
   z-index: 10001;
   pointer-events: none;
-  transition: transform 1.2s ease-in-out, opacity 1.2s;
+  transition: transform 1.6s ease-in-out, opacity 1.6s;
 }
 
 .valance-svg {
@@ -476,10 +476,10 @@ body {
   height: 120px;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path fill="%23050508" d="M0,120 L0,70 Q20,50 40,70 Q60,40 80,70 Q100,60 120,70 Q140,45 160,70 Q180,55 200,70 Q220,40 240,70 Q260,50 280,70 Q300,35 320,70 Q340,50 360,70 Q380,45 400,70 Q420,60 440,70 Q460,40 480,70 Q500,50 520,70 Q540,35 560,70 Q580,55 600,70 Q620,40 640,70 Q660,50 680,70 Q700,35 720,70 Q740,50 760,70 Q780,45 800,70 Q820,60 840,70 Q860,40 880,70 Q900,50 920,70 Q940,35 960,70 Q980,55 1000,70 Q1020,40 1040,70 Q1060,50 1080,70 Q1100,35 1120,70 Q1140,50 1160,70 Q1180,45 1200,70 L1200,120 Z"/></svg>') bottom center / cover no-repeat;
   z-index: 10003;
-  transition: transform 1.1s ease-in-out, opacity 1.1s;
+  transition: transform 1.4s ease-in-out, opacity 1.4s;
 }
 
-/* OPEN ANIMATION STATE - INSTANT REVEAL OF WEBSITE BEHIND CURTAINS */
+/* OPEN ANIMATION STATE - SMOOTH & MAJESTIC REVEAL */
 #theater-stage.open .curtain-left {
   transform: translateX(-88%) scaleX(0.25);
 }
@@ -506,5 +506,5 @@ body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.5s ease-out 0.1s, visibility 0.5s ease-out 0.1s;
+  transition: opacity 0.8s ease-out 0.2s, visibility 0.8s ease-out 0.2s;
 }
