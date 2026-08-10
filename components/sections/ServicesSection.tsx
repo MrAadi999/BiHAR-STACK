@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TrendingUp, Palette, Code2, Bot, ArrowRight, Check, Sparkles, Layers, Palette as PaletteIcon, Megaphone } from "lucide-react";
+import { TrendingUp, Palette, Code2, Bot, ArrowRight, Check, Sparkles, Layers, Palette as PaletteIcon, Megaphone, DollarSign, Settings, Package, Wallet } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 // 5 Color Themes Matching the User's Image Reference
@@ -113,7 +113,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="pt-6 sm:pt-8 pb-20 bg-[#f0f0f0] relative overflow-hidden">
+    <section id="services" className="pt-4 sm:pt-6 pb-20 bg-[#f0f0f0] relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         
         {/* Centered Top Header for 3rd Page (Recreated exact Navy Bubble Cluster Frame from User Reference Image) */}
@@ -125,15 +125,42 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-block mt-3 sm:mt-4 mb-2 sm:mb-3 relative select-none"
+            className="inline-block mt-1 sm:mt-1 mb-2 sm:mb-3 relative select-none"
           >
-            <div className="relative inline-flex items-center my-2 max-w-full">
+            <div className="relative inline-flex items-center my-0 max-w-full">
               
-              {/* Main Sleek Horizontal Deep Navy Blue Bar (Right Side Only Trimmed Compact) */}
-              <div className="relative bg-[#0A2540] text-white shadow-[0_8px_20px_-4px_rgba(10,37,64,0.45)] pl-11 sm:pl-16 pr-3.5 sm:pr-5 py-2.5 sm:py-3.5 flex items-center justify-center border-y-2 border-r-2 border-[#1B365D] rounded-r-md">
-                <h2 className="text-xl sm:text-3xl lg:text-4xl font-black uppercase tracking-wider text-white drop-shadow-md">
+              {/* Main Sleek Horizontal Header Container */}
+              <div className="relative pl-11 sm:pl-16 pr-3.5 sm:pr-5 py-1.5 sm:py-2 flex flex-col items-center justify-center">
+                <h2 className="text-xl sm:text-3xl lg:text-4xl font-black uppercase tracking-wider text-[#0A2540]">
                   What We Offer
                 </h2>
+
+                {/* Ultra-Slim 5-Step Connected Chevron Arrow Ribbon (Exact length of What We Offer heading & just below it) */}
+                <div className="w-full mt-1 sm:mt-1.5 select-none drop-shadow-sm">
+                  <div className="flex items-center justify-center w-full">
+                    {[
+                      { id: 1, bg: "bg-[#0B2E4C]", icon: <TrendingUp className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" /> },
+                      { id: 2, bg: "bg-[#0088CC]", icon: <DollarSign className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" /> },
+                      { id: 3, bg: "bg-[#00B58A]", icon: <Settings className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" /> },
+                      { id: 4, bg: "bg-[#F59E0B]", icon: <Package className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" /> },
+                      { id: 5, bg: "bg-[#EF4444]", icon: <Wallet className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" /> },
+                    ].map((step, idx) => (
+                      <div
+                        key={step.id}
+                        className={`relative flex-1 h-3.5 sm:h-4.5 ${step.bg} flex items-center justify-center transition-transform hover:scale-105 ${idx > 0 ? "-ml-1.5 sm:-ml-2" : ""}`}
+                        style={{
+                          clipPath: idx === 0 
+                            ? "polygon(0% 0%, calc(100% - 6px) 0%, 100% 50%, calc(100% - 6px) 100%, 0% 100%)" 
+                            : "polygon(0% 0%, calc(100% - 6px) 0%, 100% 50%, calc(100% - 6px) 100%, 0% 100%, 6px 50%)"
+                        }}
+                      >
+                        <div className="pl-0.5 sm:pl-1 pr-0.5">
+                          {step.icon}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
                 {/* 100% True Transparent Yellow Question Mark Emoji Character */}
                 <motion.div 
@@ -277,6 +304,8 @@ export default function ServicesSection() {
 
             </div>
           </motion.div>
+
+
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
