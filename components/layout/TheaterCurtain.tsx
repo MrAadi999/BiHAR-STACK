@@ -12,10 +12,10 @@ export default function TheaterCurtain() {
       setIsOpen(true);
     }, 1400);
 
-    // 2. Hide component completely after curtain animation finishes (1.4s + 3.8s)
+    // 2. Hide component completely after full slow curtain animation finishes (1.4s + 6.1s)
     const doneTimer = setTimeout(() => {
       setIsDone(true);
-    }, 5200);
+    }, 7500);
 
     return () => {
       clearTimeout(openTimer);
