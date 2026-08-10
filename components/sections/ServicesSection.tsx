@@ -1,9 +1,103 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TrendingUp, Palette, Code2, Bot, ArrowRight, Check, Sparkles, Layers, Palette as PaletteIcon, Megaphone, DollarSign, Settings, Package, Wallet } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
+
+// Interactive Question Mark with Mouse Tracking Eyes & Head Tilt
+function InteractiveQuestionMark() {
+  const [mousePos, setMousePos] = useState({ pupilX: 0, pupilY: 0, rotateX: 0, rotateY: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height * 0.75; // Eye height position
+
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
+      const dist = Math.hypot(dx, dy);
+      const maxDist = 400;
+      const ratio = Math.min(dist / maxDist, 1);
+      const angle = Math.atan2(dy, dx);
+
+      // Max pupil translation in px inside eye socket
+      const maxPupilMove = 3.5;
+      const pupilX = Math.cos(angle) * maxPupilMove * ratio;
+      const pupilY = Math.sin(angle) * maxPupilMove * ratio;
+
+      // 3D head tilt toward mouse direction
+      const rotateY = Math.min(Math.max(dx * 0.025, -16), 16);
+      const rotateX = Math.min(Math.max(-dy * 0.025, -16), 16);
+
+      setMousePos({ pupilX, pupilY, rotateX, rotateY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <motion.div 
+      ref={containerRef}
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="absolute top-0 sm:top-0 -right-11 sm:-right-[62px] w-14 sm:w-[68px] h-14 sm:h-[68px] pointer-events-none z-30 drop-shadow-md select-none"
+      style={{ perspective: 600 }}
+    >
+      <motion.div 
+        animate={{ 
+          y: [0, -4, 0],
+          rotateX: mousePos.rotateX,
+          rotateY: mousePos.rotateY,
+        }}
+        transition={{ 
+          y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+          rotateX: { type: "spring", stiffness: 220, damping: 18 },
+          rotateY: { type: "spring", stiffness: 220, damping: 18 },
+        }}
+        className="relative w-full h-full"
+      >
+        {/* Base Image */}
+        <img 
+          src="/images/transparent_yellow_question.png" 
+          alt="Yellow question mark shrugging emoji character" 
+          className="w-full h-full object-contain relative z-10" 
+        />
+
+        {/* Left Pupil Eye Tracking */}
+        <div 
+          className="absolute z-20 bg-[#111111] rounded-full pointer-events-none"
+          style={{
+            width: '6.5%',
+            height: '7.5%',
+            left: '43%',
+            top: '73.5%',
+            transform: `translate(${mousePos.pupilX}px, ${mousePos.pupilY}px)`,
+            transition: 'transform 0.04s ease-out',
+          }}
+        />
+
+        {/* Right Pupil Eye Tracking */}
+        <div 
+          className="absolute z-20 bg-[#111111] rounded-full pointer-events-none"
+          style={{
+            width: '6.5%',
+            height: '7.5%',
+            left: '51%',
+            top: '73.5%',
+            transform: `translate(${mousePos.pupilX}px, ${mousePos.pupilY}px)`,
+            transition: 'transform 0.04s ease-out',
+          }}
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
 
 // 5 Color Themes Matching the User's Image Reference
 const ribbonThemes = [
@@ -131,12 +225,18 @@ export default function ServicesSection() {
               
               {/* Main Sleek Horizontal Header Container */}
               <div className="relative pl-11 sm:pl-16 pr-3.5 sm:pr-5 py-1.5 sm:py-2 flex flex-col items-center justify-center">
-                <h2 className="text-xl sm:text-3xl lg:text-4xl font-black uppercase tracking-wider text-[#0A2540]">
-                  What We Offer
-                </h2>
+                
+                {/* Heading Text + Question Mark Emoji directly to its right */}
+                <div className="relative inline-flex items-center justify-center">
+                  <h2 className="text-xl sm:text-3xl lg:text-4xl font-black uppercase tracking-wider text-[#0A2540]">
+                    What We Offer
+                  </h2>
+
+                  <InteractiveQuestionMark />
+                </div>
 
                 {/* Ultra-Slim 5-Step Connected Chevron Arrow Ribbon (Exact length of What We Offer heading & just below it) */}
-                <div className="w-full mt-1 sm:mt-1.5 select-none drop-shadow-sm">
+                <div className="w-full mt-1.5 sm:mt-2 select-none drop-shadow-sm">
                   <div className="flex items-center justify-center w-full">
                     {[
                       { id: 1, bg: "bg-[#0B2E4C]", icon: <TrendingUp className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" /> },
@@ -161,20 +261,6 @@ export default function ServicesSection() {
                     ))}
                   </div>
                 </div>
-
-                {/* 100% True Transparent Yellow Question Mark Emoji Character */}
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="absolute top-1/2 -translate-y-1/2 -right-10 sm:-right-14 w-12 sm:w-16 h-12 sm:h-16 pointer-events-none z-30 drop-shadow-md"
-                >
-                  <img 
-                    src="/images/transparent_yellow_question.png" 
-                    alt="Yellow question mark shrugging emoji character" 
-                    className="w-full h-full object-contain" 
-                  />
-                </motion.div>
               </div>
 
               {/* Left Bubbles Medallion Cluster with Bihar Stack Logo & 360° Orbiting Satellite Bubbles */}
@@ -307,15 +393,7 @@ export default function ServicesSection() {
 
 
 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-base sm:text-lg lg:text-xl text-neutral-700 font-medium leading-relaxed max-w-2xl mx-auto"
-          >
-            End-to-end digital solutions &ldquo;Build Digital. Grow Faster.&rdquo;
-          </motion.p>
+ 
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

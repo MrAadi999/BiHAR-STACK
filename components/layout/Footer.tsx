@@ -28,6 +28,11 @@ export default function Footer() {
               BIHARSTACK
             </a>
 
+            {/* Tagline Badge */}
+            <div className="inline-block py-1 px-3 bg-white border border-black/30 shadow-xs rounded text-xs font-black uppercase tracking-wider text-[#0A2540]">
+              End-to-end digital solutions &ldquo;Build Digital. Grow Faster.&rdquo;
+            </div>
+
             <p className="text-xs font-bold uppercase tracking-wider text-black leading-relaxed">
               &quot;Building Bihar. Scaling Businesses.&quot; <br />
               <span>&quot;Think Digital. Think BiharStack.&quot;</span>
@@ -196,8 +201,15 @@ export default function Footer() {
 
         </div>
 
+        {/* Tagline Highlight Bar */}
+        <div className="mt-8 pt-6 border-t border-neutral-300 text-center">
+          <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#0A2540] bg-white/80 border border-black/10 py-2 px-4 rounded-md inline-block shadow-xs">
+            End-to-end digital solutions &ldquo;Build Digital. Grow Faster.&rdquo;
+          </p>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold uppercase tracking-widest text-neutral-700 text-center sm:text-left">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold uppercase tracking-widest text-neutral-700 text-center sm:text-left">
           <p>© 2026 BiharStack Technologies Pvt. Ltd. All rights reserved.</p>
           <p className="flex items-center gap-1.5 justify-center">
             <span>Crafted with</span>
