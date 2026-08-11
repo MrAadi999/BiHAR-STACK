@@ -2,7 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TrendingUp, Palette, Code2, Bot, ArrowRight, Check, Sparkles, Layers, Palette as PaletteIcon, Megaphone, DollarSign, Settings, Package, Wallet } from "lucide-react";
+import { 
+  TrendingUp, Palette, Code2, Bot, ArrowRight, Check, Sparkles, Layers, Megaphone, DollarSign, Settings, Package, Wallet,
+  Share2, Target, Search, MapPin, Users, Award, Mail, Layout, Film, Video, BookOpen, Image as ImageIcon, Globe,
+  ShoppingCart, Rocket, Smartphone, Cloud, Cpu, Gauge, MessageSquare, Workflow, Brain, UserPlus, ShieldCheck
+} from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 // Interactive Question Mark with Mouse Tracking Eyes & Head Tilt
@@ -486,14 +490,14 @@ export default function ServicesSection() {
               <h2 className="card-title">Digital Marketing & Performance</h2>
 
               <div className="sub-grid">
-                <div className="sub-item">Social Media Marketing</div>
-                <div className="sub-item">Performance Marketing</div>
-                <div className="sub-item">Meta Ads & Google Ads</div>
-                <div className="sub-item">Search Engine Optimization (SEO)</div>
-                <div className="sub-item">Local SEO & GMB Ranking</div>
-                <div className="sub-item">High-Converting Lead Gen</div>
-                <div className="sub-item">Influencer Outreach</div>
-                <div className="sub-item">Automated Email Campaigns</div>
+                <div className="sub-item"><Share2 className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Social Media Marketing</span></div>
+                <div className="sub-item"><TrendingUp className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Performance Marketing</span></div>
+                <div className="sub-item"><Target className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Meta Ads & Google Ads</span></div>
+                <div className="sub-item"><Search className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Search Engine Optimization (SEO)</span></div>
+                <div className="sub-item"><MapPin className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Local SEO & GMB Ranking</span></div>
+                <div className="sub-item"><Users className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>High-Converting Lead Gen</span></div>
+                <div className="sub-item"><Award className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Influencer Outreach</span></div>
+                <div className="sub-item"><Mail className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Automated Email Campaigns</span></div>
               </div>
             </div>
 
@@ -511,14 +515,14 @@ export default function ServicesSection() {
               <h2 className="card-title">Branding & Creative Design</h2>
 
               <div className="sub-grid">
-                <div className="sub-item">Logo & Visual Brand Identity</div>
-                <div className="sub-item">Graphic & Social Media Creatives</div>
-                <div className="sub-item">UI/UX Design for Web & Apps</div>
-                <div className="sub-item">Motion Graphics & 3D Visuals</div>
-                <div className="sub-item">High-Production Video Editing</div>
-                <div className="sub-item">Product Branding & Packaging</div>
-                <div className="sub-item">Brand Guidelines & Voice</div>
-                <div className="sub-item">Marketing Collaterals</div>
+                <div className="sub-item"><Sparkles className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Logo & Visual Brand Identity</span></div>
+                <div className="sub-item"><Palette className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Graphic & Social Media Creatives</span></div>
+                <div className="sub-item"><Layout className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>UI/UX Design for Web & Apps</span></div>
+                <div className="sub-item"><Film className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Motion Graphics & 3D Visuals</span></div>
+                <div className="sub-item"><Video className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>High-Production Video Editing</span></div>
+                <div className="sub-item"><Package className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Product Branding & Packaging</span></div>
+                <div className="sub-item"><BookOpen className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Brand Guidelines & Voice</span></div>
+                <div className="sub-item"><ImageIcon className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Marketing Collaterals</span></div>
               </div>
             </div>
 
@@ -536,14 +540,14 @@ export default function ServicesSection() {
               <h2 className="card-title">Website & Custom Technology</h2>
 
               <div className="sub-grid">
-                <div className="sub-item">Custom Business Websites</div>
-                <div className="sub-item">E-commerce Platforms (Shopify/Next)</div>
-                <div className="sub-item">High-Converting Landing Pages</div>
-                <div className="sub-item">Full-Stack Custom Web Apps</div>
-                <div className="sub-item">iOS & Android Mobile Apps</div>
-                <div className="sub-item">SaaS Platform Development</div>
-                <div className="sub-item">REST & GraphQL API Integration</div>
-                <div className="sub-item">Speed & Core Web Vitals Optimization</div>
+                <div className="sub-item"><Globe className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Custom Business Websites</span></div>
+                <div className="sub-item"><ShoppingCart className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>E-commerce Platforms (Shopify/Next)</span></div>
+                <div className="sub-item"><Rocket className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>High-Converting Landing Pages</span></div>
+                <div className="sub-item"><Code2 className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Full-Stack Custom Web Apps</span></div>
+                <div className="sub-item"><Smartphone className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>iOS & Android Mobile Apps</span></div>
+                <div className="sub-item"><Cloud className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>SaaS Platform Development</span></div>
+                <div className="sub-item"><Cpu className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>REST & GraphQL API Integration</span></div>
+                <div className="sub-item"><Gauge className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Speed & Core Web Vitals Optimization</span></div>
               </div>
             </div>
 
@@ -561,14 +565,14 @@ export default function ServicesSection() {
               <h2 className="card-title">AI & Workflow Automation</h2>
 
               <div className="sub-grid">
-                <div className="sub-item">Custom AI Chatbots & Knowledge Bases</div>
-                <div className="sub-item">WhatsApp & CRM Automation</div>
-                <div className="sub-item">Business Process Automation</div>
-                <div className="sub-item">Autonomous AI Agents</div>
-                <div className="sub-item">AI Content & Asset Creation Pipelines</div>
-                <div className="sub-item">Zapier / Make Workflow Automation</div>
-                <div className="sub-item">Lead Enrichment & Auto-Nurturing</div>
-                <div className="sub-item">Bespoke Enterprise AI Integration</div>
+                <div className="sub-item"><Bot className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Custom AI Chatbots & Knowledge Bases</span></div>
+                <div className="sub-item"><MessageSquare className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>WhatsApp & CRM Automation</span></div>
+                <div className="sub-item"><Workflow className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Business Process Automation</span></div>
+                <div className="sub-item"><Brain className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Autonomous AI Agents</span></div>
+                <div className="sub-item"><Sparkles className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>AI Content & Asset Creation Pipelines</span></div>
+                <div className="sub-item"><Layers className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Zapier / Make Workflow Automation</span></div>
+                <div className="sub-item"><UserPlus className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Lead Enrichment & Auto-Nurturing</span></div>
+                <div className="sub-item"><ShieldCheck className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Bespoke Enterprise AI Integration</span></div>
               </div>
             </div>
 
