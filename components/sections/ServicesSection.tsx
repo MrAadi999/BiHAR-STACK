@@ -217,15 +217,17 @@ const services = [
   },
 ];
 
-// 3D Magnetic Playing Card Component with Holographic Light Flare & Cursor Tilt
+// 3D Magnetic Playing Card Component with Holographic Light Flare & Cursor Tilt + Center Stack Fan-Out Animation
 function InteractivePlayingCard({
   children,
   className,
   delay = 0,
+  cardIndex = 1,
 }: {
   children: React.ReactNode;
   className: string;
   delay?: number;
+  cardIndex?: number;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
@@ -263,13 +265,39 @@ function InteractivePlayingCard({
     setRotate({ x: 0, y: 0 });
   };
 
+  // Center-stacked position before scrolling into "What We Offer"
+  const getInitialPos = (index: number) => {
+    switch (index) {
+      case 1:
+        return { x: 180, y: 150, rotateZ: -14, scale: 0.72, opacity: 0 };
+      case 2:
+        return { x: -180, y: 150, rotateZ: 12, scale: 0.72, opacity: 0 };
+      case 3:
+        return { x: 180, y: -150, rotateZ: -10, scale: 0.72, opacity: 0 };
+      case 4:
+        return { x: -180, y: -150, rotateZ: 14, scale: 0.72, opacity: 0 };
+      default:
+        return { x: 0, y: 120, rotateZ: 0, scale: 0.72, opacity: 0 };
+    }
+  };
+
   return (
     <motion.article
       ref={cardRef}
-      initial={{ opacity: 0, y: 60, rotateX: 12, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+      initial={getInitialPos(cardIndex)}
+      whileInView={{
+        x: 0,
+        y: 0,
+        rotateZ: 0,
+        scale: 1,
+        opacity: 1,
+      }}
       viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{
+        duration: 0.85,
+        delay: cardIndex * 0.14,
+        ease: [0.16, 1, 0.3, 1],
+      }}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -485,7 +513,7 @@ export default function ServicesSection() {
 
         <div className="cards-container">
           {/* CARD 01: DIGITAL MARKETING (BURGUNDY ACE OF SPADES) */}
-          <InteractivePlayingCard className="card-burgundy" delay={0.1}>
+          <InteractivePlayingCard className="card-burgundy" delay={0.1} cardIndex={1}>
             <div>
               <h2 className="card-title">Digital Marketing & Performance</h2>
 
@@ -510,7 +538,7 @@ export default function ServicesSection() {
           </InteractivePlayingCard>
 
           {/* CARD 02: BRANDING & CREATIVE (CREAM ACE OF HEARTS) */}
-          <InteractivePlayingCard className="card-cream" delay={0.25}>
+          <InteractivePlayingCard className="card-cream" delay={0.25} cardIndex={2}>
             <div>
               <h2 className="card-title">Branding & Creative Design</h2>
 
@@ -535,7 +563,7 @@ export default function ServicesSection() {
           </InteractivePlayingCard>
 
           {/* CARD 03: WEBSITE & CUSTOM TECH (OBSIDIAN ACE OF DIAMONDS) */}
-          <InteractivePlayingCard className="card-obsidian" delay={0.4}>
+          <InteractivePlayingCard className="card-obsidian" delay={0.4} cardIndex={3}>
             <div>
               <h2 className="card-title">Website & Custom Technology</h2>
 
@@ -560,7 +588,7 @@ export default function ServicesSection() {
           </InteractivePlayingCard>
 
           {/* CARD 04: AI & WORKFLOW AUTOMATION (EMERALD ACE OF CLUBS) */}
-          <InteractivePlayingCard className="card-emerald" delay={0.55}>
+          <InteractivePlayingCard className="card-emerald" delay={0.55} cardIndex={4}>
             <div>
               <h2 className="card-title">AI & Workflow Automation</h2>
 
