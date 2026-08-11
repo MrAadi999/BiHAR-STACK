@@ -5,10 +5,8 @@ import HeroSection from "@/components/sections/HeroSection";
 import StatsMarqueeSection from "@/components/sections/StatsMarqueeSection";
 import WhoWeAreSection from "@/components/sections/WhoWeAreSection";
 import TechHighwaySection from "@/components/sections/TechHighwaySection";
-import SolarServicesSection from "@/components/sections/SolarServicesSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
-import DashboardStatsSection from "@/components/sections/DashboardStatsSection";
 import PortfolioSection from "@/components/sections/PortfolioSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import IndustriesSection from "@/components/sections/IndustriesSection";
@@ -53,12 +51,6 @@ export default function Home() {
 
       {/* 6. Why BiharStack */}
       <WhyChooseUsSection />
-
-      {/* 7. Solar System Ecosystem Section */}
-      <SolarServicesSection />
-
-      {/* 8. Dashboard & Statistics Section */}
-      <DashboardStatsSection />
 
       {/* 8. Portfolio / Work Showcase */}
       <PortfolioSection />
