@@ -522,11 +522,11 @@ body {
 .playing-card {
   position: relative;
   border-radius: 24px;
-  padding: 40px 35px;
+  padding: 30px 15px 10px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 440px;
+  min-height: 380px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
   cursor: pointer;
@@ -594,8 +594,18 @@ body {
 .card-burgundy .suit-corner { color: #F7F4EE; }
 .card-burgundy .sub-item { background: rgba(0, 0, 0, 0.2); border-color: rgba(255, 255, 255, 0.15); color: #F7F4EE; }
 .card-burgundy .sub-item:hover { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.45); }
-.card-burgundy .btn-start { background: #F7F4EE; color: #4A0C1A; }
-.card-burgundy .btn-start:hover { background: #ffffff; box-shadow: 0 6px 24px rgba(247, 244, 238, 0.4); }
+.card-burgundy .btn-start { 
+  background: linear-gradient(135deg, #F7F4EE 0%, #E6DFD3 100%); 
+  color: #4A0C1A; 
+  border-color: rgba(255, 255, 255, 0.5); 
+}
+.card-burgundy .btn-start .btn-icon-bubble { background: #4A0C1A; color: #F7F4EE; }
+.card-burgundy .btn-start:hover { 
+  background: #FFFFFF; 
+  border-color: #FFFFFF; 
+  box-shadow: 0 8px 25px rgba(247, 244, 238, 0.5); 
+}
+.card-burgundy .btn-start:hover .btn-icon-bubble { background: #6B1426; color: #FFFFFF; }
 
 /* CARD 02: CREAM OFF-WHITE */
 .card-cream {
@@ -609,8 +619,18 @@ body {
 .card-cream .suit-corner { color: #6B1426; }
 .card-cream .sub-item { background: #ffffff; border-color: #DCD5C8; color: #2B1219; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
 .card-cream .sub-item:hover { background: #2B1219; color: #F7F4EE; border-color: #2B1219; }
-.card-cream .btn-start { background: #2B1219; color: #F7F4EE; }
-.card-cream .btn-start:hover { background: #4A0C1A; box-shadow: 0 6px 24px rgba(43, 18, 25, 0.4); }
+.card-cream .btn-start { 
+  background: linear-gradient(135deg, #2B1219 0%, #1A0A10 100%); 
+  color: #F7F4EE; 
+  border-color: rgba(107, 20, 38, 0.4); 
+}
+.card-cream .btn-start .btn-icon-bubble { background: #F7F4EE; color: #2B1219; }
+.card-cream .btn-start:hover { 
+  background: #4A0C1A; 
+  border-color: #6B1426; 
+  box-shadow: 0 8px 25px rgba(74, 12, 26, 0.45); 
+}
+.card-cream .btn-start:hover .btn-icon-bubble { background: #FFFFFF; color: #4A0C1A; }
 
 /* CARD 03: OBSIDIAN BLACK */
 .card-obsidian {
@@ -625,8 +645,18 @@ body {
 .card-obsidian .suit-corner { color: #FFD700; }
 .card-obsidian .sub-item { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); color: #F7F4EE; }
 .card-obsidian .sub-item:hover { background: rgba(255, 215, 0, 0.12); border-color: rgba(255, 215, 0, 0.4); color: #FFD700; }
-.card-obsidian .btn-start { background: #FFD700; color: #111116; }
-.card-obsidian .btn-start:hover { background: #FFE44D; box-shadow: 0 6px 24px rgba(255, 215, 0, 0.45); }
+.card-obsidian .btn-start { 
+  background: linear-gradient(135deg, #FFD700 0%, #E6C200 100%); 
+  color: #0D0D12; 
+  border-color: rgba(255, 215, 0, 0.8); 
+}
+.card-obsidian .btn-start .btn-icon-bubble { background: #0D0D12; color: #FFD700; }
+.card-obsidian .btn-start:hover { 
+  background: #FFE44D; 
+  border-color: #FFF066; 
+  box-shadow: 0 8px 28px rgba(255, 215, 0, 0.6); 
+}
+.card-obsidian .btn-start:hover .btn-icon-bubble { background: #1A1A22; color: #FFE44D; }
 
 /* CARD 04: EMERALD SILK */
 .card-emerald {
@@ -641,8 +671,18 @@ body {
 .card-emerald .suit-corner { color: #00FF66; }
 .card-emerald .sub-item { background: rgba(0, 0, 0, 0.25); border-color: rgba(0, 255, 102, 0.15); color: #F7F4EE; }
 .card-emerald .sub-item:hover { background: rgba(0, 255, 102, 0.16); border-color: rgba(0, 255, 102, 0.45); color: #00FF66; }
-.card-emerald .btn-start { background: #00FF66; color: #0A241A; }
-.card-emerald .btn-start:hover { background: #33FF85; box-shadow: 0 6px 24px rgba(0, 255, 102, 0.45); }
+.card-emerald .btn-start { 
+  background: linear-gradient(135deg, #00FF66 0%, #00CC52 100%); 
+  color: #0A241A; 
+  border-color: rgba(0, 255, 102, 0.8); 
+}
+.card-emerald .btn-start .btn-icon-bubble { background: #0A241A; color: #00FF66; }
+.card-emerald .btn-start:hover { 
+  background: #33FF85; 
+  border-color: #66FF99; 
+  box-shadow: 0 8px 28px rgba(0, 255, 102, 0.55); 
+}
+.card-emerald .btn-start:hover .btn-icon-bubble { background: #133829; color: #33FF85; }
 
 .card-header {
   display: flex;
@@ -683,7 +723,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 14px;
 }
 
 @media (max-width: 500px) {
@@ -723,7 +763,7 @@ body {
 
 .card-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   padding-top: 15px;
   border-top: 1px solid rgba(150, 150, 150, 0.15);
@@ -733,19 +773,38 @@ body {
 .btn-start {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 8px;
+  gap: 10px;
+  padding: 10px 18px 10px 20px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 9999px;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   transform-style: preserve-3d;
+  position: relative;
+  border: 1.5px solid transparent;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn-icon-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-start:hover {
-  transform: translateZ(25px) translateX(6px) scale(1.04);
+  transform: translateZ(25px) scale(1.06);
+}
+
+.btn-start:hover .btn-icon-bubble {
+  transform: translateX(4px) scale(1.12);
 }
 
 /* Dynamic Holographic Light Flare Effect */
@@ -767,5 +826,16 @@ body {
 .playing-card:hover .card-shine {
   opacity: 1;
 }
+
+/* Technical 20px Graph Grid Paper Pattern Overlay */
+.card-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 210, 255, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 210, 255, 0.25) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+}
+
 
 

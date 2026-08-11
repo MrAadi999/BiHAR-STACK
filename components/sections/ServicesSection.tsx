@@ -11,6 +11,8 @@ function InteractiveQuestionMark() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let animFrameId: number;
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
@@ -33,11 +35,17 @@ function InteractiveQuestionMark() {
       const rotateY = Math.min(Math.max(dx * 0.025, -16), 16);
       const rotateX = Math.min(Math.max(-dy * 0.025, -16), 16);
 
-      setMousePos({ pupilX, pupilY, rotateX, rotateY });
+      cancelAnimationFrame(animFrameId);
+      animFrameId = requestAnimationFrame(() => {
+        setMousePos({ pupilX, pupilY, rotateX, rotateY });
+      });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(animFrameId);
+    };
   }, []);
 
   return (
@@ -220,6 +228,8 @@ function InteractivePlayingCard({
   const [shinePos, setShinePos] = useState({ x: "50%", y: "50%" });
   const [isHovered, setIsHovered] = useState(false);
 
+  const animRef = useRef<number | null>(null);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
@@ -233,8 +243,11 @@ function InteractivePlayingCard({
     const rotateX = -((y - centerY) / centerY) * 9;
     const rotateY = ((x - centerX) / centerX) * 9;
 
-    setRotate({ x: rotateX, y: rotateY });
-    setShinePos({ x: `${x}px`, y: `${y}px` });
+    if (animRef.current) cancelAnimationFrame(animRef.current);
+    animRef.current = requestAnimationFrame(() => {
+      setRotate({ x: rotateX, y: rotateY });
+      setShinePos({ x: `${x}px`, y: `${y}px` });
+    });
   };
 
   const handleMouseEnter = () => {
@@ -469,19 +482,7 @@ export default function ServicesSection() {
         <div className="cards-container">
           {/* CARD 01: DIGITAL MARKETING (BURGUNDY ACE OF SPADES) */}
           <InteractivePlayingCard className="card-burgundy" delay={0.1}>
-            <div className="suit-corner corner-top-left">
-              <span className="corner-rank">A</span>
-              <span className="corner-suit">♠</span>
-            </div>
-            <div className="suit-corner corner-bottom-right">
-              <span className="corner-rank">A</span>
-              <span className="corner-suit">♠</span>
-            </div>
-
             <div>
-              <div className="card-header">
-                <span className="card-num">01</span>
-              </div>
               <h2 className="card-title">Digital Marketing & Performance</h2>
 
               <div className="sub-grid">
@@ -497,27 +498,16 @@ export default function ServicesSection() {
             </div>
 
             <div className="card-footer">
-              <a href="#contact" className="btn-start">
-                Learn More & Start ➔
+              <a href="#contact" className="btn-start group">
+                <span>Read More</span>
+                <span className="btn-icon-bubble">➔</span>
               </a>
             </div>
           </InteractivePlayingCard>
 
           {/* CARD 02: BRANDING & CREATIVE (CREAM ACE OF HEARTS) */}
           <InteractivePlayingCard className="card-cream" delay={0.25}>
-            <div className="suit-corner corner-top-left">
-              <span className="corner-rank">A</span>
-              <span className="corner-suit">♥</span>
-            </div>
-            <div className="suit-corner corner-bottom-right">
-              <span className="corner-rank">A</span>
-              <span className="corner-suit">♥</span>
-            </div>
-
             <div>
-              <div className="card-header">
-                <span className="card-num">02</span>
-              </div>
               <h2 className="card-title">Branding & Creative Design</h2>
 
               <div className="sub-grid">
@@ -533,27 +523,16 @@ export default function ServicesSection() {
             </div>
 
             <div className="card-footer">
-              <a href="#contact" className="btn-start">
-                Learn More & Start ➔
+              <a href="#contact" className="btn-start group">
+                <span>Read More</span>
+                <span className="btn-icon-bubble">➔</span>
               </a>
             </div>
           </InteractivePlayingCard>
 
           {/* CARD 03: WEBSITE & CUSTOM TECH (OBSIDIAN ACE OF DIAMONDS) */}
           <InteractivePlayingCard className="card-obsidian" delay={0.4}>
-            <div className="suit-corner corner-top-left">
-              <span className="corner-rank">A</span>
-              <span className="corner-suit">♦</span>
-            </div>
-            <div className="suit-corner corner-bottom-right">
-              <span className="corner-rank">A</span>
-              <span className="corner-suit">♦</span>
-            </div>
-
             <div>
-              <div className="card-header">
-                <span className="card-num">03</span>
-              </div>
               <h2 className="card-title">Website & Custom Technology</h2>
 
               <div className="sub-grid">
@@ -569,27 +548,16 @@ export default function ServicesSection() {
             </div>
 
             <div className="card-footer">
-              <a href="#contact" className="btn-start">
-                Learn More & Start ➔
+              <a href="#contact" className="btn-start group">
+                <span>Read More</span>
+                <span className="btn-icon-bubble">➔</span>
               </a>
             </div>
           </InteractivePlayingCard>
 
           {/* CARD 04: AI & WORKFLOW AUTOMATION (EMERALD ACE OF CLUBS) */}
           <InteractivePlayingCard className="card-emerald" delay={0.55}>
-            <div className="suit-corner corner-top-left">
-              <span className="corner-rank">A</span>
-              <span className="corner-suit">♣</span>
-            </div>
-            <div className="suit-corner corner-bottom-right">
-              <span className="corner-rank">A</span>
-              <span className="corner-suit">♣</span>
-            </div>
-
             <div>
-              <div className="card-header">
-                <span className="card-num">04</span>
-              </div>
               <h2 className="card-title">AI & Workflow Automation</h2>
 
               <div className="sub-grid">
@@ -605,8 +573,9 @@ export default function ServicesSection() {
             </div>
 
             <div className="card-footer">
-              <a href="#contact" className="btn-start">
-                Learn More & Start ➔
+              <a href="#contact" className="btn-start group">
+                <span>Read More</span>
+                <span className="btn-icon-bubble">➔</span>
               </a>
             </div>
           </InteractivePlayingCard>
