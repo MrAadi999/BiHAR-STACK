@@ -582,43 +582,61 @@ body {
   transform: scale(1.25);
 }
 
-/* CARD 01: BURGUNDY RED */
+/* CARD 01: LUXURY ROSE CHAMPAGNE & BURGUNDY ACCENT */
 .card-burgundy {
-  background: linear-gradient(145deg, #6B1426 0%, #4A0C1A 100%);
-  color: #F7F4EE;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(145deg, #FAF4F5 0%, #EFE2E4 100%);
+  color: #4A0E17;
+  border: 1.5px solid #E2C7CC;
 }
 .card-burgundy:hover {
-  border-color: rgba(255, 255, 255, 0.45);
+  border-color: #8C1C30;
+  box-shadow: 0 25px 65px rgba(74, 14, 23, 0.18);
 }
-.card-burgundy .suit-corner { color: #F7F4EE; }
-.card-burgundy .sub-item { background: rgba(0, 0, 0, 0.2); border-color: rgba(255, 255, 255, 0.15); color: #F7F4EE; }
-.card-burgundy .sub-item:hover { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.45); }
-.card-burgundy .btn-start { 
-  background: linear-gradient(135deg, #F7F4EE 0%, #E6DFD3 100%); 
-  color: #4A0C1A; 
-  border-color: rgba(255, 255, 255, 0.5); 
-}
-.card-burgundy .btn-start .btn-icon-bubble { background: #4A0C1A; color: #F7F4EE; }
-.card-burgundy .btn-start:hover { 
+.card-burgundy .sub-item { 
   background: #FFFFFF; 
-  border-color: #FFFFFF; 
-  box-shadow: 0 8px 25px rgba(247, 244, 238, 0.5); 
+  border-color: #E2C7CC; 
+  color: #4A0E17; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
-.card-burgundy .btn-start:hover .btn-icon-bubble { background: #6B1426; color: #FFFFFF; }
+.card-burgundy .sub-item:hover { 
+  background: #4A0E17; 
+  border-color: #4A0E17; 
+  color: #FAF4F5;
+}
+.card-burgundy .btn-start { 
+  background: linear-gradient(135deg, #4A0E17 0%, #29050B 100%); 
+  color: #FAF4F5; 
+  border-color: rgba(74, 14, 23, 0.4); 
+}
+.card-burgundy .btn-start .btn-icon-bubble { background: #FAF4F5; color: #4A0E17; }
+.card-burgundy .btn-start:hover { 
+  background: #6B1426; 
+  border-color: #8C1C30; 
+  box-shadow: 0 8px 25px rgba(74, 14, 23, 0.4); 
+}
+.card-burgundy .btn-start:hover .btn-icon-bubble { background: #FFFFFF; color: #6B1426; }
 
-/* CARD 02: CREAM OFF-WHITE */
+/* CARD 02: CHAMPAGNE IVORY & VELVET ESPRESSO (LUXURY - USER FAVORITE) */
 .card-cream {
   background: linear-gradient(145deg, #F7F4EE 0%, #E8E3D8 100%);
   color: #2B1219;
-  border: 1px solid #DCD5C8;
+  border: 1.5px solid #DCD5C8;
 }
 .card-cream:hover {
   border-color: #6B1426;
+  box-shadow: 0 25px 65px rgba(43, 18, 25, 0.18);
 }
-.card-cream .suit-corner { color: #6B1426; }
-.card-cream .sub-item { background: #ffffff; border-color: #DCD5C8; color: #2B1219; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
-.card-cream .sub-item:hover { background: #2B1219; color: #F7F4EE; border-color: #2B1219; }
+.card-cream .sub-item { 
+  background: #FFFFFF; 
+  border-color: #DCD5C8; 
+  color: #2B1219; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03); 
+}
+.card-cream .sub-item:hover { 
+  background: #2B1219; 
+  color: #F7F4EE; 
+  border-color: #2B1219; 
+}
 .card-cream .btn-start { 
   background: linear-gradient(135deg, #2B1219 0%, #1A0A10 100%); 
   color: #F7F4EE; 
@@ -632,57 +650,73 @@ body {
 }
 .card-cream .btn-start:hover .btn-icon-bubble { background: #FFFFFF; color: #4A0C1A; }
 
-/* CARD 03: OBSIDIAN BLACK */
+/* CARD 03: LUXURY PLATINUM SLATE & MIDNIGHT NAVY ACCENT */
 .card-obsidian {
-  background: linear-gradient(145deg, #1A1A22 0%, #0D0D12 100%);
-  color: #F7F4EE;
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  background: linear-gradient(145deg, #F4F7FA 0%, #E2E8F0 100%);
+  color: #0F172A;
+  border: 1.5px solid #CBD5E1;
 }
 .card-obsidian:hover {
-  border-color: rgba(255, 215, 0, 0.7);
-  box-shadow: 0 35px 80px rgba(255, 215, 0, 0.18);
+  border-color: #0284C7;
+  box-shadow: 0 25px 65px rgba(15, 23, 42, 0.18);
 }
-.card-obsidian .suit-corner { color: #FFD700; }
-.card-obsidian .sub-item { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); color: #F7F4EE; }
-.card-obsidian .sub-item:hover { background: rgba(255, 215, 0, 0.12); border-color: rgba(255, 215, 0, 0.4); color: #FFD700; }
+.card-obsidian .sub-item { 
+  background: #FFFFFF; 
+  border-color: #CBD5E1; 
+  color: #0F172A; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+.card-obsidian .sub-item:hover { 
+  background: #0F172A; 
+  border-color: #0F172A; 
+  color: #F8FAFC; 
+}
 .card-obsidian .btn-start { 
-  background: linear-gradient(135deg, #FFD700 0%, #E6C200 100%); 
-  color: #0D0D12; 
-  border-color: rgba(255, 215, 0, 0.8); 
+  background: linear-gradient(135deg, #0F172A 0%, #020617 100%); 
+  color: #F8FAFC; 
+  border-color: rgba(15, 23, 42, 0.4); 
 }
-.card-obsidian .btn-start .btn-icon-bubble { background: #0D0D12; color: #FFD700; }
+.card-obsidian .btn-start .btn-icon-bubble { background: #F8FAFC; color: #0F172A; }
 .card-obsidian .btn-start:hover { 
-  background: #FFE44D; 
-  border-color: #FFF066; 
-  box-shadow: 0 8px 28px rgba(255, 215, 0, 0.6); 
+  background: #0284C7; 
+  border-color: #0369A1; 
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.4); 
 }
-.card-obsidian .btn-start:hover .btn-icon-bubble { background: #1A1A22; color: #FFE44D; }
+.card-obsidian .btn-start:hover .btn-icon-bubble { background: #FFFFFF; color: #0284C7; }
 
-/* CARD 04: EMERALD SILK */
+/* CARD 04: LUXURY JADE MINT & IMPERIAL EMERALD ACCENT */
 .card-emerald {
-  background: linear-gradient(145deg, #133829 0%, #0A241A 100%);
-  color: #F7F4EE;
-  border: 1px solid rgba(0, 255, 102, 0.25);
+  background: linear-gradient(145deg, #F2F9F5 0%, #DCECE2 100%);
+  color: #062C1E;
+  border: 1.5px solid #C3E3D0;
 }
 .card-emerald:hover {
-  border-color: rgba(0, 255, 102, 0.65);
-  box-shadow: 0 35px 80px rgba(0, 255, 102, 0.16);
+  border-color: #059669;
+  box-shadow: 0 25px 65px rgba(6, 44, 30, 0.18);
 }
-.card-emerald .suit-corner { color: #00FF66; }
-.card-emerald .sub-item { background: rgba(0, 0, 0, 0.25); border-color: rgba(0, 255, 102, 0.15); color: #F7F4EE; }
-.card-emerald .sub-item:hover { background: rgba(0, 255, 102, 0.16); border-color: rgba(0, 255, 102, 0.45); color: #00FF66; }
+.card-emerald .sub-item { 
+  background: #FFFFFF; 
+  border-color: #C3E3D0; 
+  color: #062C1E; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+.card-emerald .sub-item:hover { 
+  background: #062C1E; 
+  border-color: #062C1E; 
+  color: #ECFDF5; 
+}
 .card-emerald .btn-start { 
-  background: linear-gradient(135deg, #00FF66 0%, #00CC52 100%); 
-  color: #0A241A; 
-  border-color: rgba(0, 255, 102, 0.8); 
+  background: linear-gradient(135deg, #062C1E 0%, #02140D 100%); 
+  color: #ECFDF5; 
+  border-color: rgba(6, 44, 30, 0.4); 
 }
-.card-emerald .btn-start .btn-icon-bubble { background: #0A241A; color: #00FF66; }
+.card-emerald .btn-start .btn-icon-bubble { background: #ECFDF5; color: #062C1E; }
 .card-emerald .btn-start:hover { 
-  background: #33FF85; 
-  border-color: #66FF99; 
-  box-shadow: 0 8px 28px rgba(0, 255, 102, 0.55); 
+  background: #059669; 
+  border-color: #047857; 
+  box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4); 
 }
-.card-emerald .btn-start:hover .btn-icon-bubble { background: #133829; color: #33FF85; }
+.card-emerald .btn-start:hover .btn-icon-bubble { background: #FFFFFF; color: #059669; }
 
 .card-header {
   display: flex;
