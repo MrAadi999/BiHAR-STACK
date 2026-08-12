@@ -179,14 +179,13 @@ export default function TestimonialsSection() {
 
     if (!isHovered) {
       const currentX = x.get();
-      // If currentX reached past half loop, reset smoothly to 0
       const startPos = Math.abs(currentX) >= width ? 0 : currentX;
       if (Math.abs(currentX) >= width) {
         x.set(0);
       }
 
       const remainingDistance = width - Math.abs(startPos);
-      const duration = (remainingDistance / width) * 80; // 80 seconds per full loop (slow, smooth, readable)
+      const duration = (remainingDistance / width) * 75; // 75s smooth slow reading speed
 
       controls = animate(x, -width, {
         ease: "linear",
@@ -203,9 +202,9 @@ export default function TestimonialsSection() {
   }, [isHovered, width, x]);
 
   return (
-    <section className="pt-2 sm:pt-4 pb-12 sm:pb-16 bg-[#ECF1F5] border-t border-black/5 relative overflow-hidden">
+    <section className="pt-2 sm:pt-4 pb-8 sm:pb-12 bg-[#ECF1F5] border-t border-black/5 relative overflow-hidden">
       {/* Background Soft Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-96 bg-blue-400/5 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-80 bg-blue-400/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Centered Section Heading */}
@@ -214,15 +213,15 @@ export default function TestimonialsSection() {
           title="What Clients Say"
           subtitle="Don't just take our word for it. Here is how BiharStack drives measurable growth for partners."
           align="center"
-          className="mb-8 sm:mb-10"
+          className="mb-6 sm:mb-8"
         />
 
-        {/* 60fps GPU Hardware Accelerated Motion Drag Slider */}
+        {/* 60fps GPU Drag Container (Compact Width & Height) */}
         <div
           ref={containerRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="overflow-hidden cursor-grab active:cursor-grabbing py-4 px-2 select-none"
+          className="overflow-hidden cursor-grab active:cursor-grabbing py-2 px-1 select-none"
         >
           <motion.div
             ref={trackRef}
@@ -233,50 +232,50 @@ export default function TestimonialsSection() {
             onDragStart={() => setIsHovered(true)}
             onDragEnd={() => setIsHovered(false)}
             whileTap={{ cursor: "grabbing" }}
-            className="flex gap-6 w-max"
+            className="flex gap-4 w-max"
           >
             {/* Loop twice for seamless infinite scrolling */}
             {[...testimonials, ...testimonials].map((test, index) => (
               <motion.div
                 key={`${test.company}-${index}`}
-                whileHover={{ y: -6, scale: 1.02 }}
-                className="relative flex-shrink-0 w-[310px] sm:w-[340px] p-7 sm:p-8 rounded-[40px] bg-white border-2 border-neutral-200/80 shadow-[0_18px_40px_-15px_rgba(0,0,0,0.12)] hover:shadow-[0_26px_50px_-12px_rgba(0,0,0,0.18)] transition-all duration-300 flex flex-col justify-between overflow-hidden group select-none pointer-events-auto"
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="relative flex-shrink-0 w-[230px] sm:w-[250px] p-4 sm:p-5 rounded-2xl bg-white border-2 border-neutral-200/80 shadow-[0_12px_28px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_18px_36px_-8px_rgba(0,0,0,0.15)] transition-all duration-300 flex flex-col justify-between overflow-hidden group select-none pointer-events-auto min-h-[260px]"
               >
-                {/* Decorative Corner Arc Accent */}
+                {/* Compact Corner Arc Accent */}
                 <div
-                  className={`absolute top-0 right-0 w-32 h-32 rounded-full border-t-4 border-r-4 ${test.ringColor} opacity-40 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -mr-6 -mt-6`}
+                  className={`absolute top-0 right-0 w-24 h-24 rounded-full border-t-4 border-r-4 ${test.ringColor} opacity-35 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -mr-5 -mt-5`}
                 />
 
                 <div>
-                  {/* Top Quote Icon & Rating Stars */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-1">
+                  {/* Top Quote Icon & Compact Rating Stars */}
+                  <div className="flex items-center justify-between mb-2.5">
+                    <div className="flex items-center gap-0.5">
                       {[...Array(test.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="w-4 h-4 fill-amber-400 text-amber-400"
+                          className="w-3 h-3 fill-amber-400 text-amber-400"
                         />
                       ))}
                     </div>
 
-                    <Quote className="w-8 h-8 text-neutral-300 group-hover:text-amber-500 transition-colors duration-300" />
+                    <Quote className="w-5 h-5 text-neutral-300 group-hover:text-amber-500 transition-colors duration-300" />
                   </div>
 
-                  {/* Review Quote Text */}
-                  <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-semibold mb-6 italic pointer-events-none">
+                  {/* Compact Review Quote Text */}
+                  <p className="text-[11px] sm:text-xs text-neutral-700 leading-normal font-semibold mb-3 italic pointer-events-none">
                     &quot;{test.quote}&quot;
                   </p>
                 </div>
 
-                {/* Company & Owner Details */}
-                <div className="pt-4 border-t border-neutral-100 pointer-events-none">
-                  <h4 className="font-display text-base font-extrabold text-black group-hover:text-indigo-600 transition-colors leading-tight mb-1">
+                {/* Compact Company & Owner Details */}
+                <div className="pt-3 border-t border-neutral-100 pointer-events-none">
+                  <h4 className="font-display text-xs sm:text-sm font-extrabold text-black group-hover:text-indigo-600 transition-colors leading-tight mb-0.5">
                     {test.company}
                   </h4>
-                  <div className="text-xs font-bold text-neutral-600">
+                  <div className="text-[11px] font-bold text-neutral-600 leading-tight">
                     {test.client}
                   </div>
-                  <div className="text-[11px] font-medium text-neutral-400 mt-0.5">
+                  <div className="text-[10px] font-medium text-neutral-400 mt-0.5">
                     📍 {test.location}
                   </div>
                 </div>
