@@ -2,44 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Lightbulb, Palette, Cpu, Zap } from "lucide-react";
+import { Lightbulb, TrendingUp, Palette, Cpu, BrainCircuit, Zap } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-
-// Unique Bespoke Strategy Icon Component (Tactical Radar Compass Grid)
-function UniqueStrategyIcon({ className = "w-6 h-6" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="42" stroke="currentColor" strokeWidth="4" strokeDasharray="6 4" opacity="0.6" />
-      <polygon points="50,15 63,50 50,42 37,50" fill="currentColor" />
-      <polygon points="50,85 63,50 50,58 37,50" fill="currentColor" opacity="0.4" />
-      <circle cx="50" cy="50" r="14" stroke="currentColor" strokeWidth="4" />
-      <circle cx="50" cy="50" r="5" fill="currentColor" />
-      <line x1="50" y1="5" x2="50" y2="15" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-      <line x1="50" y1="85" x2="50" y2="95" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-      <line x1="5" y1="50" x2="15" y2="50" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-      <line x1="85" y1="50" x2="95" y2="50" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-// Unique Bespoke AI First Icon Component (Quantum Brain Neural Core Matrix)
-function UniqueAIIcon({ className = "w-6 h-6" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="28" y="28" width="44" height="44" rx="10" stroke="currentColor" strokeWidth="4.5" fill="none" />
-      <polygon points="50,34 64,50 50,66 36,50" fill="currentColor" opacity="0.85" />
-      <path d="M50 20V28M50 72V80M20 50H28M72 50H80" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-      <line x1="28" y1="28" x2="16" y2="16" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-      <circle cx="14" cy="14" r="4" fill="currentColor" />
-      <line x1="72" y1="28" x2="84" y2="16" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-      <circle cx="86" cy="14" r="4" fill="currentColor" />
-      <line x1="28" y1="72" x2="16" y2="84" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-      <circle cx="14" cy="86" r="4" fill="currentColor" />
-      <line x1="72" y1="72" x2="84" y2="84" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-      <circle cx="86" cy="86" r="4" fill="currentColor" />
-    </svg>
-  );
-}
 
 const features = [
   {
@@ -51,7 +15,7 @@ const features = [
     borderColor: "border-amber-400/50 group-hover:border-black",
   },
   {
-    icon: UniqueStrategyIcon,
+    icon: TrendingUp,
     title: "Strategy",
     desc: "ROI-driven roadmaps aligned with business objectives",
     badgeBg: "bg-blue-500/10 text-blue-600 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-cyan-400 group-hover:text-white",
@@ -75,7 +39,7 @@ const features = [
     borderColor: "border-emerald-400/50 group-hover:border-black",
   },
   {
-    icon: UniqueAIIcon,
+    icon: BrainCircuit,
     title: "AI First",
     desc: "Integrating machine intelligence into daily workflows",
     badgeBg: "bg-cyan-500/10 text-cyan-600 group-hover:bg-gradient-to-br group-hover:from-cyan-400 group-hover:to-blue-600 group-hover:text-white",
