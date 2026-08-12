@@ -45,12 +45,13 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="py-24 bg-navy-950/90 border-t border-white/5 relative overflow-hidden">
+    <section id="process" className="pt-10 sm:pt-14 pb-20 sm:pb-24 bg-navy-950/90 border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="OUR METHODOLOGY"
           title="How We Work"
           subtitle="A battle-tested 6-step engineering and growth framework that eliminates guesswork and guarantees results."
+          className="mb-8 sm:mb-10"
         />
 
         {/* Timeline Grid */}
