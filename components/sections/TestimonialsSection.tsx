@@ -157,6 +157,7 @@ export default function TestimonialsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [activeCardIndex, setActiveCardIndex] = useState<number | null>(null);
   const x = useMotionValue(0);
 
   useEffect(() => {
@@ -177,7 +178,7 @@ export default function TestimonialsSection() {
 
     let controls: any;
 
-    if (!isHovered) {
+    if (!isHovered && activeCardIndex === null) {
       const currentX = x.get();
       const startPos = Math.abs(currentX) >= width ? 0 : currentX;
       if (Math.abs(currentX) >= width) {
@@ -185,7 +186,7 @@ export default function TestimonialsSection() {
       }
 
       const remainingDistance = width - Math.abs(startPos);
-      const duration = (remainingDistance / width) * 75; // 75s smooth slow reading speed
+      const duration = (remainingDistance / width) * 75;
 
       controls = animate(x, -width, {
         ease: "linear",
@@ -199,7 +200,7 @@ export default function TestimonialsSection() {
     return () => {
       if (controls) controls.stop();
     };
-  }, [isHovered, width, x]);
+  }, [isHovered, activeCardIndex, width, x]);
 
   return (
     <section className="pt-2 sm:pt-4 pb-8 sm:pb-12 bg-[#ECF1F5] border-t border-black/5 relative overflow-hidden">
@@ -235,55 +236,106 @@ export default function TestimonialsSection() {
             className="flex gap-4.5 w-max"
           >
             {/* Loop twice for seamless infinite scrolling */}
-            {[...testimonials, ...testimonials].map((test, index) => (
-              <motion.div
-                key={`${test.company}-${index}`}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="relative flex-shrink-0 w-[240px] sm:w-[260px] p-5 sm:p-6 rounded-3xl bg-white border-2 border-neutral-200/90 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_-8px_rgba(0,0,0,0.18)] transition-all duration-300 flex flex-col justify-between overflow-hidden group select-none pointer-events-auto min-h-[295px] sm:min-h-[310px]"
-              >
-                {/* Decorative Corner Arc Accent */}
-                <div
-                  className={`absolute top-0 right-0 w-28 h-28 rounded-full border-t-4 border-r-4 ${test.ringColor} opacity-40 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -mr-6 -mt-6`}
-                />
+            {[...testimonials, ...testimonials].map((test, index) => {
+              const isSelected = activeCardIndex === index;
 
-                <div>
-                  {/* Top Quote Icon & Rating Stars */}
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-0.5">
-                      {[...Array(test.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-3.5 h-3.5 fill-amber-400 text-amber-400"
-                        />
-                      ))}
+              return (
+                <motion.div
+                  key={`${test.company}-${index}`}
+                  onClick={() =>
+                    setActiveCardIndex(isSelected ? null : index)
+                  }
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`relative flex-shrink-0 w-[240px] sm:w-[260px] p-5 sm:p-6 rounded-3xl transition-all duration-300 flex flex-col justify-between overflow-hidden group select-none pointer-events-auto cursor-pointer min-h-[295px] sm:min-h-[310px] ${
+                    isSelected
+                      ? "bg-gradient-to-br from-rose-600 via-red-600 to-rose-700 text-white border-2 border-rose-500 shadow-2xl shadow-rose-600/40 scale-[1.03] z-20"
+                      : "bg-white border-2 border-neutral-200/90 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_-8px_rgba(0,0,0,0.18)]"
+                  }`}
+                >
+                  {/* Decorative Corner Arc Accent */}
+                  <div
+                    className={`absolute top-0 right-0 w-28 h-28 rounded-full border-t-4 border-r-4 transition-opacity duration-300 pointer-events-none -mr-6 -mt-6 ${
+                      isSelected
+                        ? "border-white opacity-80"
+                        : `${test.ringColor} opacity-40 group-hover:opacity-100`
+                    }`}
+                  />
+
+                  <div>
+                    {/* Top Quote Icon & Rating Stars */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-0.5">
+                        {[...Array(test.rating)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`w-3.5 h-3.5 ${
+                              isSelected
+                                ? "fill-amber-300 text-amber-300"
+                                : "fill-amber-400 text-amber-400"
+                            }`}
+                          />
+                        ))}
+                      </div>
+
+                      <Quote
+                        className={`w-6 h-6 transition-colors duration-300 ${
+                          isSelected
+                            ? "text-white/80"
+                            : "text-neutral-300 group-hover:text-amber-500"
+                        }`}
+                      />
                     </div>
 
-                    <Quote className="w-6 h-6 text-neutral-300 group-hover:text-amber-500 transition-colors duration-300" />
+                    {/* Review Quote Text Box */}
+                    <div
+                      className={`p-3.5 rounded-2xl border shadow-xs transition-colors duration-300 mb-3 ${
+                        isSelected
+                          ? "bg-white/15 border-white/25 text-white"
+                          : "bg-neutral-50 group-hover:bg-amber-50/70 border-neutral-200/80 text-neutral-900"
+                      }`}
+                    >
+                      <p
+                        className={`text-xs sm:text-[13px] leading-relaxed font-extrabold italic pointer-events-none ${
+                          isSelected ? "text-white" : "text-neutral-900"
+                        }`}
+                      >
+                        &quot;{test.quote}&quot;
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Highlighted Review Quote Text Box */}
-                  <div className="bg-neutral-50 group-hover:bg-amber-50/70 p-3.5 rounded-2xl border border-neutral-200/80 shadow-xs transition-colors duration-300 mb-3">
-                    <p className="text-xs sm:text-[13px] text-neutral-900 leading-relaxed font-extrabold italic pointer-events-none">
-                      &quot;{test.quote}&quot;
-                    </p>
+                  {/* Company & Owner Details */}
+                  <div
+                    className={`pt-3 border-t pointer-events-none ${
+                      isSelected ? "border-white/20" : "border-neutral-200/80"
+                    }`}
+                  >
+                    <h4
+                      className={`font-display text-xs sm:text-sm font-black transition-colors leading-tight mb-1 ${
+                        isSelected ? "text-white" : "text-black group-hover:text-indigo-600"
+                      }`}
+                    >
+                      {test.company}
+                    </h4>
+                    <div
+                      className={`text-xs font-black tracking-wide leading-tight ${
+                        isSelected ? "text-amber-200" : "text-slate-900"
+                      }`}
+                    >
+                      {test.client}
+                    </div>
+                    <div
+                      className={`text-[11px] font-bold mt-1 ${
+                        isSelected ? "text-rose-100" : "text-neutral-500"
+                      }`}
+                    >
+                      📍 {test.location}
+                    </div>
                   </div>
-                </div>
-
-                {/* Company & Bold Owner Details */}
-                <div className="pt-3 border-t border-neutral-200/80 pointer-events-none">
-                  <h4 className="font-display text-xs sm:text-sm font-black text-black group-hover:text-indigo-600 transition-colors leading-tight mb-1">
-                    {test.company}
-                  </h4>
-                  {/* Extra Bold Client/Owner Name */}
-                  <div className="text-xs font-black text-slate-900 tracking-wide leading-tight">
-                    {test.client}
-                  </div>
-                  <div className="text-[11px] font-bold text-neutral-500 mt-1">
-                    📍 {test.location}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>
