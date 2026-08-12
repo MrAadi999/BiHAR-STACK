@@ -67,16 +67,17 @@ export default function PortfolioSection() {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="portfolio" className="py-24 bg-[#f0f0f0] relative overflow-hidden">
+    <section id="portfolio" className="pt-8 sm:pt-12 pb-16 sm:pb-20 bg-[#f0f0f0] relative overflow-hidden border-t border-black/5">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <SectionHeading
           badge="CASE STUDIES"
           title="Our Work"
           subtitle="Explore recent digital platforms, branding overhauls, and AI solutions crafted by BiharStack."
+          className="mb-8 sm:mb-10"
         />
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-8 sm:mb-10">
           {categories.map((category) => (
             <button
               key={category}
