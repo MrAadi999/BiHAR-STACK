@@ -87,37 +87,46 @@ function StrategyMagnifierChartIcon({ className = "w-5 h-5" }: { className?: str
   );
 }
 
-// 3. Creativity Icon matching Reference Image 3 (Ultra-Clear Thinking Silhouette with Book)
-function CreativityThinkingProfileIcon({ className = "w-6 h-6" }: { className?: string }) {
+// 3. Creativity Icon matching Reference Image 3 (Cosmic Palette Planet with Saturn Ring & Sparkles)
+function CreativityCosmicPaletteIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Book / Paper Fold Backdrop */}
-      <path d="M 22 12 L 48 20 L 22 28 Z" fill="currentColor" opacity="0.85" />
-      <rect x="16" y="20" width="12" height="54" rx="2" fill="currentColor" opacity="0.9" />
+      {/* 3 Sparkle Stars at Top Right */}
+      <path d="M 58 10 Q 58 18 50 18 Q 58 18 58 26 Q 58 18 66 18 Q 58 18 58 10 Z" fill="currentColor" />
+      <path d="M 68 20 Q 68 25 63 25 Q 68 25 68 30 Q 68 25 73 25 Q 68 25 68 20 Z" fill="currentColor" />
+      <path d="M 48 22 Q 48 25 45 25 Q 48 25 48 28 Q 48 25 51 25 Q 48 25 48 22 Z" fill="currentColor" opacity="0.8" />
 
-      {/* Profile Silhouette Face Looking Right */}
+      {/* Main Palette Planet Body */}
       <path
-        d="M 28 20 
-           C 42 20, 56 26, 56 38 
-           C 56 42, 50 44, 58 48 
-           C 62 50, 58 55, 52 55 
-           C 46 55, 46 59, 48 64 
-           C 42 72, 34 76, 28 80 Z"
+        d="M 50 32 C 34 32, 22 42, 22 56 C 22 72, 34 84, 42 84 C 47 84, 50 78, 55 78 C 60 78, 63 84, 68 84 C 76 84, 82 72, 82 56 C 82 42, 66 32, 50 32 Z"
         fill="currentColor"
       />
 
-      {/* Hand Resting on Chin */}
+      {/* Paint Color Hole Cutouts */}
+      <circle cx="36" cy="48" r="4.5" fill="#ffffff" />
+      <circle cx="50" cy="42" r="4.5" fill="#ffffff" />
+      <circle cx="64" cy="48" r="4.5" fill="#ffffff" />
+      <circle cx="36" cy="62" r="4.5" fill="#ffffff" />
+      <circle cx="64" cy="62" r="4.5" fill="#ffffff" />
+
+      {/* Saturn Orbital Ring Around Palette */}
       <path
-        d="M 52 55 
-           C 56 52, 64 57, 60 64 
-           L 46 80 
-           C 40 88, 32 92, 26 95 
-           L 34 100 
-           C 42 94, 50 85, 56 76 
-           L 62 64 
-           C 66 56, 60 50, 52 50 Z"
-        fill="currentColor"
+        d="M 12 62 C 6 52, 20 44, 42 42 C 64 40, 84 44, 90 50 C 96 56, 84 64, 60 67 C 36 70, 18 68, 12 62 Z"
+        stroke="currentColor"
+        strokeWidth="6"
+        fill="none"
       />
+      {/* Front Half Ring Overlay for 3D Overlap */}
+      <path
+        d="M 12 62 C 18 68, 36 70, 60 67 C 78 64, 90 58, 88 52"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinecap="round"
+        fill="none"
+      />
+
+      {/* Small Moon / Planet Dot on Ring Right Side */}
+      <circle cx="80" cy="48" r="4.5" fill="currentColor" stroke="#ffffff" strokeWidth="1.5" />
     </svg>
   );
 }
@@ -253,7 +262,7 @@ const features = [
     num: "03",
     title: "Creativity",
     desc: "Aesthetically breathtaking & unforgettable designs",
-    icon: CreativityThinkingProfileIcon,
+    icon: CreativityCosmicPaletteIcon,
     pinColor: "#16a34a", // Lime Green
     frameStyle: "bg-[#dcfce7] border-2 border-[#bbf7d0] shadow-[0_12px_30px_rgba(22,163,74,0.15)]",
     badgeBg: "bg-[#16a34a] text-white",
