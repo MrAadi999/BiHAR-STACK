@@ -250,13 +250,13 @@ export default function TestimonialsSection() {
               whileHover={{ y: -8, scale: 1.02 }}
               className="relative flex-shrink-0 w-[310px] sm:w-[340px] p-7 sm:p-8 rounded-[48px] bg-white border-2 border-neutral-200/80 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.12)] hover:shadow-[0_28px_55px_-12px_rgba(0,0,0,0.18)] transition-all duration-300 flex flex-col justify-between overflow-hidden group select-none cursor-pointer"
             >
-              {/* Outer Decorative Arc Ring (Matching Reference Infographic Photo) */}
+              {/* Outer Decorative Arc Ring */}
               <div
                 className={`absolute top-0 right-0 w-36 h-36 rounded-full border-t-4 border-r-4 ${test.ringColor} opacity-40 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -mr-8 -mt-8`}
               />
 
               <div>
-                {/* Top Number Badge Circle (Matching Reference Infographic) */}
+                {/* Top Number Badge Circle */}
                 <div className="flex items-center justify-between mb-5">
                   <div
                     className={`w-14 h-14 rounded-full bg-gradient-to-br ${test.badgeGradient} text-white font-black text-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
