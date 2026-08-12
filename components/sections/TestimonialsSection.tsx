@@ -186,7 +186,7 @@ export default function TestimonialsSection() {
       }
 
       const remainingDistance = width - Math.abs(startPos);
-      const duration = (remainingDistance / width) * 40; // 40 seconds per full loop
+      const duration = (remainingDistance / width) * 80; // 80 seconds per full loop (slow, smooth, readable)
 
       controls = animate(x, -width, {
         ease: "linear",
