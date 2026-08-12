@@ -1,16 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   MapPin,
   Zap,
-  ChevronLeft,
-  ChevronRight,
   Play,
   Video,
-  Image as ImageIcon,
   X,
 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -34,7 +31,7 @@ const projects = [
     category: "Retail & E-Commerce",
     location: "BakarGanj & Boring Road, Patna",
     impact: "Online Store & Billing App",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-shopping-for-clothes-in-a-boutique-41549-large.mp4",
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     images: [
       "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=900&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=900&auto=format&fit=crop&q=80",
@@ -161,6 +158,9 @@ const projects = [
 
 type ProjectType = (typeof projects)[0];
 
+// Unique auto-slide timers (in milliseconds) for each card so photos slide asynchronously
+const cardIntervals = [3400, 4800, 2900, 5300, 3800, 4500, 3100, 4900];
+
 function ProjectCard({
   project,
   onOpenModal,
@@ -171,21 +171,16 @@ function ProjectCard({
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
 
-  const prevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setShowVideo(false);
-    setCurrentImgIndex((prev) =>
-      prev === 0 ? project.images.length - 1 : prev - 1
-    );
-  };
+  // Auto-rotate photos asynchronously per card
+  useEffect(() => {
+    if (showVideo) return;
+    const intervalTime = cardIntervals[(project.id - 1) % cardIntervals.length];
+    const timer = setInterval(() => {
+      setCurrentImgIndex((prev) => (prev + 1) % project.images.length);
+    }, intervalTime);
 
-  const nextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setShowVideo(false);
-    setCurrentImgIndex((prev) =>
-      prev === project.images.length - 1 ? 0 : prev + 1
-    );
-  };
+    return () => clearInterval(timer);
+  }, [project.images.length, project.id, showVideo]);
 
   return (
     <motion.div
@@ -208,130 +203,100 @@ function ProjectCard({
               playsInline
               className="w-full h-full object-cover"
             />
-            <span className="absolute bottom-3 left-3 px-2.5 py-1 bg-rose-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-md flex items-center gap-1">
-              <Video className="w-3 h-3 animate-pulse" />
-              <span>Playing Store Video</span>
+            <span className="absolute bottom-3 left-3 px-2.5 py-1 bg-rose-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-md flex items-center gap-1 shadow-md z-10">
+              <Video className="w-3.5 h-3.5 animate-pulse" />
+              <span>Live Video Tour</span>
             </span>
           </div>
         ) : (
-          <img
-            src={project.images[currentImgIndex]}
-            alt={`${project.title} - photo ${currentImgIndex + 1}`}
-            className="w-full h-full object-cover transition-all duration-500"
-          />
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentImgIndex}
+              src={project.images[currentImgIndex]}
+              alt={project.title}
+              initial={{ opacity: 0.8 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0.8 }}
+              transition={{ duration: 0.5 }}
+              className="w-full h-full object-cover"
+            />
+          </AnimatePresence>
         )}
 
-        {/* Top Badges */}
-        <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10 pointer-events-none">
+        {/* Top Left: Category Badge Only */}
+        <div className="absolute top-3 left-3 z-10">
           <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-black text-white shadow-sm rounded-md">
             {project.category}
           </span>
-          <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-amber-400 text-black border border-black shadow-sm flex items-center gap-1 rounded-md">
-            <MapPin className="w-3 h-3" />
-            <span>{project.location}</span>
-          </span>
         </div>
 
-        {/* Media Badge (Photos & Video) */}
-        <div className="absolute top-3 right-3 flex items-center gap-1.5 z-10">
-          {project.videoUrl && (
+        {/* Top Right: Video Toggle Button (for Parihan Saree Emporium) */}
+        {project.videoUrl && (
+          <div className="absolute top-3 right-3 z-10">
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setShowVideo(!showVideo);
               }}
-              className={`px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md flex items-center gap-1 border border-black shadow-sm transition-transform active:scale-95 ${
+              className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md flex items-center gap-1 border border-black shadow-md transition-all active:scale-95 ${
                 showVideo
                   ? "bg-rose-600 text-white border-rose-700"
                   : "bg-white text-black hover:bg-neutral-100"
               }`}
             >
-              <Play className="w-3 h-3 fill-current" />
-              <span>{showVideo ? "Photos" : "Video"}</span>
+              {showVideo ? (
+                <span>Show Photos</span>
+              ) : (
+                <>
+                  <Play className="w-3 h-3 fill-current text-rose-600" />
+                  <span>Watch Video</span>
+                </>
+              )}
             </button>
-          )}
-
-          <span className="px-2.5 py-1 text-[10px] font-bold bg-black/80 text-white backdrop-blur-md rounded-md flex items-center gap-1">
-            <ImageIcon className="w-3 h-3" />
-            <span>
-              {currentImgIndex + 1}/{project.images.length}
-            </span>
-          </span>
-        </div>
-
-        {/* Left & Right Arrow Controls */}
-        {!showVideo && project.images.length > 1 && (
-          <>
-            <button
-              onClick={prevImage}
-              aria-label="Previous photo"
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 border border-black text-black flex items-center justify-center shadow-md hover:bg-white hover:scale-110 active:scale-95 transition-all opacity-80 group-hover:opacity-100"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={nextImage}
-              aria-label="Next photo"
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 border border-black text-black flex items-center justify-center shadow-md hover:bg-white hover:scale-110 active:scale-95 transition-all opacity-80 group-hover:opacity-100"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </>
-        )}
-
-        {/* Bottom Thumbnail Dots Selector */}
-        {!showVideo && (
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm z-10">
-            {project.images.map((_, dotIdx) => (
-              <button
-                key={dotIdx}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setCurrentImgIndex(dotIdx);
-                }}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  currentImgIndex === dotIdx
-                    ? "w-5 bg-amber-400"
-                    : "w-2 bg-white/60 hover:bg-white"
-                }`}
-                aria-label={`View photo ${dotIdx + 1}`}
-              />
-            ))}
           </div>
         )}
 
-        {/* Hover View Case Study Overlay */}
+        {/* Hover View Overlay */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 backdrop-blur-xs transition-opacity duration-300 pointer-events-none">
           <button
             onClick={() => onOpenModal(project)}
-            className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-xs font-bold uppercase tracking-widest border-2 border-black shadow-lg hover:bg-amber-400 hover:scale-105 active:scale-95 transition-all duration-200"
+            className="pointer-events-auto inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest border-2 border-black shadow-lg hover:bg-amber-400 hover:scale-105 active:scale-95 transition-all duration-200"
           >
-            <span>View Full Gallery ({project.images.length} Photos)</span>
+            <span>Details</span>
             <ExternalLink className="w-4 h-4" />
           </button>
         </div>
       </div>
 
-      {/* Content */}
+      {/* Content Area */}
       <div className="p-6 flex-grow flex flex-col justify-between">
         <div>
           {/* Impact Metric Badge */}
-          <div className="mb-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-[11px] font-bold">
+          <div className="mb-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-[11px] font-bold">
             <Zap className="w-3.5 h-3.5 fill-emerald-600 text-emerald-600" />
             <span>{project.impact}</span>
           </div>
 
-          <h3 className="font-display text-xl font-black text-black uppercase mb-2 leading-tight">
+          {/* Title */}
+          <h3 className="font-display text-xl font-black text-black uppercase mb-1 leading-tight">
             {project.title}
           </h3>
+
+          {/* Location Shifted Under Title */}
+          <div className="flex items-center gap-1 text-xs text-neutral-600 font-semibold mb-3">
+            <MapPin className="w-3.5 h-3.5 text-rose-500 flex-shrink-0" />
+            <span>{project.location}</span>
+          </div>
+
+          {/* Description */}
           <p className="text-xs text-neutral-700 font-medium leading-relaxed mb-4">
             {project.description}
           </p>
         </div>
 
-        {/* Tags & Action */}
+        {/* Tags & Details Button */}
         <div>
-          <div className="flex flex-wrap gap-2 pt-4 border-t border-neutral-200 mb-4">
+          <div className="flex flex-wrap gap-2 pt-3 border-t border-neutral-200 mb-4">
             {project.tags.map((tag) => (
               <span
                 key={tag}
@@ -346,7 +311,7 @@ function ProjectCard({
             onClick={() => onOpenModal(project)}
             className="w-full py-2.5 px-4 bg-black text-white text-xs font-bold uppercase tracking-widest hover:bg-amber-400 hover:text-black border border-black transition-colors duration-200 flex items-center justify-center gap-2 rounded-lg"
           >
-            <span>Explore 5 Photos & Details</span>
+            <span>Details</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -360,17 +325,11 @@ export default function PortfolioSection() {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(
     null
   );
-  const [modalActiveIndex, setModalActiveIndex] = useState(0);
 
   const filteredProjects =
     activeCategory === "All"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
-
-  const openModal = (p: ProjectType) => {
-    setSelectedProject(p);
-    setModalActiveIndex(0);
-  };
 
   return (
     <section
@@ -412,13 +371,13 @@ export default function PortfolioSection() {
               <ProjectCard
                 key={project.id}
                 project={project}
-                onOpenModal={openModal}
+                onOpenModal={setSelectedProject}
               />
             ))}
           </AnimatePresence>
         </motion.div>
 
-        {/* Full Interactive Media Gallery Modal */}
+        {/* Interactive Details Modal */}
         <AnimatePresence>
           {selectedProject && (
             <motion.div
@@ -433,7 +392,7 @@ export default function PortfolioSection() {
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.9, y: 20 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-white border-2 border-black max-w-4xl w-full rounded-2xl overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh]"
+                className="bg-white border-2 border-black max-w-3xl w-full rounded-2xl overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh]"
               >
                 {/* Close Button */}
                 <button
@@ -445,99 +404,44 @@ export default function PortfolioSection() {
 
                 {/* Modal Header */}
                 <div className="p-6 border-b border-neutral-200 bg-neutral-50 pr-16">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-1.5">
                     <span className="px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-black text-white rounded">
                       {selectedProject.category}
                     </span>
-                    <span className="px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-amber-400 text-black border border-black rounded flex items-center gap-1">
-                      <MapPin className="w-3 h-3" />
-                      <span>{selectedProject.location}</span>
-                    </span>
                   </div>
-                  <h2 className="font-display text-2xl sm:text-3xl font-black text-black uppercase">
+                  <h2 className="font-display text-2xl sm:text-3xl font-black text-black uppercase mb-1">
                     {selectedProject.title}
                   </h2>
+                  <div className="flex items-center gap-1.5 text-xs text-neutral-600 font-semibold">
+                    <MapPin className="w-3.5 h-3.5 text-rose-500" />
+                    <span>{selectedProject.location}</span>
+                  </div>
                 </div>
 
-                {/* Modal Body: Main Media Preview */}
+                {/* Modal Body */}
                 <div className="p-6 overflow-y-auto space-y-6 flex-grow">
-                  {/* Video Player or Large Photo */}
-                  <div className="relative h-72 sm:h-96 w-full rounded-xl overflow-hidden bg-black border border-neutral-300">
-                    {selectedProject.videoUrl && modalActiveIndex === 0 ? (
+                  {/* Media View */}
+                  <div className="relative h-64 sm:h-80 w-full rounded-xl overflow-hidden bg-black border border-neutral-300">
+                    {selectedProject.videoUrl ? (
                       <video
                         src={selectedProject.videoUrl}
                         controls
                         autoPlay
                         loop
+                        playsInline
                         className="w-full h-full object-cover"
                       />
                     ) : (
                       <img
-                        src={
-                          selectedProject.images[
-                            selectedProject.videoUrl
-                              ? Math.max(0, modalActiveIndex - 1)
-                              : modalActiveIndex
-                          ]
-                        }
+                        src={selectedProject.images[0]}
                         alt={selectedProject.title}
                         className="w-full h-full object-cover"
                       />
                     )}
                   </div>
 
-                  {/* Thumbnail Row */}
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-3 flex items-center gap-2">
-                      <ImageIcon className="w-4 h-4 text-black" />
-                      <span>All Media ({selectedProject.images.length} Photos {selectedProject.videoUrl ? "+ 1 Video Tour" : ""})</span>
-                    </h4>
-                    <div className="flex gap-3 overflow-x-auto pb-2">
-                      {selectedProject.videoUrl && (
-                        <button
-                          onClick={() => setModalActiveIndex(0)}
-                          className={`relative flex-shrink-0 w-24 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                            modalActiveIndex === 0
-                              ? "border-rose-600 scale-105 shadow-md"
-                              : "border-neutral-300 opacity-70 hover:opacity-100"
-                          }`}
-                        >
-                          <div className="w-full h-full bg-neutral-900 flex items-center justify-center text-white">
-                            <Video className="w-6 h-6 text-rose-500 animate-pulse" />
-                          </div>
-                          <span className="absolute bottom-1 left-1 px-1 py-0.5 bg-rose-600 text-[8px] font-bold text-white uppercase rounded">
-                            Video
-                          </span>
-                        </button>
-                      )}
-
-                      {selectedProject.images.map((imgUrl, imgIdx) => {
-                        const actualIdx = selectedProject.videoUrl
-                          ? imgIdx + 1
-                          : imgIdx;
-                        return (
-                          <button
-                            key={imgIdx}
-                            onClick={() => setModalActiveIndex(actualIdx)}
-                            className={`flex-shrink-0 w-24 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                              modalActiveIndex === actualIdx
-                                ? "border-black scale-105 shadow-md"
-                                : "border-neutral-300 opacity-70 hover:opacity-100"
-                            }`}
-                          >
-                            <img
-                              src={imgUrl}
-                              alt="Thumbnail"
-                              className="w-full h-full object-cover"
-                            />
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
                   {/* Description & Impact */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-neutral-200">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
                     <div className="md:col-span-2">
                       <h4 className="text-sm font-bold uppercase tracking-wider text-black mb-2">
                         About This Project & Business
@@ -549,10 +453,10 @@ export default function PortfolioSection() {
 
                     <div className="bg-neutral-100 p-4 rounded-xl border border-neutral-300">
                       <div className="mb-2 text-xs font-bold uppercase text-neutral-500">
-                        Key Performance Impact
+                        Performance Impact
                       </div>
-                      <div className="text-lg font-black text-emerald-800 flex items-center gap-1.5">
-                        <Zap className="w-5 h-5 fill-emerald-600 text-emerald-600" />
+                      <div className="text-base font-black text-emerald-800 flex items-center gap-1.5">
+                        <Zap className="w-4 h-4 fill-emerald-600 text-emerald-600" />
                         <span>{selectedProject.impact}</span>
                       </div>
                     </div>
@@ -576,7 +480,7 @@ export default function PortfolioSection() {
                     onClick={() => setSelectedProject(null)}
                     className="px-5 py-2 bg-black text-white text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 rounded-lg"
                   >
-                    Close Gallery
+                    Close Details
                   </button>
                 </div>
               </motion.div>
