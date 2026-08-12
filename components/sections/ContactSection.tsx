@@ -2,40 +2,19 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2, Check } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 
-const availableServices = [
-  "Website & E-Commerce (Shop, POS, Menu)",
-  "Growth Marketing (Meta Ads, Google Ads)",
-  "Local SEO & Google Maps Ranking",
-  "AI WhatsApp Bot & CRM Automation",
-  "Branding & Creative Graphic Design",
-  "Custom Web App & Software Engine",
-];
-
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
-  const [selectedServices, setSelectedServices] = useState<string[]>([
-    "Website & E-Commerce (Shop, POS, Menu)",
-  ]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    service: "Website & E-Commerce (Shop, POS Billing, QR Menu)",
     message: "",
   });
-
-  const toggleService = (service: string) => {
-    if (selectedServices.includes(service)) {
-      if (selectedServices.length > 1) {
-        setSelectedServices(selectedServices.filter((s) => s !== service));
-      }
-    } else {
-      setSelectedServices([...selectedServices, service]);
-    }
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,52 +89,51 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Phone / WhatsApp Number *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 98765 43210"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-electric-500 transition-colors text-sm"
-                  />
-                </div>
-
-                {/* Interactive Multi-Select Services Checkbox Grid */}
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2.5">
-                    Required Services (Select all that apply) *
-                  </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {availableServices.map((service) => {
-                      const isChecked = selectedServices.includes(service);
-                      return (
-                        <button
-                          key={service}
-                          type="button"
-                          onClick={() => toggleService(service)}
-                          className={`p-3 rounded-xl border text-xs font-bold transition-all duration-200 flex items-center justify-between text-left gap-2 cursor-pointer ${
-                            isChecked
-                              ? "bg-electric-500/20 border-electric-400 text-white shadow-md shadow-electric-500/10"
-                              : "bg-slate-800/60 border-white/10 text-slate-300 hover:border-white/30 hover:bg-slate-800"
-                          }`}
-                        >
-                          <span className="leading-tight">{service}</span>
-                          <div
-                            className={`w-4.5 h-4.5 rounded-md border flex items-center justify-center flex-shrink-0 transition-colors ${
-                              isChecked
-                                ? "bg-electric-500 border-electric-400 text-black"
-                                : "border-slate-500 bg-slate-900/50"
-                            }`}
-                          >
-                            {isChecked && <Check className="w-3.5 h-3.5 text-black stroke-[3]" />}
-                          </div>
-                        </button>
-                      );
-                    })}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                      Phone / WhatsApp *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+91 98765 43210"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-electric-500 transition-colors text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                      Required Service *
+                    </label>
+                    <select
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white focus:outline-none focus:border-electric-500 transition-colors text-sm"
+                    >
+                      <option value="Website & E-Commerce (Shop, POS Billing, QR Menu)">
+                        Website & E-Commerce (Shop, POS Billing, QR Menu)
+                      </option>
+                      <option value="Growth Marketing & Meta/Google Ads Funnel">
+                        Growth Marketing & Meta/Google Ads Funnel
+                      </option>
+                      <option value="Local SEO & Google Maps Ranking Optimization">
+                        Local SEO & Google Maps Ranking Optimization
+                      </option>
+                      <option value="Automated AI WhatsApp Bot & CRM Pipelines">
+                        Automated AI WhatsApp Bot & CRM Pipelines
+                      </option>
+                      <option value="Branding, Logo & Motion Design Package">
+                        Branding, Logo & Motion Design Package
+                      </option>
+                      <option value="Custom SaaS, Mobile App & Software Engine">
+                        Custom SaaS, Mobile App & Software Engine
+                      </option>
+                      <option value="Full 360° All-In-One Growth Package">
+                        Full 360° All-In-One Growth Package
+                      </option>
+                    </select>
                   </div>
                 </div>
 
@@ -164,7 +142,7 @@ export default function ContactSection() {
                     Project Details & Goals *
                   </label>
                   <textarea
-                    rows={3}
+                    rows={4}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
