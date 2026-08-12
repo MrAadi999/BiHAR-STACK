@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Lightbulb, Target, Sparkles, Cpu, Brain, Zap } from "lucide-react";
+import { Lightbulb, Target, Palette, Cpu, Bot, Zap } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const features = [
@@ -23,7 +23,7 @@ const features = [
     borderColor: "border-blue-400/50 group-hover:border-black",
   },
   {
-    icon: Sparkles,
+    icon: Palette,
     title: "Creativity",
     desc: "Aesthetically breathtaking & unforgettable designs",
     badgeBg: "bg-purple-500/10 text-purple-600 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-pink-500 group-hover:text-white",
@@ -39,7 +39,7 @@ const features = [
     borderColor: "border-emerald-400/50 group-hover:border-black",
   },
   {
-    icon: Brain,
+    icon: Bot,
     title: "AI First",
     desc: "Integrating machine intelligence into daily workflows",
     badgeBg: "bg-cyan-500/10 text-cyan-600 group-hover:bg-gradient-to-br group-hover:from-cyan-400 group-hover:to-blue-600 group-hover:text-white",
