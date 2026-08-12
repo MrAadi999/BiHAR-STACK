@@ -83,6 +83,7 @@ const serviceCategories = [
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [expandedCategoryId, setExpandedCategoryId] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   
   // No default ticks! Manually selected by user.
@@ -96,11 +97,12 @@ export default function ContactSection() {
     message: "",
   });
 
-  // Auto-close dropdown when clicking outside
+  // Auto-close dropdown & reset open sub-drawers when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false);
+        setExpandedCategoryId(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -112,13 +114,18 @@ export default function ContactSection() {
     if (!category) return;
 
     if (selectedCategories.includes(categoryId)) {
-      // Auto-hide & clear sub-features when category is unticked!
+      // Untick category -> remove subfeatures & collapse drawer IMMEDIATELY!
       setSelectedCategories(selectedCategories.filter((id) => id !== categoryId));
       setSelectedSubFeatures(
         selectedSubFeatures.filter((sf) => !category.subFeatures.includes(sf))
       );
+      if (expandedCategoryId === categoryId) {
+        setExpandedCategoryId(null);
+      }
     } else {
+      // Tick category -> expand its relative subfeatures drawer!
       setSelectedCategories([...selectedCategories, categoryId]);
+      setExpandedCategoryId(categoryId);
     }
   };
 
@@ -236,7 +243,10 @@ export default function ContactSection() {
                     {/* Trigger Box with Down Arrow */}
                     <button
                       type="button"
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      onClick={() => {
+                        setIsDropdownOpen(!isDropdownOpen);
+                        if (isDropdownOpen) setExpandedCategoryId(null);
+                      }}
                       className={`w-full px-4 py-3 rounded-xl bg-slate-800/80 border transition-colors text-sm flex items-center justify-between text-left cursor-pointer ${
                         selectedCategories.length > 0
                           ? "border-electric-500 text-white"
@@ -253,7 +263,7 @@ export default function ContactSection() {
                       />
                     </button>
 
-                    {/* Expandable Dropdown Menu with 4 Categories & 9 Features Each (36 Options Total) */}
+                    {/* Expandable Dropdown Menu */}
                     <AnimatePresence>
                       {isDropdownOpen && (
                         <motion.div
@@ -272,6 +282,7 @@ export default function ContactSection() {
 
                           {serviceCategories.map((cat) => {
                             const isCatSelected = selectedCategories.includes(cat.id);
+                            const isExpanded = isCatSelected && expandedCategoryId === cat.id;
                             const IconComponent = cat.icon;
 
                             return (
@@ -298,20 +309,30 @@ export default function ContactSection() {
                                     <span>{cat.name}</span>
                                   </span>
 
-                                  <div
-                                    className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors ${
-                                      isCatSelected
-                                        ? "bg-electric-500 border-electric-400 text-black"
-                                        : "border-slate-500 bg-slate-900"
-                                    }`}
-                                  >
-                                    {isCatSelected && <Check className="w-3 h-3 text-black stroke-[3]" />}
+                                  <div className="flex items-center gap-2">
+                                    <div
+                                      className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors ${
+                                        isCatSelected
+                                          ? "bg-electric-500 border-electric-400 text-black"
+                                          : "border-slate-500 bg-slate-900"
+                                      }`}
+                                    >
+                                      {isCatSelected && <Check className="w-3 h-3 text-black stroke-[3]" />}
+                                    </div>
+
+                                    {isCatSelected && (
+                                      <ChevronDown
+                                        className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-300 ${
+                                          isExpanded ? "rotate-180 text-amber-400" : ""
+                                        }`}
+                                      />
+                                    )}
                                   </div>
                                 </button>
 
-                                {/* Expand Relative Sub-Features when Category is Ticked (Auto-Hides when Unticked!) */}
+                                {/* Expand Relative Sub-Features when Category is Active & Expanded */}
                                 <AnimatePresence>
-                                  {isCatSelected && (
+                                  {isExpanded && (
                                     <motion.div
                                       initial={{ opacity: 0, height: 0 }}
                                       animate={{ opacity: 1, height: "auto" }}
