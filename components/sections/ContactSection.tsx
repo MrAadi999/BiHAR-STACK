@@ -229,7 +229,7 @@ export default function ContactSection() {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 94716 19693"
                       className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-electric-500 transition-colors text-sm"
                     />
                   </div>
@@ -426,7 +426,7 @@ export default function ContactSection() {
               <h4 className="font-display text-lg font-bold text-white mb-4">Direct Communication</h4>
 
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/917979067849?text=Hi%20BiharStack,%20I%20want%20to%20discuss%20a%20project"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors group"
@@ -435,38 +435,44 @@ export default function ContactSection() {
                   <MessageCircle className="w-5 h-5 fill-current" />
                 </div>
                 <div>
-                  <p className="text-xs text-emerald-400 font-semibold uppercase tracking-wider">Instant Chat</p>
-                  <p className="text-sm font-bold text-white">WhatsApp Us Directly</p>
+                  <p className="text-xs text-emerald-400 font-semibold uppercase tracking-wider">WhatsApp Direct</p>
+                  <p className="text-sm font-bold text-white">+91 79790 67849</p>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5">
-                <div className="p-2.5 rounded-lg bg-electric-600/20 text-electric-400">
+              <a
+                href="tel:+919471619693"
+                className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5 hover:bg-slate-800/80 transition-colors group"
+              >
+                <div className="p-2.5 rounded-lg bg-electric-600/20 text-electric-400 group-hover:scale-105 transition-transform">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[11px] text-slate-400">Phone Hotline</p>
-                  <p className="text-sm font-semibold text-white">+91 98765 43210</p>
+                  <p className="text-[11px] text-slate-400 font-semibold uppercase">Phone Hotline</p>
+                  <p className="text-sm font-bold text-white">+91 94716 19693</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5">
-                <div className="p-2.5 rounded-lg bg-glow-cyan/20 text-glow-cyan">
+              <a
+                href="mailto:contact@biharstack.com"
+                className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5 hover:bg-slate-800/80 transition-colors group"
+              >
+                <div className="p-2.5 rounded-lg bg-glow-cyan/20 text-glow-cyan group-hover:scale-105 transition-transform">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[11px] text-slate-400">Official Email</p>
-                  <p className="text-sm font-semibold text-white">contact@biharstack.com</p>
+                  <p className="text-[11px] text-slate-400 font-semibold uppercase">Official Email</p>
+                  <p className="text-sm font-bold text-white">contact@biharstack.com</p>
                 </div>
-              </div>
+              </a>
 
               <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5">
                 <div className="p-2.5 rounded-lg bg-purple-600/20 text-purple-400">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[11px] text-slate-400">Innovation Hub</p>
-                  <p className="text-sm font-semibold text-white">Boring Road & IT Park, Patna, Bihar</p>
+                  <p className="text-[11px] text-slate-400 font-semibold uppercase">HQ Office</p>
+                  <p className="text-sm font-bold text-white">Boring Road & IT Park, Patna, Bihar</p>
                 </div>
               </div>
             </div>
