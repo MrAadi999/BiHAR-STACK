@@ -33,7 +33,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-24 bg-navy-950/80 border-t border-white/5 relative overflow-hidden">
+    <section className="pt-2 sm:pt-4 pb-12 sm:pb-16 bg-navy-950/80 border-t border-white/5 relative overflow-hidden">
       {/* Glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-80 bg-electric-600/5 blur-3xl pointer-events-none" />
 
@@ -42,6 +42,7 @@ export default function TestimonialsSection() {
           badge="CLIENT SUCCESS STORIES"
           title="What Clients Say"
           subtitle="Don't just take our word for it. Here is how BiharStack drives measurable growth for partners."
+          className="mb-4 sm:mb-6"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
