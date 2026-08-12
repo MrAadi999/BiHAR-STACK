@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useRef, useEffect, useState } from "react";
@@ -154,64 +154,53 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isHoveredRef = useRef(false);
-  const [isMouseDown, setIsMouseDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const x = useMotionValue(0);
 
-  // Auto-scroll loop that pauses on hover/drag and resumes automatically when mouse leaves frame!
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    let animationFrameId: number;
-    const speed = 0.8;
-
-    const step = () => {
-      if (!isHoveredRef.current && !isMouseDown && container) {
-        container.scrollLeft += speed;
-        // Loop back smoothly
-        if (
-          container.scrollLeft >=
-          container.scrollWidth - container.clientWidth - 10
-        ) {
-          container.scrollLeft = 1;
-        }
+    const updateWidth = () => {
+      if (trackRef.current && containerRef.current) {
+        setWidth(trackRef.current.scrollWidth / 2);
       }
-      animationFrameId = requestAnimationFrame(step);
     };
 
-    animationFrameId = requestAnimationFrame(step);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isMouseDown]);
+  // Smooth continuous auto-sliding that pauses on hover/drag and resumes on mouse leave!
+  useEffect(() => {
+    if (width <= 0) return;
 
-  // Mouse Drag Handlers
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    setIsMouseDown(true);
-    isHoveredRef.current = true;
-    setStartX(e.pageX - containerRef.current.offsetLeft);
-    setScrollLeft(containerRef.current.scrollLeft);
-  };
+    let controls: any;
 
-  const handleMouseLeave = () => {
-    setIsMouseDown(false);
-    isHoveredRef.current = false; // RESUME AUTO-SLIDE WHEN MOUSE LEAVES!
-  };
+    if (!isHovered) {
+      const currentX = x.get();
+      // If currentX reached past half loop, reset smoothly to 0
+      const startPos = Math.abs(currentX) >= width ? 0 : currentX;
+      if (Math.abs(currentX) >= width) {
+        x.set(0);
+      }
 
-  const handleMouseUp = () => {
-    setIsMouseDown(false);
-    isHoveredRef.current = false; // RESUME AUTO-SLIDE ON MOUSE UP!
-  };
+      const remainingDistance = width - Math.abs(startPos);
+      const duration = (remainingDistance / width) * 40; // 40 seconds per full loop
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isMouseDown || !containerRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX) * 1.8;
-    containerRef.current.scrollLeft = scrollLeft - walk;
-  };
+      controls = animate(x, -width, {
+        ease: "linear",
+        duration: duration,
+        onComplete: () => {
+          x.set(0);
+        },
+      });
+    }
+
+    return () => {
+      if (controls) controls.stop();
+    };
+  }, [isHovered, width, x]);
 
   return (
     <section className="pt-2 sm:pt-4 pb-12 sm:pb-16 bg-[#ECF1F5] border-t border-black/5 relative overflow-hidden">
@@ -228,68 +217,72 @@ export default function TestimonialsSection() {
           className="mb-8 sm:mb-10"
         />
 
-        {/* Auto-Slide + Mouse Leave Resume + Smooth Mouse Drag Container */}
+        {/* 60fps GPU Hardware Accelerated Motion Drag Slider */}
         <div
           ref={containerRef}
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={() => (isHoveredRef.current = true)}
-          onTouchStart={() => (isHoveredRef.current = true)}
-          onTouchEnd={() => (isHoveredRef.current = false)}
-          className={`flex gap-6 overflow-x-auto scrollbar-none py-4 px-2 select-none ${
-            isMouseDown ? "cursor-grabbing" : "cursor-grab"
-          }`}
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="overflow-hidden cursor-grab active:cursor-grabbing py-4 px-2 select-none"
         >
-          {/* Loop twice for seamless endless auto-sliding experience */}
-          {[...testimonials, ...testimonials].map((test, index) => (
-            <motion.div
-              key={`${test.company}-${index}`}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className="relative flex-shrink-0 w-[310px] sm:w-[340px] p-7 sm:p-8 rounded-[40px] bg-white border-2 border-neutral-200/80 shadow-[0_18px_40px_-15px_rgba(0,0,0,0.12)] hover:shadow-[0_26px_50px_-12px_rgba(0,0,0,0.18)] transition-all duration-300 flex flex-col justify-between overflow-hidden group select-none pointer-events-auto"
-            >
-              {/* Decorative Corner Arc Accent */}
-              <div
-                className={`absolute top-0 right-0 w-32 h-32 rounded-full border-t-4 border-r-4 ${test.ringColor} opacity-40 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -mr-6 -mt-6`}
-              />
+          <motion.div
+            ref={trackRef}
+            drag="x"
+            style={{ x }}
+            dragConstraints={{ left: -width, right: 0 }}
+            dragElastic={0.08}
+            onDragStart={() => setIsHovered(true)}
+            onDragEnd={() => setIsHovered(false)}
+            whileTap={{ cursor: "grabbing" }}
+            className="flex gap-6 w-max"
+          >
+            {/* Loop twice for seamless infinite scrolling */}
+            {[...testimonials, ...testimonials].map((test, index) => (
+              <motion.div
+                key={`${test.company}-${index}`}
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="relative flex-shrink-0 w-[310px] sm:w-[340px] p-7 sm:p-8 rounded-[40px] bg-white border-2 border-neutral-200/80 shadow-[0_18px_40px_-15px_rgba(0,0,0,0.12)] hover:shadow-[0_26px_50px_-12px_rgba(0,0,0,0.18)] transition-all duration-300 flex flex-col justify-between overflow-hidden group select-none pointer-events-auto"
+              >
+                {/* Decorative Corner Arc Accent */}
+                <div
+                  className={`absolute top-0 right-0 w-32 h-32 rounded-full border-t-4 border-r-4 ${test.ringColor} opacity-40 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -mr-6 -mt-6`}
+                />
 
-              <div>
-                {/* Top Quote Icon & Rating Stars */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-1">
-                    {[...Array(test.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-amber-400 text-amber-400"
-                      />
-                    ))}
+                <div>
+                  {/* Top Quote Icon & Rating Stars */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-1">
+                      {[...Array(test.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-amber-400 text-amber-400"
+                        />
+                      ))}
+                    </div>
+
+                    <Quote className="w-8 h-8 text-neutral-300 group-hover:text-amber-500 transition-colors duration-300" />
                   </div>
 
-                  <Quote className="w-8 h-8 text-neutral-300 group-hover:text-amber-500 transition-colors duration-300" />
+                  {/* Review Quote Text */}
+                  <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-semibold mb-6 italic pointer-events-none">
+                    &quot;{test.quote}&quot;
+                  </p>
                 </div>
 
-                {/* Review Quote Text */}
-                <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-semibold mb-6 italic pointer-events-none">
-                  &quot;{test.quote}&quot;
-                </p>
-              </div>
-
-              {/* Company & Owner Details */}
-              <div className="pt-4 border-t border-neutral-100 pointer-events-none">
-                <h4 className="font-display text-base font-extrabold text-black group-hover:text-indigo-600 transition-colors leading-tight mb-1">
-                  {test.company}
-                </h4>
-                <div className="text-xs font-bold text-neutral-600">
-                  {test.client}
+                {/* Company & Owner Details */}
+                <div className="pt-4 border-t border-neutral-100 pointer-events-none">
+                  <h4 className="font-display text-base font-extrabold text-black group-hover:text-indigo-600 transition-colors leading-tight mb-1">
+                    {test.company}
+                  </h4>
+                  <div className="text-xs font-bold text-neutral-600">
+                    {test.client}
+                  </div>
+                  <div className="text-[11px] font-medium text-neutral-400 mt-0.5">
+                    📍 {test.location}
+                  </div>
                 </div>
-                <div className="text-[11px] font-medium text-neutral-400 mt-0.5">
-                  📍 {test.location}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
