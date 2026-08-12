@@ -2,7 +2,10 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2, ChevronDown, Check, Sparkles } from "lucide-react";
+import {
+  Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2, ChevronDown, Check,
+  TrendingUp, Palette, Code2, Bot, Megaphone, Globe, Cpu, Sparkles
+} from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 
@@ -10,6 +13,8 @@ const serviceCategories = [
   {
     id: "digital_marketing",
     name: "1. Digital Marketing & Performance",
+    icon: TrendingUp,
+    iconColor: "text-emerald-400",
     subFeatures: [
       "Meta Ads (Facebook & Instagram Lead Ads)",
       "Google Search & YouTube Video Ads",
@@ -20,6 +25,8 @@ const serviceCategories = [
   {
     id: "branding",
     name: "2. Branding & Creative Design",
+    icon: Palette,
+    iconColor: "text-purple-400",
     subFeatures: [
       "Custom Logo & Brand Identity Book",
       "Social Media Creatives & Ad Banners",
@@ -30,6 +37,8 @@ const serviceCategories = [
   {
     id: "website_tech",
     name: "3. Website & Custom Technology",
+    icon: Code2,
+    iconColor: "text-electric-400",
     subFeatures: [
       "Responsive 5-Page Shop/Clinic Website",
       "E-Commerce Store & WhatsApp Order Sync",
@@ -40,6 +49,8 @@ const serviceCategories = [
   {
     id: "ai_automation",
     name: "4. AI & Workflow Automation",
+    icon: Bot,
+    iconColor: "text-amber-400",
     subFeatures: [
       "24/7 Automated WhatsApp AI Sales Bot",
       "Lead Capture CRM & SMS Reminder Engine",
@@ -52,10 +63,10 @@ const serviceCategories = [
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(["website_tech"]);
-  const [selectedSubFeatures, setSelectedSubFeatures] = useState<string[]>([
-    "Responsive 5-Page Shop/Clinic Website",
-  ]);
+  
+  // No default ticks! Manually selected by user.
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedSubFeatures, setSelectedSubFeatures] = useState<string[]>([]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -69,24 +80,18 @@ export default function ContactSection() {
     if (!category) return;
 
     if (selectedCategories.includes(categoryId)) {
-      if (selectedCategories.length > 1) {
-        setSelectedCategories(selectedCategories.filter((id) => id !== categoryId));
-        setSelectedSubFeatures(
-          selectedSubFeatures.filter((sf) => !category.subFeatures.includes(sf))
-        );
-      }
+      setSelectedCategories(selectedCategories.filter((id) => id !== categoryId));
+      setSelectedSubFeatures(
+        selectedSubFeatures.filter((sf) => !category.subFeatures.includes(sf))
+      );
     } else {
       setSelectedCategories([...selectedCategories, categoryId]);
-      // Auto select first subfeature when category is ticked
-      setSelectedSubFeatures([...selectedSubFeatures, category.subFeatures[0]]);
     }
   };
 
   const toggleSubFeature = (subFeature: string) => {
     if (selectedSubFeatures.includes(subFeature)) {
-      if (selectedSubFeatures.length > 1) {
-        setSelectedSubFeatures(selectedSubFeatures.filter((sf) => sf !== subFeature));
-      }
+      setSelectedSubFeatures(selectedSubFeatures.filter((sf) => sf !== subFeature));
     } else {
       setSelectedSubFeatures([...selectedSubFeatures, subFeature]);
     }
@@ -100,7 +105,7 @@ export default function ContactSection() {
   // Get display text for input trigger box
   const getSelectedSummaryText = () => {
     const activeCats = serviceCategories.filter((c) => selectedCategories.includes(c.id));
-    if (activeCats.length === 0) return "Select Required Service...";
+    if (activeCats.length === 0) return "Select Required Services & Features...";
     
     const catNames = activeCats.map((c) => c.name.replace(/^\d+\.\s*/, "")).join(", ");
     return `${catNames} (${selectedSubFeatures.length} options selected)`;
@@ -189,7 +194,7 @@ export default function ContactSection() {
                     />
                   </div>
 
-                  {/* Interactive Custom Required Service Dropdown & Nested Options */}
+                  {/* Interactive Custom Required Service Dropdown & Matching Service Icons */}
                   <div className="relative">
                     <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                       Required Service *
@@ -199,9 +204,13 @@ export default function ContactSection() {
                     <button
                       type="button"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white focus:outline-none focus:border-electric-500 transition-colors text-sm flex items-center justify-between text-left cursor-pointer"
+                      className={`w-full px-4 py-3 rounded-xl bg-slate-800/80 border transition-colors text-sm flex items-center justify-between text-left cursor-pointer ${
+                        selectedCategories.length > 0
+                          ? "border-electric-500 text-white"
+                          : "border-white/10 text-slate-400"
+                      }`}
                     >
-                      <span className="truncate pr-2 font-medium text-electric-300">
+                      <span className="truncate pr-2 font-medium">
                         {getSelectedSummaryText()}
                       </span>
                       <ChevronDown
@@ -211,7 +220,7 @@ export default function ContactSection() {
                       />
                     </button>
 
-                    {/* Expandable Dropdown Menu with 4 Categories & Relative Sub-Features */}
+                    {/* Expandable Dropdown Menu with 4 Categories & Work-specific Icons */}
                     <AnimatePresence>
                       {isDropdownOpen && (
                         <motion.div
@@ -227,25 +236,30 @@ export default function ContactSection() {
 
                           {serviceCategories.map((cat) => {
                             const isCatSelected = selectedCategories.includes(cat.id);
+                            const IconComponent = cat.icon;
 
                             return (
                               <div
                                 key={cat.id}
-                                className="rounded-xl border border-white/10 overflow-hidden bg-slate-800/60"
+                                className={`rounded-xl border transition-all overflow-hidden ${
+                                  isCatSelected
+                                    ? "border-electric-500/50 bg-slate-800/90"
+                                    : "border-white/10 bg-slate-800/40"
+                                }`}
                               >
-                                {/* Main Category Bar with Checkbox */}
+                                {/* Main Category Bar with Work-specific Icon & Checkbox */}
                                 <button
                                   type="button"
                                   onClick={() => toggleCategory(cat.id)}
                                   className={`w-full p-3 flex items-center justify-between text-left text-xs sm:text-sm font-extrabold transition-colors cursor-pointer ${
                                     isCatSelected
-                                      ? "bg-electric-600/30 text-white border-b border-electric-500/30"
+                                      ? "bg-electric-600/25 text-white border-b border-electric-500/30"
                                       : "text-slate-300 hover:bg-slate-800 hover:text-white"
                                   }`}
                                 >
-                                  <span className="flex items-center gap-2">
-                                    <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                                    {cat.name}
+                                  <span className="flex items-center gap-2.5">
+                                    <IconComponent className={`w-4 h-4 ${cat.iconColor} shrink-0`} />
+                                    <span>{cat.name}</span>
                                   </span>
 
                                   <div
@@ -267,7 +281,7 @@ export default function ContactSection() {
                                       animate={{ opacity: 1, height: "auto" }}
                                       exit={{ opacity: 0, height: 0 }}
                                       transition={{ duration: 0.2 }}
-                                      className="p-3 bg-slate-900/90 space-y-2"
+                                      className="p-3 bg-slate-900/95 space-y-2"
                                     >
                                       <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
                                         Relative Options ({cat.name.replace(/^\d+\.\s*/, "")}):
