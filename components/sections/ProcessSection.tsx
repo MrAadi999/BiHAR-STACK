@@ -17,7 +17,7 @@ function OrigamiArrow({
   return (
     <motion.div
       style={{ rotate: angle }}
-      className="w-24 h-24 sm:w-28 sm:h-28 relative filter drop-shadow-[0_18px_20px_rgba(0,0,0,0.4)] transition-transform duration-300 cursor-pointer"
+      className="w-20 h-20 sm:w-24 sm:h-24 xl:w-28 xl:h-28 relative filter drop-shadow-[0_18px_20px_rgba(0,0,0,0.45)] transition-transform duration-300 cursor-pointer"
     >
       <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Top Light Facet Wing */}
@@ -41,61 +41,62 @@ const steps = [
     number: "OPTION 1",
     title: "Discovery & Audit",
     desc: "Target market analysis, competitor audit, and core business goals definition.",
-    icon: <Search className="w-4 h-4 text-slate-400" />,
+    icon: <Search className="w-3.5 h-3.5 text-slate-400" />,
     lightColor: "#cbd5e1", // Light Slate
     darkColor: "#64748b",  // Dark Slate
-    angle: -12,
-    offsetClass: "translate-y-0",
+    angle: -15,
+    offsetClass: "xl:translate-y-0",
   },
   {
     number: "OPTION 2",
     title: "Blueprint Strategy",
     desc: "Customer journey mapping, technical architecture, and milestone KPIs.",
-    icon: <Map className="w-4 h-4 text-blue-400" />,
+    icon: <Map className="w-3.5 h-3.5 text-blue-400" />,
     lightColor: "#334155", // Deep Navy
     darkColor: "#0f172a",  // Black Navy
-    angle: 15,
-    offsetClass: "translate-y-6 sm:translate-y-8",
+    angle: 18,
+    offsetClass: "xl:translate-y-12",
   },
   {
     number: "OPTION 3",
     title: "Design & Prototype",
     desc: "Interactive wireframes, glassmorphic UI components, and brand design.",
-    icon: <PenTool className="w-4 h-4 text-sky-400" />,
+    icon: <PenTool className="w-3.5 h-3.5 text-sky-400" />,
     lightColor: "#93c5fd", // Sky Blue
     darkColor: "#2563eb",  // Blue Shadow
-    angle: -5,
-    offsetClass: "translate-y-0",
+    angle: -8,
+    offsetClass: "xl:translate-y-2",
   },
   {
     number: "OPTION 4",
     title: "Agile Development",
     desc: "Production Next.js & AI codebases built with continuous integration.",
-    icon: <Code className="w-4 h-4 text-rose-400" />,
-    lightColor: "#f87171", // Crimson Red
-    darkColor: "#b91c1c",  // Dark Red
-    angle: -22,
-    offsetClass: "translate-y-0",
+    icon: <Code className="w-3.5 h-3.5 text-emerald-400" />,
+    lightColor: "#34d399", // Emerald Green
+    darkColor: "#047857",  // Dark Emerald
+    angle: 15,
+    offsetClass: "xl:translate-y-10",
   },
   {
     number: "OPTION 5",
     title: "Testing & Launch",
     desc: "Quality assurance, speed optimization, and global CDN deployment.",
-    icon: <Rocket className="w-4 h-4 text-emerald-400" />,
-    lightColor: "#34d399", // Emerald Green
-    darkColor: "#047857",  // Dark Emerald
-    angle: 12,
-    offsetClass: "translate-y-6 sm:translate-y-8",
+    icon: <Rocket className="w-3.5 h-3.5 text-amber-400" />,
+    lightColor: "#fbbf24", // Amber Yellow
+    darkColor: "#b45309",  // Dark Amber
+    angle: -10,
+    offsetClass: "xl:translate-y-2",
   },
   {
     number: "OPTION 6",
     title: "Scale & Growth",
     desc: "Performance marketing, AI workflow integration, and feature expansion.",
-    icon: <TrendingUp className="w-4 h-4 text-amber-400" />,
-    lightColor: "#fbbf24", // Golden Amber
-    darkColor: "#b45309",  // Dark Amber
-    angle: -10,
-    offsetClass: "translate-y-0",
+    icon: <TrendingUp className="w-3.5 h-3.5 text-rose-400" />,
+    lightColor: "#f87171", // Vibrant Crimson Red
+    darkColor: "#be123c",  // Dark Red
+    angle: -24,
+    offsetClass: "xl:translate-y-0",
+    isAccent: true,
   },
 ];
 
@@ -111,7 +112,7 @@ export default function ProcessSection() {
         }}
       />
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="OUR METHODOLOGY"
           title="How We Work"
@@ -119,49 +120,49 @@ export default function ProcessSection() {
           className="mb-6 sm:mb-8"
         />
 
-        {/* Animated Curved Trajectory Dotted Line with Arrow Head at Top */}
-        <div className="relative w-full max-w-4xl mx-auto mb-10 hidden md:block">
-          <svg className="w-full h-16" viewBox="0 0 800 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Animated Curved Trajectory Dotted Line across ALL 6 Arrows */}
+        <div className="relative w-full max-w-6xl mx-auto mb-10 hidden xl:block">
+          <svg className="w-full h-16" viewBox="0 0 1200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <motion.path
-              d="M 50 45 Q 400 -10 740 18"
+              d="M 80 50 Q 600 -15 1120 22"
               stroke="#64748b"
               strokeWidth="2.5"
-              strokeDasharray="5 5"
+              strokeDasharray="6 6"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
               viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 1.4, ease: "easeInOut" }}
+              transition={{ duration: 1.6, ease: "easeInOut" }}
             />
             {/* Arrow Head Pointing Top-Right */}
-            <polygon points="750,14 735,10 742,24" fill="#f87171" />
+            <polygon points="1130,18 1115,14 1122,28" fill="#f87171" />
           </svg>
         </div>
 
-        {/* 3D Origami Arrow Step Cards Flow */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10 pt-4">
+        {/* ALL 6 Origami Arrows Fit in 1 Horizontal Wave Trajectory Row on Desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6 xl:gap-4 relative z-10 pt-2 pb-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, x: -50, rotate: -15, scale: 0.8 }}
+              initial={{ opacity: 0, x: -40, rotate: -15, scale: 0.8 }}
               whileInView={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ 
-                duration: 0.6, 
-                delay: index * 0.1, 
+                duration: 0.5, 
+                delay: index * 0.08, 
                 ease: [0.16, 1, 0.3, 1] 
               }}
               whileHover={{ y: -8, scale: 1.05 }}
-              className={`flex flex-col items-center text-center group cursor-pointer ${step.offsetClass}`}
+              className={`flex flex-col items-start text-left group cursor-pointer ${step.offsetClass}`}
             >
               {/* 3D Paper Plane Arrow Icon */}
-              <div className="mb-4 relative">
+              <div className="mb-4 self-center xl:self-start">
                 <OrigamiArrow lightColor={step.lightColor} darkColor={step.darkColor} angle={step.angle} />
               </div>
 
-              {/* Step Title & Details */}
-              <div className="flex flex-col items-center">
+              {/* Step Title & Details - Formatted Exactly Like Reference Image */}
+              <div className="w-full">
                 <div className="flex items-center gap-2 mb-1.5">
-                  <span className="font-mono text-xs font-black tracking-widest uppercase text-neutral-400 group-hover:text-white transition-colors">
+                  <span className={`font-mono text-xs font-black tracking-widest uppercase ${step.isAccent ? "text-rose-400" : "text-neutral-400 group-hover:text-white"} transition-colors`}>
                     {step.number}
                   </span>
                   <div className="p-1 rounded-full bg-neutral-900 border border-neutral-800">
@@ -169,11 +170,11 @@ export default function ProcessSection() {
                   </div>
                 </div>
 
-                <h3 className="font-display text-lg font-black uppercase text-white tracking-tight mb-2 group-hover:text-amber-400 transition-colors">
+                <h3 className="font-display text-base font-black uppercase text-white tracking-tight mb-1.5 group-hover:text-amber-400 transition-colors">
                   {step.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-neutral-400 font-medium leading-relaxed max-w-xs">
+                <p className="text-xs text-neutral-400 font-medium leading-relaxed">
                   {step.desc}
                 </p>
               </div>
