@@ -7,34 +7,52 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const features = [
   {
-    icon: <Lightbulb className="w-6 h-6 text-black" />,
+    icon: Lightbulb,
     title: "Innovation",
     desc: "First-principles engineering & modern tech stack",
+    badgeBg: "bg-amber-500/10 text-amber-600 group-hover:bg-gradient-to-br group-hover:from-amber-400 group-hover:to-yellow-500 group-hover:text-black",
+    glowColor: "group-hover:shadow-[0_0_20px_rgba(251,191,36,0.6)]",
+    borderColor: "border-amber-400/50 group-hover:border-black",
   },
   {
-    icon: <Target className="w-6 h-6 text-black" />,
+    icon: Target,
     title: "Strategy",
     desc: "ROI-driven roadmaps aligned with business objectives",
+    badgeBg: "bg-blue-500/10 text-blue-600 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-cyan-400 group-hover:text-white",
+    glowColor: "group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]",
+    borderColor: "border-blue-400/50 group-hover:border-black",
   },
   {
-    icon: <Sparkles className="w-6 h-6 text-black" />,
+    icon: Sparkles,
     title: "Creativity",
     desc: "Aesthetically breathtaking & unforgettable designs",
+    badgeBg: "bg-purple-500/10 text-purple-600 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-pink-500 group-hover:text-white",
+    glowColor: "group-hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]",
+    borderColor: "border-purple-400/50 group-hover:border-black",
   },
   {
-    icon: <Cpu className="w-6 h-6 text-black" />,
+    icon: Cpu,
     title: "Technology",
     desc: "Next.js, Cloud Native, scalable architecture",
+    badgeBg: "bg-emerald-500/10 text-emerald-600 group-hover:bg-gradient-to-br group-hover:from-emerald-400 group-hover:to-teal-500 group-hover:text-black",
+    glowColor: "group-hover:shadow-[0_0_20px_rgba(16,185,129,0.6)]",
+    borderColor: "border-emerald-400/50 group-hover:border-black",
   },
   {
-    icon: <Brain className="w-6 h-6 text-black" />,
+    icon: Brain,
     title: "AI First",
     desc: "Integrating machine intelligence into daily workflows",
+    badgeBg: "bg-cyan-500/10 text-cyan-600 group-hover:bg-gradient-to-br group-hover:from-cyan-400 group-hover:to-blue-600 group-hover:text-white",
+    glowColor: "group-hover:shadow-[0_0_20px_rgba(6,182,212,0.6)]",
+    borderColor: "border-cyan-400/50 group-hover:border-black",
   },
   {
-    icon: <Zap className="w-6 h-6 text-black" />,
+    icon: Zap,
     title: "Fast Delivery",
     desc: "Rapid deployment cycles without quality compromises",
+    badgeBg: "bg-orange-500/10 text-orange-600 group-hover:bg-gradient-to-br group-hover:from-orange-500 group-hover:to-amber-400 group-hover:text-black",
+    glowColor: "group-hover:shadow-[0_0_20px_rgba(249,115,22,0.6)]",
+    borderColor: "border-orange-400/50 group-hover:border-black",
   },
 ];
 
@@ -170,8 +188,8 @@ export default function WhyChooseUsSection() {
               whileHover={{ y: -6, scale: 1.02 }}
               className="p-6 bg-white border border-black shadow-sm hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 group cursor-pointer"
             >
-              <div className="p-3 bg-[#f0f0f0] border border-black w-fit mb-4 group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                {feature.icon}
+              <div className={`p-3.5 border-2 w-fit mb-4 rounded-xl transition-all duration-300 flex items-center justify-center ${feature.badgeBg} ${feature.borderColor} ${feature.glowColor} group-hover:scale-110`}>
+                <feature.icon className="w-6 h-6 transition-transform duration-300 group-hover:rotate-6" />
               </div>
               <h3 className="font-display text-lg font-black text-black uppercase mb-2">
                 {feature.title}
