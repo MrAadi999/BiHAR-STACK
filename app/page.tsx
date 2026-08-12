@@ -52,14 +52,14 @@ export default function Home() {
       {/* 6. Why BiharStack */}
       <WhyChooseUsSection />
 
-      {/* 8. Portfolio / Work Showcase */}
-      <PortfolioSection />
-
       {/* 8. Process Section */}
       <ProcessSection />
 
       {/* 9. Industries We Serve */}
       <IndustriesSection />
+
+      {/* 8. Portfolio / Work Showcase */}
+      <PortfolioSection />
 
       {/* 10. Testimonials */}
       <TestimonialsSection />
