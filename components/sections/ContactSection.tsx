@@ -2,19 +2,40 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2, Check } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 
+const availableServices = [
+  "Website & E-Commerce (Shop, POS, Menu)",
+  "Growth Marketing (Meta Ads, Google Ads)",
+  "Local SEO & Google Maps Ranking",
+  "AI WhatsApp Bot & CRM Automation",
+  "Branding & Creative Graphic Design",
+  "Custom Web App & Software Engine",
+];
+
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedServices, setSelectedServices] = useState<string[]>([
+    "Website & E-Commerce (Shop, POS, Menu)",
+  ]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    service: "Digital Marketing",
     message: "",
   });
+
+  const toggleService = (service: string) => {
+    if (selectedServices.includes(service)) {
+      if (selectedServices.length > 1) {
+        setSelectedServices(selectedServices.filter((s) => s !== service));
+      }
+    } else {
+      setSelectedServices([...selectedServices, service]);
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,35 +110,52 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                      Phone / WhatsApp *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-electric-500 transition-colors text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                      Required Service *
-                    </label>
-                    <select
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white focus:outline-none focus:border-electric-500 transition-colors text-sm"
-                    >
-                      <option value="Digital Marketing">Digital Marketing & Meta/Google Ads</option>
-                      <option value="Branding & Creative">Branding & Creative Design</option>
-                      <option value="Website & Technology">Website & Custom App Dev</option>
-                      <option value="AI & Automation">AI & Workflow Automation</option>
-                      <option value="Full Growth Package">Full 360° Growth Package</option>
-                    </select>
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                    Phone / WhatsApp Number *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="+91 98765 43210"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-electric-500 transition-colors text-sm"
+                  />
+                </div>
+
+                {/* Interactive Multi-Select Services Checkbox Grid */}
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2.5">
+                    Required Services (Select all that apply) *
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {availableServices.map((service) => {
+                      const isChecked = selectedServices.includes(service);
+                      return (
+                        <button
+                          key={service}
+                          type="button"
+                          onClick={() => toggleService(service)}
+                          className={`p-3 rounded-xl border text-xs font-bold transition-all duration-200 flex items-center justify-between text-left gap-2 cursor-pointer ${
+                            isChecked
+                              ? "bg-electric-500/20 border-electric-400 text-white shadow-md shadow-electric-500/10"
+                              : "bg-slate-800/60 border-white/10 text-slate-300 hover:border-white/30 hover:bg-slate-800"
+                          }`}
+                        >
+                          <span className="leading-tight">{service}</span>
+                          <div
+                            className={`w-4.5 h-4.5 rounded-md border flex items-center justify-center flex-shrink-0 transition-colors ${
+                              isChecked
+                                ? "bg-electric-500 border-electric-400 text-black"
+                                : "border-slate-500 bg-slate-900/50"
+                            }`}
+                          >
+                            {isChecked && <Check className="w-3.5 h-3.5 text-black stroke-[3]" />}
+                          </div>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -126,7 +164,7 @@ export default function ContactSection() {
                     Project Details & Goals *
                   </label>
                   <textarea
-                    rows={4}
+                    rows={3}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -139,16 +177,16 @@ export default function ContactSection() {
                   type="submit"
                   variant="primary"
                   size="lg"
-                  className="w-full shadow-blue-glow"
+                  className="w-full justify-center"
                   icon={<Send className="w-4 h-4" />}
                 >
-                  Send Inquiry Now
+                  Send Project Inquiry
                 </Button>
               </form>
             )}
           </motion.div>
 
-          {/* Right Info & Dark Styled Google Map */}
+          {/* Right Info */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -156,71 +194,72 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 space-y-6"
           >
-            {/* Quick Contact Cards */}
-            <div className="p-6 rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 space-y-4">
-              <h4 className="font-display text-lg font-bold text-white mb-4">Direct Communication</h4>
+            {/* Contact Details Card */}
+            <div className="rounded-3xl bg-slate-900/60 backdrop-blur-xl border border-white/10 p-8 shadow-2xl space-y-6">
+              <h3 className="font-display text-xl font-bold text-white mb-4">Direct Contact</h3>
+              
+              <div className="space-y-4">
+                <a
+                  href="mailto:contact@biharstack.com"
+                  className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-slate-800 border border-white/10 flex items-center justify-center text-electric-400 group-hover:scale-110 transition-transform">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-slate-400 uppercase">Email Us</div>
+                    <div className="text-sm font-medium text-white">contact@biharstack.com</div>
+                  </div>
+                </a>
 
-              <a
-                href="https://wa.me/919999999999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors group"
-              >
-                <div className="p-2.5 rounded-lg bg-emerald-500 text-white group-hover:scale-105 transition-transform">
-                  <MessageCircle className="w-5 h-5 fill-current" />
-                </div>
-                <div>
-                  <p className="text-xs text-emerald-400 font-semibold uppercase tracking-wider">Instant Chat</p>
-                  <p className="text-sm font-bold text-white">WhatsApp Us Directly</p>
-                </div>
-              </a>
+                <a
+                  href="tel:+919876543210"
+                  className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-slate-800 border border-white/10 flex items-center justify-center text-electric-400 group-hover:scale-110 transition-transform">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-slate-400 uppercase">Call / Support</div>
+                    <div className="text-sm font-medium text-white">+91 98765 43210</div>
+                  </div>
+                </a>
 
-              <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5">
-                <div className="p-2.5 rounded-lg bg-electric-600/20 text-electric-400">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-[11px] text-slate-400">Phone Hotline</p>
-                  <p className="text-sm font-semibold text-white">+91 99999 99999</p>
+                <div className="flex items-center gap-4 text-slate-300 group">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-800 border border-white/10 flex items-center justify-center text-electric-400 group-hover:scale-110 transition-transform">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-slate-400 uppercase">HQ Office</div>
+                    <div className="text-sm font-medium text-white">Boring Road & IT Park, Patna, Bihar</div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5">
-                <div className="p-2.5 rounded-lg bg-glow-cyan/20 text-glow-cyan">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-[11px] text-slate-400">Official Email</p>
-                  <p className="text-sm font-semibold text-white">hello@biharstack.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5">
-                <div className="p-2.5 rounded-lg bg-purple-600/20 text-purple-400">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-[11px] text-slate-400">Innovation Hub</p>
-                  <p className="text-sm font-semibold text-white">Patna, Bihar, India (Serving Globally)</p>
-                </div>
+              {/* Direct WhatsApp CTA Button */}
+              <div className="pt-4 border-t border-white/10">
+                <a
+                  href="https://wa.me/919876543210?text=Hi%20BiharStack,%20I%20want%20to%20discuss%20a%20project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-4 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-black font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 transition-all duration-300 shadow-lg shadow-emerald-500/20"
+                >
+                  <MessageCircle className="w-5 h-5 fill-black" />
+                  <span>Chat Direct on WhatsApp</span>
+                </a>
               </div>
             </div>
 
-            {/* Embedded Dark Styled Google Map */}
-            <div className="rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 p-2 overflow-hidden shadow-lg h-60">
-              <iframe
-                title="BiharStack Headquarters Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115133.01016833918!2d85.07300184478149!3d25.60817557110196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58dce6732867%3A0x4059f39a1ac82f06!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(1.2)" }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-xl"
-              />
+            {/* SLA Callout */}
+            <div className="rounded-2xl bg-gradient-to-r from-electric-900/50 via-slate-900/50 to-slate-900/50 border border-electric-500/20 p-6">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs font-bold uppercase tracking-wider text-electric-300">Quick Response Guarantee</span>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                We respond to all project inquiries within <strong className="text-slate-200">2 business hours</strong> with a technical roadmap & preliminary scope estimate.
+              </p>
             </div>
-
           </motion.div>
 
         </div>
