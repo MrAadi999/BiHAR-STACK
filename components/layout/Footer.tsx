@@ -219,17 +219,48 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Soft Animated Full-Width Giant Typography Logo Watermark 'BIHAR STACK' */}
-        <div className="pt-6 pb-2 text-center select-none overflow-hidden relative">
+        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' */}
+        <div className="pt-8 pb-4 text-center select-none overflow-hidden relative flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          {/* BIHAR 3D Character Images */}
+          <div className="flex items-center gap-1 sm:gap-2">
+            <motion.img
+              src="/images/letters/letter-b.png"
+              alt="B"
+              whileHover={{ scale: 1.15, rotate: -6 }}
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-md cursor-pointer"
+            />
+            <motion.img
+              src="/images/letters/letter-i.png"
+              alt="I"
+              whileHover={{ scale: 1.15, rotate: 6 }}
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-md cursor-pointer"
+            />
+            <motion.img
+              src="/images/letters/letter-h.png"
+              alt="H"
+              whileHover={{ scale: 1.15, rotate: -6 }}
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-md cursor-pointer"
+            />
+            <motion.img
+              src="/images/letters/letter-a.png"
+              alt="A"
+              whileHover={{ scale: 1.15, rotate: 6 }}
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-md cursor-pointer"
+            />
+            <motion.img
+              src="/images/letters/letter-r.png"
+              alt="R"
+              whileHover={{ scale: 1.15, rotate: -6 }}
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-md cursor-pointer"
+            />
+          </div>
+
+          {/* STACK Text */}
           <motion.h2
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.02, y: -3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-display text-[13vw] sm:text-[14vw] font-black tracking-tighter leading-none bg-gradient-to-r from-[#0A2540]/30 via-[#1E40AF]/45 to-[#0A2540]/30 bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-all duration-500 pointer-events-none drop-shadow-xs select-none"
+            whileHover={{ scale: 1.05 }}
+            className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-[#0A2540] ml-2 sm:ml-4"
           >
-            BIHAR STACK
+            STACK
           </motion.h2>
         </div>
 
