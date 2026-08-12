@@ -84,7 +84,7 @@ const projects = [
     category: "Finance & FinTech",
     location: "Hajipur & Vaishali, Bihar",
     impact: "50,000+ Rural Customers",
-    image: "https://images.unsplash.com/photo-1556742031-c6961e85179d?w=900&auto=format&fit=crop&q=80",
+    image: "/images/digital_seva_kendra_photo.jpg",
     description: "Rural micro-banking & Jan Seva portal for AEPS Aadhaar cash withdrawal, micro-loans approval dashboard, and utility bill payment kiosk.",
     tags: ["Digital Seva Kendra", "Micro-Finance", "AEPS Banking"],
   },
