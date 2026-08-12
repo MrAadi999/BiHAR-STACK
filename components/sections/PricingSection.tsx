@@ -1,136 +1,183 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, X as CrossIcon, ArrowRight, Sparkles } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
 
 const plans = [
   {
-    name: "Starter",
-    tagline: "Ideal for small businesses launching their digital presence.",
-    price: "₹24,999",
-    period: "one-time project",
+    badge: "PACK SILVER",
+    name: "Starter Dukaan",
+    tagline: "Ideal for local shops, saree emporium, salons, clinics & initial web launch.",
+    price: "₹3,999",
+    period: "one-time setup",
     highlight: false,
+    headerBg: "bg-gradient-to-b from-slate-200 via-slate-300 to-slate-400 text-slate-900 border-b-2 border-slate-400",
+    borderStyle: "border-slate-300/80 shadow-slate-300/10",
+    buttonBg: "bg-gradient-to-r from-slate-100 via-slate-300 to-slate-400 text-black font-black hover:from-white hover:to-slate-200 shadow-md",
+    badgeColor: "text-slate-800",
     features: [
-      "Custom 5-Page Responsive Website",
-      "Basic SEO & Google Business Setup",
-      "Brand Identity (Logo & Palette)",
-      "Social Media Creatives (10 Pack)",
-      "WhatsApp Chat Widget Integration",
-      "High Speed Web Hosting Setup",
-      "1 Month Post-Launch Support",
+      { text: "Custom 5-Page Responsive Website", included: true },
+      { text: "WhatsApp Direct Order & Chat Button", included: true },
+      { text: "Google Maps Location & Local SEO", included: true },
+      { text: "High-Speed Hosting & Domain Setup", included: true },
+      { text: "Custom Logo & Banner Creatives", included: true },
+      { text: "1 Month Free Technical Support", included: true },
+      { text: "Automated AI WhatsApp Bot (24/7)", included: false },
+      { text: "Paid Meta Ads & Google Ads Funnel", included: false },
     ],
-    cta: "Launch Starter",
-    variant: "glass" as const,
+    cta: "Launch Silver Plan",
   },
   {
-    name: "Growth",
-    tagline: "Designed for ambitious businesses ready to scale revenue.",
-    price: "₹59,999",
-    period: "one-time + monthly ads opt.",
+    badge: "PACK GOLD",
+    name: "Growth Vyapar",
+    tagline: "Designed for coaching centers, clinics, restaurants & fast-scaling Bihar ventures.",
+    price: "₹8,999",
+    period: "one-time + growth tools",
     highlight: true,
-    badge: "MOST POPULAR",
+    popularBadge: "MOST POPULAR",
+    headerBg: "bg-gradient-to-b from-amber-200 via-yellow-400 to-amber-500 text-black font-black border-b-2 border-amber-600",
+    borderStyle: "border-amber-400 shadow-[0_25px_60px_rgba(234,179,8,0.25)] z-20 lg:-translate-y-4",
+    buttonBg: "bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 text-black font-black shadow-xl shadow-amber-500/30 hover:scale-105",
+    badgeColor: "text-amber-900",
     features: [
-      "Full Next.js Web App / E-commerce",
-      "Advanced SEO & Conversion Funnel",
-      "Complete Brand Book & Motion Design",
-      "Meta Ads & Google Ads Setup + Run",
-      "Automated AI WhatsApp Bot (24/7)",
-      "Lead Capture CRM Integration",
-      "Priority 24/7 Technical Support",
-      "Monthly Growth Analytics Reports",
+      { text: "Full Web App / POS / QR Menu / Test Portal", included: true },
+      { text: "Automated AI WhatsApp Bot (24/7)", included: true },
+      { text: "Advanced Local SEO & Google Ranking", included: true },
+      { text: "Complete Brand Identity & Motion Design", included: true },
+      { text: "Meta Ads & Google Ads Funnel Setup", included: true },
+      { text: "Lead Capture CRM & SMS Reminders", included: true },
+      { text: "Priority 24/7 Technical Support", included: true },
+      { text: "Monthly Growth Analytics Report", included: true },
     ],
-    cta: "Start Growth Plan",
-    variant: "primary" as const,
+    cta: "Start Gold Vyapar",
   },
   {
-    name: "Enterprise",
-    tagline: "Bespoke digital architecture for large organizations.",
-    price: "Custom",
-    period: "custom scope & retainer",
+    badge: "PACK BRONZE",
+    name: "Enterprise Bihar",
+    tagline: "Bespoke digital architecture for factories, real estate & multi-branch firms.",
+    price: "₹14,999",
+    period: "custom scope retainer",
     highlight: false,
+    headerBg: "bg-gradient-to-b from-orange-200 via-amber-600 to-orange-700 text-white font-black border-b-2 border-orange-800",
+    borderStyle: "border-amber-600/80 shadow-amber-600/10",
+    buttonBg: "bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white font-black hover:from-amber-500 hover:to-orange-500 shadow-md",
+    badgeColor: "text-amber-900",
     features: [
-      "Custom SaaS / Mobile App Engine",
-      "Bespoke Enterprise AI Agents & Workflows",
-      "Omnichannel Digital Performance Ads",
-      "3D Interactive Web Animations",
-      "Dedicated Project Director & Engineers",
-      "SLA 99.99% Uptime & Security Audit",
-      "Continuous A/B Testing & Scaling",
-      "Quarterly Strategy Board Meetings",
+      { text: "Custom SaaS Engine / Mobile App Engine", included: true },
+      { text: "B2B Global Buyer Export Web Portal", included: true },
+      { text: "Micro-Finance AEPS / KYC Integration", included: true },
+      { text: "3D Interactive Web Animations", included: true },
+      { text: "Dedicated BiharStack Software Engineer", included: true },
+      { text: "SLA 99.99% Uptime & Security Audit", included: true },
+      { text: "Continuous A/B Testing & Retainer", included: true },
+      { text: "Quarterly Strategy Board Meetings", included: true },
     ],
     cta: "Contact Enterprise",
-    variant: "glass" as const,
   },
 ];
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="py-24 bg-[#f0f0f0] relative overflow-hidden">
+    <section id="pricing" className="py-20 sm:py-24 bg-[#111625] relative overflow-hidden">
+      {/* Metallic Glow Backdrops */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-amber-500/10 blur-[120px] pointer-events-none" />
+
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <SectionHeading
-          badge="TRANSPARENT VALUE"
-          title="Simple, Transparent Pricing"
-          subtitle="No hidden fees. Choose the right growth package for your business trajectory."
+          badge="AFFORDABLE GROWTH PACKAGES"
+          title="Transparent Pricing for Bihar Businesses"
+          subtitle="No hidden costs. Affordable Indian Rupee (₹) plans specially designed for local startups, shops, & growing ventures."
+          className="text-white"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mt-12">
           {plans.map((plan, index) => (
             <motion.div
-              key={plan.name}
+              key={plan.badge}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className={`relative p-8 bg-white border-2 border-black flex flex-col justify-between transition-all duration-300 ${
-                plan.highlight
-                  ? "shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] lg:-translate-y-4"
-                  : "shadow-sm hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
-              }`}
+              className={`relative rounded-[36px] bg-gradient-to-b from-[#1c2333] via-[#151a28] to-[#0d101a] border-2 flex flex-col justify-between overflow-hidden transition-all duration-300 ${plan.borderStyle}`}
             >
-              {plan.badge && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-black text-white text-[10px] font-black uppercase tracking-widest border border-black shadow-sm">
-                  {plan.badge}
-                </span>
+              {/* Highlight Popular Badge for Pack Gold */}
+              {plan.popularBadge && (
+                <div className="absolute top-0 right-0 z-30">
+                  <span className="px-4 py-1.5 bg-gradient-to-r from-amber-400 to-yellow-500 text-black text-[10px] font-black uppercase tracking-widest rounded-bl-2xl shadow-lg flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 fill-black" />
+                    <span>{plan.popularBadge}</span>
+                  </span>
+                </div>
               )}
 
+              {/* Metallic 3D Top Header Badge (Matching Reference Photo) */}
               <div>
-                <h3 className="font-display text-2xl font-black text-black uppercase mb-2">{plan.name}</h3>
-                <p className="text-xs text-neutral-600 font-medium min-h-[36px] mb-6">{plan.tagline}</p>
-
-                <div className="flex items-baseline gap-2 mb-6 pb-6 border-b-2 border-black">
-                  <span className="font-display text-4xl sm:text-5xl font-black text-black">
-                    {plan.price}
+                <div className={`p-6 text-center shadow-lg relative overflow-hidden ${plan.headerBg}`}>
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-white/40 pointer-events-none" />
+                  <span className="text-xs font-black uppercase tracking-[0.25em] block mb-1">
+                    {plan.badge}
                   </span>
-                  <span className="text-xs text-neutral-600 font-bold uppercase tracking-wider">/ {plan.period}</span>
+                  <h3 className="font-display text-2xl font-black uppercase tracking-tight">
+                    {plan.name}
+                  </h3>
+                  <div className="mt-3 flex items-baseline justify-center gap-1.5">
+                    <span className="font-display text-4xl sm:text-5xl font-black tracking-tight">
+                      {plan.price}
+                    </span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider opacity-80">
+                      / {plan.period}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="space-y-3 mb-8">
-                  <p className="text-[11px] font-black uppercase tracking-widest text-black mb-2">
-                    What&apos;s Included:
+                {/* Content & Feature Checklist */}
+                <div className="p-6 sm:p-8">
+                  <p className="text-xs text-slate-300 font-medium min-h-[36px] mb-6 text-center leading-relaxed">
+                    {plan.tagline}
                   </p>
-                  {plan.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-2.5">
-                      <div className="mt-0.5 p-0.5 bg-black text-white">
-                        <Check className="w-3 h-3" />
+
+                  <div className="space-y-3.5 mb-8">
+                    {plan.features.map((feature, fIdx) => (
+                      <div
+                        key={fIdx}
+                        className="flex items-center justify-between gap-3 text-xs font-semibold py-1 border-b border-white/5"
+                      >
+                        <span
+                          className={`uppercase tracking-wide leading-tight ${
+                            feature.included
+                              ? "text-slate-100 font-bold"
+                              : "text-slate-500 line-through decoration-slate-600"
+                          }`}
+                        >
+                          {feature.text}
+                        </span>
+
+                        {/* Metallic Checkmark or Cross Icon (Matching Reference Photo) */}
+                        {feature.included ? (
+                          <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center flex-shrink-0 shadow-sm">
+                            <Check className="w-3 h-3 stroke-[3]" />
+                          </div>
+                        ) : (
+                          <div className="w-5 h-5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20 flex items-center justify-center flex-shrink-0">
+                            <CrossIcon className="w-3 h-3 opacity-60" />
+                          </div>
+                        )}
                       </div>
-                      <span className="text-xs font-semibold text-black uppercase tracking-wide">{feature}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <a href="#contact">
-                  <Button
-                    variant={plan.variant}
-                    size="md"
-                    className="w-full"
-                    icon={<ArrowRight className="w-4 h-4" />}
+              {/* Glossy Metallic Action Button */}
+              <div className="p-6 pt-0">
+                <a href="#contact" className="block w-full">
+                  <button
+                    className={`w-full py-4 px-6 rounded-2xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${plan.buttonBg}`}
                   >
-                    {plan.cta}
-                  </Button>
+                    <span>{plan.cta}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </a>
               </div>
             </motion.div>
