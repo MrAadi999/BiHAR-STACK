@@ -1,24 +1,109 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2, ChevronDown, Check, Sparkles } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 
+const serviceCategories = [
+  {
+    id: "digital_marketing",
+    name: "1. Digital Marketing & Performance",
+    subFeatures: [
+      "Meta Ads (Facebook & Instagram Lead Ads)",
+      "Google Search & YouTube Video Ads",
+      "Local SEO & Google Maps (GMB) Ranking",
+      "Conversion Funnel & Growth Optimization",
+    ],
+  },
+  {
+    id: "branding",
+    name: "2. Branding & Creative Design",
+    subFeatures: [
+      "Custom Logo & Brand Identity Book",
+      "Social Media Creatives & Ad Banners",
+      "3D Motion Graphics & Promo Videos",
+      "Packaging & Print Asset Design",
+    ],
+  },
+  {
+    id: "website_tech",
+    name: "3. Website & Custom Technology",
+    subFeatures: [
+      "Responsive 5-Page Shop/Clinic Website",
+      "E-Commerce Store & WhatsApp Order Sync",
+      "POS Billing System & Contactless QR Menu",
+      "Coaching Test Series & LMS Portal",
+    ],
+  },
+  {
+    id: "ai_automation",
+    name: "4. AI & Workflow Automation",
+    subFeatures: [
+      "24/7 Automated WhatsApp AI Sales Bot",
+      "Lead Capture CRM & SMS Reminder Engine",
+      "AEPS Cash Withdrawal & Loan Software",
+      "Custom Enterprise AI Workflows",
+    ],
+  },
+];
+
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(["website_tech"]);
+  const [selectedSubFeatures, setSelectedSubFeatures] = useState<string[]>([
+    "Responsive 5-Page Shop/Clinic Website",
+  ]);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    service: "Digital Marketing & Meta/Google Ads",
     message: "",
   });
+
+  const toggleCategory = (categoryId: string) => {
+    const category = serviceCategories.find((c) => c.id === categoryId);
+    if (!category) return;
+
+    if (selectedCategories.includes(categoryId)) {
+      if (selectedCategories.length > 1) {
+        setSelectedCategories(selectedCategories.filter((id) => id !== categoryId));
+        setSelectedSubFeatures(
+          selectedSubFeatures.filter((sf) => !category.subFeatures.includes(sf))
+        );
+      }
+    } else {
+      setSelectedCategories([...selectedCategories, categoryId]);
+      // Auto select first subfeature when category is ticked
+      setSelectedSubFeatures([...selectedSubFeatures, category.subFeatures[0]]);
+    }
+  };
+
+  const toggleSubFeature = (subFeature: string) => {
+    if (selectedSubFeatures.includes(subFeature)) {
+      if (selectedSubFeatures.length > 1) {
+        setSelectedSubFeatures(selectedSubFeatures.filter((sf) => sf !== subFeature));
+      }
+    } else {
+      setSelectedSubFeatures([...selectedSubFeatures, subFeature]);
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+  };
+
+  // Get display text for input trigger box
+  const getSelectedSummaryText = () => {
+    const activeCats = serviceCategories.filter((c) => selectedCategories.includes(c.id));
+    if (activeCats.length === 0) return "Select Required Service...";
+    
+    const catNames = activeCats.map((c) => c.name.replace(/^\d+\.\s*/, "")).join(", ");
+    return `${catNames} (${selectedSubFeatures.length} options selected)`;
   };
 
   return (
@@ -103,37 +188,130 @@ export default function ContactSection() {
                       className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-electric-500 transition-colors text-sm"
                     />
                   </div>
-                  <div>
+
+                  {/* Interactive Custom Required Service Dropdown & Nested Options */}
+                  <div className="relative">
                     <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                       Required Service *
                     </label>
-                    <select
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white focus:outline-none focus:border-electric-500 transition-colors text-sm"
+                    
+                    {/* Trigger Box with Down Arrow */}
+                    <button
+                      type="button"
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-white/10 text-white focus:outline-none focus:border-electric-500 transition-colors text-sm flex items-center justify-between text-left cursor-pointer"
                     >
-                      <option value="Website & E-Commerce (Shop, POS Billing, QR Menu)">
-                        Website & E-Commerce (Shop, POS Billing, QR Menu)
-                      </option>
-                      <option value="Digital Marketing & Meta/Google Ads">
-                        Digital Marketing & Meta/Google Ads
-                      </option>
-                      <option value="Local SEO & Google Maps Ranking Optimization">
-                        Local SEO & Google Maps Ranking Optimization
-                      </option>
-                      <option value="Automated AI WhatsApp Bot & CRM Pipelines">
-                        Automated AI WhatsApp Bot & CRM Pipelines
-                      </option>
-                      <option value="Branding & Creative Design">
-                        Branding & Creative Design
-                      </option>
-                      <option value="Custom SaaS & Mobile App Dev">
-                        Custom SaaS & Mobile App Dev
-                      </option>
-                      <option value="Full 360° Growth Package">
-                        Full 360° Growth Package
-                      </option>
-                    </select>
+                      <span className="truncate pr-2 font-medium text-electric-300">
+                        {getSelectedSummaryText()}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-300 ${
+                          isDropdownOpen ? "rotate-180 text-electric-400" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Expandable Dropdown Menu with 4 Categories & Relative Sub-Features */}
+                    <AnimatePresence>
+                      {isDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute left-0 right-0 top-full mt-2 z-50 rounded-2xl bg-slate-900 border-2 border-electric-500/50 shadow-2xl p-4 space-y-3 max-h-[380px] overflow-y-auto custom-scrollbar"
+                        >
+                          <p className="text-[11px] font-black uppercase tracking-wider text-slate-400 border-b border-white/10 pb-2">
+                            Select Category & Tick Required Features:
+                          </p>
+
+                          {serviceCategories.map((cat) => {
+                            const isCatSelected = selectedCategories.includes(cat.id);
+
+                            return (
+                              <div
+                                key={cat.id}
+                                className="rounded-xl border border-white/10 overflow-hidden bg-slate-800/60"
+                              >
+                                {/* Main Category Bar with Checkbox */}
+                                <button
+                                  type="button"
+                                  onClick={() => toggleCategory(cat.id)}
+                                  className={`w-full p-3 flex items-center justify-between text-left text-xs sm:text-sm font-extrabold transition-colors cursor-pointer ${
+                                    isCatSelected
+                                      ? "bg-electric-600/30 text-white border-b border-electric-500/30"
+                                      : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                                  }`}
+                                >
+                                  <span className="flex items-center gap-2">
+                                    <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                                    {cat.name}
+                                  </span>
+
+                                  <div
+                                    className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 transition-colors ${
+                                      isCatSelected
+                                        ? "bg-electric-500 border-electric-400 text-black"
+                                        : "border-slate-500 bg-slate-900"
+                                    }`}
+                                  >
+                                    {isCatSelected && <Check className="w-3 h-3 text-black stroke-[3]" />}
+                                  </div>
+                                </button>
+
+                                {/* Expand Relative Sub-Features when Category is Ticked */}
+                                <AnimatePresence>
+                                  {isCatSelected && (
+                                    <motion.div
+                                      initial={{ opacity: 0, height: 0 }}
+                                      animate={{ opacity: 1, height: "auto" }}
+                                      exit={{ opacity: 0, height: 0 }}
+                                      transition={{ duration: 0.2 }}
+                                      className="p-3 bg-slate-900/90 space-y-2"
+                                    >
+                                      <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                                        Relative Options ({cat.name.replace(/^\d+\.\s*/, "")}):
+                                      </p>
+
+                                      <div className="grid grid-cols-1 gap-1.5">
+                                        {cat.subFeatures.map((sf) => {
+                                          const isSfSelected = selectedSubFeatures.includes(sf);
+
+                                          return (
+                                            <button
+                                              key={sf}
+                                              type="button"
+                                              onClick={() => toggleSubFeature(sf)}
+                                              className={`p-2.5 rounded-lg border text-xs font-semibold flex items-center justify-between text-left transition-all cursor-pointer ${
+                                                isSfSelected
+                                                  ? "bg-amber-500/20 border-amber-400/60 text-amber-200"
+                                                  : "bg-slate-800/40 border-white/5 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                                              }`}
+                                            >
+                                              <span className="truncate pr-2">✓ {sf}</span>
+
+                                              <div
+                                                className={`w-3.5 h-3.5 rounded border flex items-center justify-center shrink-0 transition-colors ${
+                                                  isSfSelected
+                                                    ? "bg-amber-400 border-amber-300 text-black"
+                                                    : "border-slate-600 bg-slate-900"
+                                                }`}
+                                              >
+                                                {isSfSelected && <Check className="w-2.5 h-2.5 text-black stroke-[3]" />}
+                                              </div>
+                                            </button>
+                                          );
+                                        })}
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </div>
+                            );
+                          })}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
 
