@@ -22,7 +22,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-navy-950 relative overflow-hidden">
+    <section id="contact" className="pt-4 sm:pt-8 pb-14 sm:pb-18 bg-navy-950 relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-electric-600/10 rounded-full blur-[110px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-glow-cyan/10 rounded-full blur-[110px] pointer-events-none" />
@@ -32,6 +32,7 @@ export default function ContactSection() {
           badge="GET IN TOUCH"
           title="Let's Build Something Great"
           subtitle="Ready to scale your business with modern tech, marketing, and AI? Talk to our core engineering & strategy team."
+          className="mb-4 sm:mb-6 text-white"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
