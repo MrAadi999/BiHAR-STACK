@@ -12,7 +12,7 @@ export default function ContactSection() {
     name: "",
     email: "",
     phone: "",
-    service: "Website & E-Commerce (Shop, POS Billing, QR Menu)",
+    service: "Digital Marketing & Meta/Google Ads",
     message: "",
   });
 
@@ -115,8 +115,8 @@ export default function ContactSection() {
                       <option value="Website & E-Commerce (Shop, POS Billing, QR Menu)">
                         Website & E-Commerce (Shop, POS Billing, QR Menu)
                       </option>
-                      <option value="Growth Marketing & Meta/Google Ads Funnel">
-                        Growth Marketing & Meta/Google Ads Funnel
+                      <option value="Digital Marketing & Meta/Google Ads">
+                        Digital Marketing & Meta/Google Ads
                       </option>
                       <option value="Local SEO & Google Maps Ranking Optimization">
                         Local SEO & Google Maps Ranking Optimization
@@ -124,14 +124,14 @@ export default function ContactSection() {
                       <option value="Automated AI WhatsApp Bot & CRM Pipelines">
                         Automated AI WhatsApp Bot & CRM Pipelines
                       </option>
-                      <option value="Branding, Logo & Motion Design Package">
-                        Branding, Logo & Motion Design Package
+                      <option value="Branding & Creative Design">
+                        Branding & Creative Design
                       </option>
-                      <option value="Custom SaaS, Mobile App & Software Engine">
-                        Custom SaaS, Mobile App & Software Engine
+                      <option value="Custom SaaS & Mobile App Dev">
+                        Custom SaaS & Mobile App Dev
                       </option>
-                      <option value="Full 360° All-In-One Growth Package">
-                        Full 360° All-In-One Growth Package
+                      <option value="Full 360° Growth Package">
+                        Full 360° Growth Package
                       </option>
                     </select>
                   </div>
@@ -155,16 +155,16 @@ export default function ContactSection() {
                   type="submit"
                   variant="primary"
                   size="lg"
-                  className="w-full justify-center"
+                  className="w-full shadow-blue-glow"
                   icon={<Send className="w-4 h-4" />}
                 >
-                  Send Project Inquiry
+                  Send Inquiry Now
                 </Button>
               </form>
             )}
           </motion.div>
 
-          {/* Right Info */}
+          {/* Right Info & Dark Styled Google Map */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -172,72 +172,71 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 space-y-6"
           >
-            {/* Contact Details Card */}
-            <div className="rounded-3xl bg-slate-900/60 backdrop-blur-xl border border-white/10 p-8 shadow-2xl space-y-6">
-              <h3 className="font-display text-xl font-bold text-white mb-4">Direct Contact</h3>
-              
-              <div className="space-y-4">
-                <a
-                  href="mailto:contact@biharstack.com"
-                  className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors group"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-slate-800 border border-white/10 flex items-center justify-center text-electric-400 group-hover:scale-110 transition-transform">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-slate-400 uppercase">Email Us</div>
-                    <div className="text-sm font-medium text-white">contact@biharstack.com</div>
-                  </div>
-                </a>
+            {/* Quick Contact Cards */}
+            <div className="p-6 rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 space-y-4">
+              <h4 className="font-display text-lg font-bold text-white mb-4">Direct Communication</h4>
 
-                <a
-                  href="tel:+919876543210"
-                  className="flex items-center gap-4 text-slate-300 hover:text-white transition-colors group"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-slate-800 border border-white/10 flex items-center justify-center text-electric-400 group-hover:scale-110 transition-transform">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-slate-400 uppercase">Call / Support</div>
-                    <div className="text-sm font-medium text-white">+91 98765 43210</div>
-                  </div>
-                </a>
+              <a
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors group"
+              >
+                <div className="p-2.5 rounded-lg bg-emerald-500 text-white group-hover:scale-105 transition-transform">
+                  <MessageCircle className="w-5 h-5 fill-current" />
+                </div>
+                <div>
+                  <p className="text-xs text-emerald-400 font-semibold uppercase tracking-wider">Instant Chat</p>
+                  <p className="text-sm font-bold text-white">WhatsApp Us Directly</p>
+                </div>
+              </a>
 
-                <div className="flex items-center gap-4 text-slate-300 group">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-800 border border-white/10 flex items-center justify-center text-electric-400 group-hover:scale-110 transition-transform">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-slate-400 uppercase">HQ Office</div>
-                    <div className="text-sm font-medium text-white">Boring Road & IT Park, Patna, Bihar</div>
-                  </div>
+              <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5">
+                <div className="p-2.5 rounded-lg bg-electric-600/20 text-electric-400">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-[11px] text-slate-400">Phone Hotline</p>
+                  <p className="text-sm font-semibold text-white">+91 98765 43210</p>
                 </div>
               </div>
 
-              {/* Direct WhatsApp CTA Button */}
-              <div className="pt-4 border-t border-white/10">
-                <a
-                  href="https://wa.me/919876543210?text=Hi%20BiharStack,%20I%20want%20to%20discuss%20a%20project"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-4 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-black font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 transition-all duration-300 shadow-lg shadow-emerald-500/20"
-                >
-                  <MessageCircle className="w-5 h-5 fill-black" />
-                  <span>Chat Direct on WhatsApp</span>
-                </a>
+              <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5">
+                <div className="p-2.5 rounded-lg bg-glow-cyan/20 text-glow-cyan">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-[11px] text-slate-400">Official Email</p>
+                  <p className="text-sm font-semibold text-white">contact@biharstack.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/40 border border-white/5">
+                <div className="p-2.5 rounded-lg bg-purple-600/20 text-purple-400">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-[11px] text-slate-400">Innovation Hub</p>
+                  <p className="text-sm font-semibold text-white">Boring Road & IT Park, Patna, Bihar</p>
+                </div>
               </div>
             </div>
 
-            {/* SLA Callout */}
-            <div className="rounded-2xl bg-gradient-to-r from-electric-900/50 via-slate-900/50 to-slate-900/50 border border-electric-500/20 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs font-bold uppercase tracking-wider text-electric-300">Quick Response Guarantee</span>
-              </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                We respond to all project inquiries within <strong className="text-slate-200">2 business hours</strong> with a technical roadmap & preliminary scope estimate.
-              </p>
+            {/* Embedded Dark Styled Google Map */}
+            <div className="rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 p-2 overflow-hidden shadow-lg h-60">
+              <iframe
+                title="BiharStack Headquarters Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115133.01016833918!2d85.07300184478149!3d25.60817557110196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58dce6732867%3A0x4059f39a1ac82f06!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(1.2)" }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-xl"
+              />
             </div>
+
           </motion.div>
 
         </div>
