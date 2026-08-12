@@ -55,17 +55,17 @@ const plans = [
     cta: "Select Gold",
   },
   {
-    badge: "PACK BRONZE",
+    badge: "PACK PLATINUM",
     name: "Enterprise Bihar",
     tagline: "Bespoke digital architecture for factories, real estate & multi-branch firms.",
     price: "₹14,999",
     period: "custom scope retainer",
     highlight: false,
-    headerBg: "bg-gradient-to-b from-orange-200 via-amber-600 to-orange-700 text-white font-black border-b-2 border-orange-800",
-    borderStyle: "border-amber-600/90 shadow-[0_20px_50px_rgba(245,158,11,0.25)]",
-    cardBg: "bg-gradient-to-b from-[#4a352c] via-[#36241b] to-[#21150e]",
-    buttonBg: "bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-black font-black hover:scale-105 shadow-lg",
-    glowColor: "text-orange-300",
+    headerBg: "bg-gradient-to-b from-indigo-100 via-sky-200 to-slate-400 text-slate-900 font-black border-b-2 border-indigo-300",
+    borderStyle: "border-sky-300/90 shadow-[0_20px_50px_rgba(56,189,248,0.25)]",
+    cardBg: "bg-gradient-to-b from-[#2e374d] via-[#1e2536] to-[#121724]",
+    buttonBg: "bg-gradient-to-r from-sky-200 via-indigo-300 to-slate-300 text-black font-black hover:scale-105 shadow-lg",
+    glowColor: "text-sky-300",
     features: [
       { text: "Custom SaaS Engine / Mobile App Engine", included: true },
       { text: "B2B Global Buyer Export Web Portal", included: true },
@@ -76,7 +76,7 @@ const plans = [
       { text: "Continuous A/B Testing & Retainer", included: true },
       { text: "Quarterly Strategy Board Meetings", included: true },
     ],
-    cta: "Select Bronze",
+    cta: "Select Platinum",
   },
 ];
 
@@ -104,7 +104,7 @@ export default function PricingSection() {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className={`relative rounded-[36px] ${plan.cardBg} border-2 flex flex-col justify-between overflow-hidden transition-all duration-300 ${plan.borderStyle}`}
             >
-              {/* Top Corner Lens Flare Sparkle Lights (Matching Reference Photo) */}
+              {/* Top Corner Lens Flare Sparkle Lights */}
               <div className="absolute top-3 right-3 z-30 flex items-center justify-center pointer-events-none">
                 <div className="w-2.5 h-2.5 rounded-full bg-white blur-[1px] animate-ping" />
                 <Sparkles className={`w-5 h-5 ${plan.glowColor} animate-pulse absolute`} />
@@ -120,7 +120,7 @@ export default function PricingSection() {
                 </div>
               )}
 
-              {/* Metallic 3D Top Header Badge with V-Crest Shape (Matching Reference Photo) */}
+              {/* Metallic 3D Top Header Badge with V-Crest Shape */}
               <div>
                 <div className={`p-6 text-center shadow-xl relative ${plan.headerBg}`}>
                   {/* Glass Top Highlight Line */}
@@ -141,11 +141,11 @@ export default function PricingSection() {
                     </span>
                   </div>
 
-                  {/* Downward V-Peak Shape (Matching Reference Photo) */}
+                  {/* Downward V-Peak Shape */}
                   <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[14px] border-t-amber-500/80 z-20 pointer-events-none" />
                 </div>
 
-                {/* Content & Numbered Feature Checklist (Matching Reference Photo) */}
+                {/* Content & Numbered Feature Checklist */}
                 <div className="p-6 sm:p-7 pt-8">
                   <p className="text-xs text-slate-300 font-medium min-h-[36px] mb-6 text-center leading-relaxed italic">
                     {plan.tagline}
@@ -158,7 +158,7 @@ export default function PricingSection() {
                         className="flex items-center justify-between gap-3 text-xs font-bold py-1.5 border-b border-white/10"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          {/* Sequence Number (1, 2, 3... Matching Photo) */}
+                          {/* Sequence Number (1, 2, 3...) */}
                           <span className={`text-xs font-black w-4 flex-shrink-0 ${plan.glowColor}`}>
                             {fIdx + 1}
                           </span>
@@ -173,7 +173,7 @@ export default function PricingSection() {
                           </span>
                         </div>
 
-                        {/* Metallic Checkmark or Cross Icon (Matching Photo) */}
+                        {/* Metallic Checkmark or Cross Icon */}
                         {feature.included ? (
                           <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 flex items-center justify-center flex-shrink-0 shadow-sm">
                             <Check className="w-3 h-3 stroke-[3]" />
@@ -189,7 +189,7 @@ export default function PricingSection() {
                 </div>
               </div>
 
-              {/* Metallic Pill Action Button (Matching Reference Photo) */}
+              {/* Metallic Pill Action Button */}
               <div className="p-6 pt-0">
                 <a href="#contact" className="block w-full">
                   <button
