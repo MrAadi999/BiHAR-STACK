@@ -87,66 +87,81 @@ function StrategyMagnifierChartIcon({ className = "w-5 h-5" }: { className?: str
   );
 }
 
-// 3. Creativity Icon matching Reference Image 3 (Thinking Profile Silhouette with Book)
-function CreativityThinkingProfileIcon({ className = "w-5 h-5" }: { className?: string }) {
+// 3. Creativity Icon matching Reference Image 3 (Ultra-Clear Thinking Silhouette with Book)
+function CreativityThinkingProfileIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Book / Folded Paper Shape at Back */}
-      <polygon points="30,15 52,24 30,32" fill="currentColor" opacity="0.8" />
-      <rect x="24" y="24" width="12" height="45" fill="currentColor" opacity="0.9" />
+      {/* Book / Paper Fold Backdrop */}
+      <path d="M 22 12 L 48 20 L 22 28 Z" fill="currentColor" opacity="0.85" />
+      <rect x="16" y="20" width="12" height="54" rx="2" fill="currentColor" opacity="0.9" />
 
-      {/* Silhouette Profile Face (Nose, Lips, Chin) */}
+      {/* Profile Silhouette Face Looking Right */}
       <path
-        d="M 36 24 C 44 24, 54 30, 54 38 C 54 41, 50 43, 56 46 C 58 47, 56 50, 52 50 C 48 50, 48 53, 50 56 C 46 62, 40 64, 36 68 Z"
+        d="M 28 20 
+           C 42 20, 56 26, 56 38 
+           C 56 42, 50 44, 58 48 
+           C 62 50, 58 55, 52 55 
+           C 46 55, 46 59, 48 64 
+           C 42 72, 34 76, 28 80 Z"
         fill="currentColor"
       />
 
       {/* Hand Resting on Chin */}
       <path
-        d="M 52 52 C 54 50, 58 54, 56 58 L 46 72 C 42 78, 38 82, 34 85 L 42 94 C 48 88, 54 80, 58 72 L 62 62 C 64 56, 60 50, 54 50 Z"
+        d="M 52 55 
+           C 56 52, 64 57, 60 64 
+           L 46 80 
+           C 40 88, 32 92, 26 95 
+           L 34 100 
+           C 42 94, 50 85, 56 76 
+           L 62 64 
+           C 66 56, 60 50, 52 50 Z"
         fill="currentColor"
       />
     </svg>
   );
 }
 
-// 4. Technology Icon matching Reference Image 4 (Hooded Coder with Laptop & Circuit Nodes)
-function TechnologyHoodedCoderIcon({ className = "w-5 h-5" }: { className?: string }) {
+// 4. Technology Icon matching Reference Image 4 (Ultra-Clear Hooded Coder with Laptop & Circuit Nodes)
+function TechnologyHoodedCoderIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Hooded Head Outline */}
-      <path d="M 28 36 C 28 16, 72 16, 72 36 C 72 45, 68 56, 50 56 C 32 56, 28 45, 28 36 Z" fill="currentColor" />
-      {/* Inner Face Shadow Void */}
-      <path d="M 36 34 C 36 24, 64 24, 64 34 C 64 42, 58 48, 50 48 C 42 48, 36 42, 36 34 Z" fill="#000000" fillOpacity="0.6" />
+      {/* Hooded Head Outer Outline */}
+      <path d="M 24 38 C 24 12, 76 12, 76 38 C 76 48, 70 60, 50 60 C 30 60, 24 48, 24 38 Z" fill="currentColor" />
+      {/* Inner Face Void Shadow */}
+      <path d="M 34 36 C 34 24, 66 24, 66 36 C 66 45, 60 52, 50 52 C 40 52, 34 45, 34 36 Z" fill="#000000" fillOpacity="0.75" />
 
       {/* Hood Shoulders */}
-      <path d="M 20 62 C 20 48, 32 44, 50 44 C 68 44, 80 48, 80 62 Z" fill="currentColor" />
+      <path d="M 14 66 C 14 50, 28 46, 50 46 C 72 46, 86 50, 86 66 Z" fill="currentColor" />
 
       {/* Laptop Screen in Front */}
-      <rect x="28" y="44" width="44" height="26" rx="4" fill="currentColor" stroke="#ffffff" strokeWidth="2.5" />
-      <circle cx="50" cy="57" r="3" fill="#ffffff" />
+      <rect x="26" y="46" width="48" height="28" rx="4" fill="currentColor" stroke="#ffffff" strokeWidth="3" />
+      <circle cx="50" cy="60" r="3.5" fill="#ffffff" />
 
-      {/* Circuit Nodes & Connections Spreading Left, Right, Bottom */}
-      <path d="M 28 50 H 16 V 38 H 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="6" cy="38" r="3.5" fill="currentColor" />
-      <path d="M 28 62 H 14 V 74 H 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="4" cy="74" r="3.5" fill="currentColor" />
+      {/* Bold Circuit Paths & Node Circles */}
+      {/* Left Circuits */}
+      <path d="M 26 52 H 12 V 38 H 4" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="4" cy="38" r="4.5" fill="currentColor" />
+      <path d="M 26 66 H 10 V 78 H 4" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="4" cy="78" r="4.5" fill="currentColor" />
 
-      <path d="M 72 50 H 84 V 38 H 92" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="94" cy="38" r="3.5" fill="currentColor" />
-      <path d="M 72 62 H 86 V 74 H 94" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="96" cy="74" r="3.5" fill="currentColor" />
+      {/* Right Circuits */}
+      <path d="M 74 52 H 88 V 38 H 96" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="96" cy="38" r="4.5" fill="currentColor" />
+      <path d="M 74 66 H 90 V 78 H 96" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="96" cy="78" r="4.5" fill="currentColor" />
 
-      <path d="M 40 70 V 82 H 34 V 92" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="34" cy="94" r="3.5" fill="currentColor" />
-      <path d="M 60 70 V 82 H 66 V 92" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="66" cy="94" r="3.5" fill="currentColor" />
+      {/* Bottom Circuits */}
+      <path d="M 38 74 V 86 H 30 V 96" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="30" cy="96" r="4.5" fill="currentColor" />
+      <path d="M 62 74 V 86 H 70 V 96" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="70" cy="96" r="4.5" fill="currentColor" />
     </svg>
   );
 }
 
 // 5. AI Icon matching Reference Image 5 (Rounded AI Badge with 3 Sparkle Stars)
-function AIBadgeSparklesIcon({ className = "w-5 h-5" }: { className?: string }) {
+function AIBadgeSparklesIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Rounded Badge Frame (open at top right) */}
@@ -172,7 +187,7 @@ function AIBadgeSparklesIcon({ className = "w-5 h-5" }: { className?: string }) 
 }
 
 // 6. Custom Running Cardboard Box Mascot Icon matching reference image for Fast Delivery
-function RunningFastDeliveryBoxIcon({ className = "w-5 h-5" }: { className?: string }) {
+function RunningFastDeliveryBoxIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Speed Wind Motion Trails on the Left */}
@@ -444,7 +459,7 @@ export default function WhyChooseUsSection() {
                       {feature.num}
                     </span>
                     <div className={`p-3 rounded-2xl ${feature.badgeBg} shadow-md flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
-                      <IconComponent className="w-5 h-5" />
+                      <IconComponent className="w-6 h-6 shrink-0" />
                     </div>
                   </div>
 
