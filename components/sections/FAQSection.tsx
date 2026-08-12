@@ -41,21 +41,6 @@ const faqs = [
     answer:
       "Haan! Hum har business ke liye Local Google Business (GMB) SEO, Google Maps pin setup, aur local keyword ranking karte hain taaki aapke area ke customers Google par search karke direct aapki shop par aayein.",
   },
-  {
-    question: "Kya hum khud website par apne products, items aur prices baad me update kar sakte hain?",
-    answer:
-      "Haan bilkul! Hum aapko ek super simple mobile-friendly admin dashboard aur easy WhatsApp control dete hain jahan se aap 1 click me naye saree, menu items, coaching test series ya product prices kabhi bhi update kar sakte hain.",
-  },
-  {
-    question: "Customer payments (UPI, PhonePe, Paytm, Google Pay, Cards) hamare bank me kaise aayenge?",
-    answer:
-      "Hum Razorpay, PhonePe PG, ya Direct Merchant UPI QR Code seedhe aapke bank account se link kar dete hain. Customer dwara kiya gaya har online payment 100% secure tarike se direct aapke own bank account me credit hota hai.",
-  },
-  {
-    question: "Hum BiharStack ke saath apna project start kaise kar sakte hain?",
-    answer:
-      "Aap niche Contact Form fill karke ya direct WhatsApp button par click karke humari team se connect kar sakte hain. Hum same day aapka requirements discuss karke project work initiate kar denge.",
-  },
 ];
 
 export default function FAQSection() {
