@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, X as CrossIcon, ArrowRight, Sparkles } from "lucide-react";
+import { Check, X as CrossIcon, ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const plans = [
@@ -110,22 +110,10 @@ export default function PricingSection() {
               {/* Glass Diagonal Sheen Overlay (Matching Metallic Reference Photo) */}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
 
-              {/* Top Right Lens Flare Sparkle Lights */}
-              <div className="absolute top-3 right-3 z-30 flex items-center justify-center pointer-events-none">
-                <div className="w-3 h-3 rounded-full bg-white blur-[1.5px] animate-ping" />
-                <Sparkles className={`w-6 h-6 ${plan.glowColor} animate-pulse absolute drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]`} />
-              </div>
-
-              {/* Bottom Left Secondary Sparkle Light */}
-              <div className="absolute bottom-4 left-4 z-30 flex items-center justify-center pointer-events-none opacity-70">
-                <Sparkles className={`w-4 h-4 ${plan.glowColor} animate-pulse`} />
-              </div>
-
               {/* Highlight Popular Badge for Pack Gold */}
               {plan.popularBadge && (
                 <div className="absolute top-0 left-0 z-30">
-                  <span className="px-4 py-1.5 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 text-black text-[10px] font-black uppercase tracking-widest rounded-br-2xl shadow-xl flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 fill-black" />
+                  <span className="px-4 py-1.5 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 text-black text-[10px] font-black uppercase tracking-widest rounded-br-2xl shadow-xl flex items-center justify-center">
                     <span>{plan.popularBadge}</span>
                   </span>
                 </div>
