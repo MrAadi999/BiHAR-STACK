@@ -219,21 +219,15 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Animated Full-Width Giant Typography Logo Watermark 'BiHAR STACK' */}
+        {/* Soft Animated Full-Width Giant Typography Logo Watermark 'BiHAR STACK' */}
         <div className="pt-6 pb-2 text-center select-none overflow-hidden relative">
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.03, y: -4 }}
+            whileHover={{ scale: 1.02, y: -3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-display text-[13vw] sm:text-[14vw] font-black tracking-tighter leading-none bg-gradient-to-r from-[#0A2540] via-[#1E40AF] to-[#2563EB] via-amber-500 to-[#0A2540] bg-[length:200%_auto] bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-all duration-700 cursor-pointer pointer-events-auto drop-shadow-sm select-none"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            style={{
-              transitionDuration: "12s",
-            }}
+            className="font-display text-[13vw] sm:text-[14vw] font-black tracking-tighter leading-none bg-gradient-to-r from-[#0A2540]/30 via-[#1E40AF]/45 to-[#0A2540]/30 bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-all duration-500 pointer-events-none drop-shadow-xs select-none"
           >
             BiHAR STACK
           </motion.h2>
