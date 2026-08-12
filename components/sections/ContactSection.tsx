@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2, ChevronDown, Check,
-  TrendingUp, Palette, Code2, Bot, Megaphone, Globe, Cpu, Sparkles
+  TrendingUp, Palette, Code2, Bot
 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
@@ -16,10 +16,15 @@ const serviceCategories = [
     icon: TrendingUp,
     iconColor: "text-emerald-400",
     subFeatures: [
-      "Meta Ads (Facebook & Instagram Lead Ads)",
-      "Google Search & YouTube Video Ads",
-      "Local SEO & Google Maps (GMB) Ranking",
-      "Conversion Funnel & Growth Optimization",
+      "Meta Lead Generation Ads (Facebook & Instagram)",
+      "Google Search & Keyword Bidding Campaigns",
+      "Local SEO & Google Maps (GMB) Top 3 Ranking",
+      "WhatsApp Direct Sales & Broadcast Campaigns",
+      "Performance Retargeting & Pixel Tracking",
+      "YouTube Video Ads & Channel Growth",
+      "E-Commerce ROAS Scaling & Conversion Funnel",
+      "Influencer & Regional Creator Marketing",
+      "Monthly Growth Analytics & ROI Reporting",
     ],
   },
   {
@@ -28,10 +33,15 @@ const serviceCategories = [
     icon: Palette,
     iconColor: "text-purple-400",
     subFeatures: [
-      "Custom Logo & Brand Identity Book",
-      "Social Media Creatives & Ad Banners",
-      "3D Motion Graphics & Promo Videos",
-      "Packaging & Print Asset Design",
+      "Custom Logo & Brand Identity Guidelines",
+      "Social Media Post Creatives & Ad Banners",
+      "3D Motion Graphics & Promo Intro Videos",
+      "Product Packaging & Label Artwork Design",
+      "Business Cards, Letterheads & Brand Assets",
+      "UI/UX Wireframing & App Prototype Design",
+      "Flex Banners, Hoardings & Outdoor Ads Design",
+      "Digital Product Catalog & Menu Cards",
+      "Brand Storytelling & Copywriting Assets",
     ],
   },
   {
@@ -40,10 +50,15 @@ const serviceCategories = [
     icon: Code2,
     iconColor: "text-electric-400",
     subFeatures: [
-      "Responsive 5-Page Shop/Clinic Website",
-      "E-Commerce Store & WhatsApp Order Sync",
-      "POS Billing System & Contactless QR Menu",
-      "Coaching Test Series & LMS Portal",
+      "Custom 5-Page Responsive Business Website",
+      "Full E-Commerce Store & WhatsApp Order Sync",
+      "Contactless QR Menu & Kitchen Order System",
+      "POS Billing Software & Inventory Sync",
+      "Coaching Test Series & Online LMS Portal",
+      "Doctor Patient Token & Appointment Portal",
+      "Real Estate 3D Property Walkthrough Site",
+      "Custom SaaS Platform & Mobile App Engine",
+      "High-Speed Web Hosting & SSL Domain Setup",
     ],
   },
   {
@@ -53,9 +68,14 @@ const serviceCategories = [
     iconColor: "text-amber-400",
     subFeatures: [
       "24/7 Automated WhatsApp AI Sales Bot",
-      "Lead Capture CRM & SMS Reminder Engine",
-      "AEPS Cash Withdrawal & Loan Software",
-      "Custom Enterprise AI Workflows",
+      "Automated SMS & WhatsApp Payment Reminders",
+      "Lead Capture CRM & Follow-up Pipeline",
+      "AEPS Aadhaar Cash Withdrawal & Loan App",
+      "AI Voice Call Agent & Auto Appointment Booker",
+      "Automated WhatsApp PDF Invoice Generator",
+      "Inventory & Order Auto-Sync Across Branches",
+      "Custom Enterprise AI Agents & Workflows",
+      "API Integrations (Razorpay, PhonePe, Zoho)",
     ],
   },
 ];
@@ -63,6 +83,7 @@ const serviceCategories = [
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   
   // No default ticks! Manually selected by user.
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -75,11 +96,23 @@ export default function ContactSection() {
     message: "",
   });
 
+  // Auto-close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const toggleCategory = (categoryId: string) => {
     const category = serviceCategories.find((c) => c.id === categoryId);
     if (!category) return;
 
     if (selectedCategories.includes(categoryId)) {
+      // Auto-hide & clear sub-features when category is unticked!
       setSelectedCategories(selectedCategories.filter((id) => id !== categoryId));
       setSelectedSubFeatures(
         selectedSubFeatures.filter((sf) => !category.subFeatures.includes(sf))
@@ -195,7 +228,7 @@ export default function ContactSection() {
                   </div>
 
                   {/* Interactive Custom Required Service Dropdown & Matching Service Icons */}
-                  <div className="relative">
+                  <div className="relative" ref={dropdownRef}>
                     <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                       Required Service *
                     </label>
@@ -220,7 +253,7 @@ export default function ContactSection() {
                       />
                     </button>
 
-                    {/* Expandable Dropdown Menu with 4 Categories & Work-specific Icons */}
+                    {/* Expandable Dropdown Menu with 4 Categories & 9 Features Each (36 Options Total) */}
                     <AnimatePresence>
                       {isDropdownOpen && (
                         <motion.div
@@ -228,10 +261,13 @@ export default function ContactSection() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10, scale: 0.98 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute left-0 right-0 top-full mt-2 z-50 rounded-2xl bg-slate-900 border-2 border-electric-500/50 shadow-2xl p-4 space-y-3 max-h-[380px] overflow-y-auto custom-scrollbar"
+                          className="absolute left-0 right-0 top-full mt-2 z-50 rounded-2xl bg-slate-900 border-2 border-electric-500/50 shadow-2xl p-4 space-y-3 max-h-[420px] overflow-y-auto custom-scrollbar"
                         >
-                          <p className="text-[11px] font-black uppercase tracking-wider text-slate-400 border-b border-white/10 pb-2">
-                            Select Category & Tick Required Features:
+                          <p className="text-[11px] font-black uppercase tracking-wider text-slate-400 border-b border-white/10 pb-2 flex items-center justify-between">
+                            <span>Select Category & Features:</span>
+                            <span className="text-electric-400 text-[10px] font-bold">
+                              {selectedCategories.length} Categories Active
+                            </span>
                           </p>
 
                           {serviceCategories.map((cat) => {
@@ -273,7 +309,7 @@ export default function ContactSection() {
                                   </div>
                                 </button>
 
-                                {/* Expand Relative Sub-Features when Category is Ticked */}
+                                {/* Expand Relative Sub-Features when Category is Ticked (Auto-Hides when Unticked!) */}
                                 <AnimatePresence>
                                   {isCatSelected && (
                                     <motion.div
@@ -284,7 +320,7 @@ export default function ContactSection() {
                                       className="p-3 bg-slate-900/95 space-y-2"
                                     >
                                       <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                                        Relative Options ({cat.name.replace(/^\d+\.\s*/, "")}):
+                                        All Features ({cat.name.replace(/^\d+\.\s*/, "")}):
                                       </p>
 
                                       <div className="grid grid-cols-1 gap-1.5">
