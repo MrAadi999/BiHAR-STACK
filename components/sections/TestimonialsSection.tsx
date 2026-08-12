@@ -245,12 +245,12 @@ export default function TestimonialsSection() {
                   onClick={() =>
                     setActiveCardIndex(isSelected ? null : index)
                   }
-                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileHover={{ y: -5, scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   className={`relative flex-shrink-0 w-[240px] sm:w-[260px] p-5 sm:p-6 rounded-3xl transition-all duration-300 flex flex-col justify-between overflow-hidden group select-none pointer-events-auto cursor-pointer min-h-[295px] sm:min-h-[310px] ${
                     isSelected
                       ? "bg-gradient-to-br from-rose-600 via-red-600 to-rose-700 text-white border-2 border-rose-500 shadow-2xl shadow-rose-600/40 scale-[1.03] z-20"
-                      : "bg-white border-2 border-neutral-200/90 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_-8px_rgba(0,0,0,0.18)]"
+                      : "bg-white border-2 border-neutral-200/90 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.12)] hover:bg-gradient-to-br hover:from-rose-600 hover:via-red-600 hover:to-rose-700 hover:border-rose-500 hover:shadow-2xl hover:shadow-rose-600/40 hover:scale-[1.03]"
                   }`}
                 >
                   {/* Decorative Corner Arc Accent */}
@@ -258,7 +258,7 @@ export default function TestimonialsSection() {
                     className={`absolute top-0 right-0 w-28 h-28 rounded-full border-t-4 border-r-4 transition-opacity duration-300 pointer-events-none -mr-6 -mt-6 ${
                       isSelected
                         ? "border-white opacity-80"
-                        : `${test.ringColor} opacity-40 group-hover:opacity-100`
+                        : `${test.ringColor} opacity-40 group-hover:border-white group-hover:opacity-80`
                     }`}
                   />
 
@@ -269,10 +269,10 @@ export default function TestimonialsSection() {
                         {[...Array(test.rating)].map((_, i) => (
                           <Star
                             key={i}
-                            className={`w-3.5 h-3.5 ${
+                            className={`w-3.5 h-3.5 transition-colors duration-300 ${
                               isSelected
                                 ? "fill-amber-300 text-amber-300"
-                                : "fill-amber-400 text-amber-400"
+                                : "fill-amber-400 text-amber-400 group-hover:fill-amber-300 group-hover:text-amber-300"
                             }`}
                           />
                         ))}
@@ -282,7 +282,7 @@ export default function TestimonialsSection() {
                         className={`w-6 h-6 transition-colors duration-300 ${
                           isSelected
                             ? "text-white/80"
-                            : "text-neutral-300 group-hover:text-amber-500"
+                            : "text-neutral-300 group-hover:text-white/80"
                         }`}
                       />
                     </div>
@@ -292,12 +292,14 @@ export default function TestimonialsSection() {
                       className={`p-3.5 rounded-2xl border shadow-xs transition-colors duration-300 mb-3 ${
                         isSelected
                           ? "bg-white/15 border-white/25 text-white"
-                          : "bg-neutral-50 group-hover:bg-amber-50/70 border-neutral-200/80 text-neutral-900"
+                          : "bg-neutral-50 group-hover:bg-white/15 group-hover:border-white/25 border-neutral-200/80 text-neutral-900"
                       }`}
                     >
                       <p
-                        className={`text-xs sm:text-[13px] leading-relaxed font-extrabold italic pointer-events-none ${
-                          isSelected ? "text-white" : "text-neutral-900"
+                        className={`text-xs sm:text-[13px] leading-relaxed font-extrabold italic pointer-events-none transition-colors duration-300 ${
+                          isSelected
+                            ? "text-white"
+                            : "text-neutral-900 group-hover:text-white"
                         }`}
                       >
                         &quot;{test.quote}&quot;
@@ -307,27 +309,35 @@ export default function TestimonialsSection() {
 
                   {/* Company & Owner Details */}
                   <div
-                    className={`pt-3 border-t pointer-events-none ${
-                      isSelected ? "border-white/20" : "border-neutral-200/80"
+                    className={`pt-3 border-t pointer-events-none transition-colors duration-300 ${
+                      isSelected
+                        ? "border-white/20"
+                        : "border-neutral-200/80 group-hover:border-white/20"
                     }`}
                   >
                     <h4
                       className={`font-display text-xs sm:text-sm font-black transition-colors leading-tight mb-1 ${
-                        isSelected ? "text-white" : "text-black group-hover:text-indigo-600"
+                        isSelected
+                          ? "text-white"
+                          : "text-black group-hover:text-white"
                       }`}
                     >
                       {test.company}
                     </h4>
                     <div
-                      className={`text-xs font-black tracking-wide leading-tight ${
-                        isSelected ? "text-amber-200" : "text-slate-900"
+                      className={`text-xs font-black tracking-wide leading-tight transition-colors duration-300 ${
+                        isSelected
+                          ? "text-amber-200"
+                          : "text-slate-900 group-hover:text-amber-200"
                       }`}
                     >
                       {test.client}
                     </div>
                     <div
-                      className={`text-[11px] font-bold mt-1 ${
-                        isSelected ? "text-rose-100" : "text-neutral-500"
+                      className={`text-[11px] font-bold mt-1 transition-colors duration-300 ${
+                        isSelected
+                          ? "text-rose-100"
+                          : "text-neutral-500 group-hover:text-rose-100"
                       }`}
                     >
                       📍 {test.location}
