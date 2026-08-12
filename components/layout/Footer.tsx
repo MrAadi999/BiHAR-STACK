@@ -218,10 +218,10 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Massive Full-Width Giant Typography Logo Watermark (Matching Reference Photo) */}
+        {/* Massive Full-Width Giant Typography Logo Watermark 'BiHAR STACK' */}
         <div className="pt-6 pb-2 text-center select-none overflow-hidden relative">
-          <h2 className="font-display text-[15vw] sm:text-[16vw] font-black lowercase tracking-tighter leading-none bg-gradient-to-r from-[#0A2540]/30 via-[#1E40AF]/50 to-[#0A2540]/30 bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-opacity duration-500 pointer-events-none drop-shadow-xs">
-            biharstack.
+          <h2 className="font-display text-[13vw] sm:text-[14vw] font-black tracking-tighter leading-none bg-gradient-to-r from-[#0A2540]/30 via-[#1E40AF]/50 to-[#0A2540]/30 bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-opacity duration-500 pointer-events-none drop-shadow-xs">
+            BiHAR STACK
           </h2>
         </div>
 
