@@ -7,34 +7,44 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const faqs = [
   {
-    question: "What makes BiharStack different from traditional digital agencies?",
+    question: "Humare local dukan/coaching/clinic ke liye BiharStack website aur app kaise kaam karta hai?",
     answer:
-      "BiharStack combines modern software engineering (Next.js 14, Tailwind, Framer Motion) with high-converting performance marketing and custom AI workflow automation under one roof. We focus strictly on measurable business ROI rather than vanity metrics.",
+      "Hum aapki dukaan (Saree/Garments, Salon, Clinic, Restaurant, Coaching Institute) ke liye custom responsive website, billing POS, WhatsApp catalog ordering, aur Google Maps ranking setup karte hain. Aap apne mobile se direct orders, bills, aur client appointments manage kar sakte hain.",
   },
   {
-    question: "How long does it take to complete a project?",
+    question: "BiharStack ke pricing packages kitne se start hote hain? Any hidden charges?",
     answer:
-      "Timelines depend on scope. A custom high-performance website or branding package typically takes 2 to 3 weeks. Full-scale SaaS web platforms, mobile apps, or enterprise AI automations range from 4 to 8 weeks with bi-weekly sprint demos.",
+      "Humari pricing 100% transparent aur affordable Indian Rupee (₹) me hai! Starter Dukaan plan ₹3,999 se start hota hai, Growth Vyapar plan ₹8,999 hai, aur Enterprise Bihar plan ₹14,999 hai. Pehle se fixed scope hota hai aur koi hidden charges nahi hain.",
   },
   {
-    question: "Do you serve clients outside of Bihar?",
+    question: "Project complete hone aur website live hone me kitna time lagta hai?",
     answer:
-      "Yes, absolutely! While our roots and core innovation lab are in Bihar, we proudly serve clients across India, North America, Europe, and the Middle East. All collaboration happens seamlessly via Slack, Zoom, and real-time preview links.",
+      "Standard dukaan/clinic website aur Google Business setup 5 se 7 dino me live ho jaati hai! Full-scale web apps, QR menu ordering, aur coaching test series portals 2 se 3 weeks me complete deliver hote hain.",
   },
   {
-    question: "What is your pricing structure for custom projects?",
+    question: "Kya humare phone par WhatsApp customer orders aur appointment notifications aayenge?",
     answer:
-      "We offer transparent tiered packages starting from ₹24,999 for Starter projects up to custom retainer models for Enterprise clients. Before any work begins, you get a fixed quote with clear scope boundaries and no surprise charges.",
+      "Haan bilkul! Hum 24/7 Automated AI WhatsApp Bot aur Direct Chat Widget integrate karte hain. Aapke customers jab website par order, booking ya enquiry karenge, aapko aur unhe turant WhatsApp notification mil jayega.",
   },
   {
-    question: "Can BiharStack integrate AI automation into our existing business tools?",
+    question: "Do you serve clients outside of Bihar and Global international markets?",
     answer:
-      "Yes! We build custom AI chatbots, WhatsApp bots, and automated CRM pipelines that connect directly with your existing software (HubSpot, Salesforce, Zoho, Google Sheets, WhatsApp Business API).",
+      "Yes! 95% hum Bihar aur pure Bharat ke local businesses, retail chains, clinics, aur startups ko scale karte hain. 5% hum B2B export portals ke zariye Global buyers (USA, Europe, Gulf) ko Bihar ke makhana, handloom, aur manufacturing factories se connect karte hain.",
   },
   {
-    question: "What kind of post-launch support and maintenance do you offer?",
+    question: "Website live hone ke baad post-launch support aur maintenance kaise milega?",
     answer:
-      "Every project includes complimentary post-launch support. Afterward, we offer monthly growth retainers covering server management, security updates, conversion rate optimization, and new feature releases.",
+      "Har project ke saath complimentary post-launch support aur staff training milti hai. Iske alawa humari BiharStack engineering team 24/7 hosting server management, security backups, aur software updates manage karti hai.",
+  },
+  {
+    question: "Kya humari shop/clinic Google Maps aur Search me sabse upar rank karegi?",
+    answer:
+      "Haan! Hum har business ke liye Local Google Business (GMB) SEO, Google Maps pin setup, aur local keyword ranking karte hain taaki aapke area ke customers Google par search karke direct aapki shop par aayein.",
+  },
+  {
+    question: "Hum BiharStack ke saath apna project start kaise kar sakte hain?",
+    answer:
+      "Aap niche Contact Form fill karke ya direct WhatsApp button par click karke humari team se connect kar sakte hain. Hum same day aapka requirements discuss karke project work initiate kar denge.",
   },
 ];
 
@@ -46,12 +56,17 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-navy-950/90 border-t border-white/5 relative overflow-hidden">
+    <section id="faq" className="pt-4 sm:pt-8 pb-14 sm:pb-18 bg-navy-950/90 border-t border-white/5 relative overflow-hidden">
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-80 bg-electric-600/10 blur-3xl pointer-events-none" />
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="GOT QUESTIONS?"
           title="Frequently Asked Questions"
           subtitle="Everything you need to know about partnering with BiharStack."
+          align="center"
+          className="mb-6 sm:mb-8 text-white"
         />
 
         <div className="space-y-4">
@@ -63,7 +78,7 @@ export default function FAQSection() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
                 className="rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 overflow-hidden transition-colors"
               >
                 <button
