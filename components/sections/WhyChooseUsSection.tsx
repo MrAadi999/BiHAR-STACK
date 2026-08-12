@@ -102,12 +102,12 @@ function CreativityCosmicPaletteIcon({ className = "w-6 h-6" }: { className?: st
         fill="currentColor"
       />
 
-      {/* Paint Color Hole Cutouts */}
-      <circle cx="36" cy="48" r="4.5" fill="#ffffff" />
-      <circle cx="50" cy="42" r="4.5" fill="#ffffff" />
-      <circle cx="64" cy="48" r="4.5" fill="#ffffff" />
-      <circle cx="36" cy="62" r="4.5" fill="#ffffff" />
-      <circle cx="64" cy="62" r="4.5" fill="#ffffff" />
+      {/* Colorful Artist Paint Color Wells */}
+      <circle cx="36" cy="48" r="4.5" fill="#facc15" />
+      <circle cx="50" cy="42" r="4.5" fill="#ef4444" />
+      <circle cx="64" cy="48" r="4.5" fill="#06b6d4" />
+      <circle cx="36" cy="62" r="4.5" fill="#ec4899" />
+      <circle cx="64" cy="62" r="4.5" fill="#a855f7" />
 
       {/* Saturn Orbital Ring Around Palette */}
       <path
