@@ -219,7 +219,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' (Seamless Frameless Blend) */}
+        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' (Transparent PNGs) */}
         <div className="pt-8 pb-4 text-center select-none overflow-hidden relative flex flex-wrap items-center justify-center gap-2 sm:gap-3">
           {/* BIHAR 3D Character Images */}
           <div className="flex items-center gap-1 sm:gap-2">
@@ -227,31 +227,31 @@ export default function Footer() {
               src="/images/letters/letter-b.png"
               alt="B"
               whileHover={{ scale: 1.15, rotate: -6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain mix-blend-multiply cursor-pointer"
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
             />
             <motion.img
               src="/images/letters/letter-i.png"
               alt="I"
               whileHover={{ scale: 1.15, rotate: 6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain mix-blend-multiply cursor-pointer"
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
             />
             <motion.img
               src="/images/letters/letter-h.png"
               alt="H"
               whileHover={{ scale: 1.15, rotate: -6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain mix-blend-multiply cursor-pointer"
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
             />
             <motion.img
               src="/images/letters/letter-a.png"
               alt="A"
               whileHover={{ scale: 1.15, rotate: 6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain mix-blend-multiply cursor-pointer"
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
             />
             <motion.img
               src="/images/letters/letter-r.png"
               alt="R"
               whileHover={{ scale: 1.15, rotate: -6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain mix-blend-multiply cursor-pointer"
+              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
             />
           </div>
 
