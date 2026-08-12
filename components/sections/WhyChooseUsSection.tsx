@@ -25,7 +25,153 @@ function PushPin({ color }: { color: string }) {
   );
 }
 
-// Custom Running Cardboard Box Mascot Icon matching reference image for Fast Delivery
+// 1. Innovation Icon matching Reference Image 1 (Brain Lightbulb with Glasses & Lightning)
+function InnovationBrainBulbIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 120" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Orange Brain Top */}
+      <path
+        d="M 32 35 C 24 35, 18 25, 26 15 C 32 8, 44 8, 50 14 C 56 8, 68 8, 74 15 C 82 25, 76 35, 68 35 Z"
+        fill="#f97316"
+      />
+      <path d="M 28 22 C 34 18, 42 24, 50 20 C 58 24, 66 18, 72 22" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
+      <path d="M 34 14 C 42 10, 58 10, 66 14" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
+      <path d="M 38 28 C 44 32, 56 32, 62 28" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
+
+      {/* Lightbulb Body Outline */}
+      <path d="M 28 35 C 24 45, 26 60, 36 68 L 36 78 H 64 L 64 68 C 74 60, 76 45, 72 35 Z" stroke="currentColor" strokeWidth="4.5" fill="currentColor" fillOpacity="0.1" />
+
+      {/* Round Glasses */}
+      <circle cx="40" cy="46" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+      <circle cx="60" cy="46" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+      <line x1="50" y1="46" x2="50" y2="46" stroke="currentColor" strokeWidth="4" />
+      <line x1="48" y1="46" x2="52" y2="46" stroke="currentColor" strokeWidth="4" />
+
+      {/* Sleepy Eyes inside glasses */}
+      <path d="M 35 46 Q 40 42 45 46" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+      <path d="M 55 46 Q 60 42 65 46" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+
+      {/* Smile */}
+      <path d="M 46 58 Q 50 62 54 58" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+
+      {/* Base Screw Threads */}
+      <rect x="38" y="78" width="24" height="4" fill="currentColor" rx="1" />
+      <rect x="40" y="84" width="20" height="4" fill="currentColor" rx="1" />
+      <polygon points="46,90 54,90 50,95" fill="currentColor" />
+
+      {/* Yellow Lightning Bolt at bottom */}
+      <polygon points="52,95 44,108 50,108 47,118 57,103 50,103" fill="#facc15" />
+    </svg>
+  );
+}
+
+// 2. Strategy Icon matching Reference Image 2 (Magnifying Glass with Bar Chart & Upward Arrow)
+function StrategyMagnifierChartIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Magnifying Glass Lens Outer Circle */}
+      <circle cx="45" cy="45" r="32" stroke="currentColor" strokeWidth="6.5" fill="none" />
+
+      {/* Bar Chart Bars Inside */}
+      <rect x="28" y="48" width="8" height="18" rx="1.5" fill="currentColor" />
+      <rect x="39" y="42" width="8" height="24" rx="1.5" fill="currentColor" />
+      <rect x="50" y="34" width="8" height="32" rx="1.5" fill="currentColor" />
+
+      {/* Upward Growth Arrow Path */}
+      <path d="M 24 50 L 36 38 L 44 44 L 58 26" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" />
+      <polygon points="62,24 50,25 58,33" fill="currentColor" />
+
+      {/* Magnifying Glass Handle */}
+      <rect x="66" y="62" width="12" height="28" rx="6" fill="currentColor" transform="rotate(-45 66 62)" />
+    </svg>
+  );
+}
+
+// 3. Creativity Icon matching Reference Image 3 (Thinking Profile Silhouette with Book)
+function CreativityThinkingProfileIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Book / Folded Paper Shape at Back */}
+      <polygon points="30,15 52,24 30,32" fill="currentColor" opacity="0.8" />
+      <rect x="24" y="24" width="12" height="45" fill="currentColor" opacity="0.9" />
+
+      {/* Silhouette Profile Face (Nose, Lips, Chin) */}
+      <path
+        d="M 36 24 C 44 24, 54 30, 54 38 C 54 41, 50 43, 56 46 C 58 47, 56 50, 52 50 C 48 50, 48 53, 50 56 C 46 62, 40 64, 36 68 Z"
+        fill="currentColor"
+      />
+
+      {/* Hand Resting on Chin */}
+      <path
+        d="M 52 52 C 54 50, 58 54, 56 58 L 46 72 C 42 78, 38 82, 34 85 L 42 94 C 48 88, 54 80, 58 72 L 62 62 C 64 56, 60 50, 54 50 Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+// 4. Technology Icon matching Reference Image 4 (Hooded Coder with Laptop & Circuit Nodes)
+function TechnologyHoodedCoderIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Hooded Head Outline */}
+      <path d="M 28 36 C 28 16, 72 16, 72 36 C 72 45, 68 56, 50 56 C 32 56, 28 45, 28 36 Z" fill="currentColor" />
+      {/* Inner Face Shadow Void */}
+      <path d="M 36 34 C 36 24, 64 24, 64 34 C 64 42, 58 48, 50 48 C 42 48, 36 42, 36 34 Z" fill="#000000" fillOpacity="0.6" />
+
+      {/* Hood Shoulders */}
+      <path d="M 20 62 C 20 48, 32 44, 50 44 C 68 44, 80 48, 80 62 Z" fill="currentColor" />
+
+      {/* Laptop Screen in Front */}
+      <rect x="28" y="44" width="44" height="26" rx="4" fill="currentColor" stroke="#ffffff" strokeWidth="2.5" />
+      <circle cx="50" cy="57" r="3" fill="#ffffff" />
+
+      {/* Circuit Nodes & Connections Spreading Left, Right, Bottom */}
+      <path d="M 28 50 H 16 V 38 H 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="6" cy="38" r="3.5" fill="currentColor" />
+      <path d="M 28 62 H 14 V 74 H 6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="4" cy="74" r="3.5" fill="currentColor" />
+
+      <path d="M 72 50 H 84 V 38 H 92" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="94" cy="38" r="3.5" fill="currentColor" />
+      <path d="M 72 62 H 86 V 74 H 94" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="96" cy="74" r="3.5" fill="currentColor" />
+
+      <path d="M 40 70 V 82 H 34 V 92" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="34" cy="94" r="3.5" fill="currentColor" />
+      <path d="M 60 70 V 82 H 66 V 92" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="66" cy="94" r="3.5" fill="currentColor" />
+    </svg>
+  );
+}
+
+// 5. AI Icon matching Reference Image 5 (Rounded AI Badge with 3 Sparkle Stars)
+function AIBadgeSparklesIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Rounded Badge Frame (open at top right) */}
+      <path
+        d="M 62 34 H 28 C 20 34, 14 40, 14 48 V 74 C 14 82, 20 88, 28 88 H 62 C 70 88, 76 82, 76 74 V 52"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinecap="round"
+        fill="none"
+      />
+
+      {/* "AI" Text inside Badge */}
+      <text x="25" y="74" fontFamily="sans-serif" fontWeight="900" fontSize="32" fill="currentColor">
+        AI
+      </text>
+
+      {/* 3 Sparkle Stars at Top Right */}
+      <path d="M 68 18 Q 68 38 48 38 Q 68 38 68 58 Q 68 38 88 38 Q 68 38 68 18 Z" fill="currentColor" />
+      <path d="M 78 8 Q 78 18 68 18 Q 78 18 78 28 Q 78 18 88 18 Q 78 18 78 8 Z" fill="currentColor" />
+      <path d="M 52 16 Q 52 24 44 24 Q 52 24 52 32 Q 52 24 60 24 Q 52 24 52 16 Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+// 6. Custom Running Cardboard Box Mascot Icon matching reference image for Fast Delivery
 function RunningFastDeliveryBoxIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
     <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +216,7 @@ const features = [
     num: "01",
     title: "Innovation",
     desc: "First-principles engineering & modern tech stack",
-    icon: Lightbulb,
+    icon: InnovationBrainBulbIcon,
     pinColor: "#2563eb", // Royal Blue
     frameStyle: "bg-[#dbeafe] border-2 border-[#bfdbfe] shadow-[0_12px_30px_rgba(37,99,235,0.15)]",
     badgeBg: "bg-[#2563eb] text-white",
@@ -81,7 +227,7 @@ const features = [
     num: "02",
     title: "Strategy",
     desc: "ROI-driven roadmaps aligned with business objectives",
-    icon: Target,
+    icon: StrategyMagnifierChartIcon,
     pinColor: "#e11d48", // Rose Red
     frameStyle: "bg-[#ffe4e6] border-2 border-[#fecdd3] shadow-[0_12px_30px_rgba(225,29,72,0.15)]",
     badgeBg: "bg-[#e11d48] text-white",
@@ -92,7 +238,7 @@ const features = [
     num: "03",
     title: "Creativity",
     desc: "Aesthetically breathtaking & unforgettable designs",
-    icon: Palette,
+    icon: CreativityThinkingProfileIcon,
     pinColor: "#16a34a", // Lime Green
     frameStyle: "bg-[#dcfce7] border-2 border-[#bbf7d0] shadow-[0_12px_30px_rgba(22,163,74,0.15)]",
     badgeBg: "bg-[#16a34a] text-white",
@@ -103,7 +249,7 @@ const features = [
     num: "04",
     title: "Technology",
     desc: "Next.js, Cloud Native, scalable architecture",
-    icon: Cpu,
+    icon: TechnologyHoodedCoderIcon,
     pinColor: "#db2777", // Magenta Pink
     frameStyle: "bg-[#fce7f3] border-2 border-[#fbcfe8] shadow-[0_12px_30px_rgba(219,39,119,0.15)]",
     badgeBg: "bg-[#db2777] text-white",
@@ -114,7 +260,7 @@ const features = [
     num: "05",
     title: "AI First",
     desc: "Integrating machine intelligence into daily workflows",
-    icon: BrainCircuit,
+    icon: AIBadgeSparklesIcon,
     pinColor: "#0d9488", // Teal Mint
     frameStyle: "bg-[#ccfbf1] border-2 border-[#99f6e4] shadow-[0_12px_30px_rgba(13,148,136,0.15)]",
     badgeBg: "bg-[#0d9488] text-white",
