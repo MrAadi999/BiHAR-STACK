@@ -15,77 +15,118 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const industries = [
   {
-    icon: <HeartPulse className="w-7 h-7 text-rose-400" />,
+    icon: <HeartPulse className="w-8 h-8 text-rose-700" />,
     title: "Healthcare & Clinics",
     desc: "Telehealth portals, appointment systems, & medical SEO",
+    titleColor: "text-rose-950",
+    descColor: "text-rose-900/85",
+    iconBg: "text-rose-700 border-rose-200/70 bg-rose-50/70",
+    glow: "from-rose-200/30 via-pink-100/15 to-transparent",
   },
   {
-    icon: <GraduationCap className="w-7 h-7 text-indigo-400" />,
+    icon: <GraduationCap className="w-8 h-8 text-indigo-700" />,
     title: "Education & EdTech",
     desc: "LMS platforms, student lead generation, & mobile apps",
+    titleColor: "text-indigo-950",
+    descColor: "text-indigo-900/85",
+    iconBg: "text-indigo-700 border-indigo-200/70 bg-indigo-50/70",
+    glow: "from-indigo-200/30 via-blue-100/15 to-transparent",
   },
   {
-    icon: <UtensilsCrossed className="w-7 h-7 text-amber-400" />,
+    icon: <UtensilsCrossed className="w-8 h-8 text-amber-700" />,
     title: "Restaurants & Hospitality",
     desc: "QR menus, delivery integration, & local footfall ads",
+    titleColor: "text-amber-950",
+    descColor: "text-amber-900/85",
+    iconBg: "text-amber-700 border-amber-200/70 bg-amber-50/70",
+    glow: "from-amber-200/30 via-orange-100/15 to-transparent",
   },
   {
-    icon: <Home className="w-7 h-7 text-glow-cyan" />,
+    icon: <Home className="w-8 h-8 text-cyan-700" />,
     title: "Real Estate & Builders",
     desc: "Virtual property walkthroughs & high-intent lead funnels",
+    titleColor: "text-cyan-950",
+    descColor: "text-cyan-900/85",
+    iconBg: "text-cyan-700 border-cyan-200/70 bg-cyan-50/70",
+    glow: "from-cyan-200/30 via-teal-100/15 to-transparent",
   },
   {
-    icon: <ShoppingBag className="w-7 h-7 text-emerald-400" />,
+    icon: <ShoppingBag className="w-8 h-8 text-emerald-700" />,
     title: "Retail & E-Commerce",
     desc: "Shopify stores, inventory sync, & performance marketing",
+    titleColor: "text-emerald-950",
+    descColor: "text-emerald-900/85",
+    iconBg: "text-emerald-700 border-emerald-200/70 bg-emerald-50/70",
+    glow: "from-emerald-200/30 via-teal-100/15 to-transparent",
   },
   {
-    icon: <Landmark className="w-7 h-7 text-electric-400" />,
+    icon: <Landmark className="w-8 h-8 text-sky-700" />,
     title: "Finance & FinTech",
     desc: "Secure web dashboards, KYC flows, & automated CRM",
+    titleColor: "text-sky-950",
+    descColor: "text-sky-900/85",
+    iconBg: "text-sky-700 border-sky-200/70 bg-sky-50/70",
+    glow: "from-sky-200/30 via-blue-100/15 to-transparent",
   },
   {
-    icon: <Factory className="w-7 h-7 text-purple-400" />,
+    icon: <Factory className="w-8 h-8 text-purple-700" />,
     title: "Manufacturing & Industrial",
     desc: "B2B catalog portals & global buyer export campaigns",
+    titleColor: "text-purple-950",
+    descColor: "text-purple-900/85",
+    iconBg: "text-purple-700 border-purple-200/70 bg-purple-50/70",
+    glow: "from-purple-200/30 via-fuchsia-100/15 to-transparent",
   },
   {
-    icon: <Rocket className="w-7 h-7 text-glow-sky" />,
+    icon: <Rocket className="w-8 h-8 text-teal-700" />,
     title: "Startups & SaaS",
     desc: "MVP buildouts, pitchdeck design, & rapid scaling engines",
+    titleColor: "text-teal-950",
+    descColor: "text-teal-900/85",
+    iconBg: "text-teal-700 border-teal-200/70 bg-teal-50/70",
+    glow: "from-teal-200/30 via-emerald-100/15 to-transparent",
   },
 ];
 
 export default function IndustriesSection() {
   return (
-    <section id="industries" className="py-24 bg-navy-950 relative overflow-hidden">
+    <section id="industries" className="pt-8 sm:pt-12 pb-16 sm:pb-20 bg-[#ECF1F5] relative overflow-hidden border-t border-black/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="SECTOR DOMAIN EXPERTISE"
           title="Industries We Serve"
           subtitle="Tailored digital strategies engineered for specific industry workflows and customer expectations."
+          className="mb-8 sm:mb-12"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
           {industries.map((ind, idx) => (
             <motion.div
               key={ind.title}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              initial={{ opacity: 0, y: 25, scale: 0.96 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.45, delay: idx * 0.08 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ duration: 0.45, delay: idx * 0.06 }}
               whileHover={{ y: -6, scale: 1.02 }}
-              className="p-6 rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 hover:border-electric-500/40 hover:shadow-blue-glow transition-all duration-300 group cursor-pointer"
+              className="relative p-7 sm:p-8 rounded-[28px] bg-[#EEF3F7] border border-white/80 shadow-[14px_16px_28px_rgba(164,179,198,0.45),-10px_-10px_22px_rgba(255,255,255,0.95)] hover:shadow-[18px_24px_36px_rgba(148,165,186,0.55),-12px_-12px_28px_rgba(255,255,255,1)] transition-all duration-300 group cursor-pointer flex flex-col justify-between overflow-hidden"
             >
-              <div className="p-3.5 rounded-xl bg-slate-800/80 border border-white/10 w-fit mb-4 group-hover:scale-115 transition-transform duration-300">
-                {ind.icon}
+              {/* Soft Ambient Inner Glow Accent */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${ind.glow} pointer-events-none opacity-70 group-hover:opacity-100 transition-opacity duration-300`} />
+
+              <div className="relative z-10 mb-6">
+                <div className={`p-3.5 rounded-2xl ${ind.iconBg} shadow-[inset_3px_3px_6px_rgba(164,179,198,0.3),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] border w-fit group-hover:scale-110 transition-transform duration-300`}>
+                  {ind.icon}
+                </div>
               </div>
-              <h3 className="font-display text-lg font-bold text-white mb-2 group-hover:text-glow-sky transition-colors">
-                {ind.title}
-              </h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                {ind.desc}
-              </p>
+
+              <div className="relative z-10">
+                <h3 className={`font-display text-lg font-bold ${ind.titleColor} mb-2 tracking-tight transition-colors`}>
+                  {ind.title}
+                </h3>
+                <p className={`text-xs sm:text-sm ${ind.descColor} leading-relaxed font-semibold`}>
+                  {ind.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -93,3 +134,4 @@ export default function IndustriesSection() {
     </section>
   );
 }
+

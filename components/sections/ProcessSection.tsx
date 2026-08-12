@@ -86,6 +86,8 @@ export default function ProcessSection() {
         <SectionHeading
           badge="OUR METHODOLOGY"
           title="How We Work"
+          rightImage="/images/multitasking_businessman_transparent.png"
+          rightImageAlt="Multi-tasking Process Logo"
           subtitle="A battle-tested 6-step engineering and growth framework that eliminates guesswork and guarantees results."
           className="mb-6 sm:mb-8"
         />
