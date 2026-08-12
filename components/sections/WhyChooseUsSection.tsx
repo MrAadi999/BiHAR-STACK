@@ -2,57 +2,95 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Lightbulb, Workflow, Palette, Cpu, Sparkles, Zap } from "lucide-react";
+import { Lightbulb, Target, Palette, Cpu, BrainCircuit, Zap } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
+
+// 3D Pushpin Button Component matching Reference Image
+function PushPin({ color }: { color: string }) {
+  return (
+    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20 pointer-events-none flex flex-col items-center">
+      {/* 3D Spherical Head */}
+      <div
+        className="w-5 h-5 rounded-full shadow-[0_4px_8px_rgba(0,0,0,0.35)] relative overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+        style={{
+          background: `radial-gradient(circle at 35% 35%, #ffffff 0%, ${color} 65%, #000000 100%)`,
+        }}
+      >
+        {/* Specular Highlight */}
+        <div className="absolute top-1 left-1.5 w-1.5 h-1.5 rounded-full bg-white/70 blur-[0.5px]" />
+      </div>
+      {/* Pin Shadow on Card */}
+      <div className="w-4 h-1 bg-black/30 rounded-full blur-[1px] -mt-0.5" />
+    </div>
+  );
+}
 
 const features = [
   {
-    icon: Lightbulb,
+    num: "01",
     title: "Innovation",
     desc: "First-principles engineering & modern tech stack",
-    badgeBg: "bg-amber-500/10 text-amber-600 group-hover:bg-gradient-to-br group-hover:from-amber-400 group-hover:to-yellow-500 group-hover:text-black",
-    glowColor: "group-hover:shadow-[0_0_20px_rgba(251,191,36,0.6)]",
-    borderColor: "border-amber-400/50 group-hover:border-black",
+    icon: Lightbulb,
+    pinColor: "#2563eb", // Royal Blue
+    frameStyle: "bg-[#dbeafe] border-2 border-[#bfdbfe] shadow-[0_12px_30px_rgba(37,99,235,0.15)]",
+    badgeBg: "bg-[#2563eb] text-white",
+    numColor: "text-[#2563eb]",
+    offsetClass: "lg:translate-y-0",
   },
   {
-    icon: Workflow,
+    num: "02",
     title: "Strategy",
     desc: "ROI-driven roadmaps aligned with business objectives",
-    badgeBg: "bg-blue-500/10 text-blue-600 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-cyan-400 group-hover:text-white",
-    glowColor: "group-hover:shadow-[0_0_20px_rgba(59,130,246,0.6)]",
-    borderColor: "border-blue-400/50 group-hover:border-black",
+    icon: Target,
+    pinColor: "#e11d48", // Rose Red
+    frameStyle: "bg-[#ffe4e6] border-2 border-[#fecdd3] shadow-[0_12px_30px_rgba(225,29,72,0.15)]",
+    badgeBg: "bg-[#e11d48] text-white",
+    numColor: "text-[#e11d48]",
+    offsetClass: "lg:translate-y-10",
   },
   {
-    icon: Palette,
+    num: "03",
     title: "Creativity",
     desc: "Aesthetically breathtaking & unforgettable designs",
-    badgeBg: "bg-purple-500/10 text-purple-600 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-pink-500 group-hover:text-white",
-    glowColor: "group-hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]",
-    borderColor: "border-purple-400/50 group-hover:border-black",
+    icon: Palette,
+    pinColor: "#16a34a", // Lime Green
+    frameStyle: "bg-[#dcfce7] border-2 border-[#bbf7d0] shadow-[0_12px_30px_rgba(22,163,74,0.15)]",
+    badgeBg: "bg-[#16a34a] text-white",
+    numColor: "text-[#16a34a]",
+    offsetClass: "lg:translate-y-0",
   },
   {
-    icon: Cpu,
+    num: "04",
     title: "Technology",
     desc: "Next.js, Cloud Native, scalable architecture",
-    badgeBg: "bg-emerald-500/10 text-emerald-600 group-hover:bg-gradient-to-br group-hover:from-emerald-400 group-hover:to-teal-500 group-hover:text-black",
-    glowColor: "group-hover:shadow-[0_0_20px_rgba(16,185,129,0.6)]",
-    borderColor: "border-emerald-400/50 group-hover:border-black",
+    icon: Cpu,
+    pinColor: "#db2777", // Magenta Pink
+    frameStyle: "bg-[#fce7f3] border-2 border-[#fbcfe8] shadow-[0_12px_30px_rgba(219,39,119,0.15)]",
+    badgeBg: "bg-[#db2777] text-white",
+    numColor: "text-[#db2777]",
+    offsetClass: "lg:mt-4 lg:translate-y-0",
   },
   {
-    icon: Sparkles,
+    num: "05",
     title: "AI First",
     desc: "Integrating machine intelligence into daily workflows",
-    badgeBg: "bg-cyan-500/10 text-cyan-600 group-hover:bg-gradient-to-br group-hover:from-cyan-400 group-hover:to-blue-600 group-hover:text-white",
-    glowColor: "group-hover:shadow-[0_0_20px_rgba(6,182,212,0.6)]",
-    borderColor: "border-cyan-400/50 group-hover:border-black",
+    icon: BrainCircuit,
+    pinColor: "#0d9488", // Teal Mint
+    frameStyle: "bg-[#ccfbf1] border-2 border-[#99f6e4] shadow-[0_12px_30px_rgba(13,148,136,0.15)]",
+    badgeBg: "bg-[#0d9488] text-white",
+    numColor: "text-[#0d9488]",
+    offsetClass: "lg:mt-4 lg:translate-y-10",
   },
   {
-    icon: Zap,
+    num: "06",
     title: "Fast Delivery",
     desc: "Rapid deployment cycles without quality compromises",
-    badgeBg: "bg-orange-500/10 text-orange-600 group-hover:bg-gradient-to-br group-hover:from-orange-500 group-hover:to-amber-400 group-hover:text-black",
-    glowColor: "group-hover:shadow-[0_0_20px_rgba(249,115,22,0.6)]",
-    borderColor: "border-orange-400/50 group-hover:border-black",
+    icon: Zap,
+    pinColor: "#0284c7", // Cyan Sky
+    frameStyle: "bg-[#e0f2fe] border-2 border-[#bae6fd] shadow-[0_12px_30px_rgba(2,132,199,0.15)]",
+    badgeBg: "bg-[#0284c7] text-white",
+    numColor: "text-[#0284c7]",
+    offsetClass: "lg:mt-4 lg:translate-y-0",
   },
 ];
 
@@ -124,10 +162,8 @@ function CircularProgressGauge({
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
       className="flex flex-col items-center justify-center select-none group"
     >
-      {/* Circle Ring Container - Slightly Larger Circle */}
       <div className="relative w-22 h-22 sm:w-28 sm:h-28 flex items-center justify-center">
         <svg className="w-full h-full transform -rotate-90" viewBox="0 0 102 102">
-          {/* Background Dark Track Circle */}
           <circle
             cx="51"
             cy="51"
@@ -136,7 +172,6 @@ function CircularProgressGauge({
             strokeWidth={strokeWidth}
             fill="transparent"
           />
-          {/* Animated Pure White Progress Arc */}
           <motion.circle
             cx="51"
             cy="51"
@@ -153,13 +188,11 @@ function CircularProgressGauge({
           />
         </svg>
 
-        {/* Center Display Value */}
         <span className="absolute font-sans text-xs sm:text-base font-black text-white tracking-tight text-center leading-none">
           <AnimatedCounter value={displayValue} />
         </span>
       </div>
 
-      {/* Label Text Below Ring */}
       <span className="mt-1.5 text-[10px] sm:text-xs font-bold text-white/90 tracking-wide text-center uppercase group-hover:text-amber-400 transition-colors">
         {label}
       </span>
@@ -169,36 +202,79 @@ function CircularProgressGauge({
 
 export default function WhyChooseUsSection() {
   return (
-    <section id="why-us" className="pt-8 sm:pt-12 pb-0 bg-[#e5e5e5] border-t border-neutral-300 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 mb-8 sm:mb-10">
+    <section id="why-us" className="pt-8 sm:pt-14 pb-0 bg-[#f4f4f6] border-t border-neutral-300 relative overflow-hidden">
+      {/* Background Subtle Grid pattern matching reference image */}
+      <div 
+        className="absolute inset-0 opacity-[0.4] pointer-events-none" 
+        style={{ 
+          backgroundImage: `linear-gradient(to right, #cbd5e1 1px, transparent 1px), linear-gradient(to bottom, #cbd5e1 1px, transparent 1px)`,
+          backgroundSize: "40px 40px"
+        }}
+      />
+
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 mb-12 sm:mb-16">
         <SectionHeading
           badge="THE ADVANTAGE"
           title="Why Choose Us"
           subtitle="Combining world-class tech standards with local agility and unyielding dedication."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className="p-6 bg-white border border-black shadow-sm hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 group cursor-pointer"
-            >
-              <div className={`p-3.5 border-2 w-fit mb-4 rounded-xl transition-all duration-300 flex items-center justify-center ${feature.badgeBg} ${feature.borderColor} ${feature.glowColor} group-hover:scale-110`}>
-                <feature.icon className="w-6 h-6 transition-transform duration-300 group-hover:rotate-6" />
-              </div>
-              <h3 className="font-display text-lg font-black text-black uppercase mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-xs text-neutral-600 font-medium leading-relaxed">
-                {feature.desc}
-              </p>
-            </motion.div>
-          ))}
+        {/* Dashed Connector Line running behind the cards matching reference image */}
+        <div className="absolute top-[38%] left-12 right-12 hidden lg:block pointer-events-none z-0">
+          <svg className="w-full h-32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M 50 30 C 250 100, 450 -20, 680 60 C 900 120, 1100 10, 1300 50"
+              stroke="#94a3b8"
+              strokeWidth="2"
+              strokeDasharray="6 6"
+              opacity="0.6"
+            />
+          </svg>
+        </div>
+
+        {/* Pin Card Staggered Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 relative z-10 pb-6">
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon;
+
+            return (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 35, scale: 0.94 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ y: -6, scale: 1.02 }}
+                className={`p-2.5 rounded-3xl transition-all duration-300 group cursor-pointer relative ${feature.frameStyle} ${feature.offsetClass}`}
+              >
+                {/* 3D Pushpin on top of card */}
+                <PushPin color={feature.pinColor} />
+
+                {/* Inner Pure White Card Container */}
+                <div className="bg-white rounded-2xl p-6 sm:p-7 h-full flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+                  {/* Card Header: Number on Left, Icon Badge on Right */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`font-mono text-3xl font-black tracking-tight ${feature.numColor}`}>
+                      {feature.num}
+                    </span>
+                    <div className={`p-3 rounded-2xl ${feature.badgeBg} shadow-md flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                      <IconComponent className="w-5 h-5" />
+                    </div>
+                  </div>
+
+                  {/* Title & Description */}
+                  <div>
+                    <h3 className="font-display text-xl font-black text-black uppercase tracking-tight mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-neutral-600 font-medium leading-relaxed">
+                      {feature.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
