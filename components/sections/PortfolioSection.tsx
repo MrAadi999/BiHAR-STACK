@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, MapPin, Zap } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const categories = ["All", "Websites", "Branding", "Marketing", "AI Projects"];
@@ -10,51 +10,83 @@ const categories = ["All", "Websites", "Branding", "Marketing", "AI Projects"];
 const projects = [
   {
     id: 1,
-    title: "Apex Horizon SaaS Platform",
-    category: "Websites",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
-    description: "Next.js 14 web app with real-time financial analytics, minimalist design system, and multi-tenant subdomains.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    title: "DeHaat Kisan AI AgTech Engine",
+    category: "AI Projects",
+    location: "Patna, Bihar",
+    impact: "1.5M+ Farmers Powered",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=900&auto=format&fit=crop&q=80",
+    description: "Bihar's leading AgTech unicorn ecosystem delivering satellite GIS crop advisory, AI plant disease diagnosis, and direct mandi supply chain logistics.",
+    tags: ["Next.js 14", "Python AI", "Satellite GIS"],
   },
   {
     id: 2,
-    title: "Patna HealthHub Telemedicine App",
+    title: "RodBez Intercity Mobility Platform",
     category: "Websites",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
-    description: "Comprehensive patient booking & remote video consultation portal for healthcare provider network in Bihar.",
-    tags: ["React", "Node.js", "WebRTC"],
+    location: "Patna, Bihar (Shark Tank India)",
+    impact: "38 Districts Connected",
+    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=900&auto=format&fit=crop&q=80",
+    description: "Founded by Dilkhush Kumar in Patna, RodBez is Bihar's premier taxi aggregation portal offering one-way intercity cab bookings at 50% reduced cost.",
+    tags: ["React Native", "Node.js", "GPS Tracking"],
   },
   {
     id: 3,
-    title: "Maurya Global Rebranding",
+    title: "Bihart Global Madhubani Marketplace",
     category: "Branding",
-    image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=800&auto=format&fit=crop&q=80",
-    description: "End-to-end luxury identity redesign, brand guidelines, packaging, and digital motion graphics logo.",
-    tags: ["Brand Identity", "UI/UX", "3D Design"],
+    location: "Madhubani & Patna",
+    impact: "500+ Local Artisans Exporting",
+    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=900&auto=format&fit=crop&q=80",
+    description: "End-to-end luxury digital brand identity & global e-commerce store showcasing authentic Madhubani handloom, Sikki craft, and Bhagalpuri silk worldwide.",
+    tags: ["Brand Identity", "Shopify Plus", "3D Gallery"],
   },
   {
     id: 4,
-    title: "BiharAgri Performance Meta Campaign",
-    category: "Marketing",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
-    description: "High-scale ad funnel generating 45,000+ verified B2B leads across 12 Indian states with 6.2x ROAS.",
-    tags: ["Meta Ads", "Google Ads", "Funnel SEO"],
+    title: "Medishala Rural Telemedicine Portal",
+    category: "Websites",
+    location: "Muzaffarpur & Patna",
+    impact: "100+ Rural Clinics Hubs",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&auto=format&fit=crop&q=80",
+    description: "Low-bandwidth tele-consultation platform connecting rural patients in tier-3 Bihar villages with top Patna specialist doctors and automated EHR prescriptions.",
+    tags: ["React", "WebRTC", "HIPAA Health"],
   },
   {
     id: 5,
-    title: "SmartSupport AI WhatsApp Agent",
-    category: "AI Projects",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80",
-    description: "Autonomous AI chatbot trained on custom enterprise docs, resolving 85% of customer queries instantly.",
-    tags: ["OpenAI API", "WhatsApp API", "Python"],
+    title: "Sattuz D2C Performance Ad Campaign",
+    category: "Marketing",
+    location: "Patna, Bihar",
+    impact: "6.5x ROAS & 45K+ Orders",
+    image: "https://images.unsplash.com/photo-1556742049-0a67daf4005a?w=900&auto=format&fit=crop&q=80",
+    description: "High-converting performance marketing funnel & D2C brand strategy bringing Bihar's native sattu superfood beverage to pan-India quick commerce retail.",
+    tags: ["Meta Ads", "Google Ads", "D2C Funnel"],
   },
   {
     id: 6,
-    title: "UrbanRealty Luxury Property Portal",
+    title: "KalaPrabhat AI Heritage Archiving Engine",
+    category: "AI Projects",
+    location: "Nalanda & Bodh Gaya",
+    impact: "10K+ Ancient Texts Digitized",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&auto=format&fit=crop&q=80",
+    description: "Cutting-edge computer vision & Custom LLM engine preserving ancient Pali/Sanskrit manuscripts and generating interactive 3D virtual monument tours.",
+    tags: ["OpenAI API", "PyTorch", "Three.js"],
+  },
+  {
+    id: 7,
+    title: "Zrotam Tech Skill & Hiring Portal",
     category: "Websites",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop&q=80",
-    description: "3D virtual walkthrough real-estate web platform with integrated CRM lead capturing.",
-    tags: ["Three.js", "Next.js", "Tailwind CSS"],
+    location: "Patna, Bihar",
+    impact: "12,000+ Students Trained",
+    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=900&auto=format&fit=crop&q=80",
+    description: "Full-stack EdTech LMS platform empowering Bihar's tech talent with interactive code playgrounds, live cohort webinars, and AI resume screening.",
+    tags: ["Next.js 14", "Tailwind CSS", "Monaco IDE"],
+  },
+  {
+    id: 8,
+    title: "Discover Bihar AI Travel Guide",
+    category: "Marketing",
+    location: "Bodh Gaya & Rajgir",
+    impact: "250K+ Monthly Tourists",
+    image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900&auto=format&fit=crop&q=80",
+    description: "Multilingual AI travel companion & SEO marketing engine offering personalized heritage itineraries, smart hotel bookings, and audio-guided temple tours.",
+    tags: ["AI Travel Agent", "SEO Funnel", "WebXR"],
   },
 ];
 
@@ -114,12 +146,18 @@ export default function PortfolioSection() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
 
-                  <span className="absolute top-4 left-4 px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-black text-white">
-                    {project.category}
-                  </span>
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                    <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-black text-white shadow-sm">
+                      {project.category}
+                    </span>
+                    <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-amber-400 text-black border border-black shadow-sm flex items-center gap-1">
+                      <MapPin className="w-3 h-3" />
+                      <span>{project.location}</span>
+                    </span>
+                  </div>
 
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 backdrop-blur-xs transition-opacity duration-300">
-                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-xs font-bold uppercase tracking-widest border border-black">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/50 backdrop-blur-xs transition-opacity duration-300">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-xs font-bold uppercase tracking-widest border border-black shadow-lg">
                       <span>View Case Study</span>
                       <ExternalLink className="w-4 h-4" />
                     </span>
@@ -129,7 +167,13 @@ export default function PortfolioSection() {
                 {/* Content */}
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div>
-                    <h3 className="font-display text-xl font-black text-black uppercase mb-2">
+                    {/* Impact Metric Badge */}
+                    <div className="mb-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-[11px] font-bold">
+                      <Zap className="w-3.5 h-3.5 fill-emerald-600 text-emerald-600" />
+                      <span>{project.impact}</span>
+                    </div>
+
+                    <h3 className="font-display text-xl font-black text-black uppercase mb-2 leading-tight">
                       {project.title}
                     </h3>
                     <p className="text-xs text-neutral-700 font-medium leading-relaxed mb-4">
