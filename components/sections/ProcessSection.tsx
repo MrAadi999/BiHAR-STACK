@@ -45,7 +45,7 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="pt-2 sm:pt-4 pb-16 sm:pb-20 bg-navy-950/90 border-t border-white/5 relative overflow-hidden">
+    <section id="process" className="pt-6 sm:pt-8 pb-16 sm:pb-20 bg-navy-950/90 border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           badge="OUR METHODOLOGY"
