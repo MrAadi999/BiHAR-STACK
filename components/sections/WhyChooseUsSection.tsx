@@ -151,8 +151,8 @@ function CircularProgressGauge({
 
 export default function WhyChooseUsSection() {
   return (
-    <section id="why-us" className="pt-24 pb-0 bg-[#e5e5e5] border-t border-neutral-300 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 mb-12">
+    <section id="why-us" className="pt-8 sm:pt-12 pb-0 bg-[#e5e5e5] border-t border-neutral-300 relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 mb-8 sm:mb-10">
         <SectionHeading
           badge="THE ADVANTAGE"
           title="Why Choose Us"
