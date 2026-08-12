@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Lightbulb, TrendingUp, Palette, Cpu, BrainCircuit, Zap } from "lucide-react";
+import { Lightbulb, Workflow, Palette, Cpu, Sparkles, Zap } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const features = [
@@ -15,7 +15,7 @@ const features = [
     borderColor: "border-amber-400/50 group-hover:border-black",
   },
   {
-    icon: TrendingUp,
+    icon: Workflow,
     title: "Strategy",
     desc: "ROI-driven roadmaps aligned with business objectives",
     badgeBg: "bg-blue-500/10 text-blue-600 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-cyan-400 group-hover:text-white",
@@ -39,7 +39,7 @@ const features = [
     borderColor: "border-emerald-400/50 group-hover:border-black",
   },
   {
-    icon: BrainCircuit,
+    icon: Sparkles,
     title: "AI First",
     desc: "Integrating machine intelligence into daily workflows",
     badgeBg: "bg-cyan-500/10 text-cyan-600 group-hover:bg-gradient-to-br group-hover:from-cyan-400 group-hover:to-blue-600 group-hover:text-white",
