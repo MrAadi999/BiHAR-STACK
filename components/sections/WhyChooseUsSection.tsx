@@ -429,10 +429,10 @@ export default function WhyChooseUsSection() {
           subtitle="Combining world-class tech standards with local agility and unyielding dedication."
         />
 
-        {/* Dashed Connector Line running behind ALL 6 cards matching reference image */}
+        {/* Dashed Connector Lines for Row 1 (01-02-03) and Row 2 (04-05-06) */}
         <div className="absolute inset-x-8 top-[32%] bottom-10 hidden lg:block pointer-events-none z-0">
           <svg className="w-full h-full" viewBox="0 0 1200 500" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Row 1 Path: Card 01 -> Card 02 -> Card 03 */}
+            {/* Row 1 Dashed Line: Card 01 -> Card 02 -> Card 03 */}
             <path
               d="M 180 80 C 350 170, 450 170, 600 140 C 750 110, 850 60, 1020 80"
               stroke="#94a3b8"
@@ -440,15 +440,7 @@ export default function WhyChooseUsSection() {
               strokeDasharray="6 6"
               opacity="0.65"
             />
-            {/* Loop Connector: Card 03 down to Card 04 */}
-            <path
-              d="M 1020 80 C 1140 100, 1140 280, 1020 330 C 900 370, 300 280, 180 330"
-              stroke="#94a3b8"
-              strokeWidth="2.5"
-              strokeDasharray="6 6"
-              opacity="0.5"
-            />
-            {/* Row 2 Path: Card 04 -> Card 05 -> Card 06 */}
+            {/* Row 2 Dashed Line: Card 04 -> Card 05 -> Card 06 */}
             <path
               d="M 180 330 C 350 420, 450 420, 600 390 C 750 360, 850 310, 1020 330"
               stroke="#94a3b8"
