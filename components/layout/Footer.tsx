@@ -219,7 +219,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Soft Animated Full-Width Giant Typography Logo Watermark 'B I HAR STACK' with Unique Font Shape 'I' */}
+        {/* Soft Animated Full-Width Giant Typography Logo Watermark 'BIHAR STACK' */}
         <div className="pt-6 pb-2 text-center select-none overflow-hidden relative">
           <motion.h2
             initial={{ opacity: 0, y: 25 }}
@@ -227,14 +227,9 @@ export default function Footer() {
             viewport={{ once: true }}
             whileHover={{ scale: 1.02, y: -3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-display text-[13vw] sm:text-[14vw] font-black tracking-tighter leading-none bg-gradient-to-r from-[#0A2540]/30 via-[#1E40AF]/45 to-[#0A2540]/30 bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-all duration-500 pointer-events-none drop-shadow-xs select-none flex items-center justify-center gap-0"
+            className="font-display text-[13vw] sm:text-[14vw] font-black tracking-tighter leading-none bg-gradient-to-r from-[#0A2540]/30 via-[#1E40AF]/45 to-[#0A2540]/30 bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-all duration-500 pointer-events-none drop-shadow-xs select-none"
           >
-            <span>B</span>
-            {/* Unique Serif / Italic High-Class Font Design for letter 'I' */}
-            <span className="font-serif italic font-black px-1 scale-110 tracking-widest inline-block text-slate-800">
-              I
-            </span>
-            <span>HAR STACK</span>
+            BIHAR STACK
           </motion.h2>
         </div>
 
