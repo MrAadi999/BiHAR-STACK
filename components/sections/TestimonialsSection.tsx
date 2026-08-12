@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const testimonials = [
   {
@@ -154,20 +154,22 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
   const isHoveredRef = useRef(false);
 
-  // Auto-scroll effect that pauses when hovered or touched
+  // Auto-scroll effect that pauses when hovered, touched, or dragged
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
     let animationFrameId: number;
-    const speed = 0.8; // Smooth auto scroll speed
+    const speed = 0.8;
 
     const step = () => {
-      if (!isHoveredRef.current && container) {
+      if (!isHoveredRef.current && !isMouseDown && container) {
         container.scrollLeft += speed;
-        // Seamless endless loop rewind
         if (
           container.scrollLeft >=
           container.scrollWidth - container.clientWidth - 10
@@ -181,18 +183,33 @@ export default function TestimonialsSection() {
     animationFrameId = requestAnimationFrame(step);
 
     return () => cancelAnimationFrame(animationFrameId);
-  }, []);
+  }, [isMouseDown]);
 
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -360, behavior: "smooth" });
-    }
+  // Mouse Drag Handlers for hand cursor sliding
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsMouseDown(true);
+    isHoveredRef.current = true;
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
   };
 
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 360, behavior: "smooth" });
-    }
+  const handleMouseLeave = () => {
+    setIsMouseDown(false);
+    isHoveredRef.current = false;
+  };
+
+  const handleMouseUp = () => {
+    setIsMouseDown(false);
+    isHoveredRef.current = false;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isMouseDown || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 1.8; // Scroll sensitivity multiplier
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
   };
 
   return (
@@ -207,41 +224,25 @@ export default function TestimonialsSection() {
           title="What Clients Say"
           subtitle="Don't just take our word for it. Here is how BiharStack drives measurable growth for partners."
           align="center"
-          className="mb-4 sm:mb-6"
+          className="mb-8 sm:mb-10"
         />
 
-        {/* Carousel Left / Right Navigation Buttons (Centered below title) */}
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <button
-            onClick={scrollLeft}
-            aria-label="Scroll left"
-            className="w-10 h-10 rounded-full bg-white border border-neutral-300 shadow-md text-black flex items-center justify-center hover:bg-black hover:text-white hover:border-black active:scale-95 transition-all"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
-            Swipe or Auto-Scrolls
-          </span>
-          <button
-            onClick={scrollRight}
-            aria-label="Scroll right"
-            className="w-10 h-10 rounded-full bg-white border border-neutral-300 shadow-md text-black flex items-center justify-center hover:bg-black hover:text-white hover:border-black active:scale-95 transition-all"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Continuous Auto-Sliding + Manual Mouse/Touch Drag Track */}
+        {/* Continuous Auto-Sliding + Hand Mouse Drag Track */}
         <div
           ref={scrollContainerRef}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
           onMouseEnter={() => (isHoveredRef.current = true)}
-          onMouseLeave={() => (isHoveredRef.current = false)}
           onTouchStart={() => (isHoveredRef.current = true)}
           onTouchEnd={() => (isHoveredRef.current = false)}
-          className="flex gap-6 overflow-x-auto scrollbar-none py-4 px-2 scroll-smooth cursor-grab active:cursor-grabbing select-none"
+          className={`flex gap-6 overflow-x-auto scrollbar-none py-4 px-2 select-none ${
+            isMouseDown ? "cursor-grabbing" : "cursor-grab"
+          }`}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {/* Loop twice for seamless endless auto-sliding experience */}
+          {/* Loop twice for seamless endless sliding experience */}
           {[...testimonials, ...testimonials].map((test, index) => (
             <motion.div
               key={`${test.company}-${index}`}
@@ -250,7 +251,7 @@ export default function TestimonialsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: (index % 8) * 0.05 }}
               whileHover={{ y: -6, scale: 1.02 }}
-              className="relative flex-shrink-0 w-[310px] sm:w-[340px] p-7 sm:p-8 rounded-[40px] bg-white border-2 border-neutral-200/80 shadow-[0_18px_40px_-15px_rgba(0,0,0,0.12)] hover:shadow-[0_26px_50px_-12px_rgba(0,0,0,0.18)] transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-grab active:cursor-grabbing"
+              className="relative flex-shrink-0 w-[310px] sm:w-[340px] p-7 sm:p-8 rounded-[40px] bg-white border-2 border-neutral-200/80 shadow-[0_18px_40px_-15px_rgba(0,0,0,0.12)] hover:shadow-[0_26px_50px_-12px_rgba(0,0,0,0.18)] transition-all duration-300 flex flex-col justify-between overflow-hidden group pointer-events-auto"
             >
               {/* Decorative Corner Arc Accent */}
               <div
@@ -258,7 +259,7 @@ export default function TestimonialsSection() {
               />
 
               <div>
-                {/* Top Quote Icon & Rating Stars (Numbers 01, 02... completely removed!) */}
+                {/* Top Quote Icon & Rating Stars */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-1">
                     {[...Array(test.rating)].map((_, i) => (
@@ -278,7 +279,7 @@ export default function TestimonialsSection() {
                 </p>
               </div>
 
-              {/* Company & Owner Details (No client avatar images, no numbers) */}
+              {/* Company & Owner Details */}
               <div className="pt-4 border-t border-neutral-100">
                 <h4 className="font-display text-base font-extrabold text-black group-hover:text-indigo-600 transition-colors leading-tight mb-1">
                   {test.company}

@@ -9,6 +9,7 @@ interface SectionHeadingProps {
   subtitle?: string;
   align?: "left" | "center" | "right";
   className?: string;
+  subtitleClassName?: string;
   rightImage?: string;
   rightImageAlt?: string;
   rightImageClassName?: string;
@@ -20,6 +21,7 @@ export default function SectionHeading({
   subtitle,
   align = "center",
   className,
+  subtitleClassName,
   rightImage,
   rightImageAlt,
   rightImageClassName,
@@ -63,7 +65,7 @@ export default function SectionHeading({
         )}
       </div>
       {subtitle && (
-        <p className="mt-4 text-sm sm:text-base text-neutral-600 font-medium tracking-wide leading-relaxed max-w-2xl">
+        <p className={cn("mt-4 text-sm sm:text-base text-neutral-600 font-medium tracking-wide leading-relaxed max-w-3xl sm:max-w-4xl", subtitleClassName)}>
           {subtitle}
         </p>
       )}
