@@ -82,7 +82,7 @@ const plans = [
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="py-20 sm:py-24 bg-[#ECF1F5] border-t border-black/5 relative overflow-hidden">
+    <section id="pricing" className="pt-4 sm:pt-8 pb-14 sm:pb-18 bg-[#ECF1F5] border-t border-black/5 relative overflow-hidden">
       {/* Metallic Glow Ambient Backdrops */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-amber-500/10 blur-[120px] pointer-events-none" />
 
@@ -91,9 +91,10 @@ export default function PricingSection() {
           badge="AFFORDABLE GROWTH PACKAGES"
           title="Transparent Pricing for Bihar Businesses"
           subtitle="No hidden costs. Affordable Indian Rupee (₹) plans specially designed for local startups, shops, & growing ventures."
+          className="mb-4 sm:mb-6"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mt-6 sm:mt-8">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.badge}
