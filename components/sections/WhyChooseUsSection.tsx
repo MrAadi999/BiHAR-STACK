@@ -25,6 +25,46 @@ function PushPin({ color }: { color: string }) {
   );
 }
 
+// Custom Running Cardboard Box Mascot Icon matching reference image for Fast Delivery
+function RunningFastDeliveryBoxIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Speed Wind Motion Trails on the Left */}
+      <path d="M 6 36 H 24 M 4 52 H 20 M 10 68 H 26" stroke="currentColor" strokeWidth="4" strokeLinecap="round" opacity="0.9" />
+
+      {/* Main Cardboard Box Body */}
+      <path
+        d="M 32 40 L 72 32 L 80 62 C 80 66, 76 70, 70 72 L 40 78 C 34 80, 30 76, 28 70 Z"
+        fill="currentColor"
+        fillOpacity="0.25"
+        stroke="currentColor"
+        strokeWidth="4.5"
+        strokeLinejoin="round"
+      />
+
+      {/* Top Open Flaps */}
+      <path d="M 32 40 L 20 28 L 52 20 L 72 32 Z" fill="currentColor" fillOpacity="0.4" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
+      <path d="M 72 32 L 92 24 L 76 12 L 52 20 Z" fill="currentColor" fillOpacity="0.4" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
+
+      {/* Cute Eyes & Mouth */}
+      <circle cx="56" cy="52" r="3.5" fill="currentColor" />
+      <circle cx="68" cy="49" r="3.5" fill="currentColor" />
+      <path d="M 58 60 Q 64 65 69 58" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+
+      {/* Running Arms */}
+      <path d="M 30 52 C 20 54, 18 64, 22 70" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+      <path d="M 75 48 C 82 50, 88 44, 85 38" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+
+      {/* Running Legs & Shoes */}
+      <path d="M 40 76 C 36 86, 26 88, 22 94" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" />
+      <ellipse cx="20" cy="94" rx="6" ry="3" fill="currentColor" />
+
+      <path d="M 64 74 C 70 82, 78 84, 82 92" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" />
+      <ellipse cx="84" cy="92" rx="6" ry="3" fill="currentColor" />
+    </svg>
+  );
+}
+
 const features = [
   {
     num: "01",
@@ -85,7 +125,7 @@ const features = [
     num: "06",
     title: "Fast Delivery",
     desc: "Rapid deployment cycles without quality compromises",
-    icon: Zap,
+    icon: RunningFastDeliveryBoxIcon,
     pinColor: "#0284c7", // Cyan Sky
     frameStyle: "bg-[#e0f2fe] border-2 border-[#bae6fd] shadow-[0_12px_30px_rgba(2,132,199,0.15)]",
     badgeBg: "bg-[#0284c7] text-white",
