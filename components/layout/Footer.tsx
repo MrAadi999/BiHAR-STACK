@@ -101,41 +101,41 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#services" className="hover:text-black transition-colors">
-                  Next.js Web Apps
+                  Web & App Dev
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-black transition-colors">
-                  Mobile Apps
+                  AI & Workflows
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-black transition-colors">
-                  AI Chatbots
+                  Local SEO & GMB
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-black transition-colors">
+                  E-Commerce POS
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Company */}
+          {/* Column 3: Navigation & Company */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="font-display text-xs font-black uppercase tracking-[0.2em] text-black mb-4">
               Company
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold uppercase tracking-wider text-neutral-700">
               <li>
-                <a href="#why-us" className="hover:text-black transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
                 <a href="#portfolio" className="hover:text-black transition-colors">
-                  Case Studies
+                  Our Work
                 </a>
               </li>
               <li>
-                <a href="#process" className="hover:text-black transition-colors">
-                  6-Step Process
+                <a href="#impact" className="hover:text-black transition-colors">
+                  Client Impact
                 </a>
               </li>
               <li>
@@ -146,6 +146,16 @@ export default function Footer() {
               <li>
                 <a href="#faq" className="hover:text-black transition-colors">
                   FAQ
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-black transition-colors">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/917979067849" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">
+                  WhatsApp Support
                 </a>
               </li>
             </ul>
@@ -202,14 +212,21 @@ export default function Footer() {
         </div>
 
         {/* Tagline Highlight Bar */}
-        <div className="mt-8 pt-6 border-t border-neutral-300 text-center">
+        <div className="mt-8 pt-4 text-center">
           <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#0A2540] bg-white/80 border border-black/10 py-2 px-4 rounded-md inline-block shadow-xs">
             End-to-end digital solutions &ldquo;Build Digital. Grow Faster.&rdquo;
           </p>
         </div>
 
+        {/* Massive Full-Width Giant Typography Logo Watermark (Matching Reference Photo) */}
+        <div className="pt-6 pb-2 text-center select-none overflow-hidden relative">
+          <h2 className="font-display text-[15vw] sm:text-[16vw] font-black lowercase tracking-tighter leading-none bg-gradient-to-r from-[#0A2540]/30 via-[#1E40AF]/50 to-[#0A2540]/30 bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-opacity duration-500 pointer-events-none drop-shadow-xs">
+            biharstack.
+          </h2>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold uppercase tracking-widest text-neutral-700 text-center sm:text-left">
+        <div className="pt-4 border-t border-neutral-300 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold uppercase tracking-widest text-neutral-700 text-center sm:text-left">
           <p>© 2026 BiharStack Technologies Pvt. Ltd. All rights reserved.</p>
           <p className="flex items-center gap-1.5 justify-center">
             <span>Crafted with</span>
