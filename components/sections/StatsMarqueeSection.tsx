@@ -28,7 +28,7 @@ export default function StatsMarqueeSection() {
           }}
         >
           <div className="w-full">
-            <div className="flex w-max gap-14 sm:gap-20 animate-[marquee_35s_linear_infinite_reverse] py-3 items-center pointer-events-auto">
+            <div className="flex w-max gap-28 sm:gap-40 lg:gap-52 animate-[marquee_45s_linear_infinite_reverse] py-3 items-center pointer-events-auto">
               {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, idx) => (
                 <div
                   key={idx}
