@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Linkedin, Instagram, Twitter, Facebook, Send, Heart } from "lucide-react";
 
 export default function Footer() {
@@ -218,11 +219,24 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Massive Full-Width Giant Typography Logo Watermark 'BiHAR STACK' */}
+        {/* Animated Full-Width Giant Typography Logo Watermark 'BiHAR STACK' */}
         <div className="pt-6 pb-2 text-center select-none overflow-hidden relative">
-          <h2 className="font-display text-[13vw] sm:text-[14vw] font-black tracking-tighter leading-none bg-gradient-to-r from-[#0A2540]/30 via-[#1E40AF]/50 to-[#0A2540]/30 bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-opacity duration-500 pointer-events-none drop-shadow-xs">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.03, y: -4 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="font-display text-[13vw] sm:text-[14vw] font-black tracking-tighter leading-none bg-gradient-to-r from-[#0A2540] via-[#1E40AF] to-[#2563EB] via-amber-500 to-[#0A2540] bg-[length:200%_auto] bg-clip-text text-transparent opacity-85 hover:opacity-100 transition-all duration-700 cursor-pointer pointer-events-auto drop-shadow-sm select-none"
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            style={{
+              transitionDuration: "12s",
+            }}
+          >
             BiHAR STACK
-          </h2>
+          </motion.h2>
         </div>
 
         {/* Bottom Bar */}
