@@ -219,49 +219,80 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' (Transparent PNGs) */}
-        <div className="pt-8 pb-4 text-center select-none overflow-hidden relative flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          {/* BIHAR 3D Character Images */}
-          <div className="flex items-center gap-1 sm:gap-2">
-            <motion.img
-              src="/images/letters/letter-b.png"
-              alt="B"
-              whileHover={{ scale: 1.15, rotate: -6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
-            />
-            <motion.img
-              src="/images/letters/letter-i.png"
-              alt="I"
-              whileHover={{ scale: 1.15, rotate: 6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
-            />
-            <motion.img
-              src="/images/letters/letter-h.png"
-              alt="H"
-              whileHover={{ scale: 1.15, rotate: -6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
-            />
-            <motion.img
-              src="/images/letters/letter-a.png"
-              alt="A"
-              whileHover={{ scale: 1.15, rotate: 6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
-            />
-            <motion.img
-              src="/images/letters/letter-r.png"
-              alt="R"
-              whileHover={{ scale: 1.15, rotate: -6 }}
-              className="h-16 sm:h-24 md:h-28 lg:h-32 object-contain drop-shadow-sm cursor-pointer"
-            />
-          </div>
+        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' in ONE SINGLE LINE */}
+        <div className="pt-8 pb-4 text-center select-none overflow-x-auto relative flex items-center justify-center max-w-full">
+          <div className="flex items-center justify-center flex-nowrap shrink-0">
+            {/* BIHAR 3D Character Images */}
+            <div className="flex items-center gap-0.5 sm:gap-1 md:gap-1.5 shrink-0">
+              <motion.img
+                src="/images/letters/letter-b.png"
+                alt="B"
+                whileHover={{ scale: 1.15, rotate: -6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+              <motion.img
+                src="/images/letters/letter-i.png"
+                alt="I"
+                whileHover={{ scale: 1.15, rotate: 6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+              <motion.img
+                src="/images/letters/letter-h.png"
+                alt="H"
+                whileHover={{ scale: 1.15, rotate: -6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+              <motion.img
+                src="/images/letters/letter-a.png"
+                alt="A"
+                whileHover={{ scale: 1.15, rotate: 6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+              <motion.img
+                src="/images/letters/letter-r.png"
+                alt="R"
+                whileHover={{ scale: 1.15, rotate: -6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+            </div>
 
-          {/* STACK Text */}
-          <motion.h2
-            whileHover={{ scale: 1.05 }}
-            className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-[#0A2540] ml-2 sm:ml-4"
-          >
-            STACK
-          </motion.h2>
+            {/* Gap between BIHAR and STACK */}
+            <div className="w-3 sm:w-6 md:w-8 shrink-0" />
+
+            {/* STACK 3D Character Images */}
+            <div className="flex items-center gap-0.5 sm:gap-1 md:gap-1.5 shrink-0">
+              <motion.img
+                src="/images/letters/letter-s.png"
+                alt="S"
+                whileHover={{ scale: 1.15, rotate: 6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+              <motion.img
+                src="/images/letters/letter-t.png"
+                alt="T"
+                whileHover={{ scale: 1.15, rotate: -6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+              <motion.img
+                src="/images/letters/letter-stack-a.png"
+                alt="A"
+                whileHover={{ scale: 1.15, rotate: 6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+              <motion.img
+                src="/images/letters/letter-c.png"
+                alt="C"
+                whileHover={{ scale: 1.15, rotate: -6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+              <motion.img
+                src="/images/letters/letter-k.png"
+                alt="K"
+                whileHover={{ scale: 1.15, rotate: 6 }}
+                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Bottom Bar */}
