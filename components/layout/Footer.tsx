@@ -1,8 +1,78 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion";
 import { Linkedin, Instagram, Twitter, Facebook, Send, Heart } from "lucide-react";
+
+interface MascotLetterProps {
+  src: string;
+  alt: string;
+  className?: string;
+  style?: React.CSSProperties;
+  index?: number;
+  isT?: boolean;
+  mouseX: MotionValue<number>;
+  mouseY: MotionValue<number>;
+}
+
+function MascotLetter({
+  src,
+  alt,
+  className = "",
+  style = {},
+  index = 0,
+  isT = false,
+  mouseX,
+  mouseY,
+}: MascotLetterProps) {
+  // 3D Look-at tracking: Characters turn their face and eyes toward the mouse
+  const rotateY = useTransform(mouseX, [-1, 1], [-24, 24]);
+  const rotateX = useTransform(mouseY, [-1, 1], [18, -18]);
+  const xParallax = useTransform(mouseX, [-1, 1], [-10, 10]);
+  const yParallax = useTransform(mouseY, [-1, 1], [-8, 8]);
+
+  return (
+    <div
+      className={`relative inline-flex items-center justify-center shrink-0 origin-bottom select-none cursor-pointer z-10 hover:z-30 ${className}`}
+      style={{
+        ...style,
+        perspective: "800px",
+      }}
+    >
+      {/* 3D Head/Eyes Mouse Direction Tracking Layer + Instant Fast Scroll Entrance from Bottom */}
+      <motion.div
+        style={{
+          rotateX,
+          rotateY,
+          x: xParallax,
+          y: yParallax,
+          transformStyle: "preserve-3d",
+        }}
+        initial={{ y: 90, opacity: 0, scale: 0.88 }}
+        whileInView={{ y: 0, opacity: 1, scale: 1 }}
+        viewport={{ once: false, margin: "250px 0px 0px 0px" }}
+        transition={{
+          type: "spring",
+          stiffness: 420,
+          damping: 22,
+          delay: index * 0.03,
+        }}
+        whileHover={{
+          scale: 1.15,
+          y: -14,
+          transition: { type: "spring", stiffness: 400, damping: 15 },
+        }}
+        whileTap={{ scale: 0.95, y: 2 }}
+      >
+        <img
+          src={src}
+          alt={alt}
+          className={`${isT ? "h-[clamp(35px,9.1vw,138px)]" : "h-[clamp(46px,12vw,182px)]"} object-contain pointer-events-none drop-shadow-md transition-all`}
+        />
+      </motion.div>
+    </div>
+  );
+}
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -14,6 +84,28 @@ export default function Footer() {
       setSubscribed(true);
       setEmail("");
     }
+  };
+
+  // Mouse coordinates relative to logo section for eye/face tracking
+  const rawMouseX = useMotionValue(0);
+  const rawMouseY = useMotionValue(0);
+
+  // Smooth springs for natural organic motion
+  const springConfig = { damping: 25, stiffness: 220, mass: 0.4 };
+  const mouseX = useSpring(rawMouseX, springConfig);
+  const mouseY = useSpring(rawMouseY, springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    rawMouseX.set(Math.max(-1, Math.min(1, x)));
+    rawMouseY.set(Math.max(-1, Math.min(1, y)));
+  };
+
+  const handleMouseLeave = () => {
+    rawMouseX.set(0);
+    rawMouseY.set(0);
   };
 
   return (
@@ -222,287 +314,132 @@ export default function Footer() {
         {/* Divider Line (Shifted down slightly) */}
         <div className="border-b border-neutral-400 w-full mb-1" />
 
-        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' with Living Character Motions */}
-        <div className="pt-8 pb-4 text-center select-none overflow-hidden relative flex items-center justify-center w-full max-w-full">
+        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' with Interactive Mouse-Look Tracking */}
+        <div
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          className="pt-8 pb-4 text-center select-none overflow-hidden relative flex items-center justify-center w-full max-w-full"
+        >
           <div className="flex items-center justify-center flex-nowrap shrink-0 px-2 max-w-full">
-            {/* BIHAR 3D Character Images */}
+            {/* BIHAR 3D Character Mascots */}
             <div className="flex items-center shrink-0">
               {/* B Mascot */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-b.png"
                 alt="B"
-                animate={{
-                  y: [0, -8, 0, -3, 0],
-                  rotate: [0, -2.5, 0, 2.5, 0],
-                  scaleY: [1, 1.03, 0.98, 1.02, 1]
-                }}
-                transition={{
-                  duration: 3.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -18,
-                  rotate: [0, -8, 8, -5, 5, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
+                mouseX={mouseX}
+                mouseY={mouseY}
+                index={0}
               />
 
               {/* I Mascot */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-i.png"
                 alt="I"
-                animate={{
-                  y: [0, -10, 0, -4, 0],
-                  rotate: [0, 3, 0, -3, 0],
-                  scaleY: [1, 1.05, 0.97, 1.03, 1]
-                }}
-                transition={{
-                  duration: 3.0,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.25
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -20,
-                  rotate: [0, 9, -9, 6, -6, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
+                mouseX={mouseX}
+                mouseY={mouseY}
+                index={1}
                 style={{
                   marginLeft: "clamp(-46px, -3.3vw, -14px)",
-                  marginRight: "clamp(-40px, -2.9vw, -12px)"
+                  marginRight: "clamp(-40px, -2.9vw, -12px)",
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
 
               {/* H Mascot */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-h.png"
                 alt="H"
-                animate={{
-                  y: [0, -8, 0, -3, 0],
-                  rotate: [0, -2, 0, 2, 0],
-                  scaleY: [1, 1.03, 0.98, 1.02, 1]
-                }}
-                transition={{
-                  duration: 3.4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -18,
-                  rotate: [0, -7, 7, -4, 4, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
+                mouseX={mouseX}
+                mouseY={mouseY}
+                index={2}
               />
 
               {/* A Mascot (Bihar) */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-a.png"
                 alt="A"
-                animate={{
-                  y: [0, -9, 0, -4, 0],
-                  rotate: [0, 2.5, 0, -2.5, 0],
-                  scaleY: [1, 1.04, 0.98, 1.02, 1]
-                }}
-                transition={{
-                  duration: 3.1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.75
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -18,
-                  rotate: [0, 8, -8, 5, -5, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
+                mouseX={mouseX}
+                mouseY={mouseY}
+                index={3}
                 style={{
-                  marginLeft: "clamp(-31px, -2.2vw, -10px)"
+                  marginLeft: "clamp(-31px, -2.2vw, -10px)",
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
 
               {/* R Mascot */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-r.png"
                 alt="R"
-                animate={{
-                  y: [0, -8, 0, -3, 0],
-                  rotate: [0, -3, 0, 3, 0],
-                  scaleY: [1, 1.03, 0.98, 1.02, 1]
-                }}
-                transition={{
-                  duration: 3.3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.0
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -18,
-                  rotate: [0, -8, 8, -5, 5, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
+                mouseX={mouseX}
+                mouseY={mouseY}
+                index={4}
                 style={{
-                  marginLeft: "clamp(-38px, -2.7vw, -12px)"
+                  marginLeft: "clamp(-38px, -2.7vw, -12px)",
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
             </div>
 
-            {/* STACK 3D Character Images (Word gap: -3px) */}
+            {/* STACK 3D Character Mascots (Word gap: -3px) */}
             <div
               className="flex items-center shrink-0"
               style={{
-                marginLeft: "clamp(-3px, -0.2vw, -1px)"
+                marginLeft: "clamp(-3px, -0.2vw, -1px)",
               }}
             >
               {/* S Mascot */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-s.png"
                 alt="S"
-                animate={{
-                  y: [0, -9, 0, -4, 0],
-                  rotate: [0, 3, 0, -3, 0],
-                  scaleY: [1, 1.04, 0.97, 1.02, 1]
-                }}
-                transition={{
-                  duration: 3.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.25
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -18,
-                  rotate: [0, 8, -8, 5, -5, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
+                mouseX={mouseX}
+                mouseY={mouseY}
+                index={5}
               />
 
               {/* T Mascot */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-t.png"
                 alt="T"
-                animate={{
-                  y: [0, -9, 0, -4, 0],
-                  rotate: [0, -2.5, 0, 2.5, 0],
-                  scaleY: [1, 1.05, 0.97, 1.03, 1]
-                }}
-                transition={{
-                  duration: 2.9,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.45
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -18,
-                  rotate: [0, -9, 9, -6, 6, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
+                mouseX={mouseX}
+                mouseY={mouseY}
+                isT={true}
+                index={6}
                 style={{
-                  marginLeft: "clamp(-18px, -1.3vw, -6px)"
+                  marginLeft: "clamp(-18px, -1.3vw, -6px)",
                 }}
-                className="h-[clamp(35px,9.1vw,138px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
 
               {/* A Mascot (Stack) */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-stack-a.png"
                 alt="A"
-                animate={{
-                  y: [0, -8, 0, -3, 0],
-                  rotate: [0, 2.5, 0, -2.5, 0],
-                  scaleY: [1, 1.03, 0.98, 1.02, 1]
-                }}
-                transition={{
-                  duration: 3.1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.7
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -18,
-                  rotate: [0, 8, -8, 5, -5, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
+                mouseX={mouseX}
+                mouseY={mouseY}
+                index={7}
                 style={{
-                  marginLeft: "clamp(-8px, -0.6vw, -3px)"
+                  marginLeft: "clamp(-8px, -0.6vw, -3px)",
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
 
               {/* C Mascot */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-c.png"
                 alt="C"
-                animate={{
-                  y: [0, -8, 0, -4, 0],
-                  rotate: [0, -3.5, 0, 3.5, 0],
-                  scaleY: [1, 1.04, 0.97, 1.02, 1]
-                }}
-                transition={{
-                  duration: 3.3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1.95
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -18,
-                  rotate: [0, -8, 8, -5, 5, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
+                mouseX={mouseX}
+                mouseY={mouseY}
+                index={8}
                 style={{
                   marginLeft: "clamp(-39px, -2.8vw, -12px)",
-                  marginRight: "clamp(-36px, -2.6vw, -11px)"
+                  marginRight: "clamp(-36px, -2.6vw, -11px)",
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
 
               {/* K Mascot */}
-              <motion.img
+              <MascotLetter
                 src="/images/letters/letter-k.png"
                 alt="K"
-                animate={{
-                  y: [0, -9, 0, -4, 0],
-                  rotate: [0, 3, 0, -3, 0],
-                  scaleY: [1, 1.04, 0.98, 1.02, 1]
-                }}
-                transition={{
-                  duration: 3.0,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 2.2
-                }}
-                whileHover={{
-                  scale: 1.18,
-                  y: -18,
-                  rotate: [0, 9, -9, 6, -6, 0],
-                  transition: { duration: 0.45, ease: "easeOut" }
-                }}
-                whileTap={{ scale: 0.9, y: 4 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
+                mouseX={mouseX}
+                mouseY={mouseY}
+                index={9}
               />
             </div>
           </div>
