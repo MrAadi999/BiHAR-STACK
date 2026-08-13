@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         
         {/* 4 Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12 border-b border-neutral-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-8">
           
           {/* Column 1: Brand & Identity */}
           <div className="lg:col-span-4 space-y-4">
@@ -212,57 +212,154 @@ export default function Footer() {
 
         </div>
 
-        {/* Tagline Highlight Bar */}
-        <div className="mt-8 pt-4 text-center">
+        {/* Tagline Highlight Bar (Above Divider Line) */}
+        <div className="pt-3 pb-8 sm:pb-10 text-center">
           <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#0A2540] bg-white/80 border border-black/10 py-2 px-4 rounded-md inline-block shadow-xs">
             End-to-end digital solutions &ldquo;Build Digital. Grow Faster.&rdquo;
           </p>
         </div>
 
-        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' */}
+        {/* Divider Line (Shifted down slightly) */}
+        <div className="border-b border-neutral-400 w-full mb-1" />
+
+        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' with Living Character Motions */}
         <div className="pt-8 pb-4 text-center select-none overflow-hidden relative flex items-center justify-center w-full max-w-full">
           <div className="flex items-center justify-center flex-nowrap shrink-0 px-2 max-w-full">
             {/* BIHAR 3D Character Images */}
             <div className="flex items-center shrink-0">
+              {/* B Mascot */}
               <motion.img
                 src="/images/letters/letter-b.png"
                 alt="B"
-                whileHover={{ scale: 1.1, rotate: -4 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                animate={{
+                  y: [0, -8, 0, -3, 0],
+                  rotate: [0, -2.5, 0, 2.5, 0],
+                  scaleY: [1, 1.03, 0.98, 1.02, 1]
+                }}
+                transition={{
+                  duration: 3.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -18,
+                  rotate: [0, -8, 8, -5, 5, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
+
+              {/* I Mascot */}
               <motion.img
                 src="/images/letters/letter-i.png"
                 alt="I"
-                whileHover={{ scale: 1.1, rotate: 4 }}
+                animate={{
+                  y: [0, -10, 0, -4, 0],
+                  rotate: [0, 3, 0, -3, 0],
+                  scaleY: [1, 1.05, 0.97, 1.03, 1]
+                }}
+                transition={{
+                  duration: 3.0,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.25
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -20,
+                  rotate: [0, 9, -9, 6, -6, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
                 style={{
                   marginLeft: "clamp(-46px, -3.3vw, -14px)",
                   marginRight: "clamp(-40px, -2.9vw, -12px)"
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
+
+              {/* H Mascot */}
               <motion.img
                 src="/images/letters/letter-h.png"
                 alt="H"
-                whileHover={{ scale: 1.1, rotate: -4 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                animate={{
+                  y: [0, -8, 0, -3, 0],
+                  rotate: [0, -2, 0, 2, 0],
+                  scaleY: [1, 1.03, 0.98, 1.02, 1]
+                }}
+                transition={{
+                  duration: 3.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -18,
+                  rotate: [0, -7, 7, -4, 4, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
+
+              {/* A Mascot (Bihar) */}
               <motion.img
                 src="/images/letters/letter-a.png"
                 alt="A"
-                whileHover={{ scale: 1.1, rotate: 4 }}
+                animate={{
+                  y: [0, -9, 0, -4, 0],
+                  rotate: [0, 2.5, 0, -2.5, 0],
+                  scaleY: [1, 1.04, 0.98, 1.02, 1]
+                }}
+                transition={{
+                  duration: 3.1,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.75
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -18,
+                  rotate: [0, 8, -8, 5, -5, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
                 style={{
                   marginLeft: "clamp(-31px, -2.2vw, -10px)"
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
+
+              {/* R Mascot */}
               <motion.img
                 src="/images/letters/letter-r.png"
                 alt="R"
-                whileHover={{ scale: 1.1, rotate: -4 }}
+                animate={{
+                  y: [0, -8, 0, -3, 0],
+                  rotate: [0, -3, 0, 3, 0],
+                  scaleY: [1, 1.03, 0.98, 1.02, 1]
+                }}
+                transition={{
+                  duration: 3.3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.0
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -18,
+                  rotate: [0, -8, 8, -5, 5, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
                 style={{
                   marginLeft: "clamp(-38px, -2.7vw, -12px)"
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
             </div>
 
@@ -273,45 +370,139 @@ export default function Footer() {
                 marginLeft: "clamp(-3px, -0.2vw, -1px)"
               }}
             >
+              {/* S Mascot */}
               <motion.img
                 src="/images/letters/letter-s.png"
                 alt="S"
-                whileHover={{ scale: 1.1, rotate: 4 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                animate={{
+                  y: [0, -9, 0, -4, 0],
+                  rotate: [0, 3, 0, -3, 0],
+                  scaleY: [1, 1.04, 0.97, 1.02, 1]
+                }}
+                transition={{
+                  duration: 3.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.25
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -18,
+                  rotate: [0, 8, -8, 5, -5, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
+
+              {/* T Mascot */}
               <motion.img
                 src="/images/letters/letter-t.png"
                 alt="T"
-                whileHover={{ scale: 1.1, rotate: -4 }}
+                animate={{
+                  y: [0, -9, 0, -4, 0],
+                  rotate: [0, -2.5, 0, 2.5, 0],
+                  scaleY: [1, 1.05, 0.97, 1.03, 1]
+                }}
+                transition={{
+                  duration: 2.9,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.45
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -18,
+                  rotate: [0, -9, 9, -6, 6, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
                 style={{
                   marginLeft: "clamp(-18px, -1.3vw, -6px)"
                 }}
-                className="h-[clamp(35px,9.1vw,138px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                className="h-[clamp(35px,9.1vw,138px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
+
+              {/* A Mascot (Stack) */}
               <motion.img
                 src="/images/letters/letter-stack-a.png"
                 alt="A"
-                whileHover={{ scale: 1.1, rotate: 4 }}
+                animate={{
+                  y: [0, -8, 0, -3, 0],
+                  rotate: [0, 2.5, 0, -2.5, 0],
+                  scaleY: [1, 1.03, 0.98, 1.02, 1]
+                }}
+                transition={{
+                  duration: 3.1,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.7
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -18,
+                  rotate: [0, 8, -8, 5, -5, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
                 style={{
                   marginLeft: "clamp(-8px, -0.6vw, -3px)"
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
+
+              {/* C Mascot */}
               <motion.img
                 src="/images/letters/letter-c.png"
                 alt="C"
-                whileHover={{ scale: 1.1, rotate: -4 }}
+                animate={{
+                  y: [0, -8, 0, -4, 0],
+                  rotate: [0, -3.5, 0, 3.5, 0],
+                  scaleY: [1, 1.04, 0.97, 1.02, 1]
+                }}
+                transition={{
+                  duration: 3.3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.95
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -18,
+                  rotate: [0, -8, 8, -5, 5, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
                 style={{
                   marginLeft: "clamp(-39px, -2.8vw, -12px)",
                   marginRight: "clamp(-36px, -2.6vw, -11px)"
                 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
+
+              {/* K Mascot */}
               <motion.img
                 src="/images/letters/letter-k.png"
                 alt="K"
-                whileHover={{ scale: 1.1, rotate: 4 }}
-                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
+                animate={{
+                  y: [0, -9, 0, -4, 0],
+                  rotate: [0, 3, 0, -3, 0],
+                  scaleY: [1, 1.04, 0.98, 1.02, 1]
+                }}
+                transition={{
+                  duration: 3.0,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2.2
+                }}
+                whileHover={{
+                  scale: 1.18,
+                  y: -18,
+                  rotate: [0, 9, -9, 6, -6, 0],
+                  transition: { duration: 0.45, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9, y: 4 }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform origin-bottom"
               />
             </div>
           </div>
