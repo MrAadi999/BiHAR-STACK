@@ -222,8 +222,8 @@ export default function Footer() {
         {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' in ONE SINGLE LINE */}
         <div className="pt-8 pb-4 text-center select-none overflow-x-auto relative flex items-center justify-center max-w-full">
           <div className="flex items-center justify-center flex-nowrap shrink-0">
-            {/* BIHAR 3D Character Images */}
-            <div className="flex items-center gap-0 sm:gap-0.5 md:gap-1 shrink-0">
+            {/* BIHAR 3D Character Images (Ultra tight gap, non-touching) */}
+            <div className="flex items-center gap-[2px] sm:gap-[3px] shrink-0">
               <motion.img
                 src="/images/letters/letter-b.png"
                 alt="B"
@@ -256,11 +256,11 @@ export default function Footer() {
               />
             </div>
 
-            {/* Gap between BIHAR and STACK */}
-            <div className="w-2 sm:w-4 md:w-5 shrink-0" />
+            {/* Clear Gap between 'R' and 'S' */}
+            <div className="w-5 sm:w-8 md:w-10 shrink-0" />
 
-            {/* STACK 3D Character Images */}
-            <div className="flex items-center gap-0 sm:gap-0.5 md:gap-1 shrink-0">
+            {/* STACK 3D Character Images (Ultra tight gap, non-touching) */}
+            <div className="flex items-center gap-[2px] sm:gap-[3px] shrink-0">
               <motion.img
                 src="/images/letters/letter-s.png"
                 alt="S"
