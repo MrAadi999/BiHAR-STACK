@@ -219,77 +219,99 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' in ONE SINGLE LINE */}
-        <div className="pt-8 pb-4 text-center select-none overflow-x-auto relative flex items-center justify-center max-w-full">
-          <div className="flex items-center justify-center flex-nowrap shrink-0">
-            {/* BIHAR 3D Character Images (Ultra tight gap, non-touching) */}
-            <div className="flex items-center gap-[2px] sm:gap-[3px] shrink-0">
+        {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' */}
+        <div className="pt-8 pb-4 text-center select-none overflow-hidden relative flex items-center justify-center w-full max-w-full">
+          <div className="flex items-center justify-center flex-nowrap shrink-0 px-2 max-w-full">
+            {/* BIHAR 3D Character Images */}
+            <div className="flex items-center shrink-0">
               <motion.img
                 src="/images/letters/letter-b.png"
                 alt="B"
-                whileHover={{ scale: 1.15, rotate: -6 }}
-                className="h-14 sm:h-22 md:h-28 lg:h-32 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: -4 }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
               <motion.img
                 src="/images/letters/letter-i.png"
                 alt="I"
-                whileHover={{ scale: 1.15, rotate: 6 }}
-                className="h-14 sm:h-22 md:h-28 lg:h-32 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: 4 }}
+                style={{
+                  marginLeft: "clamp(-46px, -3.3vw, -14px)",
+                  marginRight: "clamp(-40px, -2.9vw, -12px)"
+                }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
               <motion.img
                 src="/images/letters/letter-h.png"
                 alt="H"
-                whileHover={{ scale: 1.15, rotate: -6 }}
-                className="h-14 sm:h-22 md:h-28 lg:h-32 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: -4 }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
               <motion.img
                 src="/images/letters/letter-a.png"
                 alt="A"
-                whileHover={{ scale: 1.15, rotate: 6 }}
-                className="h-14 sm:h-22 md:h-28 lg:h-32 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: 4 }}
+                style={{
+                  marginLeft: "clamp(-31px, -2.2vw, -10px)"
+                }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
               <motion.img
                 src="/images/letters/letter-r.png"
                 alt="R"
-                whileHover={{ scale: 1.15, rotate: -6 }}
-                className="h-14 sm:h-22 md:h-28 lg:h-32 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: -4 }}
+                style={{
+                  marginLeft: "clamp(-38px, -2.7vw, -12px)"
+                }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
             </div>
 
-            {/* Clear Gap between 'R' and 'S' */}
-            <div className="w-5 sm:w-8 md:w-10 shrink-0" />
-
-            {/* STACK 3D Character Images (Ultra tight gap, non-touching) */}
-            <div className="flex items-center gap-[2px] sm:gap-[3px] shrink-0">
+            {/* STACK 3D Character Images (Word gap: -3px) */}
+            <div
+              className="flex items-center shrink-0"
+              style={{
+                marginLeft: "clamp(-3px, -0.2vw, -1px)"
+              }}
+            >
               <motion.img
                 src="/images/letters/letter-s.png"
                 alt="S"
-                whileHover={{ scale: 1.15, rotate: 6 }}
-                className="h-14 sm:h-22 md:h-28 lg:h-32 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: 4 }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
               <motion.img
                 src="/images/letters/letter-t.png"
                 alt="T"
-                whileHover={{ scale: 1.15, rotate: -6 }}
-                className="h-10 sm:h-16 md:h-20 lg:h-24 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: -4 }}
+                style={{
+                  marginLeft: "clamp(-18px, -1.3vw, -6px)"
+                }}
+                className="h-[clamp(35px,9.1vw,138px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
               <motion.img
                 src="/images/letters/letter-stack-a.png"
                 alt="A"
-                whileHover={{ scale: 1.15, rotate: 6 }}
-                className="h-14 sm:h-22 md:h-28 lg:h-32 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: 4 }}
+                style={{
+                  marginLeft: "clamp(-8px, -0.6vw, -3px)"
+                }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
               <motion.img
                 src="/images/letters/letter-c.png"
                 alt="C"
-                whileHover={{ scale: 1.15, rotate: -6 }}
-                className="h-14 sm:h-22 md:h-28 lg:h-32 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: -4 }}
+                style={{
+                  marginLeft: "clamp(-39px, -2.8vw, -12px)",
+                  marginRight: "clamp(-36px, -2.6vw, -11px)"
+                }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
               <motion.img
                 src="/images/letters/letter-k.png"
                 alt="K"
-                whileHover={{ scale: 1.15, rotate: 6 }}
-                className="h-14 sm:h-22 md:h-28 lg:h-32 object-contain cursor-pointer"
+                whileHover={{ scale: 1.1, rotate: 4 }}
+                className="h-[clamp(46px,12vw,182px)] object-contain cursor-pointer relative z-10 hover:z-20 transition-transform"
               />
             </div>
           </div>
