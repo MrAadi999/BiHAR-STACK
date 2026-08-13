@@ -386,10 +386,12 @@ export default function ServicesSection() {
                 <div className="relative w-12 h-12 sm:w-16 sm:h-16">
                   
                   {/* 1. Main Central Large Light Gray Disc with Stationary Bihar Stack Logo */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#FAFDFE] to-[#E2E8F0] border-2 border-[#CBD5E1] shadow-[0_4px_14px_rgba(0,0,0,0.3)] flex items-center justify-center z-10">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-black rounded-md flex items-center justify-center shadow-md">
-                      <Layers className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" />
-                    </div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#FAFDFE] to-[#E2E8F0] border-2 border-[#CBD5E1] shadow-[0_4px_14px_rgba(0,0,0,0.3)] flex items-center justify-center z-10 p-1 sm:p-2">
+                    <img
+                      src="/images/biharstack-brand-logo.png"
+                      alt="BiharStack Logo"
+                      className="w-full h-full object-contain drop-shadow-sm"
+                    />
                   </div>
 
                   {/* True 360° Tight-Bound Pulsating Orbit Ring (Kam Distance me hi Aage-Pichhe Floating) */}

@@ -7,39 +7,39 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const faqs = [
   {
-    question: "Humare local dukan/coaching/clinic ke liye BiharStack website aur app kaise kaam karta hai?",
+    question: "How does BiharStack build and deploy digital solutions for local shops, clinics, institutes, and enterprises?",
     answer:
-      "Hum aapki dukaan (Saree/Garments, Salon, Clinic, Restaurant, Coaching Institute) ke liye custom responsive website, billing POS, WhatsApp catalog ordering, aur Google Maps ranking setup karte hain. Aap apne mobile se direct orders, bills, aur client appointments manage kar sakte hain.",
+      "We deliver custom responsive websites, billing POS systems, WhatsApp catalog ordering setups, and Google Maps local SEO. Whether you operate a retail showroom, clinic, restaurant, coaching institute, or enterprise, you can effortlessly manage customer orders, invoices, and appointments directly from your mobile phone or laptop.",
   },
   {
-    question: "BiharStack ke pricing packages kitne se start hote hain? Any hidden charges?",
+    question: "What are BiharStack's pricing packages? Are there any hidden charges?",
     answer:
-      "Humari pricing 100% transparent aur affordable Indian Rupee (₹) me hai! Starter Dukaan plan ₹3,999 se start hota hai, Growth Vyapar plan ₹8,999 hai, aur Enterprise Bihar plan ₹14,999 hai. Pehle se fixed scope hota hai aur koi hidden charges nahi hain.",
+      "Our pricing is 100% transparent and billed in Indian Rupees (₹) with zero hidden fees. Starter Dukaan packages start at ₹3,999, Growth Vyapar packages at ₹8,999, and full-scale Enterprise Bihar solutions at ₹14,999. Every project comes with a clearly documented scope and fixed milestones.",
   },
   {
-    question: "Project complete hone aur website live hone me kitna time lagta hai?",
+    question: "What is the typical turnaround time for project delivery and going live?",
     answer:
-      "Standard dukaan/clinic website aur Google Business setup 5 se 7 dino me live ho jaati hai! Full-scale web apps, QR menu ordering, aur coaching test series portals 2 se 3 weeks me complete deliver hote hain.",
+      "Standard business websites, clinic portals, and Google Business profile setups go live within 5 to 7 business days. Complex custom web applications, QR-based ordering portals, and coaching test series platforms are delivered within 2 to 3 weeks with complete quality assurance.",
   },
   {
-    question: "Kya humare phone par WhatsApp customer orders aur appointment notifications aayenge?",
+    question: "Can we receive real-time WhatsApp notifications for customer orders and appointments?",
     answer:
-      "Haan bilkul! Hum 24/7 Automated AI WhatsApp Bot aur Direct Chat Widget integrate karte hain. Aapke customers jab website par order, booking ya enquiry karenge, aapko aur unhe turant WhatsApp notification mil jayega.",
+      "Yes, absolutely. We integrate 24/7 automated WhatsApp AI bots and direct chat widgets into your website. Whenever a customer places an order, books an appointment, or submits an inquiry, both you and your customer receive immediate real-time WhatsApp notifications.",
   },
   {
-    question: "Do you serve clients outside of Bihar and Global international markets?",
+    question: "Does BiharStack serve clients outside of Bihar and in global international markets?",
     answer:
-      "Yes! 95% hum Bihar aur pure Bharat ke local businesses, retail chains, clinics, aur startups ko scale karte hain. 5% hum B2B export portals ke zariye Global buyers (USA, Europe, Gulf) ko Bihar ke makhana, handloom, aur manufacturing factories se connect karte hain.",
+      "Yes! We scale retail chains, healthcare providers, and startups across Bihar and all of India. Furthermore, we develop global B2B export portals connecting international buyers across the USA, Europe, and the Middle East with authentic Bihar handlooms, agro-products (like Makhana), and manufacturing hubs.",
   },
   {
-    question: "Website live hone ke baad post-launch support aur maintenance kaise milega?",
+    question: "What post-launch support and maintenance does BiharStack provide?",
     answer:
-      "Har project ke saath complimentary post-launch support aur staff training milti hai. Iske alawa humari BiharStack engineering team 24/7 hosting server management, security backups, aur software updates manage karti hai.",
+      "Every project includes complimentary post-launch technical support and hands-on staff training. Additionally, our dedicated engineering team manages 24/7 high-speed cloud hosting, daily automated backups, security firewalls, and regular feature updates.",
   },
   {
-    question: "Kya humari shop/clinic Google Maps aur Search me sabse upar rank karegi?",
+    question: "Will our business rank on Google Maps and local search results?",
     answer:
-      "Haan! Hum har business ke liye Local Google Business (GMB) SEO, Google Maps pin setup, aur local keyword ranking karte hain taaki aapke area ke customers Google par search karke direct aapki shop par aayein.",
+      "Yes! We implement comprehensive Google Business Profile (GMB) optimization, Google Maps pin setup, and local SEO keywords so customers searching in your city or vicinity discover your business first and visit your store directly.",
   },
 ];
 

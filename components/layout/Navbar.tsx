@@ -42,9 +42,11 @@ export default function Navbar() {
         
         {/* Left Side: Logo Icon + BIHARSTACK Text */}
         <a href="#" className="flex items-center gap-3 group shrink-0">
-          <div className="w-9 h-9 bg-black flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform duration-300">
-            <Layers className="w-5 h-5 text-white" />
-          </div>
+          <img
+            src="/images/biharstack-brand-logo.png"
+            alt="BiharStack Logo"
+            className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
+          />
           <span className="font-display text-2xl font-black tracking-widest uppercase text-black">
             BIHARSTACK
           </span>

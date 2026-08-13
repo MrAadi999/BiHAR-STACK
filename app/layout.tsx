@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     "Tech Agency Bihar",
   ],
   authors: [{ name: "BiharStack Team" }],
+  icons: {
+    icon: "/images/biharstack-brand-logo.png",
+    shortcut: "/images/biharstack-brand-logo.png",
+    apple: "/images/biharstack-brand-logo.png",
+  },
   openGraph: {
     title: "BiharStack | Building Bihar. Scaling Businesses.",
     description:

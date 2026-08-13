@@ -117,8 +117,15 @@ export default function Footer() {
           
           {/* Column 1: Brand & Identity */}
           <div className="lg:col-span-3 space-y-3">
-            <a href="#" className="font-display text-2xl font-black tracking-widest uppercase text-black block">
-              BIHARSTACK
+            <a href="#" className="flex items-center gap-3 group">
+              <img
+                src="/images/biharstack-brand-logo.png"
+                alt="BiharStack Logo"
+                className="w-9 h-9 object-contain group-hover:scale-105 transition-transform drop-shadow-sm"
+              />
+              <span className="font-display text-2xl font-black tracking-widest uppercase text-black">
+                BIHARSTACK
+              </span>
             </a>
 
             {/* Tagline Badge */}
@@ -353,14 +360,14 @@ export default function Footer() {
         </div>
 
         {/* Tagline Highlight Bar (Above Divider Line) */}
-        <div className="pt-16 sm:pt-22 pb-4 sm:pb-5 text-center">
+        <div className="pt-4 pb-4 text-center">
           <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#0A2540] bg-white/80 border border-black/10 py-2 px-4 rounded-md inline-block shadow-xs">
             End-to-end digital solutions &ldquo;Build Digital. Grow Faster.&rdquo;
           </p>
         </div>
 
         {/* Divider Line */}
-        <div className="border-b border-neutral-400 w-full" />
+        <div className="border-b border-neutral-400 w-full mb-2" />
 
         {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' with Interactive Mouse-Look Tracking */}
         <div
