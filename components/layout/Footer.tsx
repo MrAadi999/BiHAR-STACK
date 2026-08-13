@@ -223,7 +223,7 @@ export default function Footer() {
         <div className="pt-8 pb-4 text-center select-none overflow-x-auto relative flex items-center justify-center max-w-full">
           <div className="flex items-center justify-center flex-nowrap shrink-0">
             {/* BIHAR 3D Character Images */}
-            <div className="flex items-center gap-0.5 sm:gap-1 md:gap-1.5 shrink-0">
+            <div className="flex items-center gap-0 sm:gap-0.5 md:gap-1 shrink-0">
               <motion.img
                 src="/images/letters/letter-b.png"
                 alt="B"
@@ -257,10 +257,10 @@ export default function Footer() {
             </div>
 
             {/* Gap between BIHAR and STACK */}
-            <div className="w-3 sm:w-6 md:w-8 shrink-0" />
+            <div className="w-2 sm:w-4 md:w-5 shrink-0" />
 
             {/* STACK 3D Character Images */}
-            <div className="flex items-center gap-0.5 sm:gap-1 md:gap-1.5 shrink-0">
+            <div className="flex items-center gap-0 sm:gap-0.5 md:gap-1 shrink-0">
               <motion.img
                 src="/images/letters/letter-s.png"
                 alt="S"
