@@ -342,7 +342,7 @@ export default function ServicesSection() {
             <div className="relative inline-flex items-center my-0 max-w-full">
               
               {/* Main Sleek Horizontal Header Container */}
-              <div className="relative pl-11 sm:pl-16 pr-3.5 sm:pr-5 py-1.5 sm:py-2 flex flex-col items-center justify-center">
+              <div className="relative pl-12 sm:pl-16 pr-3.5 sm:pr-5 py-1.5 sm:py-2 flex flex-col items-center justify-center">
                 
                 {/* Heading Text + Question Mark Emoji directly to its right */}
                 <div className="relative inline-flex items-center justify-center">
@@ -385,16 +385,16 @@ export default function ServicesSection() {
               <div className="absolute -left-5 sm:-left-7 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
                 <div className="relative w-12 h-12 sm:w-16 sm:h-16">
                   
-                  {/* 1. Main Central Large Light Gray Disc with Stationary Bihar Stack Logo */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#FAFDFE] to-[#E2E8F0] border-2 border-[#CBD5E1] shadow-[0_4px_14px_rgba(0,0,0,0.3)] flex items-center justify-center z-10 p-1 sm:p-2">
+                  {/* 1. Main Central Disc with Large Edge-to-Edge Bihar Stack Logo */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#FAFDFE] to-[#E2E8F0] border-2 border-[#CBD5E1] shadow-[0_4px_14px_rgba(0,0,0,0.25)] flex items-center justify-center z-10 overflow-hidden">
                     <img
                       src="/images/biharstack-brand-logo.png"
                       alt="BiharStack Logo"
-                      className="w-full h-full object-contain drop-shadow-sm"
+                      className="w-full h-full object-cover scale-110 drop-shadow-sm"
                     />
                   </div>
 
-                  {/* True 360° Tight-Bound Pulsating Orbit Ring (Kam Distance me hi Aage-Pichhe Floating) */}
+                  {/* True 360° Tight-Bound Pulsating Orbit Ring */}
                   <motion.div 
                     animate={{ rotate: 360 }}
                     transition={{ duration: 16, repeat: Infinity, ease: "linear" }}

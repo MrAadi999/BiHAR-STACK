@@ -19,10 +19,13 @@ export default function SolarSystem({ centerTitle = "10X GROWTH", className = ""
           <circle className="orbit-pulse" cx="155" cy="155" r="150" />
         </svg>
 
-        {/* Sun / Center - 10X Growth Node */}
-        <div className="sun-node">
-          <i className="fa-solid fa-arrow-trend-up"></i>
-          <span>{centerTitle}</span>
+        {/* Sun / Center - BiharStack Brand Logo Node */}
+        <div className="sun-node overflow-hidden p-0 shadow-md">
+          <img
+            src="/images/biharstack-brand-logo.png"
+            alt="BiharStack Brand Logo"
+            className="w-full h-full object-cover scale-110 select-none"
+          />
         </div>
 
         {/* Orbit ring with 5 planets */}

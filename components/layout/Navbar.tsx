@@ -41,11 +41,11 @@ export default function Navbar() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between">
         
         {/* Left Side: Logo Icon + BIHARSTACK Text */}
-        <a href="#" className="flex items-center gap-3 group shrink-0">
+        <a href="#" className="flex items-center gap-3.5 group shrink-0">
           <img
             src="/images/biharstack-brand-logo.png"
             alt="BiharStack Logo"
-            className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
+            className="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
           />
           <span className="font-display text-2xl font-black tracking-widest uppercase text-black">
             BIHARSTACK
