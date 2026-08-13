@@ -15,7 +15,6 @@ import PricingSection from "@/components/sections/PricingSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/layout/Footer";
-import CustomCursor from "@/components/ui/CustomCursor";
 import BackToTop from "@/components/ui/BackToTop";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
@@ -28,9 +27,6 @@ export default function Home() {
       {/* 2. Realistic Theater Curtain Reveal Overlay */}
       <TheaterCurtain />
 
-      {/* Interactive Custom Cursor */}
-      <CustomCursor />
-
       {/* 2. Sticky Navigation */}
       <Navbar />
 
@@ -40,40 +36,40 @@ export default function Home() {
       {/* 4. Trusted By / Partner Marquee Bar */}
       <StatsMarqueeSection />
 
-      {/* 5. Who We Are Section */}
+      {/* 5. Who We Are (3D Holographic Sphere + Core Mission) */}
       <WhoWeAreSection />
 
-      {/* Interactive Tech Highway Section */}
+      {/* 6. Bihar Digital Highway / Tech Infrastructure Section */}
       <TechHighwaySection />
 
-      {/* 5. Detailed Services Section */}
+      {/* 7. What We Offer / 3D Interactive Services Stack */}
       <ServicesSection />
 
-      {/* 6. Why BiharStack */}
+      {/* 8. Why Choose Us (Neumorphic Glass Highlights) */}
       <WhyChooseUsSection />
 
-      {/* 8. Process Section */}
-      <ProcessSection />
-
-      {/* 9. Industries We Serve */}
-      <IndustriesSection />
-
-      {/* 8. Portfolio / Work Showcase */}
+      {/* 9. Interactive Live Work Portfolio & Web App Showcases */}
       <PortfolioSection />
 
-      {/* 10. Testimonials */}
+      {/* 10. Our 4-Step Engineering Execution Process */}
+      <ProcessSection />
+
+      {/* 11. Specialized Bihar Industries We Power */}
+      <IndustriesSection />
+
+      {/* 12. Client Testimonials / Success Stories */}
       <TestimonialsSection />
 
-      {/* 11. Pricing */}
+      {/* 13. Transparent Pricing Packages */}
       <PricingSection />
 
-      {/* 12. FAQ */}
+      {/* 14. Frequently Asked Questions */}
       <FAQSection />
 
-      {/* 13. Contact Section */}
+      {/* 15. Contact Us / Get In Touch */}
       <ContactSection />
 
-      {/* 14. Footer */}
+      {/* 16. Footer */}
       <Footer />
 
       {/* Floating Action Utilities */}
