@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion";
-import { Linkedin, Instagram, Twitter, Facebook, Send, Heart } from "lucide-react";
+import { Linkedin, Instagram, Twitter, Facebook, Youtube, Send, Heart } from "lucide-react";
 
 interface MascotLetterProps {
   src: string;
@@ -109,15 +109,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#e5e5e5] text-black border-t-2 border-black pt-16 pb-8 relative overflow-hidden">
+    <footer className="bg-[#e5e5e5] text-black border-t-2 border-black pt-4 sm:pt-6 pb-8 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         
-        {/* 4 Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-8">
+        {/* 5 Column Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-8">
           
           {/* Column 1: Brand & Identity */}
-          <div className="lg:col-span-4 space-y-4">
-            <a href="#" className="font-display text-2xl font-black tracking-widest uppercase text-black">
+          <div className="lg:col-span-3 space-y-3">
+            <a href="#" className="font-display text-2xl font-black tracking-widest uppercase text-black block">
               BIHARSTACK
             </a>
 
@@ -172,6 +172,15 @@ export default function Footer() {
                 className="p-2.5 bg-white border border-black hover:bg-black hover:text-white transition-colors"
               >
                 <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="p-2.5 bg-white border border-black hover:bg-black hover:text-white transition-colors"
+              >
+                <Youtube className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -254,8 +263,47 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Newsletter */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Column 4: Legal */}
+          <div className="lg:col-span-2 space-y-3">
+            <h4 className="font-display text-xs font-black uppercase tracking-[0.2em] text-black mb-4">
+              Legal
+            </h4>
+            <ul className="space-y-2.5 text-xs font-semibold uppercase tracking-wider text-neutral-700">
+              <li>
+                <a href="#" className="hover:text-black transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-black transition-colors">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-black transition-colors">
+                  Refund Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-black transition-colors">
+                  Disclaimer
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-black transition-colors">
+                  Security & SLA
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-black transition-colors">
+                  Cookie Policy
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 5: Newsletter */}
+          <div className="lg:col-span-3 space-y-4">
             <h4 className="font-display text-xs font-black uppercase tracking-[0.2em] text-black mb-4">
               STAY INFORMED
             </h4>
@@ -305,20 +353,20 @@ export default function Footer() {
         </div>
 
         {/* Tagline Highlight Bar (Above Divider Line) */}
-        <div className="pt-3 pb-8 sm:pb-10 text-center">
+        <div className="pt-16 sm:pt-22 pb-4 sm:pb-5 text-center">
           <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-[#0A2540] bg-white/80 border border-black/10 py-2 px-4 rounded-md inline-block shadow-xs">
             End-to-end digital solutions &ldquo;Build Digital. Grow Faster.&rdquo;
           </p>
         </div>
 
-        {/* Divider Line (Shifted down slightly) */}
-        <div className="border-b border-neutral-400 w-full mb-1" />
+        {/* Divider Line */}
+        <div className="border-b border-neutral-400 w-full" />
 
         {/* 3D Character Letter Watermark Logo for 'BIHAR STACK' with Interactive Mouse-Look Tracking */}
         <div
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          className="pt-8 pb-4 text-center select-none overflow-hidden relative flex items-center justify-center w-full max-w-full"
+          className="pt-6 pb-4 text-center select-none overflow-hidden relative flex items-center justify-center w-full max-w-full"
         >
           <div className="flex items-center justify-center flex-nowrap shrink-0 px-2 max-w-full">
             {/* BIHAR 3D Character Mascots */}
