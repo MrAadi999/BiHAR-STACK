@@ -46,12 +46,11 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 // ================= DATA STRUCTURES ================= //
 
 const QUICK_FACTS = [
-  { icon: MapPin, label: "HQ Based In", value: "Patna, Bihar", subtext: "Serving Worldwide" },
-  { icon: Calendar, label: "Founded", value: "2021", subtext: "5+ Years of Execution" },
+  { icon: MapPin, label: "HQ Based In", value: "Madhubani, Bihar", subtext: "Serving Worldwide" },
+  { icon: Calendar, label: "Founded", value: "2025", subtext: "2+ Years Exp" },
   { icon: Users, label: "Core Team", value: "15+ Minds", subtext: "Engineers & Strategists" },
-  { icon: Globe2, label: "Global Reach", value: "3+ Countries", subtext: "India • UAE • USA" },
-  { icon: Award, label: "Delivered", value: "100+ Projects", subtext: "95% Client Retention" },
-  { icon: Briefcase, label: "Coverage", value: "38 Districts", subtext: "Grassroot to Enterprise" },
+  { icon: Globe2, label: "Reach", value: "Global Reach", subtext: "Serving Worldwide" },
+  { icon: Award, label: "Delivered", value: "20+ Projects", subtext: "95% Client Retention" },
 ];
 
 const BELIEFS = [
@@ -68,7 +67,7 @@ const BELIEFS = [
     tag: "ROOTS & AMBITION",
     title: "Bihar First, Global Next",
     description:
-      "We hire talent from Bihar. We train and mentor in Bihar. We build from Patna. But the software, brands, and automation systems we ship are engineered to outcompete Silicon Valley and Bangalore standards.",
+      "We hire talent from Bihar. We train and mentor in Bihar. We build from Madhubani. But the software, brands, and automation systems we ship are engineered to outcompete Silicon Valley and Bangalore standards.",
     highlight: "Local Roots, Global Excellence",
   },
   {
@@ -107,67 +106,108 @@ const BELIEFS = [
 
 const TEAM_MEMBERS = [
   {
-    name: "Aditya Kumar",
+    name: "ADITYA KUMAR",
     role: "Founder & Chief Executive Officer",
     tag: "The Visionary",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80",
     bio: "Pioneering the modern technology movement from Bihar. Obsessed with scalable systems, regional talent empowerment, and building global-grade digital products.",
     socials: { linkedin: "https://linkedin.com", twitter: "https://twitter.com" },
   },
   {
-    name: "Vikramaditya Verma",
+    name: "HARSHNATH",
     role: "Chief Technology Officer & Lead Architect",
-    tag: "The Builder",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80",
+    tag: "The Architect",
     bio: "Full-stack architect with deep expertise in distributed microservices, Next.js, and high-concurrency cloud infrastructure.",
     socials: { linkedin: "https://linkedin.com", github: "https://github.com" },
   },
   {
-    name: "Sneha Sinha",
+    name: "ANJALI SINGH",
     role: "Head of Branding & Visual Design",
     tag: "The Artist",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80",
     bio: "Turns complex value propositions into distinct brand identities and intuitive aesthetics that stick in users' minds.",
     socials: { linkedin: "https://linkedin.com", dribbble: "https://dribbble.com" },
   },
   {
-    name: "Rohan Kashyap",
+    name: "RAM KUMAR",
     role: "Head of Growth & Performance Marketing",
     tag: "The Strategist",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=80",
     bio: "Data-driven growth hacker specializing in hyper-targeted customer acquisition, CAC reduction, and multi-channel revenue funnels.",
     socials: { linkedin: "https://linkedin.com", twitter: "https://twitter.com" },
   },
   {
-    name: "Anjali Mishra",
+    name: "AMAN KUMAR",
     role: "Senior Full-Stack & Cloud Engineer",
     tag: "The Coder",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=80",
     bio: "Builds lightning-fast reactive web apps, robust backend APIs, and real-time database integrations with millimeter precision.",
     socials: { linkedin: "https://linkedin.com", github: "https://github.com" },
   },
   {
-    name: "Priyanshu Ranjan",
+    name: "NEHA SINGH",
     role: "Lead UI/UX & Interaction Designer",
     tag: "The Thinker",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&auto=format&fit=crop&q=80",
     bio: "Obsessed with micro-interactions, responsive design systems, and frictionless conversion psychology.",
     socials: { linkedin: "https://linkedin.com", dribbble: "https://dribbble.com" },
   },
   {
-    name: "Dr. Aman Pandey",
+    name: "DHANANJAY KUMAR",
     role: "Head of AI Research & Automation",
     tag: "The Innovator",
-    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=500&auto=format&fit=crop&q=80",
     bio: "Spearheading our autonomous LLM agent pipelines, custom RAG models, and enterprise automated workflows.",
     socials: { linkedin: "https://linkedin.com", twitter: "https://twitter.com" },
   },
   {
-    name: "Pooja Kumari",
+    name: "GOVIND KUMAR",
     role: "Operations & Partner Success Lead",
     tag: "The Anchor",
-    image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=500&auto=format&fit=crop&q=80",
     bio: "The powerhouse ensuring sprint deadlines are exceeded, client communication is transparent, and quality assurance remains 100%.",
+    socials: { linkedin: "https://linkedin.com" },
+  },
+  {
+    name: "VISHAL ROY",
+    role: "Lead Mobile & Cross-Platform Engineer",
+    tag: "The Specialist",
+    bio: "Architects responsive iOS & Android mobile platforms and seamless micro-apps with high performance and offline capabilities.",
+    socials: { linkedin: "https://linkedin.com", github: "https://github.com" },
+  },
+  {
+    name: "GOVIND KUMAR GAUTAM",
+    role: "Autonomous AI & Automation Systems Engineer",
+    tag: "The Builder",
+    bio: "Designs production agentic workflows, multi-tool LLM routing, and WhatsApp enterprise AI systems.",
+    socials: { linkedin: "https://linkedin.com", github: "https://github.com" },
+  },
+  {
+    name: "RAMSHANKAR YADAV",
+    role: "Backend Systems & Database Specialist",
+    tag: "The Engineer",
+    bio: "Specializes in high-throughput PostgreSQL/Redis clustering, GraphQL gateways, and serverless compute pipelines.",
+    socials: { linkedin: "https://linkedin.com" },
+  },
+  {
+    name: "SUSHANT KUMAR",
+    role: "Senior Full-Stack Developer & DevOps Lead",
+    tag: "The Deployer",
+    bio: "Streamlines CI/CD deployment pipelines, containerized Docker clusters, and edge caching networks.",
+    socials: { linkedin: "https://linkedin.com", github: "https://github.com" },
+  },
+  {
+    name: "ALOK KUMAR",
+    role: "Enterprise Solutions & Digital Transformation Lead",
+    tag: "The Consultant",
+    bio: "Helps regional businesses and enterprise brands modernize legacy operations into high-velocity digital products.",
+    socials: { linkedin: "https://linkedin.com" },
+  },
+  {
+    name: "ABHISHEK KUMAR",
+    role: "Data Analyst & Growth Funnel Optimizer",
+    tag: "The Analyst",
+    bio: "Transforms complex marketing telemetry into actionable insights, conversion boosts, and measurable client ROI.",
+    socials: { linkedin: "https://linkedin.com", twitter: "https://twitter.com" },
+  },
+  {
+    name: "Dr. SAKSHI KUMARI",
+    role: "Research Lead & Enterprise Strategy Advisor",
+    tag: "The Researcher",
+    bio: "Advises our frontier AI roadmaps, cognitive computing methodologies, and organizational technology governance.",
     socials: { linkedin: "https://linkedin.com" },
   },
 ];
@@ -175,7 +215,7 @@ const TEAM_MEMBERS = [
 const CULTURE_POINTS = [
   {
     icon: Coffee,
-    title: "The Creative Hub in Patna",
+    title: "The Creative Hub in Madhubani",
     desc: "Our workspace is built for intense ideation, rapid prototyping, and high collaboration. Open desks, brainstorming walls, and zero corporate bureaucracy.",
     stat: "Open & Agile",
   },
@@ -213,50 +253,38 @@ const CULTURE_POINTS = [
 
 const MILESTONES = [
   {
-    year: "Jan 2021",
-    title: "The Genesis",
-    desc: "Started in a modest room in Patna with two engineers, one laptop, and a firm conviction: world-class software will be built right here in Bihar.",
-    badge: "Origin",
+    year: "Jan 2025",
+    title: "Genesis & The First Defiant Laptop",
+    desc: "Founded in a small room in Madhubani, Bihar by a group of engineers refusing to migrate, with a single mission: Build Bihar. Scale Businesses.",
+    highlight: "Founded in Madhubani, Bihar",
   },
   {
-    year: "Dec 2021",
-    title: "First 25 Local Businesses Digitized",
-    desc: "Built billing software, high-converting e-commerce web applications, and custom branding for regional retail and healthcare enterprises.",
-    badge: "Traction",
+    year: "Mid 2025",
+    title: "The First Enterprise & POS Breakthrough",
+    desc: "Shipped custom billing, inventory, and retail ERP stacks for regional enterprises, proving regional talent outpaces traditional agencies.",
+    highlight: "Initial Enterprise Delivery",
   },
   {
-    year: "Oct 2022",
-    title: "First International Deployment (Dubai, UAE)",
-    desc: "Secured our first global enterprise client for full-stack cloud automation, proving Bihar engineering on the international stage.",
-    badge: "Global",
-  },
-  {
-    year: "Aug 2023",
-    title: "Autonomous AI Division Founded",
-    desc: "Launched custom enterprise WhatsApp bots, CRM auto-sync workflows, and intelligent business AI agents across multiple sectors.",
-    badge: "Innovation",
-  },
-  {
-    year: "Nov 2024",
-    title: "100+ Projects Milestone",
-    desc: "Delivered over 100 production web platforms and digital engines across India, UAE, and the United States with a 95% client retention rate.",
-    badge: "Scale",
+    year: "Late 2025",
+    title: "Autonomous AI & Growth Division",
+    desc: "Integrated custom LLMs, autonomous support agents, and WhatsApp automated workflows for high-growth healthcare and D2C brands.",
+    highlight: "Autonomous AI Pipeline",
   },
   {
     year: "2026 & Beyond",
-    title: "Building Bihar's Premier Tech Ecosystem",
-    desc: "Expanding our Patna engineering headquarters, launching student innovation labs, and expanding operations into Singapore & UAE.",
-    badge: "Roadmap",
+    title: "20+ Enterprise Projects Milestone",
+    desc: "Delivered high-performance web platforms and digital engines for clients worldwide with 95% client retention and scalable impact.",
+    highlight: "20+ Projects Delivered Worldwide",
   },
 ];
 
 const STATS_DATA = [
-  { number: "100+", label: "Projects Shipped", sub: "Enterprise & startup apps", color: "text-black" },
-  { number: "50+", label: "Active Partners", sub: "Across 3 global nations", color: "text-black" },
-  { number: "₹5Cr+", label: "Client Revenue Generated", sub: "Measurable bottom-line growth", color: "text-black" },
+  { number: "20+", label: "Projects Shipped", sub: "Enterprise & startup apps", color: "text-black" },
+  { number: "15+", label: "Active Partners", sub: "Serving clients worldwide", color: "text-black" },
   { number: "95%", label: "Client Retention Rate", sub: "Long-term engineering partners", color: "text-black" },
-  { number: "38", label: "Districts Impacted", sub: "Pan-Bihar digital expansion", color: "text-black" },
   { number: "100%", label: "Delivery Guarantee", sub: "On-time & SLA-backed", color: "text-black" },
+  { number: "15+", label: "Core Specialists", sub: "Engineers & Designers in Bihar", color: "text-black" },
+  { number: "24/7", label: "Dedicated Support", sub: "Direct WhatsApp & SLA support", color: "text-black" },
 ];
 
 const PROCESS_STEPS = [
@@ -301,7 +329,7 @@ const PROCESS_STEPS = [
 const ROADMAP_ITEMS = [
   {
     year: "2026",
-    title: "Patna Innovation & Incubator Lab",
+    title: "Madhubani Innovation & Incubator Lab",
     desc: "Establishing Bihar's most advanced digital workspace and tech incubation center to nurture the next generation of regional developers and startup founders.",
     icon: Building2,
     badge: "Underway",
@@ -324,6 +352,7 @@ const ROADMAP_ITEMS = [
 
 export default function CompanyDeepDivePage() {
   const [activeSection, setActiveSection] = useState("story");
+  const [showAllTeam, setShowAllTeam] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -389,87 +418,117 @@ export default function CompanyDeepDivePage() {
             </span>
           </div>
 
-          <div className="max-w-4xl">
-            {/* Top Pill */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Column: Text & Content */}
+            <div className="lg:col-span-7">
+              {/* Top Pill */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white border border-black text-black text-xs font-black uppercase tracking-widest shadow-[2px_2px_0px_0px_#000000] mb-6"
+              >
+                <span>Everything About Us • Built in Bihar, Made for the World</span>
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="font-display text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-black tracking-tight text-black uppercase leading-[1.05] mb-6"
+              >
+                This Is <br />
+                <span className="underline underline-offset-8 decoration-4 decoration-black">
+                  BIHAR STACK.
+                </span>
+              </motion.h1>
+
+              {/* Subheadline */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-base sm:text-xl lg:text-2xl text-neutral-800 font-medium leading-relaxed mb-8 max-w-2xl"
+              >
+                Our story. Our builders. Our engineering culture. Our vision. Everything that defines who we are — born in Madhubani, scaling enterprises worldwide.
+              </motion.p>
+
+              {/* Action Buttons: 3D Flip Perspective Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-wrap items-center gap-4"
+              >
+                <a href="#team" className="[perspective:1000px] inline-block cursor-pointer">
+                  <motion.div
+                    initial={false}
+                    whileHover={{ rotateX: 180, y: -2 }}
+                    whileTap={{ y: 2 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative cursor-pointer w-60 h-12 rounded-xl [transform-style:preserve-3d] select-none"
+                  >
+                    {/* Front Face */}
+                    <div className="absolute inset-0 [backface-visibility:hidden] rounded-xl bg-red-600 text-white font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 border-2 border-black border-t-2 border-t-red-300 border-b-2 border-b-red-950 shadow-[4px_4px_0px_0px_#000000]">
+                      <span>MEET THE BUILDERS</span>
+                      <span className="w-6 h-6 rounded-md bg-black text-white flex items-center justify-center border border-black shadow-[1px_1px_0px_0px_#ffffff]">
+                        <ArrowRight className="w-3.5 h-3.5 text-white" />
+                      </span>
+                    </div>
+
+                    {/* Back Face (Flipped) */}
+                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateX(180deg)] rounded-xl bg-slate-950 text-white font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 border-2 border-black border-t-2 border-t-cyan-400 border-b-2 border-b-cyan-950 shadow-[4px_4px_0px_0px_#000000]">
+                      <span>EXPLORE TEAM</span>
+                      <span className="w-6 h-6 rounded-md bg-cyan-400 text-slate-950 flex items-center justify-center font-black">
+                        <ArrowRight className="w-3.5 h-3.5 text-slate-950" />
+                      </span>
+                    </div>
+                  </motion.div>
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Multitasking Digital Hands (Static & Stable) */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black text-black text-xs font-black uppercase tracking-widest shadow-[2px_2px_0px_0px_#000000] mb-6"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-red-600" />
-              <span>Everything About Us • Built in Bihar, Made for the World</span>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-black uppercase leading-[1.05] mb-6"
-            >
-              This Is <br />
-              <span className="underline underline-offset-8 decoration-4 decoration-black">
-                BIHAR STACK.
-              </span>
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-2xl text-neutral-800 font-medium leading-relaxed mb-8 max-w-3xl"
+              className="lg:col-span-5 flex items-center justify-center relative select-none"
             >
-              Our story. Our builders. Our engineering culture. Our vision. Everything that defines who we are — born in Patna, scaling enterprises worldwide.
-            </motion.p>
-
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-4"
-            >
-              <a
-                href="#story"
-                className="px-6 py-3.5 bg-black text-white text-xs font-black uppercase tracking-widest hover:bg-neutral-800 transition-all flex items-center gap-2 border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#000000]"
-              >
-                <span>Read Our Origin Story</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              <a
-                href="#team"
-                className="px-6 py-3.5 bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-neutral-100 transition-all flex items-center gap-2 border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#000000]"
-              >
-                <span>Meet The Builders</span>
-                <Users className="w-4 h-4 text-black" />
-              </a>
+              <div className="relative w-full max-w-[460px] flex items-center justify-center">
+                <img
+                  src="/images/company_multitasking_transparent.png"
+                  alt="Bihar Stack Digital Multitasking Engine"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
             </motion.div>
+
           </div>
         </div>
       </section>
 
       {/* ================= QUICK FACTS HORIZONTAL STRIP ================= */}
-      <section className="bg-white border-b-2 border-black py-6 sticky top-[68px] z-40 shadow-xs backdrop-blur-md">
+      <section className="bg-black text-white border-b-2 border-black py-6 sticky top-[68px] z-40 shadow-md backdrop-blur-md">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 divide-y md:divide-y-0 md:divide-x divide-neutral-200">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 divide-y md:divide-y-0 md:divide-x divide-neutral-800">
             {QUICK_FACTS.map((fact, index) => {
               const IconComponent = fact.icon;
               return (
                 <div key={index} className="pt-2 md:pt-0 md:px-4 first:pl-0 last:pr-0 flex items-start gap-3">
-                  <div className="p-2 rounded bg-[#f0f0f0] border border-black/20 shrink-0 mt-0.5">
-                    <IconComponent className="w-4 h-4 text-black" />
+                  <div className="p-2 rounded bg-neutral-900 border border-neutral-700 shrink-0 mt-0.5">
+                    <IconComponent className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-500">
+                    <span className="block text-[10px] font-black uppercase tracking-wider text-neutral-400">
                       {fact.label}
                     </span>
-                    <strong className="block text-sm font-black text-black">
+                    <strong className="block text-sm font-black text-white">
                       {fact.value}
                     </strong>
-                    <span className="block text-[11px] text-neutral-600 font-medium">
+                    <span className="block text-[11px] text-neutral-400 font-medium">
                       {fact.subtext}
                     </span>
                   </div>
@@ -519,7 +578,7 @@ export default function CompanyDeepDivePage() {
               </h2>
 
               <p className="text-base sm:text-lg text-neutral-800 leading-relaxed font-normal">
-                In 2021, inside a small room in Patna, Bihar, a tight group of young engineers and designers confronted an uncomfortable reality: <em>Why was world-class technology talent always presumed to exist only in Bangalore, Gurgaon, or Silicon Valley?</em>
+                In 2025, inside a small room in Madhubani, Bihar, a tight group of young engineers and designers confronted an uncomfortable reality: <em>Why was world-class technology talent always presumed to exist only in Bangalore, Gurgaon, or Silicon Valley?</em>
               </p>
 
               <p className="text-base sm:text-lg text-neutral-800 leading-relaxed font-normal">
@@ -542,62 +601,96 @@ export default function CompanyDeepDivePage() {
               </p>
 
               <p className="text-base sm:text-lg text-neutral-800 leading-relaxed font-normal">
-                Today, we power full-scale digital transformations, high-performance web platforms, and autonomous AI workflows for companies across India, the United States, and the UAE. Our roots remain proudly in Bihar — and our standard remains uncompromisingly global.
+                Today, we power full-scale digital transformations, high-performance web platforms, and autonomous AI workflows for modern growing enterprises worldwide. Our roots remain proudly in Bihar — and our standard remains uncompromisingly global.
               </p>
             </div>
 
-            {/* Right Visual Story Stack */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="bg-white border-2 border-black p-6 rounded-2xl shadow-[6px_6px_0px_0px_#000000]">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-black px-2.5 py-1 bg-black text-white uppercase tracking-wider rounded">
-                    2021
+            {/* Right Visual Story Stack: Exact Editorial Grid Aesthetics */}
+            <div className="lg:col-span-5 space-y-6">
+              
+              {/* Card 01: Pure Off-White with Lime Glow */}
+              <div className="relative rounded-[28px] bg-[#f8f9fa] border-2 border-black p-6 sm:p-8 shadow-[6px_6px_0px_0px_#000000] hover:translate-y-[-4px] hover:shadow-[10px_10px_0px_0px_#000000] transition-all duration-300 overflow-hidden group">
+                {/* Background Ambient Lime Glow */}
+                <div className="absolute -top-10 -right-10 w-36 h-36 bg-[#d4ff32]/40 rounded-full blur-2xl pointer-events-none" />
+                
+                {/* Top Chapter Row */}
+                <div className="flex items-center justify-between mb-4 relative z-10">
+                  <span className="inline-block px-3 py-1 bg-black text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                    2025 • Chapter 01
                   </span>
-                  <span className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
-                    Chapter 01
+                  <span className="text-[11px] font-black text-neutral-400 font-display uppercase tracking-wider">
+                    The Genesis
                   </span>
                 </div>
-                <h3 className="font-display text-lg font-black uppercase text-black mb-1">
-                  The First Breakthrough
-                </h3>
-                <p className="text-xs text-neutral-700 leading-relaxed font-medium">
-                  Deployed custom billing and inventory POS systems for Patna retailers, proving that tailored software multiplies regional business velocity.
-                </p>
+
+                <div className="relative z-10">
+                  <h3 className="font-display text-2xl font-black uppercase text-black leading-tight mb-2.5">
+                    The First <br />
+                    <span className="text-[#0a2540]">Breakthrough</span>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-medium">
+                    Deployed custom billing and inventory POS systems for Madhubani and Bihar retailers, proving that tailored software multiplies regional business velocity.
+                  </p>
+                </div>
               </div>
 
-              <div className="bg-white border-2 border-black p-6 rounded-2xl shadow-[6px_6px_0px_0px_#000000]">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-black px-2.5 py-1 bg-red-600 text-white uppercase tracking-wider rounded">
-                    2023
+              {/* Card 02: Matte Dark Card with Tech Wireframe & Lime Text */}
+              <div className="relative rounded-[28px] bg-[#121417] text-white border-2 border-black p-6 sm:p-8 shadow-[6px_6px_0px_0px_#000000] hover:translate-y-[-4px] hover:shadow-[10px_10px_0px_0px_#000000] transition-all duration-300 overflow-hidden group">
+                {/* Background Tech Wireframe / Spiral Overlay */}
+                <div className="absolute right-3 top-3 w-28 h-28 opacity-20 pointer-events-none">
+                  <svg viewBox="0 0 100 100" className="w-full h-full stroke-white fill-none stroke-[1.5]">
+                    <circle cx="50" cy="50" r="40" />
+                    <ellipse cx="50" cy="50" rx="40" ry="20" />
+                    <line x1="10" y1="50" x2="90" y2="50" />
+                    <line x1="50" y1="10" x2="50" y2="90" />
+                  </svg>
+                </div>
+
+                {/* Top Chapter Row */}
+                <div className="flex items-center justify-between mb-4 relative z-10">
+                  <span className="inline-block px-3 py-1 bg-[#d4ff32] text-black text-[10px] font-black uppercase tracking-widest rounded-full">
+                    2025-2026 • Chapter 02
                   </span>
-                  <span className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
-                    Chapter 02
+                  <span className="text-[11px] font-black text-neutral-400 font-display uppercase tracking-wider">
+                    AI Division
                   </span>
                 </div>
-                <h3 className="font-display text-lg font-black uppercase text-black mb-1">
-                  Autonomous AI Division
-                </h3>
-                <p className="text-xs text-neutral-700 leading-relaxed font-medium">
-                  Integrated custom LLMs, autonomous support agents, and WhatsApp automated workflows for high-growth healthcare and D2C brands.
-                </p>
+
+                <div className="relative z-10">
+                  <h3 className="font-display text-2xl font-black uppercase text-white leading-tight mb-2.5">
+                    Autonomous AI <br />
+                    <span className="text-[#d4ff32]">& Growth Systems</span>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-medium">
+                    Integrated custom LLMs, autonomous support agents, and WhatsApp automated workflows for high-growth healthcare and D2C brands.
+                  </p>
+                </div>
               </div>
 
-              <div className="bg-white border-2 border-black p-6 rounded-2xl shadow-[6px_6px_0px_0px_#000000]">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-black px-2.5 py-1 bg-black text-white uppercase tracking-wider rounded">
-                    2025 - Present
+              {/* Card 03: Neon Lime-Yellow Card */}
+              <div className="relative rounded-[28px] bg-gradient-to-br from-[#d4ff32] via-[#e5ff65] to-[#f4f7f6] text-black border-2 border-black p-6 sm:p-8 shadow-[6px_6px_0px_0px_#000000] hover:translate-y-[-4px] hover:shadow-[10px_10px_0px_0px_#000000] transition-all duration-300 overflow-hidden group">
+                
+                {/* Top Chapter Row */}
+                <div className="flex items-center justify-between mb-4 relative z-10">
+                  <span className="inline-block px-3 py-1 bg-black text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                    Present • Chapter 03
                   </span>
-                  <span className="text-xs font-bold text-neutral-500 uppercase tracking-wider">
-                    Chapter 03
+                  <span className="text-[11px] font-black text-black/70 font-display uppercase tracking-wider">
+                    Worldwide Scale
                   </span>
                 </div>
-                <h3 className="font-display text-lg font-black uppercase text-black mb-1">
-                  100+ Enterprise Milestone
-                </h3>
-                <p className="text-xs text-neutral-700 leading-relaxed font-medium">
-                  Expanded across 38 districts of Bihar and 3 international markets, driving ₹5Cr+ in client revenue with 95% retention.
-                </p>
+
+                <div className="relative z-10">
+                  <h3 className="font-display text-2xl font-black uppercase text-black leading-tight mb-2.5">
+                    20+ Enterprise <br />
+                    <span className="underline underline-offset-4 decoration-2 decoration-black">Milestone</span>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-neutral-900 leading-relaxed font-semibold">
+                    Delivered high-performance web platforms and digital engines for clients worldwide with 95% client retention and scalable impact.
+                  </p>
+                </div>
               </div>
+
             </div>
 
           </div>
@@ -605,67 +698,161 @@ export default function CompanyDeepDivePage() {
       </section>
 
       {/* ================= SECTION 2: WHAT WE BELIEVE IN ================= */}
-      <section id="beliefs" className="py-16 lg:py-24 bg-white border-b border-neutral-300">
+      <section id="beliefs" className="pt-8 pb-10 lg:pt-10 lg:pb-12 bg-white border-b border-neutral-300">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-3">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-2">
               Our Core DNA
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-black">
               What We Believe In
             </h2>
-            <p className="text-base sm:text-lg text-neutral-700 font-medium mt-3">
+            <p className="text-base sm:text-lg text-neutral-700 font-medium mt-2">
               These principles aren&apos;t decorative poster slogans. They govern every pull request we merge, every contract we sign, and every client we serve.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {BELIEFS.map((belief, index) => {
-              const Icon = belief.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-[#f0f0f0] border-2 border-black p-8 rounded-2xl shadow-[5px_5px_0px_0px_#000000] hover:translate-y-[-4px] hover:shadow-[7px_7px_0px_0px_#000000] transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 bg-white border border-black rounded-xl">
-                        <Icon className="w-6 h-6 text-black" />
-                      </div>
-                      <span className="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 bg-white border border-black/20 text-neutral-600 rounded">
-                        {belief.tag}
-                      </span>
-                    </div>
+          {/* 6 Belief Cards Grid - Clean Pastel Gradient & 3D Geometric Card Layout (Sleeker Height) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            
+            {/* Card 01: Warm Apricot / Peach Gradient with Angled 3D Chevron Lozenges */}
+            <div className="relative rounded-[28px] bg-gradient-to-br from-[#FDF0E6] via-[#FCE9DB] to-[#F8DCC5] border border-[#F2D1B8] p-6 sm:p-7 shadow-xs hover:shadow-md hover:translate-y-[-2px] transition-all duration-300 flex flex-col justify-center group overflow-hidden min-h-[240px] sm:min-h-[250px]">
+              <div className="relative z-10 max-w-[260px] sm:max-w-[280px]">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-neutral-900 leading-tight mb-2.5">
+                  Purpose Over Profit
+                </h3>
 
-                    <h3 className="font-display text-xl font-black uppercase text-black mb-3">
-                      {belief.title}
-                    </h3>
+                <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed">
+                  {BELIEFS[0].description}
+                </p>
+              </div>
 
-                    <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-medium mb-6">
-                      {belief.description}
-                    </p>
-                  </div>
+              {/* Right-Side 3D Abstract Graphic: Rounded Angled Chevron Lozenges */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-3 w-32 h-36 pointer-events-none opacity-90 group-hover:scale-105 transition-transform duration-500 flex flex-col justify-center gap-1.5">
+                <div className="flex gap-1.5 justify-end">
+                  <div className="w-13 h-13 rounded-xl bg-gradient-to-br from-[#F8B38D] to-[#E68A5C] shadow-sm transform -rotate-12" />
+                  <div className="w-11 h-13 rounded-xl bg-gradient-to-br from-[#F5A175] to-[#DC7642] shadow-sm transform -rotate-12" />
+                </div>
+                <div className="flex gap-1.5 justify-end -mt-2">
+                  <div className="w-11 h-13 rounded-xl bg-gradient-to-br from-[#F5A175] to-[#DC7642] shadow-sm transform -rotate-12" />
+                  <div className="w-13 h-13 rounded-xl bg-gradient-to-br from-[#E68A5C] to-[#C95B25] shadow-sm transform -rotate-12" />
+                </div>
+              </div>
+            </div>
 
-                  <div className="pt-4 border-t border-black/10 flex items-center gap-2 text-xs font-black uppercase tracking-wider text-black">
-                    <CheckCircle2 className="w-4 h-4 text-red-600 shrink-0" />
-                    <span>{belief.highlight}</span>
+            {/* Card 02: Warm Sand / Platinum Gradient with 3D Sphere & Cylinder Geometry */}
+            <div className="relative rounded-[28px] bg-gradient-to-br from-[#F6F5F2] via-[#EFECE6] to-[#E5E2DA] border border-[#DDD9D0] p-6 sm:p-7 shadow-xs hover:shadow-md hover:translate-y-[-2px] transition-all duration-300 flex flex-col justify-center group overflow-hidden min-h-[240px] sm:min-h-[250px]">
+              <div className="relative z-10 max-w-[260px] sm:max-w-[280px]">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-neutral-900 leading-tight mb-2.5">
+                  Bihar First, Global Next
+                </h3>
+
+                <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed">
+                  {BELIEFS[1].description}
+                </p>
+              </div>
+
+              {/* Right-Side 3D Abstract Graphic: Monochrome Spheres & Cylinders */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-3 w-32 h-36 pointer-events-none opacity-85 group-hover:scale-105 transition-transform duration-500 flex flex-col items-center justify-center gap-1.5">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#DCDAD4] via-[#B8B5AC] to-[#8C897E] shadow-md" />
+                <div className="w-20 h-10 rounded-b-full bg-gradient-to-t from-[#B8B5AC] to-[#DCDAD4] shadow-sm -mt-2" />
+              </div>
+            </div>
+
+            {/* Card 03: Soft Lavender / Lilac Gradient with Concentric Ripple Lens */}
+            <div className="relative rounded-[28px] bg-gradient-to-br from-[#F2EFF9] via-[#EAE3F5] to-[#DFD5EF] border border-[#D4C8EB] p-6 sm:p-7 shadow-xs hover:shadow-md hover:translate-y-[-2px] transition-all duration-300 flex flex-col justify-center group overflow-hidden min-h-[240px] sm:min-h-[250px]">
+              <div className="relative z-10 max-w-[260px] sm:max-w-[280px]">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-neutral-900 leading-tight mb-2.5">
+                  Speed With Soul
+                </h3>
+
+                <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed">
+                  {BELIEFS[2].description}
+                </p>
+              </div>
+
+              {/* Right-Side 3D Abstract Graphic: Concentric Purple Ripple Torus Lens */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-6 w-36 h-36 pointer-events-none opacity-80 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#C6B4EE] via-[#A890E0] to-[#8C70CF] p-4 shadow-inner flex items-center justify-center">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#DFD5EF] to-[#BFAAE8] flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-[#7C5CFC]/80 shadow-md" />
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            </div>
+
+            {/* Card 04: Soft Sage / Mint Green Gradient with Connected 3D Tile Matrix */}
+            <div className="relative rounded-[28px] bg-gradient-to-br from-[#EEF6F0] via-[#E3EFE5] to-[#D5E6D8] border border-[#C3DEC8] p-6 sm:p-7 shadow-xs hover:shadow-md hover:translate-y-[-2px] transition-all duration-300 flex flex-col justify-center group overflow-hidden min-h-[240px] sm:min-h-[250px]">
+              <div className="relative z-10 max-w-[260px] sm:max-w-[280px]">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-neutral-900 leading-tight mb-2.5">
+                  AI Embedded, Not Added
+                </h3>
+
+                <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed">
+                  {BELIEFS[3].description}
+                </p>
+              </div>
+
+              {/* Right-Side 3D Abstract Graphic: Interconnected Soft Emerald Tiles */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-3 w-32 h-36 pointer-events-none opacity-85 group-hover:scale-105 transition-transform duration-500 flex flex-col items-end justify-center gap-1.5">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#5BA874] to-[#397B50] shadow-sm" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#80BF96] to-[#5BA874] shadow-sm -mt-3 mr-4" />
+              </div>
+            </div>
+
+            {/* Card 05: Ice Sky Blue Gradient with Luminous 3D Helix Orb */}
+            <div className="relative rounded-[28px] bg-gradient-to-br from-[#EEF5FB] via-[#E0EDF8] to-[#D0E3F3] border border-[#C5DFEE] p-6 sm:p-7 shadow-xs hover:shadow-md hover:translate-y-[-2px] transition-all duration-300 flex flex-col justify-center group overflow-hidden min-h-[240px] sm:min-h-[250px]">
+              <div className="relative z-10 max-w-[260px] sm:max-w-[280px]">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-neutral-900 leading-tight mb-2.5">
+                  Partnership, Not Transaction
+                </h3>
+
+                <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed">
+                  {BELIEFS[4].description}
+                </p>
+              </div>
+
+              {/* Right-Side 3D Abstract Graphic: Luminous Blue Interlocking Rings */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-5 w-32 h-32 pointer-events-none opacity-85 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                <div className="w-28 h-28 rounded-full border-6 border-[#8AC1EB] bg-gradient-to-br from-[#B5D9F4] to-[#6BAFE4] shadow-md flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#3B82F6] to-[#1E40AF] shadow-inner" />
+                </div>
+              </div>
+            </div>
+
+            {/* Card 06: Warm Amber / Honey Gold Gradient with 3D Tiered Pillars */}
+            <div className="relative rounded-[28px] bg-gradient-to-br from-[#FDF8EC] via-[#F9F0DB] to-[#F4E6C5] border border-[#EFE0BC] p-6 sm:p-7 shadow-xs hover:shadow-md hover:translate-y-[-2px] transition-all duration-300 flex flex-col justify-center group overflow-hidden min-h-[240px] sm:min-h-[250px]">
+              <div className="relative z-10 max-w-[260px] sm:max-w-[280px]">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-neutral-900 leading-tight mb-2.5">
+                  Data Drives Every Decision
+                </h3>
+
+                <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed">
+                  {BELIEFS[5].description}
+                </p>
+              </div>
+
+              {/* Right-Side 3D Abstract Graphic: Golden Geometric Columns */}
+              <div className="absolute top-1/2 -translate-y-1/2 -right-3 w-32 h-36 pointer-events-none opacity-85 group-hover:scale-105 transition-transform duration-500 flex items-end justify-center gap-1.5">
+                <div className="w-6 h-16 rounded-t-lg bg-gradient-to-t from-[#D99B38] to-[#F5D48B] shadow-sm" />
+                <div className="w-6 h-22 rounded-t-lg bg-gradient-to-t from-[#B87B1E] to-[#E9B859] shadow-md" />
+                <div className="w-6 h-28 rounded-t-lg bg-gradient-to-t from-[#8F5A08] to-[#D99B38] shadow-lg" />
+              </div>
+            </div>
+
           </div>
 
         </div>
       </section>
 
       {/* ================= SECTION 3: MEET THE BUILDERS ================= */}
-      <section id="team" className="py-16 lg:py-24 border-b border-neutral-300">
+      <section id="team" className="pt-8 pb-10 lg:pt-10 lg:pb-12 border-b border-neutral-300">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 lg:mb-10 gap-4">
             <div>
-              <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-3">
+              <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-2.5">
                 Leadership & Team
               </div>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-black">
@@ -678,52 +865,63 @@ export default function CompanyDeepDivePage() {
 
             <div className="shrink-0">
               <span className="px-4 py-2 bg-white border-2 border-black text-xs font-black uppercase tracking-widest shadow-[3px_3px_0px_0px_#000000] inline-block">
-                15+ Core Specialists in Patna
+                15+ Core Specialists in Madhubani
               </span>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {TEAM_MEMBERS.map((member, index) => (
+            {(showAllTeam ? TEAM_MEMBERS : TEAM_MEMBERS.slice(0, 8)).map((member, index) => (
               <div
                 key={index}
-                className="bg-white border-2 border-black rounded-2xl overflow-hidden shadow-[5px_5px_0px_0px_#000000] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_#000000] transition-all flex flex-col group"
+                className="relative rounded-3xl overflow-hidden bg-black border-2 border-black shadow-[6px_6px_0px_0px_#000000] hover:translate-y-[-6px] hover:shadow-[10px_10px_0px_0px_#000000] transition-all duration-500 flex flex-col justify-between group min-h-[460px]"
               >
-                {/* Photo Area */}
-                <div className="relative aspect-square w-full bg-neutral-200 overflow-hidden border-b-2 border-black">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500"
-                  />
-                  <div className="absolute top-3 left-3 bg-black text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded shadow-xs">
-                    {member.tag}
+                {/* Background Tech Card with '?' Placeholder (No real photo) */}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-[#1c1f24] via-[#121417] to-black flex items-center justify-center overflow-hidden">
+                  {/* Ambient Glow */}
+                  <div className="absolute w-44 h-44 bg-white/5 rounded-full blur-2xl group-hover:bg-[#c6f827]/10 transition-all duration-500" />
+                  {/* Subtle Grid Matrix */}
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] opacity-40" />
+                  {/* Centerpiece '?' Symbol */}
+                  <span className="relative z-0 font-display text-8xl sm:text-9xl font-black text-white/20 group-hover:text-white/35 group-hover:scale-110 transition-all duration-500 select-none">
+                    ?
+                  </span>
+                  {/* Bottom Dark Gradient for Razor-Sharp Text Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+                </div>
+
+                {/* Top Header Floating Badges */}
+                <div className="relative z-10 p-4 flex items-center justify-between">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white text-[10px] font-black uppercase tracking-widest shadow-md">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>{member.tag}</span>
                   </div>
                 </div>
 
-                {/* Content Info */}
-                <div className="p-5 flex flex-col justify-between flex-1">
-                  <div>
-                    <h3 className="font-display text-lg font-black uppercase text-black leading-tight">
+                {/* Bottom Content Area */}
+                <div className="relative z-10 p-5 mt-auto flex flex-col justify-end">
+                  <div className="mb-2">
+                    <span className="inline-block px-2.5 py-0.5 rounded-md bg-red-600 text-white text-[10px] font-black uppercase tracking-wider mb-2 shadow-xs">
+                      {member.role}
+                    </span>
+                    <h3 className="font-display text-xl font-black uppercase text-white leading-tight">
                       {member.name}
                     </h3>
-                    <p className="text-xs font-black uppercase tracking-wider text-red-600 mt-1 mb-3">
-                      {member.role}
-                    </p>
-                    <p className="text-xs text-neutral-700 leading-relaxed font-medium mb-4">
-                      {member.bio}
-                    </p>
                   </div>
 
-                  {/* Social Buttons */}
-                  <div className="pt-3 border-t border-neutral-200 flex items-center gap-2">
+                  <p className="text-xs text-neutral-300 font-medium leading-relaxed mb-4 line-clamp-3 group-hover:line-clamp-none transition-all">
+                    {member.bio}
+                  </p>
+
+                  {/* Interactive Social Links */}
+                  <div className="pt-3 border-t border-white/15 flex items-center gap-2">
                     {member.socials.linkedin && (
                       <a
                         href={member.socials.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn"
-                        className="p-2 rounded bg-[#f0f0f0] border border-black text-black hover:bg-black hover:text-white transition-colors"
+                        className="p-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all shadow-sm"
                       >
                         <Linkedin className="w-3.5 h-3.5" />
                       </a>
@@ -734,7 +932,7 @@ export default function CompanyDeepDivePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Twitter"
-                        className="p-2 rounded bg-[#f0f0f0] border border-black text-black hover:bg-black hover:text-white transition-colors"
+                        className="p-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all shadow-sm"
                       >
                         <Twitter className="w-3.5 h-3.5" />
                       </a>
@@ -745,7 +943,7 @@ export default function CompanyDeepDivePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="GitHub"
-                        className="p-2 rounded bg-[#f0f0f0] border border-black text-black hover:bg-black hover:text-white transition-colors"
+                        className="p-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all shadow-sm"
                       >
                         <Github className="w-3.5 h-3.5" />
                       </a>
@@ -756,7 +954,7 @@ export default function CompanyDeepDivePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Dribbble"
-                        className="p-2 rounded bg-[#f0f0f0] border border-black text-black hover:bg-black hover:text-white transition-colors"
+                        className="p-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all shadow-sm"
                       >
                         <Dribbble className="w-3.5 h-3.5" />
                       </a>
@@ -767,56 +965,77 @@ export default function CompanyDeepDivePage() {
             ))}
           </div>
 
+          {/* MORE / LESS Button aligned to the Right Side with Bright Green Color */}
+          <div className="mt-8 flex justify-end">
+            <button
+              type="button"
+              onClick={() => setShowAllTeam(!showAllTeam)}
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#c6f827] text-black font-display font-black text-xs uppercase tracking-widest rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:bg-black hover:text-[#c6f827] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#000000] transition-all cursor-pointer"
+            >
+              <span>{showAllTeam ? "LESS" : "MORE"}</span>
+              <span className="text-sm font-black leading-none">{showAllTeam ? "↑" : "→"}</span>
+            </button>
+          </div>
+
         </div>
       </section>
 
       {/* ================= SECTION 4: LIFE & CULTURE ================= */}
-      <section id="culture" className="py-16 lg:py-24 bg-white border-b border-neutral-300">
+      <section id="culture" className="pt-8 pb-12 lg:pt-10 lg:pb-16 bg-white border-b border-neutral-300">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-3">
+          <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-10">
+            <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-2">
               Workplace DNA
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-black">
               Life Inside BIHAR STACK
             </h2>
-            <p className="text-base sm:text-lg text-neutral-700 font-medium mt-3">
+            <p className="text-base sm:text-lg text-neutral-700 font-medium mt-2">
               We work intensely, ship fearlessly, and celebrate with gratitude. Here is how we engineer every day.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {CULTURE_POINTS.map((point, index) => {
               const Icon = point.icon;
               return (
                 <div
                   key={index}
-                  className="bg-[#f0f0f0] border-2 border-black p-6 rounded-2xl shadow-[4px_4px_0px_0px_#000000] flex flex-col justify-between"
+                  className="relative rounded-[24px] bg-[#FAF9F5] border border-[#E5E3DB] p-5 sm:p-6 shadow-xs hover:shadow-lg hover:translate-y-[-3px] transition-all duration-300 flex flex-col justify-between group overflow-hidden min-h-[175px]"
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-3 bg-white border border-black rounded-xl">
-                        <Icon className="w-5 h-5 text-black" />
-                      </div>
-                      <span className="text-[10px] font-black uppercase tracking-widest px-2.5 py-1 bg-black text-white rounded">
-                        {point.stat}
-                      </span>
+                  {/* Subtle 3D Dark Wave / Ribbon Graphic Watermark in Background */}
+                  <div className="absolute -bottom-6 -right-6 w-36 h-36 pointer-events-none opacity-[0.05] group-hover:opacity-[0.10] group-hover:scale-110 transition-all duration-500">
+                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-black">
+                      <path d="M40 180C70 120 130 90 190 70C150 130 110 170 40 180Z" fill="currentColor"/>
+                      <path d="M10 140C60 90 120 60 180 30C130 90 80 140 10 140Z" fill="currentColor"/>
+                      <path d="M0 90C50 50 110 20 170 0C110 50 60 90 0 90Z" fill="currentColor"/>
+                    </svg>
+                  </div>
+
+                  {/* Top Header Row with Icon and Circular Arrow Button */}
+                  <div className="relative z-10 flex items-center justify-between mb-3">
+                    <div className="w-9 h-9 rounded-lg bg-white border border-[#E0DED4] shadow-2xs flex items-center justify-center text-black group-hover:bg-black group-hover:text-[#EDEB46] transition-colors">
+                      <Icon className="w-4.5 h-4.5" />
                     </div>
 
-                    <h3 className="font-display text-lg font-black uppercase text-black mb-2">
+                    {/* Circular Dark Arrow Button */}
+                    <div className="w-7 h-7 rounded-full bg-black text-[#EDEB46] flex items-center justify-center text-[11px] font-black group-hover:bg-[#EDEB46] group-hover:text-black group-hover:rotate-45 transition-all shadow-xs shrink-0">
+                      ↗
+                    </div>
+                  </div>
+
+                  {/* Title & Description Body */}
+                  <div className="relative z-10">
+                    <h3 className="font-display text-lg sm:text-[19px] font-bold text-neutral-900 leading-snug mb-1.5 group-hover:text-black transition-colors">
                       {point.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-medium">
+                    <p className="text-xs sm:text-[13px] text-neutral-600 font-normal leading-relaxed">
                       {point.desc}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-black/10 flex items-center gap-2 text-[11px] font-black uppercase tracking-wider text-black">
-                    <ShieldCheck className="w-3.5 h-3.5 text-black" />
-                    <span>Active Team Standard</span>
-                  </div>
                 </div>
               );
             })}
