@@ -1,19 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, Layers } from "lucide-react";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Why Us", href: "#why-us" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Process", href: "#process" },
-  { name: "Industries", href: "#industries" },
-  { name: "FAQ", href: "#faq" },
+  { name: "Services", href: "/#services" },
+  { name: "Why Us", href: "/#why-us" },
+  { name: "Portfolio", href: "/#portfolio" },
+  { name: "Process", href: "/#process" },
+  { name: "Company", href: "/company" },
+  { name: "FAQ", href: "/#faq" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -40,8 +43,8 @@ export default function Navbar() {
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between">
         
-        {/* Left Side: Logo Icon + BIHARSTACK Text */}
-        <a href="#" className="flex items-center gap-3.5 group shrink-0">
+        {/* Left Side: Logo Icon + BIHAR STACK Text */}
+        <Link href="/" className="flex items-center gap-3.5 group shrink-0">
           <img
             src="/images/biharstack-brand-logo.png"
             alt="BiharStack Logo"
@@ -50,29 +53,36 @@ export default function Navbar() {
           <span className="font-display text-2xl font-black tracking-widest uppercase text-black">
             BIHAR STACK
           </span>
-        </a>
+        </Link>
 
         {/* Right Shifted Container: Navigation Links + Start Project CTA */}
         <div className="hidden lg:flex items-center justify-end space-x-10 ml-auto pl-8">
           <nav className="flex items-center space-x-8 text-[13px] font-black tracking-widest uppercase text-black">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="hover:text-neutral-500 transition-colors font-black"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`transition-colors font-black ${
+                    isActive
+                      ? "text-red-600 underline underline-offset-4 decoration-2"
+                      : "hover:text-neutral-500 text-black"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
 
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="bg-black text-white text-xs font-black tracking-widest uppercase px-6 py-3 hover:bg-neutral-800 transition-colors flex items-center gap-2 border-2 border-black shadow-sm shrink-0"
           >
             <span>Start Project</span>
             <ArrowRight className="w-4 h-4 text-white" />
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -99,23 +109,23 @@ export default function Navbar() {
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-xs font-bold uppercase tracking-widest text-black hover:text-neutral-500 py-2 border-b border-neutral-300"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <div className="pt-2">
-                <a
-                  href="#contact"
+                <Link
+                  href="/#contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block text-center bg-black text-white text-xs font-bold uppercase tracking-widest py-3 hover:bg-neutral-800 transition-colors"
                 >
                   Start Your Project
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

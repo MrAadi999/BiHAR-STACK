@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion";
 import { Linkedin, Instagram, Twitter, Facebook, Youtube, Send, Heart } from "lucide-react";
 
@@ -117,7 +118,7 @@ export default function Footer() {
           
           {/* Column 1: Brand & Identity */}
           <div className="lg:col-span-3 space-y-3">
-            <a href="#" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-3 group">
               <img
                 src="/images/biharstack-brand-logo.png"
                 alt="BiharStack Logo"
@@ -126,7 +127,7 @@ export default function Footer() {
               <span className="font-display text-2xl font-black tracking-widest uppercase text-black">
                 BIHAR STACK
               </span>
-            </a>
+            </Link>
 
             <p className="text-xs font-bold uppercase tracking-wider text-black leading-relaxed">
               &quot;Building Bihar. Scaling Businesses.&quot; <br />
@@ -161,7 +162,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Twitter / X"
+                aria-label="Twitter"
                 className="p-2.5 bg-white border border-black hover:bg-black hover:text-white transition-colors"
               >
                 <Twitter className="w-4 h-4" />
@@ -194,34 +195,34 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold uppercase tracking-wider text-neutral-700">
               <li>
-                <a href="#services" className="hover:text-black transition-colors">
+                <Link href="/#services" className="hover:text-black transition-colors">
                   Digital Marketing
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-black transition-colors">
+                <Link href="/#services" className="hover:text-black transition-colors">
                   Brand Identity
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-black transition-colors">
+                <Link href="/#services" className="hover:text-black transition-colors">
                   Web & App Dev
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-black transition-colors">
+                <Link href="/#services" className="hover:text-black transition-colors">
                   AI & Workflows
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-black transition-colors">
+                <Link href="/#services" className="hover:text-black transition-colors">
                   Local SEO & GMB
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-black transition-colors">
+                <Link href="/#services" className="hover:text-black transition-colors">
                   E-Commerce POS
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -233,29 +234,34 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold uppercase tracking-wider text-neutral-700">
               <li>
-                <a href="#portfolio" className="hover:text-black transition-colors">
+                <Link href="/company" className="hover:text-red-600 font-black transition-colors">
+                  About Bihar Stack (Story)
+                </Link>
+              </li>
+              <li>
+                <Link href="/#portfolio" className="hover:text-black transition-colors">
                   Our Work
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#impact" className="hover:text-black transition-colors">
-                  Client Impact
-                </a>
+                <Link href="/#why-us" className="hover:text-black transition-colors">
+                  Why Us
+                </Link>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-black transition-colors">
+                <Link href="/#pricing" className="hover:text-black transition-colors">
                   Pricing Plans
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="hover:text-black transition-colors">
+                <Link href="/#faq" className="hover:text-black transition-colors">
                   FAQ
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-black transition-colors">
+                <Link href="/#contact" className="hover:text-black transition-colors">
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="https://wa.me/917979067849" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">

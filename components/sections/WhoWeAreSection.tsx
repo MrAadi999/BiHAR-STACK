@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
@@ -107,8 +108,8 @@ export default function WhoWeAreSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="-mt-16 sm:-mt-24 relative z-30"
             >
-              <div className="[perspective:1000px] inline-block">
-                <motion.button
+              <Link href="/company" className="[perspective:1000px] inline-block cursor-pointer">
+                <motion.div
                   initial={false}
                   whileHover={{ rotateX: 180, y: -2 }}
                   whileTap={{ y: 2 }}
@@ -130,8 +131,8 @@ export default function WhoWeAreSection() {
                       <ArrowRight className="w-3 h-3 text-slate-950" />
                     </span>
                   </div>
-                </motion.button>
-              </div>
+                </motion.div>
+              </Link>
             </motion.div>
           </motion.div>
 
