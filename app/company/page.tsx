@@ -218,63 +218,87 @@ const CULTURE_POINTS = [
     title: "The Creative Hub in Madhubani",
     desc: "Our workspace is built for intense ideation, rapid prototyping, and high collaboration. Open desks, brainstorming walls, and zero corporate bureaucracy.",
     stat: "Open & Agile",
+    accentColor: "#EDEB46",
+    glowBg: "rgba(237, 235, 70, 0.18)",
+    badgeGradient: "from-[#1c1c1c] via-[#2a2a2a] to-[#121212]",
   },
   {
     icon: Layers,
     title: "Weekly Strategy & Tech Huddles",
     desc: "Every sprint kicks off with open problem-solving sessions where junior developers and founders debate architecture with equal voice.",
     stat: "Zero Hierarchy",
+    accentColor: "#38BDF8",
+    glowBg: "rgba(56, 189, 248, 0.18)",
+    badgeGradient: "from-[#0c1a2e] via-[#1e293b] to-[#0f172a]",
   },
   {
     icon: Cpu,
     title: "Continuous Upskilling",
     desc: "We dedicate 10% of every week to learning new frameworks, researching frontier AI agent patterns, and mastering state-of-the-art tools.",
     stat: "Lifelong Mastery",
+    accentColor: "#C084FC",
+    glowBg: "rgba(192, 132, 252, 0.18)",
+    badgeGradient: "from-[#1e1338] via-[#2e1065] to-[#170c2a]",
   },
   {
     icon: Award,
     title: "Relentless Celebration of Wins",
     desc: "Every customer milestone, major product launch, and team personal breakthrough is celebrated with good food, joy, and shared pride.",
     stat: "High Morale",
+    accentColor: "#FBBF24",
+    glowBg: "rgba(251, 191, 36, 0.18)",
+    badgeGradient: "from-[#2e1b0c] via-[#451a03] to-[#1c0f05]",
   },
   {
     icon: Globe2,
     title: "Hybrid & High-Autonomy",
     desc: "While our spiritual home is in Bihar, our workflow is modern. We focus solely on deliverable output, velocity, and creative excellence.",
     stat: "Output Focused",
+    accentColor: "#34D399",
+    glowBg: "rgba(52, 211, 153, 0.18)",
+    badgeGradient: "from-[#082a20] via-[#064e3b] to-[#041a13]",
   },
   {
     icon: HeartHandshake,
     title: "Giving Back to the Ecosystem",
     desc: "We conduct hands-on technology masterclasses for students and small business founders across Bihar to accelerate digital literacy.",
     stat: "Community First",
+    accentColor: "#F472B6",
+    glowBg: "rgba(244, 114, 182, 0.18)",
+    badgeGradient: "from-[#2d091a] via-[#4c0519] to-[#1c040a]",
   },
 ];
 
 const MILESTONES = [
   {
-    year: "Jan 2025",
-    title: "Genesis & The First Defiant Laptop",
-    desc: "Founded in a small room in Madhubani, Bihar by a group of engineers refusing to migrate, with a single mission: Build Bihar. Scale Businesses.",
-    highlight: "Founded in Madhubani, Bihar",
+    year: "2026",
+    badge: "Underway",
+    color: "#2A9D8F",
+    lightColor: "#E6F6F4",
+    icon: Building2,
+    banner: "2026 • MADHUBANI INNOVATION & INCUBATOR LAB",
+    title: "Madhubani Innovation & Incubator Lab",
+    desc: "Establishing Bihar's most advanced digital workspace and tech incubation center to nurture the next generation of regional developers and startup founders.",
   },
   {
-    year: "Mid 2025",
-    title: "The First Enterprise & POS Breakthrough",
-    desc: "Shipped custom billing, inventory, and retail ERP stacks for regional enterprises, proving regional talent outpaces traditional agencies.",
-    highlight: "Initial Enterprise Delivery",
+    year: "2027",
+    badge: "In Research",
+    color: "#E76F51",
+    lightColor: "#FDF0EC",
+    icon: Cpu,
+    banner: "2027 • AI-AUTONOMOUS ENTERPRISE SUITE",
+    title: "AI-Autonomous Enterprise Suite",
+    desc: "Releasing proprietary plug-and-play AI agents that automate 80% of routine customer support, sales qualification, and billing for local enterprises.",
   },
   {
-    year: "Late 2025",
-    title: "Autonomous AI & Growth Division",
-    desc: "Integrated custom LLMs, autonomous support agents, and WhatsApp automated workflows for high-growth healthcare and D2C brands.",
-    highlight: "Autonomous AI Pipeline",
-  },
-  {
-    year: "2026 & Beyond",
-    title: "20+ Enterprise Projects Milestone",
-    desc: "Delivered high-performance web platforms and digital engines for clients worldwide with 95% client retention and scalable impact.",
-    highlight: "20+ Projects Delivered Worldwide",
+    year: "2028",
+    badge: "Future Vision",
+    color: "#E99E10",
+    lightColor: "#FEF7E6",
+    icon: Globe2,
+    banner: "2028 • DIRECT GLOBAL EXPANSION (DUBAI & SINGAPORE)",
+    title: "Direct Global Expansion (Dubai & Singapore)",
+    desc: "Opening on-the-ground client consultation offices in the Middle East and Southeast Asia to direct global tech contracts into Bihar talent.",
   },
 ];
 
@@ -287,68 +311,9 @@ const STATS_DATA = [
   { number: "24/7", label: "Dedicated Support", sub: "Direct WhatsApp & SLA support", color: "text-black" },
 ];
 
-const PROCESS_STEPS = [
-  {
-    step: "01",
-    title: "Deep Discovery & Audit",
-    desc: "We analyze your business bottlenecks, competitor dynamics, and customer journey before writing a single line of code.",
-    accent: "bg-red-500",
-  },
-  {
-    step: "02",
-    title: "Strategic Architecture",
-    desc: "We design a high-converting growth blueprint, tech stack diagram, and data flow built to handle extreme scale.",
-    accent: "bg-black",
-  },
-  {
-    step: "03",
-    title: "High-Fidelity UI/UX Design",
-    desc: "Interactive prototypes, custom typography, and responsive component systems crafted for high conversion.",
-    accent: "bg-neutral-800",
-  },
-  {
-    step: "04",
-    title: "Full-Stack Agile Engineering",
-    desc: "Next.js, TypeScript, PostgreSQL, and autonomous AI pipelines written with clean code discipline.",
-    accent: "bg-black",
-  },
-  {
-    step: "05",
-    title: "Rigorous QA & Launch",
-    desc: "Security auditing, load testing, SEO optimization, and seamless zero-downtime production deployment.",
-    accent: "bg-red-600",
-  },
-  {
-    step: "06",
-    title: "Growth, Telemetry & Scale",
-    desc: "Post-launch performance analytics, conversion rate optimization, and ongoing architectural scaling.",
-    accent: "bg-neutral-900",
-  },
-];
 
-const ROADMAP_ITEMS = [
-  {
-    year: "2026",
-    title: "Madhubani Innovation & Incubator Lab",
-    desc: "Establishing Bihar's most advanced digital workspace and tech incubation center to nurture the next generation of regional developers and startup founders.",
-    icon: Building2,
-    badge: "Underway",
-  },
-  {
-    year: "2027",
-    title: "AI-Autonomous Enterprise Suite",
-    desc: "Releasing proprietary plug-and-play AI agents that automate 80% of routine customer support, sales qualification, and billing for local enterprises.",
-    icon: Cpu,
-    badge: "In Research",
-  },
-  {
-    year: "2028",
-    title: "Direct Global Expansion (Dubai & Singapore)",
-    desc: "Opening on-the-ground client consultation offices in the Middle East and Southeast Asia to direct global tech contracts into Bihar talent.",
-    icon: Globe2,
-    badge: "Future Vision",
-  },
-];
+
+
 
 export default function CompanyDeepDivePage() {
   const [activeSection, setActiveSection] = useState("story");
@@ -981,7 +946,7 @@ export default function CompanyDeepDivePage() {
       </section>
 
       {/* ================= SECTION 4: LIFE & CULTURE ================= */}
-      <section id="culture" className="pt-8 pb-12 lg:pt-10 lg:pb-16 bg-white border-b border-neutral-300">
+      <section id="culture" className="pt-8 pb-8 lg:pt-10 lg:pb-10 bg-white border-b border-neutral-300">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-10">
@@ -1013,14 +978,17 @@ export default function CompanyDeepDivePage() {
                     </svg>
                   </div>
 
-                  {/* Top Header Row with High-End Icon Badge and Smooth ArrowUpRight */}
+                  {/* Top Header Row with High-End Glowing Icon Tile and Accent Arrow */}
                   <div className="relative z-10 flex items-center justify-between mb-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-black text-[#EDEB46] shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <div 
+                      className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${point.badgeGradient} border border-white/20 shadow-md flex items-center justify-center group-hover:scale-110 transition-all duration-300`}
+                      style={{ color: point.accentColor, boxShadow: `0 6px 16px ${point.glowBg}` }}
+                    >
                       <Icon className="w-5 h-5" />
                     </div>
 
                     {/* Smooth Interactive ArrowUpRight Badge */}
-                    <div className="w-8 h-8 rounded-full bg-white border border-[#E0DED4] text-neutral-800 flex items-center justify-center group-hover:bg-[#EDEB46] group-hover:text-black group-hover:border-black group-hover:rotate-45 transition-all shadow-2xs shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-white border border-[#E0DED4] text-neutral-800 flex items-center justify-center group-hover:bg-black group-hover:text-[#EDEB46] group-hover:border-black group-hover:rotate-45 transition-all shadow-2xs shrink-0">
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
@@ -1044,64 +1012,179 @@ export default function CompanyDeepDivePage() {
         </div>
       </section>
 
-      {/* ================= SECTION 5: MILESTONES & JOURNEY ================= */}
-      <section id="milestones" className="py-16 lg:py-24 border-b border-neutral-300">
+      {/* ================= SECTION 5: THE ROAD AHEAD (2026 - 2028) ================= */}
+      <section id="roadmap" className="pt-8 pb-14 lg:pt-10 lg:pb-18 border-b border-neutral-300">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-3">
-              The Trajectory
+          <div className="text-center max-w-3xl mx-auto mb-8 lg:mb-10">
+            <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-2">
+              Vision & Horizon
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-black">
-              Milestones That Define Us
+              The Road Ahead (2026 - 2028)
             </h2>
-            <p className="text-base sm:text-lg text-neutral-700 font-medium mt-3">
-              Every milestone represents long nights of debugging, audacious ambition, and partner trust earned step by step.
+            <p className="text-base sm:text-lg text-neutral-700 font-medium mt-2">
+              We have only laid the foundation. Here is how we will continue empowering Bihar and scaling global enterprises.
             </p>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            {/* Center Line for Desktop */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-black -translate-x-1/2" />
+          {/* Infographic Timeline Layout for Future Vision (2026 - 2028) */}
+          <div className="relative max-w-4xl mx-auto py-6">
+            {/* Center Continuous Vertical Spine */}
+            <div className="hidden md:block absolute left-1/2 top-4 bottom-24 w-[3px] bg-[#94A3B8]/60 -translate-x-1/2" />
 
-            <div className="space-y-8">
+            <div className="space-y-10 sm:space-y-14">
               {MILESTONES.map((item, index) => {
-                const isEven = index % 2 === 0;
+                const isRight = index % 2 === 0; // Alternating left and right like in reference
+                const Icon = item.icon;
                 return (
                   <div
                     key={index}
-                    className={`relative flex flex-col md:flex-row items-center ${
-                      isEven ? "md:flex-row-reverse" : ""
-                    }`}
+                    className="relative flex flex-col md:flex-row items-center"
                   >
-                    {/* Content Card */}
-                    <div className="w-full md:w-1/2 md:px-8">
-                      <div className="bg-white border-2 border-black p-6 rounded-2xl shadow-[5px_5px_0px_0px_#000000] hover:translate-y-[-2px] transition-transform">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-xs font-black px-2.5 py-1 bg-black text-white uppercase tracking-wider rounded">
-                            {item.year}
-                          </span>
-                          <span className="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 bg-neutral-100 border border-black/20 text-neutral-600 rounded">
-                            {item.badge}
-                          </span>
+                    {/* Left Side Content Area (for index 1: 2027) */}
+                    <div className={`w-full md:w-1/2 md:pr-16 lg:md:pr-20 md:pt-14 flex ${!isRight ? "md:justify-end text-left md:text-right" : "hidden md:flex md:invisible"}`}>
+                      {!isRight && (
+                        <div className="max-w-sm flex flex-col items-start md:items-end">
+                          {/* Year & Status Badge */}
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <span className="font-display text-3xl sm:text-4xl font-black" style={{ color: item.color }}>
+                              {item.year}
+                            </span>
+                            <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-black text-white shadow-2xs">
+                              {item.badge}
+                            </span>
+                            <div className="p-2 rounded-xl" style={{ backgroundColor: item.lightColor, color: item.color }}>
+                              <Icon className="w-5 h-5" />
+                            </div>
+                          </div>
+
+                          {/* Solid Rectangular Colored Headline Banner */}
+                          <div 
+                            className="px-4 py-1.5 rounded-md text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider shadow-xs mb-2 inline-block"
+                            style={{ backgroundColor: item.color }}
+                          >
+                            {item.title}
+                          </div>
+
+                          {/* Body Text */}
+                          <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed">
+                            {item.desc}
+                          </p>
                         </div>
-                        <h3 className="font-display text-lg font-black uppercase text-black mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-medium">
-                          {item.desc}
-                        </p>
-                      </div>
+                      )}
                     </div>
 
-                    {/* Timeline Node Dot */}
-                    <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-white border-2 border-black items-center justify-center shadow-[2px_2px_0px_0px_#000000]">
-                      <div className="w-2.5 h-2.5 rounded-full bg-black" />
+                    {/* Center Double Concentric Node & Horizontal Branch Arms */}
+                    <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center z-20">
+                      {/* Left branch connector line & dot */}
+                      {!isRight && (
+                        <div className="flex items-center absolute right-full mr-0">
+                          <div className="w-3.5 h-3.5 rounded-full shadow-xs shrink-0" style={{ backgroundColor: item.color }} />
+                          <div className="w-10 h-[3px]" style={{ backgroundColor: item.color }} />
+                        </div>
+                      )}
+
+                      {/* Main Concentric Node on Center Spine */}
+                      <div 
+                        className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md transition-transform hover:scale-110"
+                        style={{ border: `3px solid ${item.color}` }}
+                      >
+                        <div 
+                          className="w-5 h-5 rounded-full shadow-inner" 
+                          style={{ backgroundColor: item.color }} 
+                        />
+                      </div>
+
+                      {/* Right branch connector line & dot */}
+                      {isRight && (
+                        <div className="flex items-center absolute left-full ml-0">
+                          <div className="w-10 h-[3px]" style={{ backgroundColor: item.color }} />
+                          <div className="w-3.5 h-3.5 rounded-full shadow-xs shrink-0" style={{ backgroundColor: item.color }} />
+                        </div>
+                      )}
                     </div>
+
+                    {/* Right Side Content Area (for index 0: 2026, index 2: 2028) */}
+                    <div className={`w-full md:w-1/2 md:pl-16 lg:md:pl-20 md:pt-14 flex ${isRight ? "md:justify-start text-left" : "hidden md:flex md:invisible"}`}>
+                      {isRight && (
+                        <div className="max-w-sm flex flex-col items-start">
+                          {/* Year & Status Badge */}
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <div className="p-2 rounded-xl" style={{ backgroundColor: item.lightColor, color: item.color }}>
+                              <Icon className="w-5 h-5" />
+                            </div>
+                            <span className="font-display text-3xl sm:text-4xl font-black" style={{ color: item.color }}>
+                              {item.year}
+                            </span>
+                            <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-black text-white shadow-2xs">
+                              {item.badge}
+                            </span>
+                          </div>
+
+                          {/* Solid Rectangular Colored Headline Banner */}
+                          <div 
+                            className="px-4 py-1.5 rounded-md text-white font-display font-black text-xs sm:text-sm uppercase tracking-wider shadow-xs mb-2 inline-block"
+                            style={{ backgroundColor: item.color }}
+                          >
+                            {item.title}
+                          </div>
+
+                          {/* Body Text */}
+                          <p className="text-xs sm:text-sm text-neutral-600 font-normal leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Mobile View Fallback (Stacked) */}
+                    <div className="md:hidden w-full bg-[#FAF9F5] border border-[#E5E3DB] p-5 rounded-2xl shadow-xs flex flex-col items-start mt-2">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="font-display text-2xl font-black" style={{ color: item.color }}>
+                          {item.year}
+                        </span>
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-black text-white">
+                          {item.badge}
+                        </span>
+                        <div className="p-1.5 rounded-lg ml-auto" style={{ backgroundColor: item.lightColor, color: item.color }}>
+                          <Icon className="w-4 h-4" />
+                        </div>
+                      </div>
+
+                      <div 
+                        className="px-3.5 py-1.5 rounded-md text-white font-display font-black text-xs uppercase tracking-wider shadow-xs mb-2 inline-block"
+                        style={{ backgroundColor: item.color }}
+                      >
+                        {item.title}
+                      </div>
+
+                      <p className="text-xs text-neutral-600 font-normal leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+
                   </div>
                 );
               })}
             </div>
+
+            {/* Bottom Arrow Spine & Outcome Banner (like reference image) */}
+            <div className="hidden md:flex flex-col items-center mt-12">
+              {/* Arrow Line & Head */}
+              <div className="w-[3px] h-10 bg-[#94A3B8]/80 flex flex-col items-center justify-end">
+                <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#64748B] -mb-2" />
+              </div>
+
+              {/* Bottom Solid Target Banner */}
+              <div className="mt-4 px-6 py-2 rounded-md bg-[#1E3A8A] text-white font-display font-black text-xs uppercase tracking-widest shadow-xs">
+                BUILT IN BIHAR • SCALING WORLDWIDE
+              </div>
+              <p className="text-xs text-neutral-600 font-medium mt-2 max-w-sm text-center">
+                Madhubani Innovation Hub • Autonomous AI Agents • Global Client Offices
+              </p>
+            </div>
+
           </div>
 
         </div>
@@ -1147,114 +1230,9 @@ export default function CompanyDeepDivePage() {
         </div>
       </section>
 
-      {/* ================= SECTION 7: THE 6-STEP PROCESS ================= */}
-      <section id="process" className="py-16 lg:py-24 border-b border-neutral-300">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-3">
-              Execution Architecture
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-black">
-              The 6-Step Engineering Engine
-            </h2>
-            <p className="text-base sm:text-lg text-neutral-700 font-medium mt-3">
-              How we take an idea from whiteboard ambiguity to enterprise scale in record time.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PROCESS_STEPS.map((step, index) => (
-              <div
-                key={index}
-                className="bg-white border-2 border-black p-8 rounded-2xl shadow-[5px_5px_0px_0px_#000000] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_#000000] transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-display text-3xl font-black text-black tracking-wider">
-                      {step.step}
-                    </span>
-                    <span className="w-3 h-3 rounded-full bg-black" />
-                  </div>
 
-                  <h3 className="font-display text-xl font-black uppercase text-black mb-3">
-                    {step.title}
-                  </h3>
 
-                  <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-medium">
-                    {step.desc}
-                  </p>
-                </div>
-
-                <div className="pt-4 mt-6 border-t border-neutral-200 flex items-center gap-2 text-xs font-black uppercase tracking-wider text-neutral-800">
-                  <CheckCircle2 className="w-4 h-4 text-black shrink-0" />
-                  <span>Phase Verified</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ================= SECTION 8: FUTURE ROADMAP ================= */}
-      <section id="roadmap" className="py-16 lg:py-24 bg-white border-b border-neutral-300">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block px-3 py-1 bg-black text-white text-xs font-black uppercase tracking-widest mb-3">
-              Vision & Horizon
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-black">
-              The Road Ahead (2026 - 2028)
-            </h2>
-            <p className="text-base sm:text-lg text-neutral-700 font-medium mt-3">
-              We have only laid the foundation. Here is how we will continue empowering Bihar and scaling global enterprises.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {ROADMAP_ITEMS.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-[#f0f0f0] border-2 border-black p-8 rounded-2xl shadow-[6px_6px_0px_0px_#000000] flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="p-3.5 bg-white border-2 border-black rounded-xl shadow-xs">
-                        <Icon className="w-6 h-6 text-black" />
-                      </div>
-                      <span className="text-xs font-black uppercase tracking-wider px-3 py-1 bg-black text-white rounded">
-                        {item.badge}
-                      </span>
-                    </div>
-
-                    <span className="font-display text-2xl font-black text-neutral-400 block mb-1">
-                      {item.year}
-                    </span>
-
-                    <h3 className="font-display text-xl font-black uppercase text-black mb-3">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-medium">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-black/10 flex items-center justify-between text-xs font-black uppercase tracking-wider text-black">
-                    <span>Strategic Objective</span>
-                    <ArrowRight className="w-4 h-4 text-black" />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
 
       {/* ================= SECTION 9: JOIN US / PARTNER CTA ================= */}
       <section id="join" className="py-20 lg:py-28 bg-[#f0f0f0]">
