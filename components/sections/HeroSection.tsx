@@ -93,7 +93,7 @@ export default function HeroSection() {
               className="text-base sm:text-xl text-neutral-800 font-medium leading-relaxed max-w-2xl mb-8 tracking-wide"
             >
               From branding and performance marketing to custom web apps and AI automation,{" "}
-              <strong className="text-black font-extrabold uppercase">BiharStack</strong> delivers high-impact technology solutions for modern enterprises.
+              <strong className="text-black font-extrabold uppercase">Bihar Stack</strong> delivers high-impact technology solutions for modern enterprises.
             </motion.p>
 
             {/* Trust points */}

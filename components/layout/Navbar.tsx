@@ -48,7 +48,7 @@ export default function Navbar() {
             className="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
           />
           <span className="font-display text-2xl font-black tracking-widest uppercase text-black">
-            BIHARSTACK
+            BIHAR STACK
           </span>
         </a>
 

@@ -124,18 +124,13 @@ export default function Footer() {
                 className="w-9 h-9 object-contain group-hover:scale-105 transition-transform drop-shadow-sm"
               />
               <span className="font-display text-2xl font-black tracking-widest uppercase text-black">
-                BIHARSTACK
+                BIHAR STACK
               </span>
             </a>
 
-            {/* Tagline Badge */}
-            <div className="inline-block py-1 px-3 bg-white border border-black/30 shadow-xs rounded text-xs font-black uppercase tracking-wider text-[#0A2540]">
-              End-to-end digital solutions &ldquo;Build Digital. Grow Faster.&rdquo;
-            </div>
-
             <p className="text-xs font-bold uppercase tracking-wider text-black leading-relaxed">
               &quot;Building Bihar. Scaling Businesses.&quot; <br />
-              <span>&quot;Think Digital. Think BiharStack.&quot;</span>
+              <span>&quot;Think Digital. Think Bihar Stack.&quot;</span>
             </p>
 
             <p className="text-xs text-neutral-700 font-medium leading-relaxed">

@@ -50,8 +50,8 @@ export default function LoadingScreen() {
             </motion.div>
 
             <div className="text-center mt-2">
-              <h1 className="font-display text-3xl font-black tracking-wider text-black uppercase">
-                BIHAR<span className="text-black">STACK</span>
+              <h1 className="font-display text-3xl font-black tracking-widest text-black uppercase">
+                BIHAR STACK
               </h1>
               <p className="text-xs text-black font-bold tracking-widest uppercase mt-1">
                 Building Bihar. Scaling Businesses.
