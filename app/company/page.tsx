@@ -1239,11 +1239,6 @@ export default function CompanyDeepDivePage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="bg-white border-2 border-black p-8 sm:p-14 lg:p-16 rounded-3xl shadow-[8px_8px_0px_0px_#000000] text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f0f0f0] border border-black text-black text-xs font-black uppercase tracking-widest mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-red-600" />
-              <span>Shape The Future With Us</span>
-            </div>
-
             <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-black leading-tight mb-6">
               Ready To Build Something <br className="hidden sm:block" />
               Extraordinary?
@@ -1253,23 +1248,29 @@ export default function CompanyDeepDivePage() {
               Whether you are an ambitious business ready to multiply your revenue or a top-tier engineer looking to build from Bihar — there is a seat at our table.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+              {/* Primary Action Button: Electric Lime Tactile Pill Frame */}
               <Link
                 href="/#contact"
-                className="px-8 py-4 bg-black text-white text-xs font-black uppercase tracking-widest hover:bg-neutral-800 transition-all flex items-center gap-2 border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#000000]"
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#EDEB46] text-black font-display text-xs sm:text-sm font-black uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#000000] transition-all flex items-center justify-center gap-3 group"
               >
                 <span>Start Your Project</span>
-                <ArrowRight className="w-4 h-4" />
+                <div className="w-7 h-7 rounded-full bg-black text-[#EDEB46] flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
               </Link>
 
+              {/* Secondary Action Button: Crisp Porcelain Tactile Pill Frame with Smooth Inversion */}
               <a
                 href="https://wa.me/917979067849?text=Hi%20BiharStack%20Team,%20I%20am%20interested%20in%20joining%20or%20partnering!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-[#f0f0f0] text-black text-xs font-black uppercase tracking-widest hover:bg-neutral-200 transition-all flex items-center gap-2 border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#000000]"
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-display text-xs sm:text-sm font-black uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:bg-black hover:text-[#EDEB46] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#000000] transition-all flex items-center justify-center gap-3 group"
               >
                 <span>Direct WhatsApp Chat</span>
-                <ArrowUpRight className="w-4 h-4 text-black" />
+                <div className="w-7 h-7 rounded-full bg-black/5 text-black border border-black/20 flex items-center justify-center group-hover:bg-[#EDEB46] group-hover:text-black group-hover:rotate-45 group-hover:border-transparent transition-all">
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </div>
               </a>
             </div>
           </div>
