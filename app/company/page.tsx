@@ -214,37 +214,37 @@ const TEAM_MEMBERS = [
 
 const CULTURE_POINTS = [
   {
-    icon: Coffee,
+    icon: Sparkles,
     title: "The Creative Hub in Madhubani",
     desc: "Our workspace is built for intense ideation, rapid prototyping, and high collaboration. Open desks, brainstorming walls, and zero corporate bureaucracy.",
     stat: "Open & Agile",
   },
   {
-    icon: Lightbulb,
+    icon: Layers,
     title: "Weekly Strategy & Tech Huddles",
     desc: "Every sprint kicks off with open problem-solving sessions where junior developers and founders debate architecture with equal voice.",
     stat: "Zero Hierarchy",
   },
   {
-    icon: GraduationCap,
+    icon: Cpu,
     title: "Continuous Upskilling",
     desc: "We dedicate 10% of every week to learning new frameworks, researching frontier AI agent patterns, and mastering state-of-the-art tools.",
     stat: "Lifelong Mastery",
   },
   {
-    icon: PartyPopper,
+    icon: Award,
     title: "Relentless Celebration of Wins",
     desc: "Every customer milestone, major product launch, and team personal breakthrough is celebrated with good food, joy, and shared pride.",
     stat: "High Morale",
   },
   {
-    icon: Laptop,
+    icon: Globe2,
     title: "Hybrid & High-Autonomy",
     desc: "While our spiritual home is in Bihar, our workflow is modern. We focus solely on deliverable output, velocity, and creative excellence.",
     stat: "Output Focused",
   },
   {
-    icon: Heart,
+    icon: HeartHandshake,
     title: "Giving Back to the Ecosystem",
     desc: "We conduct hands-on technology masterclasses for students and small business founders across Bihar to accelerate digital literacy.",
     stat: "Community First",
@@ -1013,15 +1013,15 @@ export default function CompanyDeepDivePage() {
                     </svg>
                   </div>
 
-                  {/* Top Header Row with Icon and Circular Arrow Button */}
-                  <div className="relative z-10 flex items-center justify-between mb-3">
-                    <div className="w-9 h-9 rounded-lg bg-white border border-[#E0DED4] shadow-2xs flex items-center justify-center text-black group-hover:bg-black group-hover:text-[#EDEB46] transition-colors">
-                      <Icon className="w-4.5 h-4.5" />
+                  {/* Top Header Row with High-End Icon Badge and Smooth ArrowUpRight */}
+                  <div className="relative z-10 flex items-center justify-between mb-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-black text-[#EDEB46] shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <Icon className="w-5 h-5" />
                     </div>
 
-                    {/* Circular Dark Arrow Button */}
-                    <div className="w-7 h-7 rounded-full bg-black text-[#EDEB46] flex items-center justify-center text-[11px] font-black group-hover:bg-[#EDEB46] group-hover:text-black group-hover:rotate-45 transition-all shadow-xs shrink-0">
-                      ↗
+                    {/* Smooth Interactive ArrowUpRight Badge */}
+                    <div className="w-8 h-8 rounded-full bg-white border border-[#E0DED4] text-neutral-800 flex items-center justify-center group-hover:bg-[#EDEB46] group-hover:text-black group-hover:border-black group-hover:rotate-45 transition-all shadow-2xs shrink-0">
+                      <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
 
