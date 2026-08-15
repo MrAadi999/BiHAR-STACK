@@ -1591,14 +1591,14 @@ export default function ServicesSection() {
               <h2 className="card-title">Digital Marketing & Performance</h2>
 
               <div className="sub-grid">
-                <Link href="/services/digital-marketing" className="sub-item text-left cursor-pointer"><Share2 className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Social Media Marketing</span></Link>
-                <Link href="/services/digital-marketing" className="sub-item text-left cursor-pointer"><TrendingUp className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Performance Marketing</span></Link>
-                <Link href="/services/digital-marketing" className="sub-item text-left cursor-pointer"><Target className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Meta Ads & Google Ads</span></Link>
-                <Link href="/services/digital-marketing" className="sub-item text-left cursor-pointer"><Search className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Search Engine Optimization (SEO)</span></Link>
-                <Link href="/services/digital-marketing" className="sub-item text-left cursor-pointer"><MapPin className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Local SEO & GMB Ranking</span></Link>
-                <Link href="/services/digital-marketing" className="sub-item text-left cursor-pointer"><Users className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>High-Converting Lead Gen</span></Link>
-                <Link href="/services/digital-marketing" className="sub-item text-left cursor-pointer"><Award className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Influencer Outreach</span></Link>
-                <Link href="/services/digital-marketing" className="sub-item text-left cursor-pointer"><Mail className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Automated Email Campaigns</span></Link>
+                <Link href="/services/digital-marketing#social-media-marketing" className="sub-item text-left cursor-pointer"><Share2 className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Social Media Marketing</span></Link>
+                <Link href="/services/digital-marketing#performance-marketing" className="sub-item text-left cursor-pointer"><TrendingUp className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Performance Marketing</span></Link>
+                <Link href="/services/digital-marketing#meta-google-ads" className="sub-item text-left cursor-pointer"><Target className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Meta Ads & Google Ads</span></Link>
+                <Link href="/services/digital-marketing#search-engine-optimization" className="sub-item text-left cursor-pointer"><Search className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Search Engine Optimization (SEO)</span></Link>
+                <Link href="/services/digital-marketing#local-seo-gmb" className="sub-item text-left cursor-pointer"><MapPin className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Local SEO & GMB Ranking</span></Link>
+                <Link href="/services/digital-marketing#high-converting-lead-gen" className="sub-item text-left cursor-pointer"><Users className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>High-Converting Lead Gen</span></Link>
+                <Link href="/services/digital-marketing#influencer-outreach" className="sub-item text-left cursor-pointer"><Award className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Influencer Outreach</span></Link>
+                <Link href="/services/digital-marketing#automated-email-campaigns" className="sub-item text-left cursor-pointer"><Mail className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Automated Email Campaigns</span></Link>
               </div>
             </div>
 
@@ -1619,14 +1619,14 @@ export default function ServicesSection() {
               <h2 className="card-title">Branding & Creative Design</h2>
 
               <div className="sub-grid">
-                <Link href="/services/branding-creative" className="sub-item text-left cursor-pointer"><Sparkles className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Logo & Visual Brand Identity</span></Link>
-                <Link href="/services/branding-creative" className="sub-item text-left cursor-pointer"><Palette className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Graphic & Social Media Creatives</span></Link>
-                <Link href="/services/branding-creative" className="sub-item text-left cursor-pointer"><Layout className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>UI/UX Design for Web & Apps</span></Link>
-                <Link href="/services/branding-creative" className="sub-item text-left cursor-pointer"><Film className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Motion Graphics & 3D Visuals</span></Link>
-                <Link href="/services/branding-creative" className="sub-item text-left cursor-pointer"><Video className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>High-Production Video Editing</span></Link>
-                <Link href="/services/branding-creative" className="sub-item text-left cursor-pointer"><Package className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Product Branding & Packaging</span></Link>
-                <Link href="/services/branding-creative" className="sub-item text-left cursor-pointer"><BookOpen className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Brand Guidelines & Voice</span></Link>
-                <Link href="/services/branding-creative" className="sub-item text-left cursor-pointer"><ImageIcon className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Marketing Collaterals</span></Link>
+                <Link href="/services/branding-creative#logo-brand-identity" className="sub-item text-left cursor-pointer"><Sparkles className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Logo & Visual Brand Identity</span></Link>
+                <Link href="/services/branding-creative#graphic-social-creatives" className="sub-item text-left cursor-pointer"><Palette className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Graphic & Social Media Creatives</span></Link>
+                <Link href="/services/branding-creative#uiux-design" className="sub-item text-left cursor-pointer"><Layout className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>UI/UX Design for Web & Apps</span></Link>
+                <Link href="/services/branding-creative#motion-graphics-3d" className="sub-item text-left cursor-pointer"><Film className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Motion Graphics & 3D Visuals</span></Link>
+                <Link href="/services/branding-creative#video-editing" className="sub-item text-left cursor-pointer"><Video className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>High-Production Video Editing</span></Link>
+                <Link href="/services/branding-creative#product-branding-packaging" className="sub-item text-left cursor-pointer"><Package className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Product Branding & Packaging</span></Link>
+                <Link href="/services/branding-creative#brand-guidelines-voice" className="sub-item text-left cursor-pointer"><BookOpen className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Brand Guidelines & Voice</span></Link>
+                <Link href="/services/branding-creative#marketing-collaterals" className="sub-item text-left cursor-pointer"><ImageIcon className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Marketing Collaterals</span></Link>
               </div>
             </div>
 
@@ -1647,14 +1647,14 @@ export default function ServicesSection() {
               <h2 className="card-title">Website & Custom Technology</h2>
 
               <div className="sub-grid">
-                <Link href="/services/website-technology" className="sub-item text-left cursor-pointer"><Globe className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Custom Business Websites</span></Link>
-                <Link href="/services/website-technology" className="sub-item text-left cursor-pointer"><ShoppingCart className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>E-commerce Platforms (Shopify/Next)</span></Link>
-                <Link href="/services/website-technology" className="sub-item text-left cursor-pointer"><Rocket className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>High-Converting Landing Pages</span></Link>
-                <Link href="/services/website-technology" className="sub-item text-left cursor-pointer"><Code2 className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Full-Stack Custom Web Apps</span></Link>
-                <Link href="/services/website-technology" className="sub-item text-left cursor-pointer"><Smartphone className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>iOS & Android Mobile Apps</span></Link>
-                <Link href="/services/website-technology" className="sub-item text-left cursor-pointer"><Cloud className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>SaaS Platform Development</span></Link>
-                <Link href="/services/website-technology" className="sub-item text-left cursor-pointer"><Cpu className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>REST & GraphQL API Integration</span></Link>
-                <Link href="/services/website-technology" className="sub-item text-left cursor-pointer"><Gauge className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Speed & Core Web Vitals Optimization</span></Link>
+                <Link href="/services/website-technology#custom-websites" className="sub-item text-left cursor-pointer"><Globe className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Custom Business Websites</span></Link>
+                <Link href="/services/website-technology#ecommerce-platforms" className="sub-item text-left cursor-pointer"><ShoppingCart className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>E-commerce Platforms (Shopify/Next)</span></Link>
+                <Link href="/services/website-technology#landing-pages" className="sub-item text-left cursor-pointer"><Rocket className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>High-Converting Landing Pages</span></Link>
+                <Link href="/services/website-technology#custom-web-apps" className="sub-item text-left cursor-pointer"><Code2 className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Full-Stack Custom Web Apps</span></Link>
+                <Link href="/services/website-technology#mobile-apps" className="sub-item text-left cursor-pointer"><Smartphone className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>iOS & Android Mobile Apps</span></Link>
+                <Link href="/services/website-technology#saas-platforms" className="sub-item text-left cursor-pointer"><Cloud className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>SaaS Platform Development</span></Link>
+                <Link href="/services/website-technology#api-integration" className="sub-item text-left cursor-pointer"><Cpu className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>REST & GraphQL API Integration</span></Link>
+                <Link href="/services/website-technology#speed-optimization" className="sub-item text-left cursor-pointer"><Gauge className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Speed & Core Web Vitals Optimization</span></Link>
               </div>
             </div>
 
@@ -1675,14 +1675,14 @@ export default function ServicesSection() {
               <h2 className="card-title">AI & Workflow Automation</h2>
 
               <div className="sub-grid">
-                <Link href="/services/ai-automation" className="sub-item text-left cursor-pointer"><Bot className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Custom AI Chatbots & Knowledge Bases</span></Link>
-                <Link href="/services/ai-automation" className="sub-item text-left cursor-pointer"><MessageSquare className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>WhatsApp & CRM Automation</span></Link>
-                <Link href="/services/ai-automation" className="sub-item text-left cursor-pointer"><Workflow className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Business Process Automation</span></Link>
-                <Link href="/services/ai-automation" className="sub-item text-left cursor-pointer"><Brain className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Autonomous AI Agents</span></Link>
-                <Link href="/services/ai-automation" className="sub-item text-left cursor-pointer"><Sparkles className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>AI Content & Asset Creation Pipelines</span></Link>
-                <Link href="/services/ai-automation" className="sub-item text-left cursor-pointer"><Layers className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Zapier / Make Workflow Automation</span></Link>
-                <Link href="/services/ai-automation" className="sub-item text-left cursor-pointer"><UserPlus className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Lead Enrichment & Auto-Nurturing</span></Link>
-                <Link href="/services/ai-automation" className="sub-item text-left cursor-pointer"><ShieldCheck className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Bespoke Enterprise AI Integration</span></Link>
+                <Link href="/services/ai-automation#custom-ai-chatbots" className="sub-item text-left cursor-pointer"><Bot className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Custom AI Chatbots & Knowledge Bases</span></Link>
+                <Link href="/services/ai-automation#whatsapp-crm-automation" className="sub-item text-left cursor-pointer"><MessageSquare className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>WhatsApp & CRM Automation</span></Link>
+                <Link href="/services/ai-automation#business-process-automation" className="sub-item text-left cursor-pointer"><Workflow className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Business Process Automation</span></Link>
+                <Link href="/services/ai-automation#autonomous-ai-agents" className="sub-item text-left cursor-pointer"><Brain className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Autonomous AI Agents</span></Link>
+                <Link href="/services/ai-automation#ai-content-copy-pipelines" className="sub-item text-left cursor-pointer"><Sparkles className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>AI Content & Asset Creation Pipelines</span></Link>
+                <Link href="/services/ai-automation#zapier-make-n8n-workflows" className="sub-item text-left cursor-pointer"><Layers className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Zapier / Make Workflow Automation</span></Link>
+                <Link href="/services/ai-automation#lead-enrichment-auto-nurturing" className="sub-item text-left cursor-pointer"><UserPlus className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Lead Enrichment & Auto-Nurturing</span></Link>
+                <Link href="/services/ai-automation#enterprise-ai-integration" className="sub-item text-left cursor-pointer"><ShieldCheck className="w-3.5 h-3.5 shrink-0 opacity-80" /><span>Bespoke Enterprise AI Integration</span></Link>
               </div>
             </div>
 

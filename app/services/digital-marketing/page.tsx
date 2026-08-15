@@ -134,7 +134,13 @@ const serviceData: ServicePageMasterData = {
     {
       id: "high-converting-lead-gen",
       title: "High-Converting Lead Gen",
-      illustration: <LeadGenIllustration />,
+      illustration: (
+        <img
+          src="/images/services/high-converting-lead-gen.jpg"
+          alt="High-Converting Lead Generation"
+          className="w-full max-w-[440px] h-auto object-contain select-none mix-blend-multiply"
+        />
+      ),
       description: [
         "Traffic without conversion is just an expensive expense. We engineer frictionless, single-focus landing pages and automated lead capture funnels that turn cold visitors into qualified, sales-ready prospects.",
         "Equipped with instant lead qualification, interactive multi-step forms, and automated CRM notifications to your sales team within 10 seconds, your close rates multiply drastically."
@@ -147,7 +153,13 @@ const serviceData: ServicePageMasterData = {
     {
       id: "influencer-outreach",
       title: "Influencer Outreach",
-      illustration: <InfluencerOutreachIllustration />,
+      illustration: (
+        <img
+          src="/images/services/influencer-outreach.jpg"
+          alt="Influencer Outreach and Marketing"
+          className="w-full max-w-[440px] h-auto object-contain select-none mix-blend-multiply"
+        />
+      ),
       description: [
         "Influencers aren't just trendsetters—they are trusted voices who authentically connect with your target demographic. We pair authentic creator outreach with verified audience vetting, price negotiation, and creative script briefing.",
         "Whether it is micro-creators with hyper-engaged regional followings or national macro-influencers, we manage end-to-end product seeding and trackable promo campaigns that spark viral social proof."
@@ -160,7 +172,13 @@ const serviceData: ServicePageMasterData = {
     {
       id: "automated-email-campaigns",
       title: "Automated Email Campaigns",
-      illustration: <AutomatedEmailIllustration />,
+      illustration: (
+        <img
+          src="/images/services/automated-email-campaigns.jpg"
+          alt="Automated Email Campaigns"
+          className="w-full max-w-[440px] h-auto object-contain select-none mix-blend-multiply"
+        />
+      ),
       description: [
         "Retain your hard-earned customers and turn one-time buyers into lifelong brand advocates. We build automated email sequences that nurture leads, welcome new subscribers, and recover abandoned carts on complete autopilot.",
         "With advanced customer segmentation, A/B tested subject lines, and 100% deliverability configuration (SPF, DKIM, DMARC), your email list becomes your highest-margin revenue channel."

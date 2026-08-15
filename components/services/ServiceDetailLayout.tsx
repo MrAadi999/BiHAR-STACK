@@ -37,6 +37,30 @@ export interface ServicePageMasterData {
 
 export default function ServiceDetailLayout({ data }: { data: ServicePageMasterData }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        setHighlightedId(hash);
+        const element = document.getElementById(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: "smooth", block: "center" });
+          }, 150);
+        }
+        const timer = setTimeout(() => {
+          setHighlightedId(null);
+        }, 4000);
+        return () => clearTimeout(timer);
+      }
+    };
+
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
 
   const whatsappMessage = encodeURIComponent(
     `Hi BiharStack! I want to discuss *${data.title}* services for my company.`
@@ -126,12 +150,17 @@ export default function ServiceDetailLayout({ data }: { data: ServicePageMasterD
           <div className="space-y-24 lg:space-y-32">
             {data.rows.map((row, idx) => {
               const isEven = idx % 2 === 1;
+              const isHighlighted = highlightedId === row.id;
 
               return (
                 <div
                   key={row.id}
                   id={row.id}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center scroll-mt-28"
+                  className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center scroll-mt-32 transition-all duration-700 rounded-3xl ${
+                    isHighlighted
+                      ? "bg-neutral-50/90 p-6 sm:p-10 -mx-4 sm:-mx-8 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] ring-4 ring-[#E11D48]/30"
+                      : "p-0"
+                  }`}
                 >
                   
                   {/* Frameless Illustration Column */}
@@ -143,6 +172,12 @@ export default function ServiceDetailLayout({ data }: { data: ServicePageMasterD
 
                   {/* Content Column */}
                   <div className={`lg:col-span-7 space-y-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                    {isHighlighted && (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black text-white text-[10px] font-black tracking-widest uppercase rounded-full shadow-sm animate-pulse">
+                        <span>● Selected Service</span>
+                      </span>
+                    )}
+
                     <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-black tracking-tight leading-tight">
                       {row.title}
                     </h2>

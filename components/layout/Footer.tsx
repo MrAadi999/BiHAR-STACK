@@ -195,32 +195,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs font-semibold uppercase tracking-wider text-neutral-700">
               <li>
-                <Link href="/#services" className="hover:text-black transition-colors">
+                <Link href="/services/digital-marketing" className="hover:text-black transition-colors">
                   Digital Marketing
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-black transition-colors">
+                <Link href="/services/branding-creative" className="hover:text-black transition-colors">
                   Brand Identity
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-black transition-colors">
+                <Link href="/services/website-technology" className="hover:text-black transition-colors">
                   Web & App Dev
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-black transition-colors">
+                <Link href="/services/ai-automation" className="hover:text-black transition-colors">
                   AI & Workflows
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-black transition-colors">
+                <Link href="/services/digital-marketing#local-seo-gmb" className="hover:text-black transition-colors">
                   Local SEO & GMB
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-black transition-colors">
+                <Link href="/services/website-technology#ecommerce-platforms" className="hover:text-black transition-colors">
                   E-Commerce POS
                 </Link>
               </li>
