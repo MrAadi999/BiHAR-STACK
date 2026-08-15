@@ -330,10 +330,8 @@ export default function CompanyDeepDivePage() {
     { id: "beliefs", label: "Philosophy" },
     { id: "team", label: "The Builders" },
     { id: "culture", label: "Culture" },
-    { id: "milestones", label: "Journey" },
-    { id: "numbers", label: "Impact" },
-    { id: "process", label: "Process" },
     { id: "roadmap", label: "Roadmap" },
+    { id: "numbers", label: "Impact" },
     { id: "join", label: "Partner" },
   ];
 
