@@ -39,7 +39,13 @@ const serviceData: ServicePageMasterData = {
     {
       id: "social-media-marketing",
       title: "Social Media Marketing",
-      illustration: <SocialMediaIllustration />,
+      illustration: (
+        <img
+          src="/images/services/social-media-marketing.jpg"
+          alt="Social Media Marketing"
+          className="w-full max-w-[440px] h-auto object-contain select-none mix-blend-multiply"
+        />
+      ),
       description: [
         "Social media is more than just a platform; it's the stage where your brand can shine. In a world where every brand is vying for attention, genuine engagement is what sets you apart. We craft dynamic social media strategies designed to boost engagement, increase brand awareness, and foster real connections with your audience.",
         "Whether it's growing your followers or sparking meaningful interactions, we help amplify your presence across Instagram, Facebook, LinkedIn, and more. From aesthetic 30-day feed calendars and viral Reels hook scripts to daily community management, we transform your social media into a powerful tool for growth."
@@ -52,7 +58,13 @@ const serviceData: ServicePageMasterData = {
     {
       id: "performance-marketing",
       title: "Performance Marketing",
-      illustration: <PerformanceMarketingIllustration />,
+      illustration: (
+        <img
+          src="/images/services/performance-marketing.jpg"
+          alt="Performance Marketing"
+          className="w-full max-w-[440px] h-auto object-contain select-none mix-blend-multiply"
+        />
+      ),
       description: [
         "Stop guessing and start scaling with data-driven paid advertising. Our performance marketing approach focuses strictly on measurable outcomes—slashing Customer Acquisition Cost (CAC), maximizing Return on Ad Spend (ROAS), and driving sustained revenue growth.",
         "We continuously test audience demographics, ad copy variations, creative video angles, and post-click landing page funnels so that every single rupee you invest generates trackable, profitable returns."
@@ -65,7 +77,13 @@ const serviceData: ServicePageMasterData = {
     {
       id: "meta-google-ads",
       title: "Meta Ads & Google Ads",
-      illustration: <MetaGoogleAdsIllustration />,
+      illustration: (
+        <img
+          src="/images/services/meta-google-ads.jpg"
+          alt="Meta Ads and Google Ads"
+          className="w-full max-w-[440px] h-auto object-contain select-none mix-blend-multiply"
+        />
+      ),
       description: [
         "Capture customers at the exact moment of high intent. Over 3 billion users scroll Meta apps daily, while billions search Google with purchasing intent. We build full-funnel paid advertising campaigns across Facebook, Instagram, Google Search, Shopping, and YouTube.",
         "From instant WhatsApp click-to-chat ad funnels and dynamic product catalog ads to high-intent Google keyword bidding and negative keyword shields, we ensure your budget reaches verified buyers ready to transact."
@@ -78,7 +96,13 @@ const serviceData: ServicePageMasterData = {
     {
       id: "search-engine-optimization",
       title: "Search Engine Optimization (SEO)",
-      illustration: <SEOIllustration />,
+      illustration: (
+        <img
+          src="/images/services/search-engine-optimization.png"
+          alt="Search Engine Optimization SEO"
+          className="w-full max-w-[440px] h-auto object-contain select-none mix-blend-multiply"
+        />
+      ),
       description: [
         "In today's crowded digital marketplace, visibility is key. Without effective SEO, your website risks being buried in search results, unseen by potential customers.",
         "By optimizing your technical structure, Core Web Vitals, schema markup, and on-page content, we help you climb to #1 on Google and capture organic commercial traffic that compounds month after month without paying for every click."
@@ -91,7 +115,13 @@ const serviceData: ServicePageMasterData = {
     {
       id: "local-seo-gmb",
       title: "Local SEO & GMB Ranking",
-      illustration: <LocalSEOGMBIllustration />,
+      illustration: (
+        <img
+          src="/images/services/local-seo-gmb.jpg"
+          alt="Local SEO and Google Business Profile GMB"
+          className="w-full max-w-[440px] h-auto object-contain select-none mix-blend-multiply"
+        />
+      ),
       description: [
         "Dominate your city and neighborhood. When potential customers search for retail stores, clinics, showrooms, or local services 'near me', ranking in the coveted Top 3 Google Map Pack is essential.",
         "We handle complete Google Business Profile optimization, local directory citations (NAP consistency), geo-tagged photo updates, and automated 5-star review generation systems that drive phone calls and footfall daily."

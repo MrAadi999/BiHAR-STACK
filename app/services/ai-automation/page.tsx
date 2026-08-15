@@ -2,65 +2,70 @@ import { Metadata } from "next";
 import ServiceDetailLayout, { ServicePageMasterData } from "@/components/services/ServiceDetailLayout";
 import { 
   AIAutomationIllustration, 
+  WhatsAppCloudIllustration, 
+  WorkflowPipelinesIllustration, 
+  LeadGenIllustration, 
   SocialMediaIllustration, 
-  DigitalMarketingIllustration, 
+  SaaSCloudIllustration, 
+  PerformanceMarketingIllustration, 
   WebTechIllustration 
 } from "@/components/services/ServiceIllustrations";
 
 export const metadata: Metadata = {
   title: "AI & Workflow Automation Agency | BiharStack",
-  description: "Custom AI Chatbots, WhatsApp Business Cloud API, CRM Auto-Sync, Autonomous Agents & Process Workflows.",
+  description: "Explore all 8 AI & Automation engines: Custom AI Chatbots, WhatsApp Cloud API, Business Process Automation, Autonomous Agents, AI Pipelines, Zapier/Make Workflows, and Enterprise AI.",
 };
 
 const serviceData: ServicePageMasterData = {
   slug: "ai-automation",
-  categoryLabel: "AI & AUTOMATION SERVICES",
+  categoryLabel: "AI & WORKFLOW AUTOMATION",
   title: "AI & Workflow Automation",
   headline: "AI & Workflow Automation",
-  subheadline: "Your team is doing robot work. Let robots do it. We build intelligent systems that work 24/7 while you sleep—answering inquiries, processing orders, and syncing data with zero human delay.",
+  subheadline: "Your team is doing robot work. Let robots do it. We build intelligent systems that work 24/7 while you sleep—answering inquiries, qualification funnels, syncing CRM records, and executing multi-step business workflows with zero human delay.",
   overviewTags: [
-    "Custom AI Chatbots",
+    "AI Chatbots",
     "WhatsApp Cloud API",
-    "CRM Auto-Sync",
+    "Process Automation",
     "Autonomous Agents",
-    "Workflow Pipelines"
+    "AI Content Pipelines",
+    "Zapier & Make",
+    "Lead Nurturing",
+    "Enterprise AI"
   ],
   heroIllustration: <AIAutomationIllustration />,
 
   rows: [
-    // 1. Custom AI Chatbots
+    // 1. Custom AI Chatbots & Knowledge Bases
     {
       id: "custom-ai-chatbots",
       title: "Custom AI Chatbots & Knowledge Bases",
       illustration: <AIAutomationIllustration />,
       description: [
-        "Generic chatbots frustrate customers with canned responses. We build custom Retrieval-Augmented Generation (RAG) AI assistants trained on your actual product catalogs, PDF manuals, pricing policies, and FAQs.",
-        "Our bots understand Hindi, English, and regional dialects, remember user context, recommend products intelligently, and gracefully route complex inquiries to human reps with full chat transcripts.",
-        "Put customer support and lead qualification on complete 24/7 autopilot."
+        "Generic chatbots frustrate customers with rigid decision trees. We build custom Retrieval-Augmented Generation (RAG) AI assistants trained on your actual product catalogs, PDF manuals, pricing policies, and FAQs.",
+        "Our bots understand Hindi, English, and Hinglish, remember user context, recommend products intelligently, and gracefully route complex inquiries to human reps with full chat transcripts."
       ],
       actionText: "View More",
       actionLink: "/#contact?service=Custom+AI+Chatbots"
     },
 
-    // 2. WhatsApp Business API Automation
+    // 2. WhatsApp & CRM Automation
     {
-      id: "whatsapp-automation",
-      title: "WhatsApp Cloud API & CRM Automation",
-      illustration: <SocialMediaIllustration />,
+      id: "whatsapp-crm-automation",
+      title: "WhatsApp & CRM Automation",
+      illustration: <WhatsAppCloudIllustration />,
       description: [
-        "WhatsApp is where India communicates. We connect your business to the official Meta WhatsApp Cloud API to enable automated interactive catalogs, order booking, payment link dispatch, and instant CRM sync on complete autopilot.",
-        "When a lead clicks your ad, they receive an instant WhatsApp greeting within 15 seconds, qualification questions, and appointment calendar links without human intervention.",
-        "Turn WhatsApp into an autonomous revenue engine."
+        "WhatsApp is where your customers communicate. We connect your business to the official Meta WhatsApp Cloud API to enable automated interactive catalogs, order booking, payment link dispatch, and instant CRM sync on complete autopilot.",
+        "When a lead clicks your ad, they receive an instant WhatsApp greeting within 15 seconds, qualification questions, and appointment calendar links without human intervention."
       ],
       actionText: "View More",
-      actionLink: "/#contact?service=WhatsApp+Automation"
+      actionLink: "/#contact?service=WhatsApp+and+CRM+Automation"
     },
 
-    // 3. Business Process & Operations Automation
+    // 3. Business Process Automation
     {
-      id: "process-automation",
-      title: "Business Process & Operations Automation",
-      illustration: <DigitalMarketingIllustration />,
+      id: "business-process-automation",
+      title: "Business Process Automation",
+      illustration: <WorkflowPipelinesIllustration />,
       description: [
         "Eliminate soul-crushing manual work. We automate your repetitive back-office processes—such as extracting data from vendor invoices, updating inventory records, routing approvals, and triggering supplier reorders.",
         "Your staff shifts their focus from manual data entry to strategic growth, customer relationships, and revenue generation."
@@ -82,17 +87,56 @@ const serviceData: ServicePageMasterData = {
       actionLink: "/#contact?service=Autonomous+AI+Agents"
     },
 
-    // 5. Zapier, Make & n8n Workflow Pipelines
+    // 5. AI Content & Copy Pipelines
     {
-      id: "zapier-make-pipelines",
-      title: "Zapier, Make & n8n Integration Pipelines",
-      illustration: <WebTechIllustration />,
+      id: "ai-content-copy-pipelines",
+      title: "AI Content & Copy Pipelines",
+      illustration: <SocialMediaIllustration />,
       description: [
-        "Connect your apps and make them communicate without human intervention. We architect robust no-code and low-code integration pipelines between Shopify, Meta Ads, Google Sheets, Stripe, WhatsApp, and your internal databases.",
+        "Scale your content output 10x without sacrificing quality. We build custom AI pipelines that generate SEO-optimized blog drafts, social media hook variants, and multilingual ad copy tailored to your brand voice.",
+        "Equipped with automated fact-checking and human-in-the-loop review queues, your content publishing velocity skyrockets."
+      ],
+      actionText: "View More",
+      actionLink: "/#contact?service=AI+Content+Pipelines"
+    },
+
+    // 6. Zapier, Make & n8n Workflows
+    {
+      id: "zapier-make-n8n-workflows",
+      title: "Zapier, Make & n8n Workflows",
+      illustration: <WorkflowPipelinesIllustration />,
+      description: [
+        "Connect your apps and make them communicate without human intervention. We architect robust integration pipelines between Shopify, Meta Ads, Google Sheets, Stripe, WhatsApp, and your internal databases.",
         "We build advanced routers, error-handling fallbacks, and webhook dispatchers that ensure no lead or order is ever lost."
       ],
       actionText: "View More",
-      actionLink: "/#contact?service=Zapier+and+Make+Pipelines"
+      actionLink: "/#contact?service=Zapier+and+Make+Workflows"
+    },
+
+    // 7. Lead Enrichment & Auto-Nurturing
+    {
+      id: "lead-enrichment-auto-nurturing",
+      title: "Lead Enrichment & Auto-Nurturing",
+      illustration: <LeadGenIllustration />,
+      description: [
+        "Automatically research, score, and qualify inbound leads the second they submit a form. Our AI enriches contact profiles with company revenue, LinkedIn profiles, and buyer intent before alerting your sales team.",
+        "Cold leads receive tailored multi-channel follow-up sequences via WhatsApp and email that systematically warm them up until they book a meeting."
+      ],
+      actionText: "View More",
+      actionLink: "/#contact?service=Lead+Enrichment+and+Nurturing"
+    },
+
+    // 8. Enterprise AI Integration
+    {
+      id: "enterprise-ai-integration",
+      title: "Enterprise AI Integration",
+      illustration: <SaaSCloudIllustration />,
+      description: [
+        "Deploy private, secure Large Language Models (LLMs) and custom AI algorithms inside your existing enterprise infrastructure.",
+        "With on-premise vector databases, strict role permissions, and SOC-2 compliant data privacy safeguards, your sensitive company intelligence stays 100% confidential and secure."
+      ],
+      actionText: "View More",
+      actionLink: "/#contact?service=Enterprise+AI+Integration"
     }
   ],
 

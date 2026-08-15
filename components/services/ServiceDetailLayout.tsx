@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  ArrowRight, Check, ChevronRight, MessageCircle, ChevronDown, 
-  ArrowUpRight, Sparkles, Star, Phone
+  ArrowRight, ChevronRight, MessageCircle, ChevronDown
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -78,7 +77,7 @@ export default function ServiceDetailLayout({ data }: { data: ServicePageMasterD
               </h1>
 
               {data.overviewTags && data.overviewTags.length > 0 && (
-                <p className="text-sm font-semibold text-neutral-700 tracking-wide">
+                <p className="text-sm font-semibold text-neutral-800 tracking-wide">
                   {data.overviewTags.join(" | ")}
                 </p>
               )}
@@ -108,7 +107,7 @@ export default function ServiceDetailLayout({ data }: { data: ServicePageMasterD
               </div>
             </div>
 
-            {/* Right Hero Illustration */}
+            {/* Right Hero Illustration (Frameless, clean canvas) */}
             <div className="lg:col-span-5 flex items-center justify-center">
               <div className="w-full max-w-[440px] flex items-center justify-center">
                 {data.heroIllustration}
@@ -122,7 +121,7 @@ export default function ServiceDetailLayout({ data }: { data: ServicePageMasterD
           <div className="h-[1px] bg-neutral-200 w-full" />
         </div>
 
-        {/* ================= ALTERNATING SHOWCASE ROWS (EXACTLY LIKE SCREENSHOTS) ================= */}
+        {/* ================= ALTERNATING SHOWCASE ROWS (FRAMELESS, CRYSTAL CLEAR) ================= */}
         <section className="py-16 lg:py-24 max-w-[1240px] mx-auto px-6 lg:px-8">
           <div className="space-y-24 lg:space-y-32">
             {data.rows.map((row, idx) => {
@@ -135,9 +134,9 @@ export default function ServiceDetailLayout({ data }: { data: ServicePageMasterD
                   className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center scroll-mt-28"
                 >
                   
-                  {/* Illustration Column */}
+                  {/* Frameless Illustration Column */}
                   <div className={`lg:col-span-5 flex items-center justify-center ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                    <div className="w-full max-w-[420px] p-4 flex items-center justify-center">
+                    <div className="w-full max-w-[440px] flex items-center justify-center">
                       {row.illustration}
                     </div>
                   </div>
